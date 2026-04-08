@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Living Through a Renovation — remodel.guide</title>
+  <meta name="description" content="What no contractor tells you about living in your home while work is underway. Homeowner responsibilities, contractor responsibilities, dust control, daily life, and the emotional arc nobody warns you about." />
+  <meta name="keywords" content="living through renovation, home renovation dust control, renovation pet safety, contractor responsibilities, homeowner renovation prep, renovation emotional stress" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Living Through a Renovation — The Guide Nobody Gives You" />
+  <meta property="og:description" content="Dust control. Daily life without a kitchen. Pets in a construction zone. The emotional wall at week three. What homeowners and contractors both owe each other before work begins." />
+  <meta property="og:url" content="https://remodel.guide/demo" />
+  <meta property="og:type" content="article" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <style>
+    /* Two-column responsibility layout */
+    .responsibility-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      margin: 32px 0;
+    }
+
+    .responsibility-col {
+      padding: 36px 32px;
+      border: 1px solid var(--border);
+    }
+
+    .responsibility-col.homeowner {
+      background: var(--cream);
+    }
+
+    .responsibility-col.contractor {
+      background: var(--warm-white);
+    }
+
+    .responsibility-col-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .responsibility-col.homeowner .responsibility-col-label {
+      color: var(--brass);
+    }
+
+    .responsibility-col.contractor .responsibility-col-label {
+      color: var(--slate);
+    }
+
+    .responsibility-col h3 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--deep);
+      margin-bottom: 12px;
+    }
+
+    .responsibility-col p {
+      font-size: 13px;
+      line-height: 1.75;
+      margin-bottom: 0;
+    }
+
+    /* Emotional arc section */
+    .emotional-section {
+      background: var(--deep);
+      padding: 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .emotional-section::before {
+      content: '';
+      position: absolute;
+      top: -200px; right: -200px;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(181,144,74,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .emotional-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .emotional-section .section-label { color: var(--brass-light); }
+    .emotional-section h2 { color: var(--white); }
+    .emotional-section h2 em { color: var(--brass-light); }
+    .emotional-section p { color: rgba(255,255,255,0.65); }
+    .emotional-section h3 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 12px;
+      margin-top: 36px;
+    }
+    .emotional-section strong { color: rgba(255,255,255,0.9); }
+
+    .emotional-hook {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(20px, 2.5vw, 28px);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--brass-light);
+      line-height: 1.45;
+      padding: 24px 0 24px 24px;
+      border-left: 3px solid rgba(181,144,74,0.3);
+      margin: 32px 0;
+    }
+
+    .week-arc {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin: 32px 0;
+    }
+
+    .week-arc-item {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 24px;
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      align-items: start;
+    }
+
+    .week-arc-item:last-child { border-bottom: none; }
+
+    .week-arc-label {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--brass-light);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding-top: 3px;
+      line-height: 1.5;
+    }
+
+    .week-arc-content h4 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 8px;
+    }
+
+    .week-arc-content p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.7;
+      margin-bottom: 0;
+    }
+
+    .remodelry-callout {
+      background: rgba(181,144,74,0.1);
+      border: 1px solid rgba(181,144,74,0.25);
+      border-radius: 8px;
+      padding: 28px 32px;
+      margin: 40px 0;
+    }
+
+    .remodelry-callout h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--brass-light);
+      margin-bottom: 12px;
+    }
+
+    .remodelry-callout p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.8;
+      margin-bottom: 12px;
+    }
+
+    .remodelry-callout p:last-child { margin-bottom: 0; }
+
+    .remodelry-callout a {
+      color: var(--brass-light);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .remodelry-callout a:hover { color: var(--white); }
+
+    /* Checklist style */
+    .prep-checklist {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin: 24px 0;
+    }
+
+    .prep-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .prep-item:last-child { border-bottom: none; }
+
+    .prep-check {
+      width: 20px;
+      height: 20px;
+      border-radius: 4px;
+      border: 2px solid var(--brass-pale);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .prep-text {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--slate);
+      line-height: 1.6;
+    }
+
+    .prep-text strong {
+      font-weight: 500;
+      color: var(--deep);
+    }
+
+    @media (max-width: 900px) {
+      .responsibility-grid { grid-template-columns: 1fr; }
+      .emotional-section { padding: 56px 24px; }
+      .week-arc-item { grid-template-columns: 1fr; gap: 8px; }
+      .week-arc-label { padding-top: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">
+    <img src="../assets/images/remodel-guide-logo.png" alt="remodel.guide">
+  </a>
+  <ul class="nav-links">
+    <li><a href="/kitchen">Kitchen</a></li>
+    <li><a href="/bathroom">Bathroom</a></li>
+    <li><a href="/basement">Basement</a></li>
+    <li><a href="/addition">Addition</a></li>
+    <li><a href="/demo" style="color:var(--brass);">Living Through It</a></li>
+    <li><a href="https://remodelry.guide/remi" target="_blank" class="nav-cta">Talk to Remi — Free</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/" onclick="closeMobile()">← All Guides</a>
+    <a href="/kitchen" onclick="closeMobile()">Kitchen Remodel</a>
+    <a href="/bathroom" onclick="closeMobile()">Bathroom Renovation</a>
+    <a href="/basement" onclick="closeMobile()">Basement Finishing</a>
+    <a href="/addition" onclick="closeMobile()">Home Addition</a>
+    <a href="/flooring" onclick="closeMobile()">Flooring</a>
+    <a href="/windows" onclick="closeMobile()">Windows</a>
+    <a href="/siding" onclick="closeMobile()">Siding</a>
+    <a href="/painting" onclick="closeMobile()">Painting</a>
+    <a href="/millwork" onclick="closeMobile()">Millwork & Built-Ins</a>
+    <a href="/demo" onclick="closeMobile()">Living Through a Renovation</a>
+    <a href="https://remodelry.guide/remi" target="_blank" class="mobile-cta">Talk to Remi — It's Free</a>
+  </div>
+</nav>
+
+<!-- COMPANION BANNER -->
+<div class="companion-banner">
+  <p>A free resource from <a href="https://remodelry.guide" target="_blank">Remodelry</a> — Northeast Ohio's remodeling concierge service.</p>
+</div>
+
+<!-- PAGE HEADER -->
+<section class="page-header">
+  <div class="page-header-inner fade-up">
+    <div class="breadcrumb">
+      <a href="/">remodel.guide</a>
+      <span class="breadcrumb-sep">→</span>
+      <span class="breadcrumb-current">Living Through a Renovation</span>
+    </div>
+    <h1>Living Through<br><em>a Renovation</em></h1>
+    <p class="page-header-body">Read this before any project starts — regardless of what kind of project it is. Most remodel guides cover what gets built. This one covers what it feels like to live in your home while it's being built, what you owe the process, and what the process owes you. Nobody gives homeowners this guide. They should.</p>
+    <div class="page-header-meta">
+      <span class="meta-tag">Before demo day</span>
+      <span class="meta-tag">Homeowner responsibilities</span>
+      <span class="meta-tag">Contractor responsibilities</span>
+      <span class="meta-tag">The emotional arc</span>
+    </div>
+  </div>
+</section>
+
+<!-- HERO IMAGE -->
+<div style="background:var(--deep);padding:0 80px 0;line-height:0;">
+  <img src="../assets/images/demo-hero.jpg"
+       alt="A home mid-renovation — dust barriers up, construction materials staged, daily life continuing around the work"
+       class="guide-image"
+       style="margin:0;border-radius:0;max-height:480px;object-fit:cover;width:100%;"
+       onerror="this.style.display='none'">
+</div>
+
+<!-- INTRO -->
+<section class="section-white">
+  <div class="section-inner">
+
+    <div class="toc fade-up">
+      <span class="toc-title">What this guide covers</span>
+      <ul class="toc-list">
+        <li><a href="#before-demo">Before demo day — what has to happen first</a></li>
+        <li><a href="#homeowner">Homeowner responsibilities — your side of the agreement</a></li>
+        <li><a href="#contractor">Contractor responsibilities — what you have every right to expect</a></li>
+        <li><a href="#dust">Dust control — the conversation most contractors skip</a></li>
+        <li><a href="#daily-life">Daily life in a construction zone</a></li>
+        <li><a href="#emotional">The emotional arc — what nobody warns you about</a></li>
+        <li><a href="#remi">How Remodelry helps</a></li>
+      </ul>
+    </div>
+
+    <div class="guide-content fade-up">
+
+      <h2 id="before-demo">Before demo day — what has to happen first</h2>
+
+      <div class="hook-quote">"Most contractors love to start working the moment they arrive. Most homeowners are nowhere near ready when they do."</div>
+
+      <p>The week before demo is not the time to figure out where the dog is going to sleep, what the kids will eat without a kitchen, or where the furniture from the living room is going to go while the floors are being refinished. These are decisions that need to be made — and acted on — before the first crew member shows up.</p>
+
+      <p>A renovation doesn't start on demo day. It starts the week before, when the homeowner does their part to make the project possible. The homeowner who is ready on day one has a smoother project than the homeowner who isn't — not because of luck, but because preparation removes friction before it becomes a problem.</p>
+
+      <p>Here is what needs to happen before demo day.</p>
+
+      <div class="prep-checklist">
+
+        <div class="prep-item">
+          <div class="prep-check"></div>
+          <div class="prep-text"><strong>Pack the space completely.</strong> Not mostly. Not move the big stuff and leave the rest. Every item that can be damaged by dust, vibration, or contractor traffic needs to be out of the space and ideally out of adjacent spaces. Construction dust travels farther than any homeowner expects — it finds its way through closed doors, around corner seals, and into rooms two rooms away.</div>
+        </div>
+
+        <div class="prep-item">
+          <div class="prep-check"></div>
+          <div class="prep-text"><strong>Decide on a POD or storage unit early.</strong> If the project scope requires removing furniture from multiple rooms — a kitchen renovation, a whole-floor addition, a basement finish that displaces storage — a portable storage container (POD) staged in the driveway is often the right answer. It gets belongings out of the house entirely and out of the contractor's way. Decide this before demo week. POD delivery takes scheduling lead time.</div>
+        </div>
+
+        <div class="prep-item">
+          <div class="prep-check"></div>
+          <div class="prep-text"><strong>Plan how you will actually live without the space.</strong> Not in theory — in practice. If the kitchen is being renovated, where will the family eat for six to ten weeks? A microwave and a mini fridge in the dining room is a plan. "We'll figure it out" is not. If the primary bathroom is being renovated, which bathroom will the household use and for how long? Think through the daily routine for the full duration of the project before it starts.</div>
+        </div>
+
+        <div class="prep-item">
+          <div class="prep-check"></div>
+          <div class="prep-text"><strong>Prepare the pets.</strong> Dogs and cats are significantly disrupted by renovation work — the noise, the strangers, the open doors, the displaced furniture, the smell of materials. A dog who is usually calm can become anxious or escape-prone when contractors are moving in and out of the house all day. Decide before demo where the pets will be during work hours. A dog who needs to be crated, brought to daycare, or kept in a specific room needs to be part of the daily plan — not discovered as a problem on day one.</div>
+        </div>
+
+        <div class="prep-item">
+          <div class="prep-check"></div>
+          <div class="prep-text"><strong>Discuss access with the contractor.</strong> How will the crew enter each day? Will a key be left, or does someone need to be home? Where is the access point — front door, garage, side entry? What time does work begin, and does that work for the household? These are logistics that should be resolved in writing before demo — not negotiated at 7am on the first day.</div>
+        </div>
+
+        <div class="prep-item">
+          <div class="prep-check"></div>
+          <div class="prep-text"><strong>Protect valuables in adjacent spaces.</strong> Artwork, electronics, family heirlooms, anything irreplaceable. Move them to a part of the house that will not be impacted. Construction is inherently unpredictable — things get bumped, doors swing unexpectedly, tools get carried through rooms. The homeowner's job is to remove anything that cannot be replaced from the path of work.</div>
+        </div>
+
+        <div class="prep-item">
+          <div class="prep-check"></div>
+          <div class="prep-text"><strong>Have the conversation about daily cleanup expectations.</strong> Before work begins — not after the first day ends with the house in a state that surprises everyone. What does acceptable end-of-day look like? Tools stored, materials stacked, debris contained. This conversation is easier to have before anyone is frustrated than after.</div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- HOMEOWNER RESPONSIBILITIES -->
+<section class="section-cream" id="homeowner">
+  <div class="section-inner fade-up">
+    <span class="section-label">Homeowner Responsibilities</span>
+    <h2>Your side of<br><em>the agreement.</em></h2>
+    <p style="margin-top:16px;margin-bottom:40px;">A contractor cannot do their best work in a house that isn't ready for them. The homeowner's responsibilities during a renovation are real — and honoring them is one of the most direct ways a homeowner can protect the quality and timeline of their own project.</p>
+
+    <div class="guide-content">
+
+      <div class="flag-list">
+
+        <div class="flag-item" style="border-color:var(--brass);background:rgba(181,144,74,0.06);">
+          <div class="flag-icon">✓</div>
+          <div class="flag-content">
+            <h4 style="color:var(--brass);">Make decisions on time</h4>
+            <p>A contractor who cannot install the backsplash because the tile hasn't been selected yet is a contractor whose crew is idle — and whose schedule is backing up. Decisions drive the project. A homeowner who misses a decision deadline delays their own project. Know what decisions are coming and when they're needed. Ask the contractor for a decision schedule at the start of the project.</p>
+          </div>
+        </div>
+
+        <div class="flag-item" style="border-color:var(--brass);background:rgba(181,144,74,0.06);">
+          <div class="flag-icon">✓</div>
+          <div class="flag-content">
+            <h4 style="color:var(--brass);">Keep the work area clear</h4>
+            <p>Every morning before the crew arrives, the work area should be free of personal items, pets, and anything that will slow down or complicate the work. Contractors who have to navigate around a homeowner's belongings every morning lose time — and eventually price that time into future projects. Keep it clear. Every day.</p>
+          </div>
+        </div>
+
+        <div class="flag-item" style="border-color:var(--brass);background:rgba(181,144,74,0.06);">
+          <div class="flag-icon">✓</div>
+          <div class="flag-content">
+            <h4 style="color:var(--brass);">Be available — not hovering</h4>
+            <p>A homeowner who cannot be reached when a decision needs to be made stops the project. A homeowner who is on the job site all day second-guessing every cut and asking questions during active work creates a different problem. The right posture is available and responsive — reachable by phone or text during work hours, present for scheduled check-ins, but not on the job site managing the crew.</p>
+          </div>
+        </div>
+
+        <div class="flag-item" style="border-color:var(--brass);background:rgba(181,144,74,0.06);">
+          <div class="flag-icon">✓</div>
+          <div class="flag-content">
+            <h4 style="color:var(--brass);">Process surprises calmly</h4>
+            <p>Surprises happen in every project. Something is found behind a wall. A material is backordered. A subcontractor's schedule shifts. The homeowner who can process these developments calmly — asking what the options are, what the cost implications are, and what the timeline impact is — gets better outcomes than the homeowner who reacts with panic or anger. Surprises are not the contractor's fault. They are the nature of construction.</p>
+          </div>
+        </div>
+
+        <div class="flag-item" style="border-color:var(--brass);background:rgba(181,144,74,0.06);">
+          <div class="flag-icon">✓</div>
+          <div class="flag-content">
+            <h4 style="color:var(--brass);">Pay on schedule</h4>
+            <p>Draw payments tied to milestones exist to protect both parties. When a milestone is reached and the work is confirmed complete, the draw payment should be made promptly. A contractor waiting on payment cannot order materials, schedule subcontractors, or maintain their own cash flow. Prompt payment for completed work is a homeowner responsibility — and it keeps the project moving.</p>
+          </div>
+        </div>
+
+        <div class="flag-item" style="border-color:var(--brass);background:rgba(181,144,74,0.06);">
+          <div class="flag-icon">✓</div>
+          <div class="flag-content">
+            <h4 style="color:var(--brass);">Communicate issues directly and early</h4>
+            <p>If something looks wrong — a tile is cracked, a cabinet door is misaligned, a wall isn't plumb — say something immediately. The longer a problem exists without being addressed, the more it costs to correct. A homeowner who notices something on Tuesday and mentions it on Friday has allowed four days of additional work to build on top of a problem. Raise concerns the day they're noticed.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTRACTOR RESPONSIBILITIES -->
+<section class="section-white" id="contractor">
+  <div class="section-inner fade-up">
+    <span class="section-label">Contractor Responsibilities</span>
+    <h2>What you have every<br><em>right to expect.</em></h2>
+    <p style="margin-top:16px;margin-bottom:40px;">A homeowner who invites a contractor into their home is extending a significant amount of trust. The contractor's responsibilities during a renovation are not optional courtesies — they are professional standards. A homeowner who knows what to expect can hold a contractor to it without apology.</p>
+
+    <div class="guide-content">
+
+      <div class="flag-list">
+
+        <div class="flag-item" style="border-color:var(--slate);background:rgba(74,69,63,0.04);">
+          <div class="flag-icon">◆</div>
+          <div class="flag-content">
+            <h4>Agreed start and end times — honored every day</h4>
+            <p>Start time and end time should be agreed before the project begins and honored without exception. A crew that arrives at 7am when the household has children getting ready for school — without that having been discussed — is a crew that hasn't thought about the homeowner's daily life. Start times and end times are part of the project agreement. Put them in writing.</p>
+          </div>
+        </div>
+
+        <div class="flag-item" style="border-color:var(--slate);background:rgba(74,69,63,0.04);">
+          <div class="flag-icon">◆</div>
+          <div class="flag-content">
+            <h4>Dust control — planned before demo, not improvised during</h4>
+            <p>Dust control is not a suggestion. It is a professional obligation. A contractor who begins demo without plastic barriers, door seals, and HVAC protection in place is allowing construction dust to migrate through the entire house — into furniture, into electronics, into HVAC ductwork, into lungs. Dust control planning should be discussed and agreed before demo day. What barriers will be used. Where they will be installed. How the HVAC system will be protected. This is a conversation that happens before the first nail is pulled.</p>
+          </div>
+        </div>
+
+        <div class="flag-item" style="border-color:var(--slate);background:rgba(74,69,63,0.04);">
+          <div class="flag-icon">◆</div>
+          <div class="flag-content">
+            <h4>HVAC protection — non-negotiable</h4>
+            <p>Construction dust that enters an HVAC system migrates to every room in the house through the ductwork. It coats filter media, accumulates in return air plenums, and in significant cases requires professional duct cleaning to remediate. The HVAC return air vents in the work area should be sealed with plastic and tape before demo begins. Filters should be checked and changed more frequently during construction. This is a contractor responsibility — not something the homeowner should have to request.</p>
+          </div>
+        </div>
+
+        <div class="flag-item" style="border-color:var(--slate);background:rgba(74,69,63,0.04);">
+          <div class="flag-icon">◆</div>
+          <div class="flag-content">
+            <h4>Daily cleanup — the site condition at end of day</h4>
+            <p>At the end of every work day, the job site should be in a condition that a family can safely navigate. Tools stored or secured. Debris contained — not spread across the floor. Nails and fasteners swept. Dust barriers intact. No open electrical or plumbing left exposed without protection. What acceptable end-of-day looks like should be agreed before the project starts — not defined by the contractor's convenience.</p>
+          </div>
+        </div>
+
+        <div class="flag-item" style="border-color:var(--slate);background:rgba(74,69,63,0.04);">
+          <div class="flag-icon">◆</div>
+          <div class="flag-content">
+            <h4>Parking — assigned and consistent</h4>
+            <p>Where the crew parks should be agreed before day one and consistent throughout the project. Crew vehicles blocking the driveway, parked in front of neighbors' homes without consideration, or occupying spaces the homeowner needs creates unnecessary friction every single morning. Establish parking before the project starts. Confirm it with the crew lead.</p>
+          </div>
+        </div>
+
+        <div class="flag-item" style="border-color:var(--slate);background:rgba(74,69,63,0.04);">
+          <div class="flag-icon">◆</div>
+          <div class="flag-content">
+            <h4>Bathroom use — discussed upfront</h4>
+            <p>Which bathroom the crew will use during the project should be agreed before work begins — not discovered by a homeowner who finds their primary bathroom being used by a crew of four without discussion. Options include a designated household bathroom, a porta-potty staged outside for longer projects, or use of a nearby facility. This is a conversation that takes two minutes before the project starts and prevents significant discomfort throughout it.</p>
+          </div>
+        </div>
+
+        <div class="flag-item" style="border-color:var(--slate);background:rgba(74,69,63,0.04);">
+          <div class="flag-icon">◆</div>
+          <div class="flag-content">
+            <h4>No smoking on the property</h4>
+            <p>Smoking on the property — in the driveway, near the entry, by an open window — is not acceptable without explicit homeowner permission, which should never be assumed. Smoke migrates into the home through open doors and windows. It leaves residue on siding, on decking, in landscaping. A no-smoking policy on the property is a professional standard. It should be communicated to every crew member before day one.</p>
+          </div>
+        </div>
+
+        <div class="flag-item" style="border-color:var(--slate);background:rgba(74,69,63,0.04);">
+          <div class="flag-icon">◆</div>
+          <div class="flag-content">
+            <h4>Dumpster placement — considered and confirmed</h4>
+            <p>A dumpster staged in the wrong location blocks the driveway, damages landscaping, violates HOA rules, or requires a street permit that wasn't pulled. Dumpster placement should be discussed and agreed before delivery — with the homeowner's input on what location works for the household. Street placement may require a permit from the municipality. This is the contractor's responsibility to research and arrange.</p>
+          </div>
+        </div>
+
+        <div class="flag-item" style="border-color:var(--slate);background:rgba(74,69,63,0.04);">
+          <div class="flag-icon">◆</div>
+          <div class="flag-content">
+            <h4>Material and tool storage — secure and considered</h4>
+            <p>Where materials are staged and where tools are stored overnight should be agreed before the project starts. Materials left in the driveway, on the lawn, or stacked against the house without consideration create problems — tripping hazards, weather exposure, theft risk. Tools left unsecured in an open garage or on a deck overnight create liability. The contractor should have a plan for material staging and tool storage before the first delivery arrives.</p>
+          </div>
+        </div>
+
+        <div class="flag-item" style="border-color:var(--slate);background:rgba(74,69,63,0.04);">
+          <div class="flag-icon">◆</div>
+          <div class="flag-content">
+            <h4>Communication — channel, frequency, and who</h4>
+            <p>How will the homeowner be updated? By phone call, text, or email? Daily, or only when something changes? Who is the primary contact — the contractor, a foreman, a project manager? These questions should have specific answers before the project starts. A homeowner who has to call the contractor to find out what happened today is a homeowner whose communication expectations weren't set. Set them upfront. In writing.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- DUST CONTROL DEEP DIVE -->
+<section class="section-cream" id="dust">
+  <div class="section-inner fade-up">
+    <span class="section-label">Dust Control</span>
+    <h2>The conversation most contractors skip.<br><em>The one that matters most on day one.</em></h2>
+    <p style="margin-top:16px;margin-bottom:40px;">Construction dust is not inconvenient. It is a health concern, a property damage risk, and a relationship problem when it migrates through a home without adequate containment. Here is what proper dust control actually looks like — so a homeowner knows what to ask for before demo begins.</p>
+
+    <div class="guide-content">
+
+      <h3>ZipWall barriers and door seals</h3>
+      <p>A ZipWall system — spring-loaded poles with plastic sheeting attached — creates a temporary floor-to-ceiling barrier between the work area and the rest of the home. It is the most effective portable dust containment system for residential renovation work. It takes under an hour to install and dramatically reduces dust migration to adjacent spaces.</p>
+      <p>Door seals — adhesive-backed zipper strips applied to doorframes — create a sealed entry point through the plastic barrier that opens and closes without breaking the containment. Crew members can pass through without demolishing the barrier every time they move between spaces.</p>
+      <p>Any project that involves demo, cutting, sanding, or significant material removal in a space adjacent to occupied rooms should have plastic barrier containment installed before work begins. This is not optional for a contractor who respects the household they are working in.</p>
+
+      <h3>HVAC return protection</h3>
+      <p>Every HVAC return air vent in and near the work area should be sealed with plastic and tape before demo begins. Return air vents pull air — and airborne dust — from the room into the ductwork. Construction dust that enters the ductwork is distributed to every room in the house through the supply registers. It is expensive and disruptive to remediate.</p>
+      <p>Sealing the returns in the work area costs five minutes and a roll of tape. Not sealing them costs the homeowner hours of cleaning throughout the house and potentially a professional duct cleaning.</p>
+
+      <h3>Negative air pressure — for significant demo</h3>
+      <p>For major demo work — full gut renovations, structural work, anything involving significant drywall demolition — a negative air pressure machine (an air scrubber with an exhaust vented to the exterior) creates airflow that pulls dust toward the work area rather than away from it. It is standard practice on commercial renovation projects and appropriate for significant residential demo. Ask whether a negative air machine will be used for demo-intensive phases of the project.</p>
+
+      <h3>Floor protection through traffic paths</h3>
+      <p>The path between the work area and the exterior — where materials come in and debris goes out — sees more foot traffic during a renovation than any other part of the house. Ram Board, rosin paper, or heavy canvas drop cloths should protect flooring along this path from the first day of work. Hardwood floors scratched by a contractor carrying materials through an unprotected hallway are not the contractor's favorite conversation. Protect the path before work begins.</p>
+
+      <div class="flag-list" style="margin-top:32px;">
+        <div class="flag-item">
+          <div class="flag-icon">⚠️</div>
+          <div class="flag-content">
+            <h4>Have the dust control conversation before signing</h4>
+            <p>Ask every contractor specifically: what is your dust control plan for this project? What barriers will you use? How will the HVAC be protected? What does daily cleanup look like? A contractor who has a specific, practiced answer has done this before with intention. A contractor who hasn't thought about it yet will figure it out at the homeowner's expense.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- DAILY LIFE -->
+<section class="section-white" id="daily-life">
+  <div class="section-inner fade-up">
+    <span class="section-label">Daily Life in a Construction Zone</span>
+    <h2>What it actually feels like<br><em>to live through it.</em></h2>
+    <p style="margin-top:16px;margin-bottom:40px;">No renovation guide prepares homeowners for the daily reality of living in a house that is being actively worked on. Here is what to actually expect — so none of it comes as a surprise.</p>
+
+    <div class="guide-content">
+
+      <div class="responsibility-grid">
+
+        <div class="responsibility-col homeowner">
+          <span class="responsibility-col-label">Kitchen Renovation</span>
+          <h3>Living without a kitchen</h3>
+          <p>Six to ten weeks without a functional kitchen is not a minor inconvenience. It is a significant lifestyle disruption that requires a real plan. A microwave, an electric kettle, an air fryer, and a mini fridge staged in the dining room or garage handles the basics. A budget for takeout and prepared meals is realistic — not a luxury. Paper plates and disposable containers are not laziness, they are strategy. Plan for all of it before demo day.</p>
+        </div>
+
+        <div class="responsibility-col contractor">
+          <span class="responsibility-col-label">Bathroom Renovation</span>
+          <h3>Living without a bathroom</h3>
+          <p>A bathroom renovation in a one-bathroom home is a logistical challenge that must be solved before demo. Options include a portable toilet staged outside, a gym membership for showering, a neighbor's bathroom arrangement, or a staged demo that maintains some functionality. This conversation happens before the contract is signed — not the morning of demo. A contractor who starts demo on a single bathroom without a plan for the household has not thought through the project from the homeowner's side.</p>
+        </div>
+
+        <div class="responsibility-col homeowner">
+          <span class="responsibility-col-label">Noise</span>
+          <h3>The reality of construction sound</h3>
+          <p>Demolition, cutting, nailing, sanding, and equipment operation produce sound levels that make working from home, sleeping late, taking calls, or maintaining any sense of quiet impossible during work hours. Anyone in the household who works from home needs an alternative arrangement for the duration of intensive work phases. Anyone with young children who nap needs to plan around work hours. This is not the contractor's problem to solve — it is the homeowner's to anticipate.</p>
+        </div>
+
+        <div class="responsibility-col contractor">
+          <span class="responsibility-col-label">Strangers in the house</span>
+          <h3>The psychological weight of it</h3>
+          <p>Having strangers in the home every day — moving through spaces, using facilities, overhearing conversations — is more psychologically taxing than most homeowners anticipate. It is normal to feel uncomfortable, invaded, or simply tired of not having privacy in the home. This feeling is not a sign that anything is wrong. It is a predictable part of living through a renovation. Knowing it's coming makes it easier to navigate when it arrives.</p>
+        </div>
+
+        <div class="responsibility-col homeowner">
+          <span class="responsibility-col-label">Pets</span>
+          <h3>A plan for every work day</h3>
+          <p>Pets need a daily plan for the duration of the project — not a general intention. A dog who is anxious around strangers, reactive to noise, or prone to bolting through open doors is a safety risk in a renovation environment. Doggy daycare, a dog walker, or confining pets to a specific room with a closed door that crew members are instructed not to open are all real plans. "We'll figure it out day by day" is not.</p>
+        </div>
+
+        <div class="responsibility-col contractor">
+          <span class="responsibility-col-label">The POD decision</span>
+          <h3>When it makes sense</h3>
+          <p>A portable storage container staged in the driveway during a major renovation is not an overreaction — it is often the most practical solution for keeping the household functional. It gets furniture and belongings out of the house entirely, clears space for material staging, and removes the risk of construction damage to personal property. For any project that requires emptying multiple rooms, price a POD before deciding it's unnecessary. The convenience is usually worth the cost.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EMOTIONAL ARC — Remodelry's section -->
+<section class="emotional-section" id="emotional">
+  <div class="emotional-inner fade-up">
+
+    <span class="section-label">The Emotional Arc</span>
+    <h2>What nobody warns you about —<br><em>and what you need to know.</em></h2>
+
+    <div class="emotional-hook">"Week three of a six-week project is when most homeowners hit a wall. The novelty is gone. The end isn't visible. The house is still torn apart. Nobody told them this was coming — so they think something is wrong. Nothing is wrong. This is just what week three feels like."</div>
+
+    <p>A remodel is not just a construction project. It is a life event — full of identity decisions, relational pressure, hope, fear, excitement, and decision fatigue. The tile you chose feels wrong the day after you chose it. The budget conversation with your partner surfaces tensions that have nothing to do with the countertop. The contractor's casual comment about "a few more days" lands harder than it should because you've been living without a kitchen for four weeks.</p>
+
+    <p>None of this means the project is failing. It means you are a human being living through one of the most disruptive experiences a home can produce. Knowing the emotional arc before it arrives is one of the most practical things a homeowner can do.</p>
+
+    <div class="week-arc">
+
+      <div class="week-arc-item">
+        <div class="week-arc-label">Week One</div>
+        <div class="week-arc-content">
+          <h4>Excitement and energy</h4>
+          <p>Demo is happening. The project is real. The vision is close. Most homeowners feel energized in week one — the disruption feels temporary and the end feels near. This is the easiest week emotionally.</p>
+        </div>
+      </div>
+
+      <div class="week-arc-item">
+        <div class="week-arc-label">Week Two</div>
+        <div class="week-arc-content">
+          <h4>Adjustment and routine</h4>
+          <p>The novelty has worn off slightly but the household has found a rhythm. The makeshift kitchen is familiar. The crew's schedule is predictable. This is typically a stable week — the project is progressing and the end still feels achievable.</p>
+        </div>
+      </div>
+
+      <div class="week-arc-item">
+        <div class="week-arc-label">Week Three</div>
+        <div class="week-arc-content">
+          <h4>The wall</h4>
+          <p>This is the week most homeowners didn't know was coming. The excitement is gone. The progress feels invisible — rough-in work and framing don't look like a finished kitchen. The disruption to daily life has accumulated. Decision fatigue is real. The budget feels abstract and worrying. Partners may be experiencing the project differently. This week is hard. It is also completely normal. It passes.</p>
+        </div>
+      </div>
+
+      <div class="week-arc-item">
+        <div class="week-arc-label">Weeks Four–Five</div>
+        <div class="week-arc-content">
+          <h4>Visible progress returns</h4>
+          <p>Cabinets go in. Tile appears. The space begins to look like what was imagined. Energy returns. The end becomes visible again. Most homeowners find this phase easier — the tangible evidence of progress restores the sense that the disruption has been worth it.</p>
+        </div>
+      </div>
+
+      <div class="week-arc-item">
+        <div class="week-arc-label">The punch list</div>
+        <div class="week-arc-content">
+          <h4>The last mile is the hardest</h4>
+          <p>The project is 90 percent done. The space is recognizable. But the remaining 10 percent — the touch-ups, the final connections, the small corrections — takes longer than expected and receives less crew attention than earlier phases. This is a known pattern in construction. Name it before it happens and it is easier to navigate when it arrives.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <h3>Decision fatigue is real — and it compounds</h3>
+    <p>A kitchen remodel involves dozens of decisions. Each one requires mental energy. By week three, that energy is depleted — which is exactly when the countertop template appointment, the hardware selection, and the backsplash confirmation all need to happen. The decisions don't get easier just because the homeowner is tired of making them.</p>
+    <p>The antidote is front-loading decisions before demo begins. Every selection that can be made before the project starts should be made before the project starts. The homeowner who has chosen tile, countertops, fixtures, hardware, and paint before day one experiences a fundamentally different project than the homeowner who makes those decisions under construction pressure.</p>
+
+    <h3>Partners experience the project differently</h3>
+    <p>In households with two decision-makers, it is nearly universal that partners experience the renovation differently — different stress responses, different tolerance for disruption, different emotional investment in specific decisions. One partner feels the budget anxiety more acutely. One partner feels the design anxiety more acutely. One partner is energized by the project while the other is exhausted by it.</p>
+    <p>Naming this before the project starts — acknowledging that both experiences are valid and that they will not be identical — prevents a significant amount of relational friction during the project. The renovation is stressful enough without the added weight of feeling like a partner doesn't care or doesn't understand.</p>
+
+    <h3>The project will surface surprises. That is normal.</h3>
+    <p>Every renovation has at least one moment where something unexpected is found, something takes longer than planned, or something costs more than anticipated. This moment — whenever it arrives — tends to trigger the accumulated stress of the preceding weeks. The homeowner who knows this is coming can receive the news more calmly than the homeowner who believed the project would go exactly as planned.</p>
+    <p>A contingency budget — 10 to 15 percent of the total project cost — is not pessimism. It is the financial equivalent of knowing the wall will come. It converts a crisis into a decision.</p>
+
+    <div class="remodelry-callout">
+      <h4>This is where Remodelry lives.</h4>
+      <p>The emotional arc of a remodel is not a design problem or a construction problem. It is a human problem — and it is exactly the gap that Remodelry was built to fill. A Remodelry Concierge is not a contractor. They are an advocate — someone whose only interest is the homeowner's outcome, not their invoice.</p>
+      <p>Getting clear before the project starts — on scope, budget, decisions, timeline, and what to expect emotionally — changes the experience of living through a renovation. Not because the construction gets easier. Because the homeowner is prepared for it.</p>
+      <p>That preparation starts with Remi. A free 15-minute conversation that captures the project and gives a homeowner a clear picture before anyone shows up with a bid. <a href="https://remodelry.guide/remi" target="_blank">Talk to Remi here →</a></p>
+    </div>
+
+  </div>
+</section>
+
+<!-- REMI CTA -->
+<section class="section-white" id="remi">
+  <div class="section-inner fade-up">
+    <div class="remi-cta">
+      <h2>Before demo day —<br><em>talk to Remi.</em></h2>
+      <p>Remi is Remodelry's free AI intake companion. A 15-minute conversation that captures your specific project — your scope, your household, your timeline, and what you need to know before anyone shows up. The homeowner who starts prepared has a better project. It is that simple.</p>
+      <a href="https://remodelry.guide/remi" target="_blank" class="btn-primary">Talk to Remi — It's Free</a>
+      <p class="remi-cta-note">No contractor · No sales pitch · Nobody calling you afterward</p>
+    </div>
+
+    <div style="margin-top:48px;padding-top:48px;border-top:1px solid var(--border);text-align:center;">
+      <span class="section-label" style="display:block;text-align:center;">Read the Project Guides</span>
+      <h3 style="margin-bottom:24px;">Now that you know what to expect — go deeper on your project.</h3>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+        <a href="/kitchen" class="btn-ghost">Kitchen Remodel →</a>
+        <a href="/bathroom" class="btn-ghost">Bathroom Renovation →</a>
+        <a href="/basement" class="btn-ghost">Basement Finishing →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="../assets/images/remodel-guide-logo.png" alt="remodel.guide">
+      <p class="footer-tagline">The Homeowner Protection Guide<br>for Residential Remodeling.<br><br>A free resource from <a href="https://remodelry.guide" target="_blank">Remodelry</a> —<br>Northeast Ohio's remodeling concierge service.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <span class="footer-col-title">The Guides</span>
+        <ul>
+          <li><a href="/kitchen">Kitchen Remodel</a></li>
+          <li><a href="/bathroom">Bathroom Renovation</a></li>
+          <li><a href="/basement">Basement Finishing</a></li>
+          <li><a href="/addition">Home Addition</a></li>
+          <li><a href="/flooring">Flooring</a></li>
+          <li><a href="/windows">Window Replacement</a></li>
+          <li><a href="/siding">Siding</a></li>
+          <li><a href="/painting">Interior Painting</a></li>
+          <li><a href="/millwork">Millwork & Built-Ins</a></li>
+          <li><a href="/demo">Living Through a Renovation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <span class="footer-col-title">Remodelry</span>
+        <ul>
+          <li><a href="https://remodelry.guide" target="_blank">remodelry.guide</a></li>
+          <li><a href="https://remodelry.guide/remi" target="_blank">Talk to Remi — Free</a></li>
+          <li><a href="https://remodelry.guide/concierge" target="_blank">The Concierge</a></li>
+          <li><a href="https://remodelry.guide/after-clarity" target="_blank">After Clarity</a></li>
+          <li><a href="https://remodelry.guide/pillars" target="_blank">10 Pillars</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 remodel.guide · All rights reserved.</span>
+    <span class="footer-remodelry">A <a href="https://remodelry.guide" target="_blank">Remodelry</a> resource · Serving Northeast Ohio</span>
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script>
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-up').forEach(function(el) { observer.observe(el); });
+
+  var hamburger = document.getElementById('hamburger');
+  var mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', function() {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  function closeMobile() {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  }
+</script>
+
+</body>
+</html>
