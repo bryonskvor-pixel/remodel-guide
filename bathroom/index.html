@@ -1,1 +1,726 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bathroom Renovation Guide — remodel.guide</title>
+  <meta name="description" content="The complete homeowner protection guide for bathroom renovation. Custom shower waterproofing, tile selection, curbless showers, real timeline, and what to watch for before demo day." />
+  <meta name="keywords" content="bathroom renovation guide, custom shower, shower waterproofing, bathroom remodel timeline, curbless shower, tile shower, Northeast Ohio bathroom remodel" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Bathroom Renovation Guide — The Complete Homeowner Protection Guide" />
+  <meta property="og:description" content="Water is unforgiving. A shower built without the right waterproofing fails silently — behind tile — until it's serious. Here's what a bathroom that lasts 20 years actually requires." />
+  <meta property="og:url" content="https://remodel.guide/bathroom" />
+  <meta property="og:type" content="article" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <style>
+    /* Shower section special treatment */
+    .shower-section {
+      background: var(--deep);
+      padding: 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .shower-section::before {
+      content: '';
+      position: absolute;
+      top: -200px; right: -200px;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(181,144,74,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .shower-section .section-label { color: var(--brass-light); }
+    .shower-section h2 { color: var(--white); }
+    .shower-section h2 em { color: var(--brass-light); }
+    .shower-section p { color: rgba(255,255,255,0.65); }
+    .shower-section h3 { color: var(--white); }
+    .shower-section strong { color: rgba(255,255,255,0.9); }
+
+    .shower-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .shower-hook {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(20px, 2.5vw, 28px);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--brass-light);
+      line-height: 1.45;
+      padding: 24px 0 24px 24px;
+      border-left: 3px solid rgba(181,144,74,0.3);
+      margin: 32px 0;
+    }
+
+    .shower-subsection {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+      padding: 32px;
+      margin: 28px 0;
+    }
+
+    .shower-subsection h3 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--brass-light);
+      margin-bottom: 14px;
+      letter-spacing: 0.02em;
+    }
+
+    .shower-subsection p {
+      font-size: 14px;
+      line-height: 1.8;
+      margin-bottom: 14px;
+    }
+
+    .shower-subsection p:last-child { margin-bottom: 0; }
+
+    .shower-flag {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: rgba(196,118,42,0.1);
+      border-left: 3px solid var(--warning);
+      border-radius: 0 8px 8px 0;
+      padding: 16px 18px;
+      margin-top: 16px;
+    }
+
+    .shower-flag p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 0;
+    }
+
+    .shower-flag strong { color: var(--warning); }
+
+    @media (max-width: 900px) {
+      .shower-section { padding: 56px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">
+    <img src="../assets/images/remodel-guide-logo.png" alt="remodel.guide">
+  </a>
+  <ul class="nav-links">
+    <li><a href="/kitchen">Kitchen</a></li>
+    <li><a href="/bathroom" style="color:var(--brass);">Bathroom</a></li>
+    <li><a href="/basement">Basement</a></li>
+    <li><a href="/addition">Addition</a></li>
+    <li><a href="/flooring">Flooring</a></li>
+    <li><a href="https://remodelry.guide/remi" target="_blank" class="nav-cta">Talk to Remi — Free</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/" onclick="closeMobile()">← All Guides</a>
+    <a href="/kitchen" onclick="closeMobile()">Kitchen Remodel</a>
+    <a href="/bathroom" onclick="closeMobile()">Bathroom Renovation</a>
+    <a href="/basement" onclick="closeMobile()">Basement Finishing</a>
+    <a href="/addition" onclick="closeMobile()">Home Addition</a>
+    <a href="/flooring" onclick="closeMobile()">Flooring</a>
+    <a href="/windows" onclick="closeMobile()">Windows</a>
+    <a href="/siding" onclick="closeMobile()">Siding</a>
+    <a href="/painting" onclick="closeMobile()">Painting</a>
+    <a href="/millwork" onclick="closeMobile()">Millwork & Built-Ins</a>
+    <a href="/demo" onclick="closeMobile()">Living Through a Renovation</a>
+    <a href="https://remodelry.guide/remi" target="_blank" class="mobile-cta">Talk to Remi — It's Free</a>
+  </div>
+</nav>
+
+<!-- COMPANION BANNER -->
+<div class="companion-banner">
+  <p>A free resource from <a href="https://remodelry.guide" target="_blank">Remodelry</a> — Northeast Ohio's remodeling concierge service.</p>
+</div>
+
+<!-- PAGE HEADER -->
+<section class="page-header">
+  <div class="page-header-inner fade-up">
+    <div class="breadcrumb">
+      <a href="/">remodel.guide</a>
+      <span class="breadcrumb-sep">→</span>
+      <span class="breadcrumb-current">Bathroom Renovation</span>
+    </div>
+    <h1>The Bathroom<br><em>Renovation Guide</em></h1>
+    <p class="page-header-body">Water is unforgiving. A shower built without the right waterproofing doesn't fail visibly — it fails silently, behind tile, into the subfloor and framing, until the damage forces a complete tear-out. The decisions that determine whether a bathroom renovation lasts 20 years or fails in 5 are made before a single tile is set. This guide covers all of them.</p>
+    <div class="page-header-meta">
+      <span class="meta-tag">Full scope covered</span>
+      <span class="meta-tag">Custom shower deep dive</span>
+      <span class="meta-tag">Week-by-week timeline</span>
+      <span class="meta-tag">Contractor checklist</span>
+    </div>
+  </div>
+</section>
+
+<!-- HERO IMAGE -->
+<div style="background:var(--deep);padding:0 80px 0;line-height:0;">
+  <img src="../assets/images/bathroom-hero.jpg"
+       alt="Bathroom mid-demo — tile removed from shower walls, backer board exposed"
+       class="guide-image"
+       style="margin:0;border-radius:0;max-height:480px;object-fit:cover;width:100%;"
+       onerror="this.style.display='none'">
+</div>
+
+<!-- MAIN CONTENT -->
+<section class="section-white">
+  <div class="section-inner">
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="toc fade-up">
+      <span class="toc-title">What this guide covers</span>
+      <ul class="toc-list">
+        <li><a href="#what-it-is">What a bathroom renovation actually is</a></li>
+        <li><a href="#scope-levels">The three levels — which one are you doing?</a></li>
+        <li><a href="#decision-map">The decision map — every choice, in order</a></li>
+        <li><a href="#custom-shower">The custom shower — what lasts 20 years requires</a></li>
+        <li><a href="#timeline">The real timeline — week by week</a></li>
+        <li><a href="#watch-for">What to watch for — risks and hidden costs</a></li>
+        <li><a href="#questions">Questions to ask every contractor</a></li>
+        <li><a href="#remi">Before you call anyone — talk to Remi</a></li>
+      </ul>
+    </div>
+
+    <!-- WHAT IT IS -->
+    <div class="guide-content fade-up" id="what-it-is">
+
+      <h2>What a bathroom renovation actually is</h2>
+
+      <div class="hook-quote">"Bathrooms are the most emotional room in a remodel. When a bathroom renovation goes well, homeowners feel it every single day. When it goes wrong — and bathroom renovations go wrong more often than any other project type — the consequences aren't cosmetic."</div>
+
+      <p>Water is unforgiving. A shower that wasn't waterproofed correctly doesn't leak visibly for months or years. It leaks silently, behind tile, into the subfloor, into the framing, until the damage is severe enough to force a complete tear-out. By that point, a $15,000 shower renovation has become a $30,000 remediation and renovation.</p>
+
+      <p>The decisions that determine whether a bathroom renovation lasts 20 years or fails in 5 are made before a single tile is set. Most homeowners don't know what those decisions are. This guide covers all of them.</p>
+
+      <img src="../assets/images/bathroom-demo.jpg"
+           alt="Bathroom after demo — tile removed, existing conditions exposed"
+           class="guide-image"
+           onerror="this.style.display='none'">
+
+    </div>
+
+    <!-- SCOPE LEVELS -->
+    <div class="guide-content fade-up" id="scope-levels">
+
+      <h2>The three levels — which one are you doing?</h2>
+
+      <div class="level-cards">
+        <div class="level-card">
+          <span class="level-label">Level 1</span>
+          <h4>Cosmetic Refresh</h4>
+          <p>Fixtures update. Vanity replaces. Mirror, lighting, hardware change. No tile work. No plumbing moves. The bones stay. Two to three weeks. Lowest cost, lowest risk, fastest turnaround.</p>
+        </div>
+        <div class="level-card">
+          <span class="level-label">Level 2</span>
+          <h4>Full Renovation, Same Layout</h4>
+          <p>Everything comes out — tile, vanity, toilet, tub or shower — but plumbing stays where it is. New tile, new fixtures, new everything. Three to six weeks. Requires a licensed plumber and experienced tile setter for shower work.</p>
+        </div>
+        <div class="level-card">
+          <span class="level-label">Level 3</span>
+          <h4>Layout Change or Custom Shower</h4>
+          <p>Plumbing relocates. A tub converts to a custom shower. A curbless shower is added. Walls may move. Six to ten weeks minimum. Requires permits. Requires a licensed general contractor and experienced waterproofing specialist.</p>
+        </div>
+      </div>
+
+      <div class="flag-list">
+        <div class="flag-item">
+          <div class="flag-icon">⚠️</div>
+          <div class="flag-content">
+            <h4>The curbless shower trap</h4>
+            <p>A homeowner who decides mid-project they want a curbless shower after demo has already begun has just added significant cost and time. This decision must be made before demo — before the plumber is scheduled, before anything. A curbless shower requires a different subfloor and drain height than a standard shower. It cannot be retrofitted easily.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- DECISION MAP -->
+    <div class="guide-content fade-up" id="decision-map">
+
+      <h2>The decision map — every choice, in order</h2>
+
+      <p>Every bathroom renovation requires decisions that have dependencies. Making them out of order costs money. Here is the sequence that protects the project.</p>
+
+      <div class="decision-map">
+
+        <div class="decision-item">
+          <div class="decision-num">01</div>
+          <div class="decision-content">
+            <h4>Tub or shower — or both</h4>
+            <p>This is the first question and it drives everything else. If the bathroom being renovated is the only tub in the house, removing it affects resale value in most markets. Decide this before layout, before fixtures, before tile. Everything downstream depends on it.</p>
+          </div>
+        </div>
+
+        <div class="decision-item">
+          <div class="decision-num">02</div>
+          <div class="decision-content">
+            <h4>Shower type — prefab, curbed tile, or curbless</h4>
+            <p>Prefabricated shower unit, tile shower with a curb, or curbless walk-in shower. Three fundamentally different projects with different costs, timelines, and subfloor requirements. A curbless shower requires the drain to be set lower than the surrounding floor — which may mean modifying the subfloor. This decision must be made before the plumber sets the drain.</p>
+          </div>
+        </div>
+
+        <div class="decision-item">
+          <div class="decision-num">03</div>
+          <div class="decision-content">
+            <h4>Shower size and layout — drain, bench, niches</h4>
+            <p>Where is the drain? Where is the bench? Where are the niches? Where does the door face? These are structural and plumbing decisions — not finish decisions. The plumber needs drain location before rough-in. The framer needs bench and niche locations before framing. Decide before anyone starts.</p>
+          </div>
+        </div>
+
+        <div class="decision-item">
+          <div class="decision-num">04</div>
+          <div class="decision-content">
+            <h4>Fixtures — brand, model, and exact placement</h4>
+            <p>Showerhead height. Valve location. Hand shower. Body sprays. Rain head. Each fixture requires a water supply line roughed in at a specific location in the wall. Moving a fixture after rough-in means opening the wall. Confirm every fixture — exact model number and placement — before the plumber does rough-in.</p>
+          </div>
+        </div>
+
+        <div class="decision-item">
+          <div class="decision-num">05</div>
+          <div class="decision-content">
+            <h4>Vanity — drives plumbing rough-in height</h4>
+            <p>Vanity selection drives drain and supply line rough-in height. A vessel sink sits higher than an undermount. A wall-mounted vanity has different drain requirements than a floor-mounted one. Confirm the vanity before the plumber sets rough-in heights.</p>
+          </div>
+        </div>
+
+        <div class="decision-item">
+          <div class="decision-num">06</div>
+          <div class="decision-content">
+            <h4>All tile selections — together, not sequentially</h4>
+            <p>Shower floor tile, shower wall tile, accent tile, trim solution, grout color, bathroom floor tile. These are not separate decisions made one at a time. They are a composition — and every element must be considered together before anything is purchased. More on this in the custom shower section below.</p>
+          </div>
+        </div>
+
+        <div class="decision-item">
+          <div class="decision-num">07</div>
+          <div class="decision-content">
+            <h4>Grout — selected with tile, not after</h4>
+            <p>Grout color and type affect the entire visual composition of the shower — and the long-term maintenance requirement. The wrong grout on the wrong tile creates maintenance problems that compound over years. Select grout when tile is selected.</p>
+          </div>
+        </div>
+
+        <div class="decision-item">
+          <div class="decision-num">08</div>
+          <div class="decision-content">
+            <h4>Glass enclosure — selected early, measured late</h4>
+            <p>Frameless glass shower enclosures are measured and fabricated after tile is complete. But the glass company needs to be selected and the order placed early — frameless glass runs 3 to 6 weeks from measurement to installation. Select the glass style before tile begins. Schedule measurement immediately after grouting.</p>
+          </div>
+        </div>
+
+        <div class="decision-item">
+          <div class="decision-num">09</div>
+          <div class="decision-content">
+            <h4>Bathroom floor — selected with shower floor</h4>
+            <p>Bathroom floor tile outside the shower needs to be selected in relationship to the shower floor tile. They don't have to match. They do have to work together. Select both at the same time.</p>
+          </div>
+        </div>
+
+        <div class="decision-item">
+          <div class="decision-num">10</div>
+          <div class="decision-content">
+            <h4>Paint — always last</h4>
+            <p>After every tile, fixture, and vanity is confirmed. Bathroom paint needs to be moisture-resistant. Sheen matters — flat paint in a bathroom is a maintenance problem. Wait until everything else is confirmed before choosing.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- CUSTOM SHOWER SECTION — special dark treatment -->
+<section class="shower-section" id="custom-shower">
+  <div class="shower-inner fade-up">
+
+    <span class="section-label">The Custom Shower</span>
+    <h2>What a shower that lasts<br><em>20 years actually requires.</em></h2>
+
+    <p style="margin-top:20px;">This is the section most homeowners need most and find least. A custom tile shower is one of the most complex installations in residential construction — not because the individual components are difficult, but because there are so many interdependent decisions, and because water is unforgiving of mistakes. A shower built correctly lasts 20 years. A shower built with shortcuts fails silently until the damage forces a complete tear-out.</p>
+
+    <img src="../assets/images/shower-waterproofing.jpg"
+         alt="Waterproofing membrane installed on shower walls before tile — the layer nobody sees"
+         class="guide-image"
+         style="margin:32px 0;"
+         onerror="this.style.display='none'">
+
+    <div class="shower-subsection">
+      <h3>Waterproofing — the decision nobody sees</h3>
+      <p>The most important decision in a custom shower is the one that will never be visible once the tile is set. Waterproofing is the membrane system applied to the shower walls and floor before tile goes on. It is what keeps water from penetrating behind the tile into the framing and subfloor.</p>
+      <p>There are several systems — sheet membranes, liquid-applied membranes, foam backer board systems like Schluter KERDI or USG Durock. Modern foam backer systems have largely replaced traditional mortar bed installations — they are more forgiving, more consistent, and easier to inspect before tile goes on.</p>
+      <div class="shower-flag">
+        <span style="font-size:18px;flex-shrink:0;">⚠️</span>
+        <p><strong>Ask every contractor:</strong> what waterproofing system do you use and why? If they cannot answer that question specifically, they are not the right person to build a shower that will last 20 years.</p>
+      </div>
+    </div>
+
+    <div class="shower-subsection">
+      <h3>Shower floor tile — small format is not a style choice</h3>
+      <p>The shower floor requires small format tile or mosaic tile. This is not a design preference. It is a functional requirement.</p>
+      <p>A shower floor must slope to the drain — typically a quarter inch per foot in all directions. Large format tile cannot follow that slope without lippage — edges that sit higher than adjacent tiles, creating trip hazards and grout joint failures. Small format tile and mosaic tile can follow the slope naturally because each individual piece is small enough to conform to the pitch.</p>
+      <div class="shower-flag">
+        <span style="font-size:18px;flex-shrink:0;">⚠️</span>
+        <p><strong>A homeowner who falls in love with large format tile and wants it on the shower floor</strong> needs to understand this before purchasing. Choose the shower floor tile knowing it must be small format or mosaic — then build the design around it.</p>
+      </div>
+    </div>
+
+    <img src="../assets/images/shower-mosaic-floor.jpg"
+         alt="Mosaic tile on a shower floor — small format conforming to the slope to drain"
+         class="guide-image"
+         style="margin:32px 0;"
+         onerror="this.style.display='none'">
+
+    <div class="shower-subsection">
+      <h3>Wall tile — where the design lives</h3>
+      <p>The shower walls are where most of the visual design happens. Wall tile can be large format. Wall tile can be a statement. But wall tile selection is not a single decision — it is a composition, and every element must be considered together before anything is purchased.</p>
+      <p><strong>The field tile</strong> is the dominant surface — it sets the tone for everything else.</p>
+      <p><strong>The accent tile</strong> is the detail — a liner, a decorative band, a contrasting color or texture. Accent tile placement must be planned before tile is ordered. A horizontal accent band at a specific height requires cutting into the field tile layout. That layout must be planned on paper before it's planned on the wall.</p>
+      <p><strong>The trim solution</strong> — where the tile wall ends — requires a decision before installation begins. This is where the bullnose versus Schluter choice happens.</p>
+    </div>
+
+    <div class="shower-subsection">
+      <h3>Bullnose vs. Schluter trim — a decision with real consequences</h3>
+      <p>When a tile wall ends — at the edge of the shower opening, at a niche, at a window — the raw edge needs a finished edge. There are two primary solutions.</p>
+      <p><strong>Bullnose tile</strong> is a tile with one factory-finished glazed edge. It's the traditional solution and looks clean when the field tile has a matching bullnose available. The problem: many modern tile lines — especially large format porcelain — don't have a matching bullnose. Ask the tile supplier before falling in love with a tile.</p>
+      <p><strong>Schluter strip</strong> is a metal or PVC trim profile — available in chrome, brushed nickel, matte black, brass, and other finishes — that creates a finished edge without requiring a bullnose tile. It introduces a metal element that must coordinate with fixture finishes.</p>
+      <div class="shower-flag">
+        <span style="font-size:18px;flex-shrink:0;">⚠️</span>
+        <p><strong>The trim decision is made during tile selection — not during installation.</strong> A tile setter who shows up without a trim solution planned is improvising at the homeowner's expense.</p>
+      </div>
+    </div>
+
+    <div class="shower-subsection">
+      <h3>Niches — planned before framing, not after</h3>
+      <p>A shower niche — a recessed shelf built into the wall for shampoo and soap — is one of the most requested and most frequently mishandled shower features.</p>
+      <p>A niche is built into the wall framing before waterproofing and tile. Its location must be determined before the framer finishes. A niche cannot be added after tile is set without removing tile, cutting into the wall, reframing, re-waterproofing, and re-tiling.</p>
+      <p><strong>Niche height matters.</strong> A niche placed at elbow height for a 5'6" homeowner is in the wrong place for a 6'2" partner. Niche height should be discussed with everyone who will use the shower.</p>
+      <p><strong>Niche width is constrained by stud spacing.</strong> A standard niche fits between two studs — typically 14.5 inches wide in a 16-inch on-center framed wall. A wider niche requires a header and structural consideration.</p>
+    </div>
+
+    <div class="shower-subsection">
+      <h3>The bench — blocking is built in or added later at significant cost</h3>
+      <p>A shower bench — built-in, tiled, permanent — requires blocking in the wall framing at the bench attachment points before waterproofing. A bench added after tile is set requires cutting into tile, adding blocking, re-waterproofing the penetrations, and re-tiling.</p>
+      <p>This is a decision made during framing that becomes a much larger problem if missed. If there is any chance a bench will be wanted — now or in the future — install the blocking during framing. It costs almost nothing at that stage.</p>
+    </div>
+
+    <img src="../assets/images/shower-niche-framing.jpg"
+         alt="Shower niche framed into wall before waterproofing — the stage most homeowners never see"
+         class="guide-image"
+         style="margin:32px 0;"
+         onerror="this.style.display='none'">
+
+    <div class="shower-subsection">
+      <h3>Grout — the maintenance decision</h3>
+      <p>Grout fills the joints between tiles. It is also the material most homeowners underestimate and most showers fail to maintain properly.</p>
+      <p><strong>Unsanded grout</strong> is used for joints under 1/8 inch. <strong>Sanded grout</strong> is used for joints 1/8 inch and wider. <strong>Epoxy grout</strong> is used in high-moisture, high-traffic applications where staining resistance and durability are the priority — it does not require sealing, resists staining, and outlasts cement-based grouts significantly. It is harder to install and more expensive. In a custom shower, it is worth serious consideration.</p>
+      <p><strong>Grout color is a design decision with maintenance implications.</strong> White grout in a shower floor is a maintenance commitment — it will discolor, it requires regular sealing and periodic cleaning. A mid-tone grout close in value to the tile hides wear and requires less maintenance. Neither choice is wrong — but make it knowing what is being chosen.</p>
+    </div>
+
+    <div class="shower-subsection">
+      <h3>The curbless shower — a completely different project</h3>
+      <p>A curbless walk-in shower — no threshold, floor level continues from the bathroom into the shower — is beautiful, accessible, and makes a bathroom feel larger. It is also significantly more expensive than a curbed shower and must be planned from the very beginning of the project.</p>
+      <p>A curbless shower requires the shower floor to drain to a central point while sitting at the same level as the bathroom floor outside the shower. This means the shower floor must be built lower than the bathroom floor — which means the subfloor inside the shower footprint must be recessed. In a wood-framed floor, this means cutting into the subfloor and reframing. In a concrete slab, this means cutting the slab.</p>
+      <div class="shower-flag">
+        <span style="font-size:18px;flex-shrink:0;">⚠️</span>
+        <p><strong>A homeowner who decides they want a curbless shower after the plumber has already set the drain at standard height has created a significant change order.</strong> If a curbless shower is the goal — even a possible goal — say so before anyone starts. The cost to plan for it upfront is a fraction of the cost to retrofit it mid-project.</p>
+      </div>
+    </div>
+
+    <div class="shower-subsection">
+      <h3>Glass enclosures — the finishing decision that takes the longest to arrive</h3>
+      <p>Frameless glass shower enclosures are measured after tile is complete and grouted — then fabricated custom to the exact dimensions of the finished shower opening — and delivered and installed typically 3 to 6 weeks after measurement.</p>
+      <p>This means the shower is not usable for 3 to 6 weeks after tile is grouted. Plan for this. Select the glass company and style before tile begins so the measurement appointment can be scheduled immediately after grouting is complete.</p>
+      <p><strong>Glass thickness matters.</strong> 3/8 inch is standard. 1/2 inch is premium and noticeably more substantial. Hardware finish must coordinate with fixture finishes. Door swing direction must be planned — a door that swings into the toilet is a design problem that is obvious in planning and painful in daily use.</p>
+    </div>
+
+    <img src="../assets/images/shower-glass-install.jpg"
+         alt="Frameless glass shower enclosure being installed — the final step of the custom shower"
+         class="guide-image"
+         style="margin:32px 0;"
+         onerror="this.style.display='none'">
+
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="section-white" id="timeline">
+  <div class="section-inner fade-up">
+    <span class="section-label">The Real Timeline</span>
+    <h2>What actually happens,<br><em>week by week.</em></h2>
+    <p style="margin-top:16px;margin-bottom:40px;">A bathroom renovation that goes well — Level 2 with a custom tile shower. Eight to nine weeks. Longer if tile is back-ordered, if glass lead times run long, or if subfloor surprises add scope.</p>
+
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-period">Week 1</div>
+        <div class="timeline-content">
+          <h4>Pre-construction</h4>
+          <p>All tile selections confirmed and ordered or in-stock confirmed. Fixtures ordered. Vanity ordered. Glass company selected. Permits pulled if required. Demo date confirmed. Nothing starts until selections are made.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-period">Week 2</div>
+        <div class="timeline-content">
+          <h4>Demo</h4>
+          <p>Existing tile, vanity, toilet, tub or shower removed. Subfloor inspected. Any moisture damage or subfloor repair addressed. Framing inspected and modified if needed — niche blocking, bench blocking, any layout changes. This is when surprises are found.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-period">Week 3</div>
+        <div class="timeline-content">
+          <h4>Rough-in</h4>
+          <p>Plumber sets drain at confirmed location and height. Supply lines roughed in at confirmed fixture locations. Electrician adds circuits if required — GFCI outlets, exhaust fan, heated floor thermostat if applicable. Framing inspection if required.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-period">Week 4</div>
+        <div class="timeline-content">
+          <h4>Waterproofing and backer</h4>
+          <p>Shower walls and floor prepared. Waterproofing membrane installed and inspected. This step is not rushed. Waterproofing cures before tile begins. This is the most important week of the entire project — and the one most homeowners never see.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-period">Weeks 5–6</div>
+        <div class="timeline-content">
+          <h4>Tile installation</h4>
+          <p>Shower floor set first — pre-sloped foam system, then mosaic or small format tile. Shower walls follow. Field tile, accent tile, trim details. Niche tiled. Bench tiled if present. Bathroom floor tile set outside shower. Grout after tile is set and cured.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-period">Week 7</div>
+        <div class="timeline-content">
+          <h4>Glass measurement and fixture connections</h4>
+          <p>Glass company measures immediately after grout. Plumber returns to connect supply valves and shower valve trim. Vanity installed. Toilet set. Exhaust fan connected. The clock starts on glass fabrication — typically 3 to 6 weeks.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-period">Weeks 8–9</div>
+        <div class="timeline-content">
+          <h4>Glass installation and finish</h4>
+          <p>Glass enclosure installed. Final caulking at all tile-to-fixture transitions. Paint. Hardware installed. Punch list walk. Project complete — or the beginning of the glass wait if lead times run long. Plan for this.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHAT TO WATCH FOR -->
+<section class="section-cream" id="watch-for">
+  <div class="section-inner fade-up">
+    <span class="section-label">What to Watch For</span>
+    <h2>Bathroom-specific risks<br><em>named before they happen.</em></h2>
+    <p style="margin-top:16px;margin-bottom:40px;">Bathrooms are where water damage hides longest — and where cutting corners costs the most when it's discovered. These risks are preventable. Knowing them before demo is the protection.</p>
+
+    <div class="guide-content">
+      <div class="flag-list">
+
+        <div class="flag-item">
+          <div class="flag-icon">⚠️</div>
+          <div class="flag-content">
+            <h4>Moisture behind existing tile</h4>
+            <p>When existing shower tile is removed, what's behind it matters enormously. Old greenboard that has been wet for years is compromised. Subfloor under an old shower pan may have soft spots from years of slow leaks. These discoveries happen at demo and cannot be fully known until the wall is open. Budget a contingency. Expect to find something.</p>
+          </div>
+        </div>
+
+        <div class="flag-item">
+          <div class="flag-icon">⚠️</div>
+          <div class="flag-content">
+            <h4>The drain location constraint</h4>
+            <p>Moving a drain in a wood-framed floor is possible and adds cost. Moving a drain in a concrete slab is significantly more expensive — it requires cutting the slab, relocating the drain, and patching the concrete. Know what your floor is before planning a layout change that requires drain relocation.</p>
+          </div>
+        </div>
+
+        <div class="flag-item">
+          <div class="flag-icon">⚠️</div>
+          <div class="flag-content">
+            <h4>Exhaust ventilation — vented where?</h4>
+            <p>Every bathroom requires an exhaust fan vented to the exterior — not to the attic, not to a soffit, to the outside. A fan vented to the attic deposits moisture into the attic insulation and framing. This is a code violation in most municipalities. If the existing fan vents to the attic, the renovation is an opportunity to correct it.</p>
+          </div>
+        </div>
+
+        <div class="flag-item">
+          <div class="flag-icon">⚠️</div>
+          <div class="flag-content">
+            <h4>Tile that ships from overseas</h4>
+            <p>Many tile lines — especially imported Italian, Spanish, and Turkish tile — ship from overseas distribution centers. Lead times can run 4 to 8 weeks. Ordering tile the week before demo is a scheduling problem. Confirm tile availability and lead time before setting a demo date.</p>
+          </div>
+        </div>
+
+        <div class="flag-item">
+          <div class="flag-icon">⚠️</div>
+          <div class="flag-content">
+            <h4>Heated floor — subfloor compatibility</h4>
+            <p>Electric radiant heated floor systems require a compatible subfloor thickness and a dedicated electrical circuit. They also require a thermostat and a membrane compatible with the heating mat. Confirm compatibility with the tile setter and electrician before ordering.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUESTIONS -->
+<section class="section-white" id="questions">
+  <div class="section-inner fade-up">
+    <span class="section-label">Questions to Ask Every Contractor</span>
+    <h2>The questions that protect<br><em>the bathroom and the homeowner.</em></h2>
+    <p style="margin-top:16px;margin-bottom:40px;">Bathroom contractors vary widely in their waterproofing knowledge and tile installation experience. These questions reveal who knows what they're doing before work begins.</p>
+
+    <div class="guide-content">
+      <div class="questions-list">
+
+        <div class="question-item">
+          <p class="question-text">"Who installs the waterproofing — you or a subcontractor? What system do you use?"</p>
+          <p class="question-why">The waterproofing installer is the most important person on a bathroom renovation. Know who they are and what system they use before signing anything. A vague answer is a red flag.</p>
+        </div>
+
+        <div class="question-item">
+          <p class="question-text">"Have you installed curbless showers before? Can I see one?"</p>
+          <p class="question-why">Curbless shower installation requires specific experience with subfloor modification and drain placement. Ask to see a completed project — not just photos — before committing.</p>
+        </div>
+
+        <div class="question-item">
+          <p class="question-text">"How do you handle the transition between shower tile and the bathroom floor outside the shower?"</p>
+          <p class="question-why">This question reveals whether the contractor has thought through the detail work. There is no one right answer — but there should be a specific one. "We figure it out" is not a plan.</p>
+        </div>
+
+        <div class="question-item">
+          <p class="question-text">"What is your process if you find moisture damage behind the existing tile?"</p>
+          <p class="question-why">A contractor who says "we handle it" hasn't thought through it. A contractor who says "we document, photograph, show you, and give you options before proceeding" has a process — and that process protects the homeowner.</p>
+        </div>
+
+        <div class="question-item">
+          <p class="question-text">"Who sets the tile — you or a subcontractor? How many tile jobs have they done in the last year?"</p>
+          <p class="question-why">Tile setting is a skill that improves significantly with volume. Know who is setting the tile and how experienced they are with custom shower work specifically.</p>
+        </div>
+
+        <div class="question-item">
+          <p class="question-text">"What grout do you recommend for the shower floor and why?"</p>
+          <p class="question-why">This question distinguishes contractors who think about long-term performance from ones who think about getting the job done. A contractor who recommends epoxy grout and explains why has thought about the shower in five years — not just the shower today.</p>
+        </div>
+
+        <div class="question-item">
+          <p class="question-text">"When do you schedule the glass measurement?"</p>
+          <p class="question-why">If the contractor doesn't know that glass is measured after grout — not before, not during — they haven't managed enough bathroom renovations. This sequence is fundamental.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REMI CTA -->
+<section class="section-cream" id="remi">
+  <div class="section-inner fade-up">
+    <div class="remi-cta">
+      <h2>Before you call anyone —<br><em>talk to Remi.</em></h2>
+      <p>A bathroom renovation is one of the most personal projects a homeowner undertakes — and one of the most technical. The decisions that determine whether it lasts 20 years or fails in 5 are made in the planning phase, before demo, before tile is purchased, before a contract is signed. Remi captures your specific bathroom project in 15 minutes and gives you a personalized First Look that maps your decisions, names your risks, and tells you what to watch for.</p>
+      <a href="https://remodelry.guide/remi" target="_blank" class="btn-primary">Talk to Remi — It's Free</a>
+      <p class="remi-cta-note">No contractor · No sales pitch · Nobody calling you afterward</p>
+    </div>
+
+    <div style="margin-top:48px;padding-top:48px;border-top:1px solid var(--border);text-align:center;">
+      <span class="section-label" style="display:block;text-align:center;">Continue Reading</span>
+      <h3 style="margin-bottom:24px;">More guides from remodel.guide</h3>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+        <a href="/kitchen" class="btn-ghost">Kitchen Remodel →</a>
+        <a href="/basement" class="btn-ghost">Basement Finishing →</a>
+        <a href="/demo" class="btn-ghost">Living Through a Renovation →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="../assets/images/remodel-guide-logo.png" alt="remodel.guide">
+      <p class="footer-tagline">The Homeowner Protection Guide<br>for Residential Remodeling.<br><br>A free resource from <a href="https://remodelry.guide" target="_blank">Remodelry</a> —<br>Northeast Ohio's remodeling concierge service.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <span class="footer-col-title">The Guides</span>
+        <ul>
+          <li><a href="/kitchen">Kitchen Remodel</a></li>
+          <li><a href="/bathroom">Bathroom Renovation</a></li>
+          <li><a href="/basement">Basement Finishing</a></li>
+          <li><a href="/addition">Home Addition</a></li>
+          <li><a href="/flooring">Flooring</a></li>
+          <li><a href="/windows">Window Replacement</a></li>
+          <li><a href="/siding">Siding</a></li>
+          <li><a href="/painting">Interior Painting</a></li>
+          <li><a href="/millwork">Millwork & Built-Ins</a></li>
+          <li><a href="/demo">Living Through a Renovation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <span class="footer-col-title">Remodelry</span>
+        <ul>
+          <li><a href="https://remodelry.guide" target="_blank">remodelry.guide</a></li>
+          <li><a href="https://remodelry.guide/remi" target="_blank">Talk to Remi — Free</a></li>
+          <li><a href="https://remodelry.guide/concierge" target="_blank">The Concierge</a></li>
+          <li><a href="https://remodelry.guide/after-clarity" target="_blank">After Clarity</a></li>
+          <li><a href="https://remodelry.guide/pillars" target="_blank">10 Pillars</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 remodel.guide · All rights reserved.</span>
+    <span class="footer-remodelry">A <a href="https://remodelry.guide" target="_blank">Remodelry</a> resource · Serving Northeast Ohio</span>
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script>
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-up').forEach(function(el) { observer.observe(el); });
+
+  var hamburger = document.getElementById('hamburger');
+  var mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', function() {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  function closeMobile() {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  }
+</script>
+
+</body>
+</html>
