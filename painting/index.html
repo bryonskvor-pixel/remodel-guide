@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interior and Exterior Painting Guide — remodel.guide</title>
+  <meta name="description" content="The complete homeowner protection guide for interior and exterior painting. Prep expectations, primer vs paint-and-primer-in-one, sheen selection, cabinet painting, exterior surfaces, and what separates a paint job that lasts from one that fails in two years." />
+  <meta name="keywords" content="interior painting guide, exterior painting prep, paint sheen guide, primer vs paint, cabinet painting, Northeast Ohio painting contractor, painting expectations" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Painting Guide — The Complete Homeowner Protection Guide" />
+  <meta property="og:description" content="Painting is about expectations. How much prep do you want? Will the cracks come back? Paint and primer in one vs actual primer. What separates a job that lasts from one that fails in two years." />
+  <meta property="og:url" content="https://remodel.guide/painting" />
+  <meta property="og:type" content="article" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <style>
+    /* Sheen comparison table */
+    .sheen-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 32px 0;
+      font-size: 13px;
+    }
+
+    .sheen-table th {
+      background: var(--deep);
+      color: rgba(255,255,255,0.8);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 14px 16px;
+      text-align: left;
+      border: none;
+    }
+
+    .sheen-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.6;
+      color: var(--slate);
+      font-weight: 300;
+    }
+
+    .sheen-table tr:last-child td { border-bottom: none; }
+    .sheen-table tr:nth-child(even) td { background: var(--cream); }
+
+    .sheen-name {
+      font-weight: 500;
+      color: var(--deep);
+      white-space: nowrap;
+    }
+
+    .sheen-rec {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 3px;
+      white-space: nowrap;
+    }
+
+    .sheen-rec.yes {
+      background: rgba(181,144,74,0.15);
+      color: var(--brass);
+    }
+
+    .sheen-rec.caution {
+      background: rgba(196,118,42,0.1);
+      color: var(--warning);
+    }
+
+    .sheen-rec.no {
+      background: rgba(166,59,42,0.1);
+      color: #A63B2A;
+    }
+
+    /* Exterior section */
+    .exterior-section {
+      background: var(--deep);
+      padding: 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .exterior-section::before {
+      content: '';
+      position: absolute;
+      top: -200px; right: -200px;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(181,144,74,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .exterior-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .exterior-section .section-label { color: var(--brass-light); }
+    .exterior-section h2 { color: var(--white); }
+    .exterior-section h2 em { color: var(--brass-light); }
+    .exterior-section p { color: rgba(255,255,255,0.65); }
+    .exterior-section h3 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 12px;
+      margin-top: 36px;
+    }
+    .exterior-section strong { color: rgba(255,255,255,0.9); }
+
+    .exterior-hook {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(20px, 2.5vw, 28px);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--brass-light);
+      line-height: 1.45;
+      padding: 24px 0 24px 24px;
+      border-left: 3px solid rgba(181,144,74,0.3);
+      margin: 32px 0;
+    }
+
+    .surface-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      margin: 32px 0;
+    }
+
+    .surface-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 0;
+      padding: 24px 28px;
+    }
+
+    .surface-card h4 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--brass-light);
+      margin-bottom: 10px;
+    }
+
+    .surface-card p {
+      font-size: 13px;
+      line-height: 1.75;
+      margin-bottom: 0;
+    }
+
+    .exterior-flag {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: rgba(196,118,42,0.1);
+      border-left: 3px solid var(--warning);
+      border-radius: 0 8px 8px 0;
+      padding: 16px 18px;
+      margin: 20px 0;
+    }
+
+    .exterior-flag p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 0;
+    }
+
+    .exterior-flag strong { color: var(--warning) !important; }
+
+    @media (max-width: 900px) {
+      .exterior-section { padding: 56px 24px; }
+      .surface-cards { grid-template-columns: 1fr; }
+      .sheen-table { font-size: 12px; }
+      .sheen-table th,
+      .sheen-table td { padding: 10px 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">
+    <img src="../assets/images/remodel-guide-logo.png" alt="remodel.guide">
+  </a>
+  <ul class="nav-links">
+    <li><a href="/kitchen">Kitchen</a></li>
+    <li><a href="/bathroom">Bathroom</a></li>
+    <li><a href="/flooring">Flooring</a></li>
+    <li><a href="/painting" style="color:var(--brass);">Painting</a></li>
+    <li><a href="/demo">Living Through It</a></li>
+    <li><a href="https://remodelry.guide/remi" target="_blank" class="nav-cta">Talk to Remi — Free</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/" onclick="closeMobile()">← All Guides</a>
+    <a href="/kitchen" onclick="closeMobile()">Kitchen Remodel</a>
+    <a href="/bathroom" onclick="closeMobile()">Bathroom Renovation</a>
+    <a href="/basement" onclick="closeMobile()">Basement Finishing</a>
+    <a href="/addition" onclick="closeMobile()">Home Addition</a>
+    <a href="/flooring" onclick="closeMobile()">Flooring</a>
+    <a href="/windows" onclick="closeMobile()">Windows</a>
+    <a href="/siding" onclick="closeMobile()">Siding</a>
+    <a href="/painting" onclick="closeMobile()">Interior & Exterior Painting</a>
+    <a href="/millwork" onclick="closeMobile()">Millwork & Built-Ins</a>
+    <a href="/demo" onclick="closeMobile()">Living Through a Renovation</a>
+    <a href="https://remodelry.guide/remi" target="_blank" class="mobile-cta">Talk to Remi — It's Free</a>
+  </div>
+</nav>
+
+<!-- COMPANION BANNER -->
+<div class="companion-banner">
+  <p>A free resource from <a href="https://remodelry.guide" target="_blank">Remodelry</a> — Northeast Ohio's remodeling concierge service.</p>
+</div>
+
+<!-- PAGE HEADER -->
+<section class="page-header">
+  <div class="page-header-inner fade-up">
+    <div class="breadcrumb">
+      <a href="/">remodel.guide</a>
+      <span class="breadcrumb-sep">→</span>
+      <span class="breadcrumb-current">Interior & Exterior Painting</span>
+    </div>
+    <h1>The Painting<br><em>Guide</em></h1>
+    <p class="page-header-body">Painting is the project most homeowners think they understand — and the one where expectations cause the most friction. How smooth do you want the walls? Will the cracks come back? Is paint-and-primer-in-one actually primer? What sheen belongs where? This guide sets the expectations that should be set before anyone picks up a brush.</p>
+    <div class="page-header-meta">
+      <span class="meta-tag">Interior and exterior covered</span>
+      <span class="meta-tag">Prep expectations</span>
+      <span class="meta-tag">Sheen guide</span>
+      <span class="meta-tag">What lasts vs what fails</span>
+    </div>
+  </div>
+</section>
+
+<!-- HERO IMAGE -->
+<div style="background:var(--deep);padding:0 80px 0;line-height:0;">
+  <img src="../assets/images/painting-hero.jpg"
+       alt="Interior painting in progress — walls prepped, trim masked, professional application"
+       class="guide-image"
+       style="margin:0;border-radius:0;max-height:480px;object-fit:cover;width:100%;"
+       onerror="this.style.display='none'">
+</div>
+
+<!-- MAIN CONTENT -->
+<section class="section-white">
+  <div class="section-inner">
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="toc fade-up">
+      <span class="toc-title">What this guide covers</span>
+      <ul class="toc-list">
+        <li><a href="#expectations">Painting is about expectations — set them before signing</a></li>
+        <li><a href="#prep">Prep — what separates a paint job that lasts from one that fails</a></li>
+        <li><a href="#primer">Primer vs paint-and-primer-in-one — the honest difference</a></li>
+        <li><a href="#sheen">Sheen — the decision with the most wrong answers</a></li>
+        <li><a href="#coats">Coats, quality, and what you're actually buying</a></li>
+        <li><a href="#cabinets">Cabinet painting — a completely different discipline</a></li>
+        <li><a href="#doors">Doors — the detail that exposes quality immediately</a></li>
+        <li><a href="#inspection">Inspection — what to look for before final payment</a></li>
+        <li><a href="#exterior">Exterior painting — prep is 80% of the job</a></li>
+        <li><a href="#questions">Questions to ask every painter</a></li>
+        <li><a href="#remi">Before you call anyone — talk to Remi</a></li>
+      </ul>
+    </div>
+
+    <!-- EXPECTATIONS -->
+    <div class="guide-content fade-up" id="expectations">
+
+      <h2>Painting is about expectations — set them before signing</h2>
+
+      <div class="hook-quote">"Most painting disputes aren't about the paint. They're about what the homeowner expected and what the painter understood they were hired to do. These are almost never the same thing — unless they were discussed specifically before the project started."</div>
+
+      <p>A painting bid is one of the least standardized documents in residential construction. Two painters can bid the same job, use the same paint, and deliver vastly different results — because one bid included full prep and the other didn't. One painter skims walls smooth before painting. The other rolls over every imperfection and considers the job done.</p>
+
+      <p>The homeowner who sets expectations specifically before signing gets the job they imagined. The homeowner who assumes the painter knows what "a good paint job" means discovers on inspection day that they had different definitions.</p>
+
+      <p>Here is what needs to be discussed — and agreed — before any painter starts.</p>
+
+      <div class="flag-list">
+        <div class="flag-item" style="border-color:var(--brass);background:rgba(181,144,74,0.06);">
+          <div class="flag-icon">✓</div>
+          <div class="flag-content">
+            <h4 style="color:var(--brass);">The smoothness question — ask it directly</h4>
+            <p>"How smooth will the walls be when this job is complete?" The answer reveals the level of prep the painter is planning. A painter who says "as smooth as the existing walls" is not planning to skim coat. A painter who says "we'll skim any rough areas before painting" is. These are fundamentally different jobs at fundamentally different price points. Know which one is being quoted.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3>The wall smoothness reality</h3>
+
+      <p>Most residential walls were mudded and sanded at the time of construction — and the quality of that original work varies significantly. Original drywall finishing in a home built quickly will show tool marks, tape ridges, and texture variation under raking light. Previous patch work compounds these imperfections with new ones. Paint does not hide surface imperfections. In many cases, paint with a slight sheen makes them more visible.</p>
+
+      <p>Getting walls smooth — truly smooth, flat, day-one smooth — requires skim coating: applying a thin layer of joint compound over the entire wall surface, sanding it flat, and repeating until the wall is consistent. This is labor-intensive and adds significant cost. It also produces results that are visibly different from a rolled-over-existing-surface paint job.</p>
+
+      <p>Most homeowners do not need skim-coated walls. But homeowners who want them need to ask for them specifically — and understand the cost difference before it becomes a conversation after the fact.</p>
+
+      <h3>Cracks — will they come back?</h3>
+
+      <p>Almost certainly, yes. A crack in a painted wall is almost always a crack in the drywall compound or at a joint — caused by seasonal movement, settling, or vibration. Filling the crack with spackling and painting over it addresses the appearance. It does not address the movement that caused it. If the movement continues — and in most homes it does, seasonally — the crack returns.</p>
+
+      <p>A painter who tells a homeowner that filled cracks will not return is either inexperienced or overpromising. The honest answer is: we will fill them, they may come back, and if they do it is a maintenance item, not a warranty claim. Set this expectation before the project starts. It prevents a difficult conversation later.</p>
+
+    </div>
+
+    <!-- PREP -->
+    <div class="guide-content fade-up" id="prep">
+
+      <h2>Prep — what separates a paint job that lasts from one that fails</h2>
+
+      <div class="hook-quote">"A painter who skips prep is borrowing time from the future of the paint job. The failure shows up later — but it traces back to the beginning."</div>
+
+      <p>Prep is the least visible and most important part of any paint job. The time a painter spends preparing surfaces before applying any paint determines how the finished job looks and how long it lasts. Here is what proper prep actually includes — so a homeowner can ask about it specifically and recognize when it is being skipped.</p>
+
+      <h3>Cleaning surfaces before painting</h3>
+
+      <p>Paint does not bond to dirty surfaces. Kitchen walls accumulate grease and airborne cooking residue. Bathroom walls accumulate soap film and mineral deposits. Any previously painted surface in a home with smokers has a residue layer that must be removed before painting. Painting over any of these surfaces without cleaning first produces adhesion failures — paint that peels, bubbles, or refuses to cover evenly.</p>
+
+      <p>Kitchen and bathroom surfaces should be washed with a degreasing cleaner before any prep or paint begins. A painter who starts rolling without cleaning kitchen or bathroom walls has not thought about adhesion.</p>
+
+      <h3>Patching and filling — the level determines the result</h3>
+
+      <p>Nail holes, dings, small cracks, and surface damage all need to be filled before painting. The quality of this fill work determines the smoothness of the finished surface. Shallow fill that is not sanded flush leaves a visible hump. Deep fill that shrinks on drying leaves a depression. Proper patching involves filling, allowing to dry fully, sanding flush, and in many cases applying a second fill coat to compensate for shrinkage.</p>
+
+      <p>Ask specifically: how are patches handled and is sanding included? A painter who doesn't sand patches is painting over lumps.</p>
+
+      <h3>Caulking — every joint, every gap</h3>
+
+      <p>Every joint where trim meets wall, where wall meets ceiling, where casing meets the wall surface — these joints open over time through seasonal movement. Painting over open joints produces a line of shadow that breaks up the painted surface. Caulking these joints before painting fills them and creates a seamless surface that holds the paint edge cleanly.</p>
+
+      <p>Caulking is one of the details that distinguishes a professional paint job from an amateur one — and one of the prep steps most commonly skipped on lower-bid jobs. Ask specifically whether caulking is included in the scope.</p>
+
+      <h3>Sanding between coats</h3>
+
+      <p>A quality paint job includes light sanding between coats — particularly on trim, doors, and any surface that will receive a semi-gloss or satin finish. Sanding between coats removes dust nibs, brush marks, and surface irregularities that would telegraph through the final coat. On walls, it is not always necessary. On trim and doors, it is the mark of a professional who cares about the finished surface.</p>
+
+      <p>Ask whether the painter sands between coats on trim. The answer reveals something about their process.</p>
+
+      <img src="../assets/images/painting-prep.jpg"
+           alt="Painting prep — surfaces masked, gaps caulked, trim taped before first coat"
+           class="guide-image"
+           onerror="this.style.display='none'">
+
+    </div>
+
+    <!-- PRIMER -->
+    <div class="guide-content fade-up" id="primer">
+
+      <h2>Primer vs paint-and-primer-in-one — the honest difference</h2>
+
+      <p>Paint-and-primer-in-one is one of the most successful marketing terms in the paint industry. It is also one of the most misunderstood. Here is what the distinction actually means — and when it matters.</p>
+
+      <h3>What paint-and-primer-in-one actually is</h3>
+
+      <p>Paint-and-primer-in-one is a thicker, higher-solids paint formulation that covers well and bonds adequately to surfaces that are already painted and in similar condition to the new color. It performs well for maintenance repainting — touching up or refreshing walls that are already sealed and in good condition.</p>
+
+      <p>It is not a true primer. It does not seal porous surfaces the way primer does. It does not block stains the way primer does. It does not equalize the absorption difference between fresh drywall compound and the surrounding painted wall. For the situations where primer matters most, paint-and-primer-in-one is not a substitute.</p>
+
+      <h3>When true primer is non-negotiable</h3>
+
+      <div class="flag-list">
+
+        <div class="flag-item">
+          <div class="flag-icon">⚠️</div>
+          <div class="flag-content">
+            <h4>Fresh drywall and new patches</h4>
+            <p>Fresh drywall compound absorbs paint differently than the surrounding painted surface — it drinks the first coat and appears flat and dull compared to the rest of the wall. A true primer applied to fresh mud equalizes absorption so the finish coat goes on consistently. Paint-and-primer-in-one over fresh drywall patches produces visible flash — the patch shows through the finish coat as a dull spot regardless of how many finish coats are applied.</p>
+          </div>
+        </div>
+
+        <div class="flag-item">
+          <div class="flag-icon">⚠️</div>
+          <div class="flag-content">
+            <h4>Water stains and bleed-through</h4>
+            <p>A water stain painted over without stain-blocking primer will bleed through every coat of finish paint applied over it. The tannins and minerals in the stain migrate through standard paint regardless of how many coats are applied. Stain-blocking primer — shellac-based for severe stains, water-based for lighter ones — seals the stain before finish paint goes on. This is a step that cannot be skipped and cannot be corrected after the fact without stripping down to the stain.</p>
+          </div>
+        </div>
+
+        <div class="flag-item">
+          <div class="flag-icon">⚠️</div>
+          <div class="flag-content">
+            <h4>Dramatic color changes</h4>
+            <p>Going from a deep, saturated color to a light neutral — or from a warm color to a cool one — requires a tinted primer matched to the finish color. A painter who puts two coats of white paint over a dark red wall without priming first will be back for a third and fourth coat before coverage is adequate. A tinted primer reduces the number of finish coats required and produces a more consistent final color.</p>
+          </div>
+        </div>
+
+        <div class="flag-item">
+          <div class="flag-icon">⚠️</div>
+          <div class="flag-content">
+            <h4>Bare wood and new trim</h4>
+            <p>Bare wood — new trim, new doors, repaired wood surfaces — requires primer before finish paint. Wood is porous and absorbs paint unevenly. Primer seals the grain and creates a consistent surface for the finish coat. A painter who applies finish paint directly to bare wood without priming will see grain telegraphing through the finish and uneven sheen across the surface.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- SHEEN SECTION -->
+<section class="section-cream" id="sheen">
+  <div class="section-inner fade-up">
+    <span class="section-label">Sheen Selection</span>
+    <h2>The decision with the most<br><em>wrong answers in residential painting.</em></h2>
+    <p style="margin-top:16px;margin-bottom:32px;">Sheen is the reflectivity of the dried paint surface. It affects how the room feels, how imperfections read, and how the surface cleans. Most homeowners choose sheen by preference. Here is how to choose it by function — then let preference operate within that.</p>
+
+    <div class="guide-content">
+
+      <table class="sheen-table">
+        <thead>
+          <tr>
+            <th>Sheen</th>
+            <th>Reflectivity</th>
+            <th>Best Application</th>
+            <th>Cleanability</th>
+            <th>Imperfection Visibility</th>
+            <th>Residential Rec</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="sheen-name">Flat / Matte</span></td>
+            <td>None</td>
+            <td>Ceilings. Formal rooms with minimal traffic. Feature walls.</td>
+            <td>Low — marks wipe but surface can burnish</td>
+            <td>Lowest — hides imperfections best</td>
+            <td><span class="sheen-rec yes">Ceilings always</span></td>
+          </tr>
+          <tr>
+            <td><span class="sheen-name">Eggshell</span></td>
+            <td>Low</td>
+            <td>Living rooms, bedrooms, dining rooms, most wall surfaces</td>
+            <td>Good — wipes clean without sheen damage</td>
+            <td>Low — minor imperfections largely hidden</td>
+            <td><span class="sheen-rec yes">Most walls — right answer</span></td>
+          </tr>
+          <tr>
+            <td><span class="sheen-name">Satin</span></td>
+            <td>Medium</td>
+            <td>Trim, doors, hallways, kitchens, bathrooms, kids rooms</td>
+            <td>Very good — stands up to frequent cleaning</td>
+            <td>Moderate — surface prep matters more</td>
+            <td><span class="sheen-rec yes">Trim standard · Walls in high-traffic areas</span></td>
+          </tr>
+          <tr>
+            <td><span class="sheen-name">Semi-Gloss</span></td>
+            <td>High</td>
+            <td>Trim in moisture-heavy spaces. Doors. Kitchen cabinets.</td>
+            <td>Excellent — most washable finish</td>
+            <td>High — every imperfection is visible</td>
+            <td><span class="sheen-rec caution">Trim in kitchens and baths only</span></td>
+          </tr>
+          <tr>
+            <td><span class="sheen-name">Gloss</span></td>
+            <td>Very High</td>
+            <td>Exterior trim. Furniture. Specialty accent applications.</td>
+            <td>Excellent</td>
+            <td>Very high — flawless prep required</td>
+            <td><span class="sheen-rec no">Not for residential walls</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="flag-list">
+        <div class="flag-item">
+          <div class="flag-icon">⚠️</div>
+          <div class="flag-content">
+            <h4>Semi-gloss on walls — almost never right</h4>
+            <p>Semi-gloss on residential walls is one of the most common sheen mistakes. It makes every imperfection, every roller mark, every joint ridge visible under any angle of light. It feels institutional. Unless a specific design effect is being created intentionally by someone who understands the result — eggshell or satin is the right answer for walls. Always.</p>
+          </div>
+        </div>
+        <div class="flag-item">
+          <div class="flag-icon">⚠️</div>
+          <div class="flag-content">
+            <h4>Flat on walls where cleaning matters</h4>
+            <p>Flat paint is beautiful. It hides imperfections better than any other sheen and produces a soft, sophisticated look that higher-sheen paints cannot replicate. It is also the hardest to keep clean — wiping a flat wall too aggressively produces burnish marks that are visible as shiny spots. For hallways, stairwells, mudrooms, and any surface that gets touched frequently — eggshell is the practical choice over flat.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3>Paint formulated for trim vs walls — not the same product</h3>
+
+      <p>Trim paint and wall paint are different formulations. Trim paint is harder, more durable, more resistant to scuffing and cleaning — because trim gets touched, bumped, and wiped far more than walls. It also levels better, meaning brush marks flow out and become less visible as the paint dries.</p>
+
+      <p>A painter who uses wall paint on trim is cutting a corner. The result looks similar initially — and shows wear faster. Confirm that trim paint is being used on trim. It is a separate product with a separate purpose.</p>
+
+    </div>
+  </div>
+</section>
+
+<!-- COATS AND QUALITY -->
+<section class="section-white" id="coats">
+  <div class="section-inner fade-up">
+    <span class="section-label">Coats and Paint Quality</span>
+    <h2>What you're actually buying<br><em>when you buy paint.</em></h2>
+
+    <div class="guide-content">
+
+      <h3>How many coats — and what counts as a coat</h3>
+
+      <p>Two coats of finish paint over a properly primed surface is the standard for a quality interior paint job. One coat over a color change is not adequate. Three coats over a properly prepared surface are rarely necessary.</p>
+
+      <p>What matters as much as the number of coats is the dry time between them. Paint that is recoated before it has fully dried traps moisture and produces adhesion failures. Most quality interior paints specify a minimum of two to four hours between coats under normal temperature and humidity conditions. A painter who applies a second coat the same morning as the first may not be allowing adequate dry time.</p>
+
+      <h3>Paint quality — where it matters most</h3>
+
+      <p>Paint quality is expressed in coverage, durability, and color retention over time. The price difference between a budget paint and a quality paint — Benjamin Moore, Sherwin-Williams at the upper tier, PPG Timeless — is meaningful but not prohibitive. The labor cost of a paint job dwarfs the material cost. Saving $30 on cheaper paint to apply over $1,500 of labor is a poor trade.</p>
+
+      <p>Quality paint covers better — meaning fewer coats to achieve full coverage. It holds color longer — meaning the finish looks the same in year five as it did in year one. It cleans better — the higher solids content produces a harder, more washable film.</p>
+
+      <p>For interior walls — specify quality paint by brand and product line in the bid. For exterior — paint quality is even more critical. More on that below.</p>
+
+    </div>
+  </div>
+</section>
+
+<!-- CABINET PAINTING -->
+<section class="section-cream" id="cabinets">
+  <div class="section-inner fade-up">
+    <span class="section-label">Cabinet Painting</span>
+    <h2>A completely different discipline.<br><em>Find someone who does it exclusively.</em></h2>
+
+    <div class="guide-content">
+
+      <div class="hook-quote">"Cabinet painting is not painting. It is finishing — and it requires a completely different skill set, process, and material specification than wall and trim painting. It should only be done by someone who has done it many times."</div>
+
+      <p>Painted cabinets done well are beautiful and durable. Painted cabinets done by a general painter who doesn't specialize in the process are one of the most common and most expensive painting regrets in residential renovation.</p>
+
+      <p>The variables in cabinet painting — surface preparation, product selection, application method, dry time management, door hanging sequence, hardware reinstallation — are numerous enough that the process cannot be improvised by someone who hasn't done it repeatedly. Brush marks on cabinet doors. Finish that chips within a year. Doors that stick to frames because the painter didn't manage film thickness. These are the results of a general painter taking on a specialist's job.</p>
+
+      <p><strong>When considering cabinet painting:</strong></p>
+      <p>Ask specifically how many cabinet painting projects the painter has completed in the last 12 months. Ask to see finished examples in person — not photos. Ask what product they use and why. Ask about their process for removing doors, how they handle hinges and hardware, and how they manage the dry time between coats.</p>
+
+      <p>A painter who answers all of these questions specifically and confidently has done this before. A painter who gives general answers about their painting process is a general painter — and cabinet painting deserves a specialist.</p>
+
+      <div class="flag-list">
+        <div class="flag-item">
+          <div class="flag-icon">⚠️</div>
+          <div class="flag-content">
+            <h4>Cabinet painting is a major investment — treat it that way</h4>
+            <p>Cabinet painting typically costs $1,500 to $5,000 or more depending on the kitchen size and condition. At that price point, the painter's experience with cabinets specifically is not a minor qualification. It is the primary qualification. Do not hire a general painter for cabinet work based on their wall and trim portfolio alone.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- DOORS -->
+<section class="section-white" id="doors">
+  <div class="section-inner fade-up">
+    <span class="section-label">Doors</span>
+    <h2>The detail that exposes<br><em>quality immediately.</em></h2>
+
+    <div class="guide-content">
+
+      <p>Interior doors are one of the most visible surfaces in any paint job and one of the most frequently done poorly. Brush marks on door panels, lap marks at the stile and rail intersections, uneven sheen from inconsistent application — these are all visible at arm's length and examined daily by everyone who uses the door.</p>
+
+      <h3>The sequence for painting panel doors</h3>
+
+      <p>Panel doors have a specific painting sequence that professional painters follow to prevent lap marks and ensure consistent coverage. Panels first — the recessed areas. Then rails — the horizontal members. Then stiles — the vertical members. Then the door edges. This sequence ensures that each section is painted into wet paint rather than onto a drying edge — which is what produces the visible lap marks that characterize a rushed door paint job.</p>
+
+      <p>Ask whether the painter follows a panel door sequence. A specific answer — panels, rails, stiles — indicates someone who has thought about doors. A blank look indicates someone who rolls or brushes doors without a system.</p>
+
+      <h3>Removing doors vs painting in place</h3>
+
+      <p>Doors painted in place while hung are susceptible to drips at the bottom edge and inconsistent coverage on the door face from brush drag against gravity. Doors removed from their hinges and painted flat — either on sawhorses or on a spray table — produce a significantly better result. For a paint job where doors matter — and they always do — confirm whether doors will be painted in place or removed.</p>
+
+    </div>
+  </div>
+</section>
+
+<!-- INSPECTION -->
+<section class="section-cream" id="inspection">
+  <div class="section-inner fade-up">
+    <span class="section-label">Inspection</span>
+    <h2>What to look for<br><em>before final payment.</em></h2>
+
+    <div class="guide-content">
+
+      <p>A paint job inspection should happen in daylight, with the inspector moving around the room and looking at surfaces from multiple angles — including raking light from windows and doorways. Overhead artificial light is the most forgiving viewing condition for painted surfaces. It hides the imperfections that raking light from a window reveals.</p>
+
+      <div class="prep-checklist" style="display:flex;flex-direction:column;gap:0;margin:24px 0;">
+
+        <div class="flag-item" style="border-color:var(--brass);background:rgba(181,144,74,0.06);margin-bottom:8px;">
+          <div class="flag-icon">✓</div>
+          <div class="flag-content">
+            <h4 style="color:var(--brass);">Paint on trim — unacceptable</h4>
+            <p>Wall paint on trim, trim paint on walls, any paint on hardware, switch plates, or outlet covers — these are cleanup items that should be addressed before a job is called complete. Walk trim lines carefully. Look at outlet covers. Check switch plates. Paint on hardware means the painter didn't remove it before painting — or didn't protect it adequately.</p>
+          </div>
+        </div>
+
+        <div class="flag-item" style="border-color:var(--brass);background:rgba(181,144,74,0.06);margin-bottom:8px;">
+          <div class="flag-icon">✓</div>
+          <div class="flag-content">
+            <h4 style="color:var(--brass);">Splatters and drips — document before paying</h4>
+            <p>Paint splatters on floors, on hardware, on glass — these are cleanup items. Walk the perimeter of every painted space looking at floors, windows, and hardware before signing off. Splatters that are missed during the walk-through become the homeowner's problem after payment.</p>
+          </div>
+        </div>
+
+        <div class="flag-item" style="border-color:var(--brass);background:rgba(181,144,74,0.06);margin-bottom:8px;">
+          <div class="flag-icon">✓</div>
+          <div class="flag-content">
+            <h4 style="color:var(--brass);">Cut lines — straight and consistent</h4>
+            <p>The line where wall paint meets ceiling paint, where wall paint meets trim paint, where two wall colors meet — these cut lines should be straight, consistent, and crisp. Wavy cut lines are visible from across the room and are a mark of a painter who doesn't take their time at edges. Walk every cut line before signing off.</p>
+          </div>
+        </div>
+
+        <div class="flag-item" style="border-color:var(--brass);background:rgba(181,144,74,0.06);">
+          <div class="flag-icon">✓</div>
+          <div class="flag-content">
+            <h4 style="color:var(--brass);">Coverage — no holidays</h4>
+            <p>"Holidays" are missed spots — areas where the surface shows through the finish coat. They are most common at ceiling corners, inside door casings, and behind door stops where a roller can't reach. Look specifically at corners and transitions where two surfaces meet. Holidays are most visible under raking light.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXTERIOR PAINTING — dark section -->
+<section class="exterior-section" id="exterior">
+  <div class="exterior-inner fade-up">
+
+    <span class="section-label">Exterior Painting</span>
+    <h2>Prep is 80% of<br><em>every exterior paint job.</em></h2>
+
+    <div class="exterior-hook">"Paint applied over a failing surface fails at the same rate as the surface beneath it. The paint is only as good as what it's bonded to — and what it's bonded to is only as good as how well it was prepared."</div>
+
+    <p>Exterior painting is fundamentally different from interior painting — because the paint is exposed to UV radiation, freeze-thaw cycles, moisture, and biological growth that interior paint never faces. The quality of prep and the quality of paint determine whether an exterior paint job lasts three years or ten.</p>
+
+    <h3>Prep — what it actually includes</h3>
+
+    <p><strong>Power washing</strong> removes dirt, mildew, loose paint, and chalking from the existing surface. It should be done before any scraping or sanding and allowed to dry completely — typically 24 to 48 hours — before any further prep or painting begins. A painter who starts prep the same day they power washed is painting over a wet surface.</p>
+
+    <p><strong>Scraping and sanding</strong> removes all loose, peeling, or failing paint back to a sound surface. This is the most labor-intensive part of exterior prep and the step most commonly minimized on lower-bid jobs. Paint applied over loose or peeling paint will peel at the same rate as the paint below it — usually faster because the new coat adds weight to an already-failing bond.</p>
+
+    <p><strong>Priming bare wood</strong> is required wherever scraping has removed paint back to raw wood. Exterior primer penetrates wood fiber and creates the bond that top coat paint cannot create on its own. A painter who applies finish coat directly over bare wood without priming is reducing the life of the paint job significantly.</p>
+
+    <p><strong>Caulking</strong> all joints — where trim meets siding, where windows meet trim, where different surfaces meet — before painting seals the envelope against water infiltration and prevents the paint edge from lifting at joints. Caulking after painting is less effective because the paint film needs to bridge the caulk. Caulk first, paint second.</p>
+
+    <div class="exterior-flag">
+      <span style="font-size:18px;flex-shrink:0;">⚠️</span>
+      <p><strong>Ask specifically what the prep process includes — before signing.</strong> A detailed answer that covers power washing, dry time, scraping, sanding, priming bare wood, and caulking indicates a painter who thinks about the life of the paint job. A vague answer about "prepping the surface" does not.</p>
+    </div>
+
+    <h3>Paint quality — the last place to save money on an exterior</h3>
+
+    <p>The labor cost of an exterior paint job significantly exceeds the material cost. A quality exterior paint — Sherwin-Williams Emerald Exterior, Benjamin Moore Aura Exterior, comparable premium products — costs more per gallon than builder-grade paint. It also lasts significantly longer, maintains color better, and resists mildew and chalking for more years before a repaint is needed.</p>
+
+    <p>Saving money on exterior paint quality is saving money on the shortest-lived part of the investment. A quality paint job on a prepared surface with quality materials lasts 8 to 12 years. The same job with budget paint lasts 4 to 6 years. The labor cost to repaint is the same either way. The math favors quality paint every time.</p>
+
+    <h3>Surface type determines the paint system — not just the paint color</h3>
+
+    <div class="surface-cards">
+
+      <div class="surface-card">
+        <h4>Wood siding and trim</h4>
+        <p>Oil-based primer on bare wood before water-based top coat — or a high-quality water-based primer with documented adhesion to bare wood. Wood is the most demanding exterior substrate and the one where primer selection matters most. Painting bare wood without an appropriate primer is the most common cause of early exterior paint failure.</p>
+      </div>
+
+      <div class="surface-card">
+        <h4>Fiber cement (HardiePlank and similar)</h4>
+        <p>Fiber cement is primed at the factory but the factory prime is not a finish paint system. It requires a quality acrylic top coat. Joints between fiber cement panels and at trim connections require paintable caulk — not silicone — before painting. Fiber cement holds paint well when properly prepared and painted with quality products.</p>
+      </div>
+
+      <div class="surface-card">
+        <h4>Vinyl siding</h4>
+        <p>Vinyl can be painted — but the paint must be formulated for flexibility and UV resistance on vinyl. Standard exterior paint applied to vinyl can crack and peel as the vinyl expands and contracts seasonally. Confirm that the painter is using a vinyl-appropriate paint product. And confirm the existing vinyl is clean and free of chalking before any paint is applied.</p>
+      </div>
+
+      <div class="surface-card">
+        <h4>Masonry (brick, block, stucco)</h4>
+        <p>Masonry requires a masonry-specific primer and paint system — not standard exterior paint. Masonry is porous and alkaline, and standard paint applied without the right primer will fail through efflorescence and alkali attack. For previously painted masonry, confirm the existing paint is sound before applying new paint over it.</p>
+      </div>
+
+    </div>
+
+    <h3>Exterior inspection — before the painter leaves</h3>
+
+    <p>Walk the entire exterior with the painter before final payment. Look at every surface from multiple angles. Look at every joint and caulk line. Look at every window surround and door casing. Look at the ground and any hardscape below the work area for overspray and drips. Exterior paint overspray on concrete, brick, or landscaping is difficult to remove and should be addressed before the painter demobilizes.</p>
+
+  </div>
+</section>
+
+<!-- QUESTIONS -->
+<section class="section-white" id="questions">
+  <div class="section-inner fade-up">
+    <span class="section-label">Questions to Ask Every Painter</span>
+    <h2>The questions that set expectations<br><em>before the brush hits the wall.</em></h2>
+
+    <div class="guide-content">
+      <div class="questions-list">
+
+        <div class="question-item">
+          <p class="question-text">"What prep is included in this bid — specifically?"</p>
+          <p class="question-why">The answer should name specific prep steps: cleaning, patching, sanding, caulking, priming. A vague answer about "prepping the surfaces" is not a prep plan. The level of prep determines the quality and longevity of the finished job.</p>
+        </div>
+
+        <div class="question-item">
+          <p class="question-text">"How smooth will the walls be when this job is complete?"</p>
+          <p class="question-why">This question surfaces the smoothness expectation gap before it becomes a post-project dispute. The answer should be specific — existing wall condition maintained, visible patches filled and sanded, or full skim coat for a truly flat result. Know which one is in the bid.</p>
+        </div>
+
+        <div class="question-item">
+          <p class="question-text">"Are you using a separate primer, or paint-and-primer-in-one?"</p>
+          <p class="question-why">For any job involving fresh drywall, patches, stains, or significant color changes — the answer should be separate primer. Confirm where and why primer is being used. A painter who can explain their primer decision understands what they're doing.</p>
+        </div>
+
+        <div class="question-item">
+          <p class="question-text">"What paint product are you using and what sheen on walls, trim, and ceilings?"</p>
+          <p class="question-why">Confirm the product by brand and line — not just "good quality paint." Confirm the sheen for each surface type. A painter who proposes semi-gloss on walls should be able to explain why — and in most residential situations, cannot.</p>
+        </div>
+
+        <div class="question-item">
+          <p class="question-text">"How many coats are included in this bid?"</p>
+          <p class="question-why">Two coats of finish over primer is standard. One coat is not a complete paint job. Three coats may be appropriate for specific situations. Know what is included before the project starts — not when the painter says they're done after one coat.</p>
+        </div>
+
+        <div class="question-item">
+          <p class="question-text">"For exterior — what is your dry time after power washing before you start prep?"</p>
+          <p class="question-why">The answer should be 24 to 48 hours minimum. A painter who power washes and starts scraping or painting the same day is working on a wet surface. Paint applied over wet wood fails early — and the failure traces back to this decision.</p>
+        </div>
+
+        <div class="question-item">
+          <p class="question-text">"Do you remove doors to paint them, or paint them in place?"</p>
+          <p class="question-why">Removing doors and painting them flat produces a better result than painting them hung. The answer reveals how much the painter cares about door quality specifically.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REMI CTA -->
+<section class="section-cream" id="remi">
+  <div class="section-inner fade-up">
+    <div class="remi-cta">
+      <h2>Before you call anyone —<br><em>talk to Remi.</em></h2>
+      <p>People need someone to talk to about their project before they need someone to sell them something. That's what Remodelry is. And it starts with Remi.</p>
+      <p style="margin-top:12px;">Remi is Remodelry's free AI intake companion — a 15-minute conversation that captures your specific painting project, your expectations, your surfaces, and what you need to know before anyone shows up. You'll receive a personalized First Look immediately after.</p>
+      <p style="margin-top:12px;">Then your Remodelry Concierge will be in touch within 24 hours. When they call, they'll already know your project. You won't start from scratch. You won't get a sales pitch. You'll get someone genuinely on your side before any painter shows up with a bid.</p>
+      <a href="https://remodelry.guide/remi" target="_blank" class="btn-primary" style="margin-top:8px;">Talk to Remi — It's Free</a>
+      <p class="remi-cta-note">Free · No obligation · Your Concierge calls within 24 hours, already knowing your project</p>
+    </div>
+
+    <div style="margin-top:48px;padding-top:48px;border-top:1px solid var(--border);text-align:center;">
+      <span class="section-label" style="display:block;text-align:center;">Continue Reading</span>
+      <h3 style="margin-bottom:24px;">More guides from remodel.guide</h3>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+        <a href="/flooring" class="btn-ghost">Flooring →</a>
+        <a href="/kitchen" class="btn-ghost">Kitchen Remodel →</a>
+        <a href="/demo" class="btn-ghost">Living Through a Renovation →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="../assets/images/remodel-guide-logo.png" alt="remodel.guide">
+      <p class="footer-tagline">The Homeowner Protection Guide<br>for Residential Remodeling.<br><br>A free resource from <a href="https://remodelry.guide" target="_blank">Remodelry</a> —<br>Northeast Ohio's remodeling concierge service.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <span class="footer-col-title">The Guides</span>
+        <ul>
+          <li><a href="/kitchen">Kitchen Remodel</a></li>
+          <li><a href="/bathroom">Bathroom Renovation</a></li>
+          <li><a href="/basement">Basement Finishing</a></li>
+          <li><a href="/addition">Home Addition</a></li>
+          <li><a href="/flooring">Flooring</a></li>
+          <li><a href="/windows">Window Replacement</a></li>
+          <li><a href="/siding">Siding</a></li>
+          <li><a href="/painting">Interior & Exterior Painting</a></li>
+          <li><a href="/millwork">Millwork & Built-Ins</a></li>
+          <li><a href="/demo">Living Through a Renovation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <span class="footer-col-title">Remodelry</span>
+        <ul>
+          <li><a href="https://remodelry.guide" target="_blank">remodelry.guide</a></li>
+          <li><a href="https://remodelry.guide/remi" target="_blank">Talk to Remi — Free</a></li>
+          <li><a href="https://remodelry.guide/concierge" target="_blank">The Concierge</a></li>
+          <li><a href="https://remodelry.guide/after-clarity" target="_blank">After Clarity</a>
+          </li>
+          <li><a href="https://remodelry.guide/pillars" target="_blank">10 Pillars</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 remodel.guide · All rights reserved.</span>
+    <span class="footer-remodelry">A <a href="https://remodelry.guide" target="_blank">Remodelry</a> resource · Serving Northeast Ohio</span>
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script>
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-up').forEach(function(el) { observer.observe(el); });
+
+  var hamburger = document.getElementById('hamburger');
+  var mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', function() {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  function closeMobile() {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  }
+</script>
+
+</body>
+</html>
