@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flooring Guide — remodel.guide</title>
+  <meta name="description" content="The complete homeowner protection guide for flooring. Subfloor prep, solid vs engineered hardwood, carpet padding, vinyl vs laminate, tile, pet considerations, and every decision nobody explains before installation day." />
+  <meta name="keywords" content="flooring guide, engineered hardwood vs solid, carpet padding, vinyl flooring, laminate flooring, flooring over concrete, pet flooring, Northeast Ohio flooring" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Flooring Guide — The Complete Homeowner Protection Guide" />
+  <meta property="og:description" content="Subfloor prep. Rotary peel vs slice faced engineered. Padding is half the carpet. What waterproof vinyl actually means. Every decision nobody explains before installation day." />
+  <meta property="og:url" content="https://remodel.guide/flooring" />
+  <meta property="og:type" content="article" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <style>
+    /* Product comparison cards */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      margin: 32px 0;
+    }
+
+    .product-card {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      padding: 32px 28px;
+      position: relative;
+    }
+
+    .product-card.recommended::before {
+      content: 'Field Recommended';
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--brass);
+      background: var(--brass-pale);
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+
+    .product-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .product-card h3 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--deep);
+      margin-bottom: 12px;
+    }
+
+    .product-card p {
+      font-size: 13px;
+      line-height: 1.75;
+      margin-bottom: 10px;
+    }
+
+    .product-card p:last-child { margin-bottom: 0; }
+
+    .product-pros-cons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .product-pros h5,
+    .product-cons h5 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .product-pros h5 { color: var(--brass); }
+    .product-cons h5 { color: var(--muted); }
+
+    .product-pros ul,
+    .product-cons ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .product-pros ul li,
+    .product-cons ul li {
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--slate);
+      line-height: 1.5;
+      padding-left: 12px;
+      position: relative;
+    }
+
+    .product-pros ul li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--brass);
+      font-size: 10px;
+    }
+
+    .product-cons ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    /* Pet rating */
+    .pet-rating {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--brass-pale);
+      border-radius: 4px;
+      padding: 4px 10px;
+      margin-top: 10px;
+    }
+
+    .pet-rating span {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--brass);
+      letter-spacing: 0.06em;
+    }
+
+    @media (max-width: 900px) {
+      .product-grid { grid-template-columns: 1fr; }
+      .product-pros-cons { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">
+    <img src="../assets/images/remodel-guide-logo.png" alt="remodel.guide">
+  </a>
+  <ul class="nav-links">
+    <li><a href="/kitchen">Kitchen</a></li>
+    <li><a href="/bathroom">Bathroom</a></li>
+    <li><a href="/basement">Basement</a></li>
+    <li><a href="/flooring" style="color:var(--brass);">Flooring</a></li>
+    <li><a href="/painting">Painting</a></li>
+    <li><a href="https://remodelry.guide/remi" target="_blank" class="nav-cta">Talk to Remi — Free</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/" onclick="closeMobile()">← All Guides</a>
+    <a href="/kitchen" onclick="closeMobile()">Kitchen Remodel</a>
+    <a href="/bathroom" onclick="closeMobile()">Bathroom Renovation</a>
+    <a href="/basement" onclick="closeMobile()">Basement Finishing</a>
+    <a href="/addition" onclick="closeMobile()">Home Addition</a>
+    <a href="/flooring" onclick="closeMobile()">Flooring</a>
+    <a href="/windows" onclick="closeMobile()">Windows</a>
+    <a href="/siding" onclick="closeMobile()">Siding</a>
+    <a href="/painting" onclick="closeMobile()">Painting</a>
+    <a href="/millwork" onclick="closeMobile()">Millwork & Built-Ins</a>
+    <a href="/demo" onclick="closeMobile()">Living Through a Renovation</a>
+    <a href="https://remodelry.guide/remi" target="_blank" class="mobile-cta">Talk to Remi — It's Free</a>
+  </div>
+</nav>
+
+<!-- COMPANION BANNER -->
+<div class="companion-banner">
+  <p>A free resource from <a href="https://remodelry.guide" target="_blank">Remodelry</a> — Northeast Ohio's remodeling concierge service.</p>
+</div>
+
+<!-- PAGE HEADER -->
+<section class="page-header">
+  <div class="page-header-inner fade-up">
+    <div class="breadcrumb">
+      <a href="/">remodel.guide</a>
+      <span class="breadcrumb-sep">→</span>
+      <span class="breadcrumb-current">Flooring</span>
+    </div>
+    <h1>The Flooring<br><em>Guide</em></h1>
+    <p class="page-header-body">Flooring is the largest surface in every room and the decision most homeowners make with the least information. Subfloor prep that gets skipped. Engineered hardwood quality tiers nobody explains in the showroom. Carpet padding that matters more than the carpet itself. Pet households that need a completely different conversation. This guide covers all of it — before installation day.</p>
+    <div class="page-header-meta">
+      <span class="meta-tag">Subfloor prep first</span>
+      <span class="meta-tag">Every surface type covered</span>
+      <span class="meta-tag">Pets and flooring</span>
+      <span class="meta-tag">The details nobody mentions</span>
+    </div>
+  </div>
+</section>
+
+<!-- HERO IMAGE -->
+<div style="background:var(--deep);padding:0 80px 0;line-height:0;">
+  <img src="../assets/images/flooring-hero.jpg"
+       alt="Flooring installation in progress — subfloor visible, new flooring being laid"
+       class="guide-image"
+       style="margin:0;border-radius:0;max-height:480px;object-fit:cover;width:100%;"
+       onerror="this.style.display='none'">
+</div>
+
+<!-- MAIN CONTENT -->
+<section class="section-white">
+  <div class="section-inner">
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="toc fade-up">
+      <span class="toc-title">What this guide covers</span>
+      <ul class="toc-list">
+        <li><a href="#prep">Subfloor prep — the foundation of every flooring project</a></li>
+        <li><a href="#hardwood">Hardwood — solid vs engineered, and what engineered quality actually means</a></li>
+        <li><a href="#vinyl-laminate">Vinyl and laminate — what waterproof actually means</a></li>
+        <li><a href="#carpet">Carpet — fiber, padding, and why padding is half the floor</a></li>
+        <li><a href="#tile">Tile — ceramic, porcelain, grout, and heated floors</a></li>
+        <li><a href="#pets">Pets and flooring — the honest conversation</a></li>
+        <li><a href="#decisions">The decisions nobody maps — transitions, direction, demo, and more</a></li>
+        <li><a href="#questions">Questions to ask every flooring contractor</a></li>
+        <li><a href="#remi">Before you call anyone — talk to Remi</a></li>
+      </ul>
+    </div>
+
+    <!-- PREP -->
+    <div class="guide-content fade-up" id="prep">
+
+      <h2>Subfloor prep — the foundation of every flooring project</h2>
+
+      <div class="hook-quote">"Floating floors are unforgiving of subfloor imperfections. The surface underneath has to be right before a single plank goes down — and most installation problems trace back to prep that was skipped."</div>
+
+      <p>Today's floating floors — luxury vinyl plank, engineered hardwood, laminate — are installed without glue or nails. They lock together and float over the subfloor as a single connected surface. This makes them fast to install and easy to replace. It also means every imperfection in the subfloor telegraphs through the finished floor.</p>
+
+      <p><strong>Flatness is not the same as levelness.</strong> A floor can slope gently from one end of a room to the other and a floating floor will be fine. A floor with a high spot or a low spot — a hump, a dip, a ridge — will cause floating planks to flex, crack at the joints, or produce hollow sounds underfoot. Most floating floor manufacturers specify a maximum variation of 3/16 inch over 10 feet. Anything beyond that needs to be addressed before installation begins.</p>
+
+      <p>Subfloor prep includes filling low spots with floor leveling compound, sanding down high spots, securing any squeaky or loose subfloor panels, and confirming the subfloor is clean, dry, and free of debris. This work takes time. It is not glamorous. It is also the single most important thing a flooring installer does — and the thing most homeowners never see or think to ask about.</p>
+
+      <div class="flag-list">
+        <div class="flag-item">
+          <div class="flag-icon">⚠️</div>
+          <div class="flag-content">
+            <h4>Ask specifically about subfloor prep before signing</h4>
+            <p>What will be done to prepare the subfloor before installation begins? A specific answer — check for flatness, fill low spots, secure loose panels — indicates a professional who thinks about longevity. "We'll take care of it" is not a prep plan.</p>
+          </div>
+        </div>
+        <div class="flag-item">
+          <div class="flag-icon">⚠️</div>
+          <div class="flag-content">
+            <h4>Going over existing flooring — when it works and when it doesn't</h4>
+            <p>Installing new flooring over existing flooring is sometimes appropriate — it saves demo cost and time. It also raises the floor height, which affects door clearances, transitions to adjacent spaces, and whether the refrigerator still fits under the cabinet. Know the height impact before deciding to go over rather than remove. And confirm the existing floor is flat, secure, and dry — problems underneath travel through.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3>Acclimation — skipped more often than it should be</h3>
+
+      <p>Wood-based flooring products — solid hardwood, engineered hardwood, and some laminates — need to acclimate to the temperature and humidity of the space before installation. The manufacturer's recommendation is typically 48 to 72 hours with the flooring opened or stacked in the installation space. Skipping acclimation in a climate-controlled home leads to expansion and contraction after installation — gaps in winter, buckling in summer.</p>
+
+      <p>An installer who delivers the flooring and installs it the same day has not acclimated it. Ask specifically when the flooring will be delivered relative to the installation date. The answer should include acclimation time.</p>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- HARDWOOD SECTION -->
+<section class="section-cream" id="hardwood">
+  <div class="section-inner fade-up">
+    <span class="section-label">Hardwood Flooring</span>
+    <h2>Solid vs engineered — and what<br><em>engineered quality actually means.</em></h2>
+    <p style="margin-top:16px;margin-bottom:40px;">The hardwood conversation in a flooring showroom almost never covers what matters most — the quality tier of engineered hardwood and what determines whether a floor looks beautiful for 30 years or starts to show its limitations in five. Here is the honest version.</p>
+
+    <div class="guide-content">
+
+      <div class="product-grid">
+
+        <div class="product-card">
+          <span class="product-label">Option 1</span>
+          <h3>Solid Hardwood</h3>
+          <p>A single piece of wood from top to bottom — typically 3/4 inch thick. Can be sanded and refinished multiple times over its lifetime. The benchmark for hardwood appearance and longevity.</p>
+          <div class="product-pros-cons">
+            <div class="product-pros">
+              <h5>Works well for</h5>
+              <ul>
+                <li>Above-grade installation</li>
+                <li>Long-term refinishing</li>
+                <li>Historic or premium homes</li>
+                <li>Nail-down over wood subfloor</li>
+              </ul>
+            </div>
+            <div class="product-cons">
+              <h5>Not appropriate for</h5>
+              <ul>
+                <li>Below-grade (basements)</li>
+                <li>Over concrete</li>
+                <li>High-moisture environments</li>
+                <li>Radiant heat systems</li>
+              </ul>
+            </div>
+          </div>
+          <div class="pet-rating">
+            <span>🐾 Pet households — understand the risk. Harder species help.</span>
+          </div>
+        </div>
+
+        <div class="product-card recommended">
+          <span class="product-label">Option 2</span>
+          <h3>Engineered Hardwood</h3>
+          <p>A real hardwood veneer bonded to layers of plywood or HDF core. More dimensionally stable than solid hardwood — handles moisture variation and temperature change better. Can go over concrete, on slab, and in many basement applications.</p>
+          <p><strong>The quality tier matters enormously — and the showroom rarely explains it.</strong></p>
+          <div class="product-pros-cons">
+            <div class="product-pros">
+              <h5>Works well for</h5>
+              <ul>
+                <li>Over concrete with moisture barrier</li>
+                <li>Radiant heat systems</li>
+                <li>Climate-variable spaces</li>
+                <li>Wider plank formats</li>
+              </ul>
+            </div>
+            <div class="product-cons">
+              <h5>Watch for</h5>
+              <ul>
+                <li>Thin wear layer — limits refinishing</li>
+                <li>Rotary peel veneer quality</li>
+                <li>Core material variation</li>
+                <li>Warranty fine print</li>
+              </ul>
+            </div>
+          </div>
+          <div class="pet-rating">
+            <span>🐾 Better than solid for pet households — still at risk from large dogs.</span>
+          </div>
+        </div>
+
+      </div>
+
+      <h3>Rotary peel vs slice faced — the quality distinction nobody explains</h3>
+
+      <p>This is the single most important quality distinction in engineered hardwood — and it is almost never discussed in a flooring showroom.</p>
+
+      <p><strong>Rotary peel veneer</strong> is produced by spinning a log against a blade, peeling a continuous thin sheet of wood. It is fast and efficient to produce. The resulting veneer has a wide, irregular grain pattern that can look artificial — almost like a printed wood pattern rather than real wood. Most entry-level and mid-range engineered hardwood uses rotary peel veneer. It is technically real wood. It does not look like the premium hardwood it is often presented as.</p>
+
+      <p><strong>Slice faced veneer</strong> is produced by slicing through the log in the same way a sawmill cuts solid hardwood planks. The resulting veneer has the authentic grain pattern of real sawn wood — tight, consistent, natural looking. It is more expensive to produce. The visual difference compared to rotary peel is significant — and immediately visible once you know what to look for.</p>
+
+      <div class="flag-list">
+        <div class="flag-item">
+          <div class="flag-icon">⚠️</div>
+          <div class="flag-content">
+            <h4>Ask specifically: rotary peel or slice faced?</h4>
+            <p>When comparing engineered hardwood products, ask this question directly. A flooring salesperson who doesn't know the answer is selling a product they don't understand. A product that can't answer the question is likely rotary peel. The visual difference is worth understanding before purchasing.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3>Wear layer thickness — determines refinishing life</h3>
+
+      <p>The wear layer is the hardwood veneer on top of the engineered core — the part that is visible and that gets sanded when the floor is refinished. Wear layer thickness is measured in millimeters. Entry-level engineered hardwood has a wear layer of 1 to 2mm. Better products have 3 to 4mm. Premium products have 6mm or more.</p>
+
+      <p>A 2mm wear layer can typically be lightly sanded once — if at all — before the veneer is compromised. A 6mm wear layer can be sanded and refinished two to three times over the floor's lifetime. Know the wear layer thickness before purchasing. It is the single number that most determines the long-term value of the product.</p>
+
+      <h3>The direction of the run</h3>
+
+      <p>For solid hardwood installed over a wood subfloor — run perpendicular to the floor joists. This is a structural requirement that prevents the floor from moving with the joist direction.</p>
+
+      <p>For floating floors — run in the longest dimension of the room. This makes the space feel larger and the installation look intentional. Diagonal installation adds visual interest and requires approximately 15% more material for waste. Know the direction before ordering — it affects the quantity calculation.</p>
+
+      <img src="../assets/images/flooring-hardwood.jpg"
+           alt="Engineered hardwood flooring installation showing grain pattern and plank direction"
+           class="guide-image"
+           onerror="this.style.display='none'">
+
+    </div>
+  </div>
+</section>
+
+<!-- VINYL AND LAMINATE -->
+<section class="section-white" id="vinyl-laminate">
+  <div class="section-inner fade-up">
+    <span class="section-label">Vinyl and Laminate</span>
+    <h2>What waterproof actually means —<br><em>and what it doesn't.</em></h2>
+    <p style="margin-top:16px;margin-bottom:40px;">Waterproof flooring is one of the most marketed and most misunderstood categories in the flooring industry. Here is the honest version — so a homeowner can evaluate the claims and choose the right product for their actual situation.</p>
+
+    <div class="guide-content">
+
+      <div class="product-grid">
+
+        <div class="product-card recommended">
+          <span class="product-label">Luxury Vinyl Plank (LVP)</span>
+          <h3>Waterproof core — genuinely</h3>
+          <p>LVP is constructed with a waterproof plastic core — water cannot penetrate the plank itself. This makes it genuinely appropriate for kitchens, bathrooms, basements, and pet households where moisture accidents happen.</p>
+          <p><strong>What waterproof doesn't mean:</strong> water that gets under the floor — through gaps at transitions, through the subfloor, or through a flooded space — can still cause problems. Waterproof planks floating over a wet subfloor can still buckle. The plank is waterproof. The installation system is not.</p>
+          <div class="product-pros-cons">
+            <div class="product-pros">
+              <h5>Best for</h5>
+              <ul>
+                <li>Pets and kids</li>
+                <li>Kitchens and baths</li>
+                <li>Basements</li>
+                <li>Budget-conscious installs</li>
+              </ul>
+            </div>
+            <div class="product-cons">
+              <h5>Limitations</h5>
+              <ul>
+                <li>Scratches more than laminate</li>
+                <li>Can feel hollow underfoot</li>
+                <li>Lower-end products look plastic</li>
+                <li>Cannot be refinished</li>
+              </ul>
+            </div>
+          </div>
+          <div class="pet-rating">
+            <span>🐾 Best overall choice for pet households</span>
+          </div>
+        </div>
+
+        <div class="product-card recommended">
+          <span class="product-label">New Generation Laminate</span>
+          <h3>RevWood and similar — scratch resistance LVP can't match</h3>
+          <p>The new generation of laminate flooring — Mohawk's RevWood being the most recognized — has largely solved the old laminate moisture problem with waterproof cores while maintaining the scratch resistance that laminate has always offered over vinyl.</p>
+          <p>For households with large dogs, high traffic, or anyone who moves furniture frequently — new generation laminate offers a durability profile that LVP cannot match. The surface is significantly harder and more scratch resistant.</p>
+          <div class="product-pros-cons">
+            <div class="product-pros">
+              <h5>Best for</h5>
+              <ul>
+                <li>Large dog households</li>
+                <li>High traffic areas</li>
+                <li>Furniture-heavy rooms</li>
+                <li>Realistic wood appearance</li>
+              </ul>
+            </div>
+            <div class="product-cons">
+              <h5>Limitations</h5>
+              <ul>
+                <li>Cannot be refinished</li>
+                <li>Seams visible in some products</li>
+                <li>Still not for standing water</li>
+                <li>Hollow sound without good underlayment</li>
+              </ul>
+            </div>
+          </div>
+          <div class="pet-rating">
+            <span>🐾 Best choice for large dog households specifically</span>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <span class="product-label">Sheet Vinyl</span>
+          <h3>Not what it was — but still has a place</h3>
+          <p>Sheet vinyl has declined in quality from earlier generations — the cushion layer and wear surface of today's sheet vinyl is thinner and less durable than products from 20 years ago. It is also the most affordable option for large areas that need waterproof coverage quickly.</p>
+          <p>Appropriate for utility spaces, laundry rooms, and areas where budget is the primary concern and longevity is secondary. Not appropriate as a primary living space floor in a home where resale value matters.</p>
+          <div class="product-pros-cons">
+            <div class="product-pros">
+              <h5>Best for</h5>
+              <ul>
+                <li>Utility spaces</li>
+                <li>Laundry rooms</li>
+                <li>Budget applications</li>
+                <li>Quick installation</li>
+              </ul>
+            </div>
+            <div class="product-cons">
+              <h5>Limitations</h5>
+              <ul>
+                <li>Thinner than older products</li>
+                <li>Tears and dents easily</li>
+                <li>Difficult to repair</li>
+                <li>Limited resale appeal</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <span class="product-label">Basement Flooring</span>
+          <h3>Glue-down over floating — for concrete with pitch</h3>
+          <p>In a basement where the concrete slab has pitch — a slope built in for drainage, common in older homes — floating floors can shift and gap over time because the interlocking system relies on a flat surface to stay tight.</p>
+          <p>Glue-down LVP or glue-down engineered hardwood over a properly moisture-treated slab eliminates the movement problem. The adhesive holds each plank independent of its neighbors. The floor stays tight regardless of slab pitch.</p>
+          <div class="product-pros-cons">
+            <div class="product-pros">
+              <h5>Best for</h5>
+              <ul>
+                <li>Sloped concrete slabs</li>
+                <li>Basement applications</li>
+                <li>Permanent installations</li>
+                <li>High-traffic basement spaces</li>
+              </ul>
+            </div>
+            <div class="product-cons">
+              <h5>Limitations</h5>
+              <ul>
+                <li>Harder to remove later</li>
+                <li>Adhesive requires proper slab prep</li>
+                <li>Must confirm moisture barrier first</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CARPET -->
+<section class="section-cream" id="carpet">
+  <div class="section-inner fade-up">
+    <span class="section-label">Carpet</span>
+    <h2>Padding is half the floor.<br><em>Most homeowners never hear this.</em></h2>
+    <p style="margin-top:16px;margin-bottom:40px;">The carpet industry has trained homeowners to focus on the carpet — fiber, pattern, color, brand. The padding underneath barely gets mentioned. This is backwards. Padding determines how the carpet feels underfoot, how it sounds, how long it lasts, and in many cases whether the warranty is valid. Here is the honest version of the carpet conversation.</p>
+
+    <div class="guide-content">
+
+      <h3>Padding — the decision that determines everything below the carpet</h3>
+
+      <p>Carpet padding comes in different densities and thicknesses. The two measurements that matter are density (pounds per cubic foot) and thickness (inches).</p>
+
+      <p><strong>Density</strong> is more important than thickness for durability. A dense, thinner pad performs better under heavy traffic than a thick, soft pad that compresses and loses its resilience quickly. For living areas and bedrooms, a minimum of 6-pound density is appropriate. For stairs and high-traffic areas, 8-pound or higher.</p>
+
+      <p><strong>Thickness</strong> contributes to the soft underfoot feel most homeowners want. 7/16 inch is standard. 1/2 inch feels noticeably plusher. Beyond 1/2 inch in most residential applications provides diminishing returns and can actually accelerate carpet wear by allowing too much flex.</p>
+
+      <div class="flag-list">
+        <div class="flag-item" style="border-color:var(--brass);background:rgba(181,144,74,0.06);">
+          <div class="flag-icon">✓</div>
+          <div class="flag-content">
+            <h4 style="color:var(--brass);">A mid-grade carpet on a quality pad beats a premium carpet on a cheap pad</h4>
+            <p>This is one of the most counterintuitive truths in flooring — and one of the most useful. If the budget is fixed, allocate more of it to padding and less to carpet face weight. The floor will feel better and last longer than the inverse approach.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3>Carpet fiber — polyester dominates the market, but understand what you're buying</h3>
+
+      <p><strong>Polyester (PET)</strong> is the dominant fiber in today's residential carpet market. It is soft, stain-resistant, and less expensive than nylon. It also does not wear like nylon did. Polyester fibers mat and crush under heavy traffic over time — the carpet looks flat and worn in the traffic lanes while the edges still look new. This is not a defect. It is the nature of the fiber under sustained use.</p>
+
+      <p>Polyester is appropriate for bedrooms, guest rooms, and lower-traffic areas where the softness and stain resistance are the priorities. For family rooms, hallways, and stairs — understand that polyester will show traffic patterns faster than nylon.</p>
+
+      <p><strong>Nylon</strong> is more resilient under heavy traffic — the fiber springs back better and maintains its appearance longer in high-use areas. It is more expensive than polyester. For high-traffic areas in a family with children and pets, the investment in nylon is typically worth it.</p>
+
+      <p><strong>Triexta (PTT)</strong> — Mohawk's SmartStrand is the most recognized brand — is a newer fiber that offers softness close to polyester with resilience closer to nylon. Worth considering as a middle-ground option.</p>
+
+      <h3>Match the carpet quality to the room</h3>
+
+      <p>Not every room in the house needs the same carpet. A guest bedroom that sees occasional use does not need the same fiber and pad specification as the family room where everyone spends the evening. Specifying carpet by room rather than installing the same product throughout is both smarter and more economical.</p>
+
+      <p><strong>Bedrooms</strong> — softer polyester with quality pad. The priority is comfort underfoot, not durability.</p>
+      <p><strong>Living areas and family rooms</strong> — nylon or triexta with dense pad. The priority is appearance retention under daily use.</p>
+      <p><strong>Stairs</strong> — the highest wear area in any carpeted home. Nylon, pattern that hides traffic, and the best pad that stair installation allows. Consider a decorative runner on hardwood stairs as an alternative — it can be replaced without full stair installation.</p>
+      <p><strong>Hallways</strong> — nylon, commercial-grade if available. These take disproportionate wear relative to their size.</p>
+
+      <h3>Stain protection — real and warrantied, but understand the terms</h3>
+
+      <p>Most residential carpet today is sold with some form of stain protection — either built into the fiber (solution-dyed polyester and triexta resist staining at the fiber level) or applied as a topical treatment (Scotchgard and similar). Both work. The difference matters for maintenance.</p>
+
+      <p>Solution-dyed fiber stain resistance does not wear off — it is part of the fiber itself. Topical treatments wear off over time and can be removed by harsh cleaning products. Know which type of protection a specific carpet has before purchasing.</p>
+
+      <p>Carpet warranties are real but conditional. Most require cleaning with approved methods and products — and some require professional cleaning at specified intervals to maintain coverage. Read the warranty before purchasing. A homeowner who uses the wrong cleaning product on a warranted carpet may void the coverage before the first year is out.</p>
+
+    </div>
+  </div>
+</section>
+
+<!-- TILE -->
+<section class="section-white" id="tile">
+  <div class="section-inner fade-up">
+    <span class="section-label">Ceramic and Porcelain Tile</span>
+    <h2>Underused, underestimated,<br><em>exceptional when done right.</em></h2>
+    <p style="margin-top:16px;margin-bottom:40px;">Tile flooring has declined in popularity in recent years — primarily due to cost perception and the rise of LVP. Done correctly, a tile floor outperforms every other flooring option for durability and longevity. Here is what makes the difference.</p>
+
+    <div class="guide-content">
+
+      <h3>Ceramic vs porcelain — the distinction that matters</h3>
+
+      <p><strong>Ceramic tile</strong> is made from clay and fired at lower temperatures. It is softer, more porous, and more affordable than porcelain. Appropriate for walls and low-traffic floor applications. Not appropriate for high-traffic areas or exterior applications.</p>
+
+      <p><strong>Porcelain tile</strong> is fired at higher temperatures and made with more refined clay — it is denser, less porous, harder, and more durable than ceramic. It is also more expensive. For floor applications — especially in kitchens, bathrooms, mudrooms, and any space with heavy traffic or moisture exposure — porcelain is the right choice.</p>
+
+      <h3>Grout quality matters as much as tile quality</h3>
+
+      <p>A beautiful tile installation with poor grout selection or poor grout installation looks bad within a year. Grout is not an afterthought — it is half the installation visually and structurally.</p>
+
+      <p>For floor tile, <strong>unsanded grout</strong> is used for joints under 1/8 inch. <strong>Sanded grout</strong> is used for joints 1/8 inch and wider. <strong>Epoxy grout</strong> is the premium option — it does not require sealing, resists staining, and outperforms cement-based grouts significantly in durability. It is harder to install and more expensive. For kitchen floors and bathroom floors that will see years of traffic and spills, epoxy grout is worth serious consideration.</p>
+
+      <p>Grout color is a maintenance decision as much as a design decision. Light grout on a kitchen floor is a commitment to regular cleaning. A mid-tone grout that is close in value to the tile hides wear and requires significantly less maintenance. Make the choice knowing what it means for the next ten years.</p>
+
+      <h3>Heated floor under tile — one of the best value upgrades in residential construction</h3>
+
+      <p>Electric radiant heated floor systems installed under tile transform a cold surface into one of the most comfortable floors in the house. The cost is modest relative to the daily improvement in experience — especially in bathrooms, kitchens, mudrooms, and three-season rooms where tile is on a slab or over an unheated space.</p>
+
+      <p>The heated floor mat goes in before the tile — not after. The installation sequence is: subfloor preparation, thermostat rough-in by electrician, heating mat installed and tested, mortar bed, tile. A heated floor that a homeowner decides to add after tile is set requires removing the tile. Plan for it before installation begins.</p>
+
+      <div class="flag-list">
+        <div class="flag-item" style="border-color:var(--brass);background:rgba(181,144,74,0.06);">
+          <div class="flag-icon">✓</div>
+          <div class="flag-content">
+            <h4 style="color:var(--brass);">Three-season room with tile and heated floor — genuinely delightful</h4>
+            <p>A three-season room with tile over a slab is cold for most of the year without heat under the floor. A radiant mat under the tile makes the space genuinely comfortable from early spring through late fall. It is one of the highest-return comfort upgrades in residential construction — and it must be planned before the tile goes down.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PETS -->
+<section class="section-cream" id="pets">
+  <div class="section-inner fade-up">
+    <span class="section-label">Pets and Flooring</span>
+    <h2>The honest conversation<br><em>every pet household needs.</em></h2>
+    <p style="margin-top:16px;margin-bottom:40px;">Pets change the flooring conversation significantly — especially larger dogs. Here is the honest version of what each flooring type means for a household with animals, so the decision is made with accurate expectations rather than optimistic ones.</p>
+
+    <div class="guide-content">
+
+      <div class="product-grid">
+
+        <div class="product-card recommended">
+          <span class="product-label">Best overall</span>
+          <h3>LVP and New Generation Laminate</h3>
+          <p>For most pet households — especially those with dogs — LVP or new generation laminate is the practical choice. LVP handles moisture accidents without damage to the floor. New generation laminate (RevWood) handles the scratch and gouge resistance that large dogs demand.</p>
+          <p>For households with large dogs specifically — laminate's harder surface resists the nail scoring and dragging that visibly damages LVP over time.</p>
+          <div class="pet-rating">
+            <span>🐾 Best overall choice for pet households</span>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <span class="product-label">Understand the risk</span>
+          <h3>Hardwood with dogs</h3>
+          <p>Hardwood and dogs can coexist — but it requires honest expectations. Large dogs with unclipped nails will scratch and groove hardwood floors over time. This is not a flooring failure. It is the nature of a living wood surface in a household with large animals.</p>
+          <p>Harder wood species — hickory, white oak, hard maple — resist scratching better than softer species like pine or cherry. A matte or satin finish hides scratches better than a high-gloss finish.</p>
+          <p>The decision to install hardwood in a large-dog household is a lifestyle choice — beautiful floor, accepted wear over time, periodic refinishing. Make it with that understanding, not with the expectation that it will look showroom-perfect in year five.</p>
+          <div class="pet-rating">
+            <span>🐾 Possible — go in with accurate expectations</span>
+          </div>
+        </div>
+
+        <div class="product-card recommended">
+          <span class="product-label">Pets and carpet</span>
+          <h3>Choose fiber and protection carefully</h3>
+          <p>Carpet and pets can work well — with the right specification. Most residential carpet today carries stain protection, and solution-dyed fibers resist pet staining at the fiber level rather than through a topical treatment that wears off.</p>
+          <p>For pet households, solution-dyed polyester or triexta in a pattern that hides pet hair and light soiling is a practical choice for bedrooms. For living areas, consider whether hard surface flooring with area rugs gives more flexibility for cleaning and replacement.</p>
+          <div class="pet-rating">
+            <span>🐾 Workable with right fiber and protection selection</span>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <span class="product-label">Tile</span>
+          <h3>The best surface for pet households — with caveats</h3>
+          <p>Tile is genuinely the most pet-proof flooring surface. Waterproof, scratch-resistant, easy to clean. The limitations are comfort and cost — tile is hard underfoot and cold without heated floor systems, and the installation cost is higher than other options.</p>
+          <p>For mudrooms, laundry rooms, and entry areas where wet paws and food bowls are concentrated — tile with quality grout is the right answer. For living areas, the comfort trade-off requires consideration.</p>
+          <div class="pet-rating">
+            <span>🐾 Best performance surface — comfort trade-off</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- THE DECISIONS NOBODY MAPS -->
+<section class="section-white" id="decisions">
+  <div class="section-inner fade-up">
+    <span class="section-label">The Decisions Nobody Maps</span>
+    <h2>The details that get figured out<br><em>on installation day — when it's too late.</em></h2>
+    <p style="margin-top:16px;margin-bottom:40px;">These are the flooring decisions that seem minor, get ignored in the planning process, and then cause real problems or real friction on installation day. Name them before the installer shows up.</p>
+
+    <div class="guide-content">
+
+      <div class="decision-map">
+
+        <div class="decision-item">
+          <div class="decision-num">01</div>
+          <div class="decision-content">
+            <h4>Who does demo and haul away — defined in the contract</h4>
+            <p>Existing flooring removal is a significant amount of work — and it is not automatically included in a flooring installation bid. Confirm explicitly whether demo and haul away of existing flooring is included, what it costs if not, and who is responsible for disposing of the debris. A homeowner who assumes demo is included and discovers it isn't on installation morning has a problem.</p>
+          </div>
+        </div>
+
+        <div class="decision-item">
+          <div class="decision-num">02</div>
+          <div class="decision-content">
+            <h4>Who moves furniture — and who moves it back</h4>
+            <p>Furniture removal and replacement is typically the homeowner's responsibility unless specifically negotiated otherwise. Know this before installation day. Heavy furniture — sofas, beds, dressers, entertainment centers — needs to be moved out of the space before the installer arrives and back in after installation is complete. If the installer moves furniture, confirm it is included and whether there is a charge.</p>
+          </div>
+        </div>
+
+        <div class="decision-item">
+          <div class="decision-num">03</div>
+          <div class="decision-content">
+            <h4>Who moves appliances — and does the refrigerator still fit</h4>
+            <p>Kitchen appliances — refrigerator, dishwasher, range — typically need to be moved for flooring installation. The refrigerator is the one that causes problems. If new flooring raises the floor height by 1/2 inch or more, the refrigerator may no longer fit under the upper cabinet. Measure the clearance before ordering flooring. Confirm who moves appliances and whether any height adjustment is needed at cabinets.</p>
+          </div>
+        </div>
+
+        <div class="decision-item">
+          <div class="decision-num">04</div>
+          <div class="decision-content">
+            <h4>Transitions — planned before installation, not figured out at the end</h4>
+            <p>Transitions are the strips that cover the joint where one flooring type meets another — or where flooring meets a different height surface. T-molding between two rooms at the same height. Reducer where flooring meets a lower surface. End cap where flooring meets a vertical surface. Threshold at exterior doors. Each transition needs to be specified before installation and ordered with the flooring. Transitions figured out at the end look improvised — because they are.</p>
+          </div>
+        </div>
+
+        <div class="decision-item">
+          <div class="decision-num">05</div>
+          <div class="decision-content">
+            <h4>Door jambs and casing — undercut or the floor looks unfinished</h4>
+            <p>New flooring that butts up against door casings and jambs looks unfinished — the casing sits on top of the old flooring height and the new floor simply stops at it. The professional solution is undercutting the door casing and jamb with an oscillating tool so the new flooring slides underneath. The result looks like the flooring was there before the casing was installed — which is what a finished installation looks like. Confirm this is part of the installation scope.</p>
+          </div>
+        </div>
+
+        <div class="decision-item">
+          <div class="decision-num">06</div>
+          <div class="decision-content">
+            <h4>Shoe molding — who installs it and who finishes it</h4>
+            <p>Shoe molding — the small quarter-round or shoe profile installed at the base of the baseboard to cover the expansion gap at the wall — is sometimes installed by the flooring contractor and sometimes by a finish carpenter or painter. Confirm who installs it. Then confirm who finishes it. If the existing shoe molding is stained to match hardwood — who matches the stain and applies the finish? If it is painted — who paints it? These are questions that get answered by default on installation day if they aren't asked beforehand.</p>
+          </div>
+        </div>
+
+        <div class="decision-item">
+          <div class="decision-num">07</div>
+          <div class="decision-content">
+            <h4>Trim around cabinets — the detail most installers don't think about</h4>
+            <p>Where flooring meets cabinet bases — kitchen island, bathroom vanity, built-ins — the transition needs a plan. Flooring that simply stops at the cabinet toe kick with an exposed edge looks unfinished. A small piece of base molding or a scribe piece finishing the edge looks intentional. This detail is often overlooked in the quoting process and figured out in the field. Ask about it specifically.</p>
+          </div>
+        </div>
+
+        <div class="decision-item">
+          <div class="decision-num">08</div>
+          <div class="decision-content">
+            <h4>Leave a box — always</h4>
+            <p>When the installation is complete, keep at least one full box of the flooring product — same lot number, same dye lot — in a dry, climate-controlled space. Flooring products are discontinued, reformulated, and replaced regularly. A damaged plank or tile five years from now that needs to be replaced is a significant problem without a matching replacement on hand. One box costs almost nothing relative to the total project. Keep it.</p>
+          </div>
+        </div>
+
+        <div class="decision-item">
+          <div class="decision-num">09</div>
+          <div class="decision-content">
+            <h4>Decorative runners on stairs — the option most people don't know to ask about</h4>
+            <p>A hardwood staircase with a decorative carpet runner is one of the most elegant and practical flooring solutions in residential construction. It protects the hardwood tread from traffic wear, adds warmth and sound absorption, and can be replaced when worn without touching the hardwood below. Runners are installed with stair rods or tacked at the back of each tread. If a hardwood stair is showing wear or if carpet is being removed from stairs, ask about a runner before committing to full recarpeting or bare hardwood.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- QUESTIONS -->
+<section class="section-cream" id="questions">
+  <div class="section-inner fade-up">
+    <span class="section-label">Questions to Ask Every Flooring Contractor</span>
+    <h2>The questions that reveal<br><em>who knows what they're doing.</em></h2>
+
+    <div class="guide-content">
+      <div class="questions-list">
+
+        <div class="question-item">
+          <p class="question-text">"What will you do to prepare the subfloor before installation begins?"</p>
+          <p class="question-why">A specific answer — check flatness, fill low spots, secure loose panels, confirm moisture — indicates a professional who thinks about longevity. Any answer that doesn't include checking for flatness is incomplete.</p>
+        </div>
+
+        <div class="question-item">
+          <p class="question-text">"Is demo and haul away of existing flooring included in this quote?"</p>
+          <p class="question-why">Assumption is the enemy here. Confirm explicitly whether demo is included, what it costs if not, and who handles disposal. This question prevents the most common flooring installation surprise.</p>
+        </div>
+
+        <div class="question-item">
+          <p class="question-text">"Will you undercut the door casings and jambs?"</p>
+          <p class="question-why">This is the mark of a professional installation. A contractor who doesn't know what undercutting means, or who treats it as optional, will deliver an installation that looks unfinished at every doorway.</p>
+        </div>
+
+        <div class="question-item">
+          <p class="question-text">"What is the acclimation plan for this product?"</p>
+          <p class="question-why">For any wood-based product, the answer should include how long the flooring will acclimate in the space before installation and how it will be stored during that time. Same-day delivery and installation is not an acclimation plan.</p>
+        </div>
+
+        <div class="question-item">
+          <p class="question-text">"Who handles shoe molding installation and finishing?"</p>
+          <p class="question-why">This question reveals whether the contractor has thought through the complete installation or only the flooring itself. The answer should be specific — who installs it, who finishes it, and what the finish will be.</p>
+        </div>
+
+        <div class="question-item">
+          <p class="question-text">"What transitions are needed and are they included in this quote?"</p>
+          <p class="question-why">Transitions should be specified in the quote — not discovered on installation day. A contractor who hasn't mapped the transitions hasn't planned the full installation.</p>
+        </div>
+
+        <div class="question-item">
+          <p class="question-text">"For carpet — what padding do you recommend and why?"</p>
+          <p class="question-why">The answer should include density and thickness recommendations specific to the room and traffic level. A contractor who recommends the same pad for every application hasn't thought about the floor's long-term performance.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REMI CTA -->
+<section class="section-white" id="remi">
+  <div class="section-inner fade-up">
+    <div class="remi-cta">
+      <h2>Before you call anyone —<br><em>talk to Remi.</em></h2>
+      <p>People need someone to talk to about their project before they need someone to sell them something. That's what Remodelry is. And it starts with Remi.</p>
+      <p style="margin-top:12px;">Remi is Remodelry's free AI intake companion — a 15-minute conversation that captures your specific flooring project, your household situation, your subfloor conditions, and what you need to know before anyone shows up. You'll receive a personalized First Look immediately after.</p>
+      <p style="margin-top:12px;">Then your Remodelry Concierge will be in touch within 24 hours. When they call, they'll already know your project. You won't start from scratch. You won't get a sales pitch. You'll get someone genuinely on your side before any flooring contractor shows up with a quote.</p>
+      <a href="https://remodelry.guide/remi" target="_blank" class="btn-primary" style="margin-top:8px;">Talk to Remi — It's Free</a>
+      <p class="remi-cta-note">Free · No obligation · Your Concierge calls within 24 hours, already knowing your project</p>
+    </div>
+
+    <div style="margin-top:48px;padding-top:48px;border-top:1px solid var(--border);text-align:center;">
+      <span class="section-label" style="display:block;text-align:center;">Continue Reading</span>
+      <h3 style="margin-bottom:24px;">More guides from remodel.guide</h3>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+        <a href="/kitchen" class="btn-ghost">Kitchen Remodel →</a>
+        <a href="/bathroom" class="btn-ghost">Bathroom Renovation →</a>
+        <a href="/basement" class="btn-ghost">Basement Finishing →</a>
+        <a href="/demo" class="btn-ghost">Living Through a Renovation →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="../assets/images/remodel-guide-logo.png" alt="remodel.guide">
+      <p class="footer-tagline">The Homeowner Protection Guide<br>for Residential Remodeling.<br><br>A free resource from <a href="https://remodelry.guide" target="_blank">Remodelry</a> —<br>Northeast Ohio's remodeling concierge service.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <span class="footer-col-title">The Guides</span>
+        <ul>
+          <li><a href="/kitchen">Kitchen Remodel</a></li>
+          <li><a href="/bathroom">Bathroom Renovation</a></li>
+          <li><a href="/basement">Basement Finishing</a></li>
+          <li><a href="/addition">Home Addition</a></li>
+          <li><a href="/flooring">Flooring</a></li>
+          <li><a href="/windows">Window Replacement</a></li>
+          <li><a href="/siding">Siding</a></li>
+          <li><a href="/painting">Interior Painting</a></li>
+          <li><a href="/millwork">Millwork & Built-Ins</a></li>
+          <li><a href="/demo">Living Through a Renovation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <span class="footer-col-title">Remodelry</span>
+        <ul>
+          <li><a href="https://remodelry.guide" target="_blank">remodelry.guide</a></li>
+          <li><a href="https://remodelry.guide/remi" target="_blank">Talk to Remi — Free</a></li>
+          <li><a href="https://remodelry.guide/concierge" target="_blank">The Concierge</a></li>
+          <li><a href="https://remodelry.guide/after-clarity" target="_blank">After Clarity</a></li>
+          <li><a href="https://remodelry.guide/pillars" target="_blank">10 Pillars</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 remodel.guide · All rights reserved.</span>
+    <span class="footer-remodelry">A <a href="https://remodelry.guide" target="_blank">Remodelry</a> resource · Serving Northeast Ohio</span>
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script>
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-up').forEach(function(el) { observer.observe(el); });
+
+  var hamburger = document.getElementById('hamburger');
+  var mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', function() {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  function closeMobile() {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  }
+</script>
+
+</body>
+</html>
