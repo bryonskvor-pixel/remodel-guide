@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What is a Remodeling Concierge? — remodel.guide</title>
+  <meta name="description" content="A remodeling concierge is the person who shows up before any contractor does — with no sales agenda, no bid coming, and no financial stake in what you decide. Here is what that means, what they do, and what you receive." />
+  <meta name="keywords" content="remodeling concierge, what is a remodeling concierge, clarity consult, remodeling advisor, pre-construction consultation, Northeast Ohio remodeling concierge, Remodelry" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="What is a Remodeling Concierge? — remodel.guide" />
+  <meta property="og:description" content="People need someone to talk to about their project before they need someone to sell them something. That's what a Remodeling Concierge is." />
+  <meta property="og:url" content="https://remodel.guide/concierge" />
+  <meta property="og:type" content="article" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <style>
+    /* Not vs Is comparison */
+    .not-is-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      margin: 40px 0;
+    }
+
+    .not-col {
+      padding: 36px 32px;
+      border: 1px solid var(--border);
+    }
+
+    .not-col.not-side {
+      background: var(--cream);
+    }
+
+    .not-col.is-side {
+      background: var(--deep);
+    }
+
+    .not-col-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .not-col.not-side .not-col-label { color: var(--muted); }
+    .not-col.is-side .not-col-label { color: var(--brass-light); }
+
+    .not-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .not-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    .not-col.not-side .not-item { color: var(--muted); }
+    .not-col.is-side .not-item { color: rgba(255,255,255,0.75); }
+
+    .not-marker {
+      font-size: 14px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* Visit phases */
+    .visit-phases {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin: 40px 0;
+    }
+
+    .visit-phase {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      padding: 28px 24px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .visit-phase:hover {
+      border-color: var(--brass);
+      transform: translateY(-2px);
+    }
+
+    .phase-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 40px;
+      font-weight: 400;
+      color: var(--brass-pale);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .phase-name {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--brass);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .phase-desc {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--slate);
+      line-height: 1.7;
+    }
+
+    /* Clarity Package preview */
+    .clarity-preview {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 32px rgba(44,36,32,0.08);
+      margin: 40px 0;
+    }
+
+    .clarity-preview-header {
+      background: var(--deep);
+      padding: 20px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .clarity-preview-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--white);
+    }
+
+    .clarity-preview-sub {
+      font-size: 11px;
+      color: var(--brass-light);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .clarity-sections {
+      padding: 24px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .clarity-section-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .clarity-section-item:last-child { border-bottom: none; }
+
+    .clarity-section-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--brass-pale);
+      line-height: 1;
+      flex-shrink: 0;
+      width: 28px;
+    }
+
+    .clarity-section-content h4 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--deep);
+      margin-bottom: 4px;
+    }
+
+    .clarity-section-content p {
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+
+    /* Pillars grid */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 2px;
+      margin: 40px 0;
+    }
+
+    .pillar-chip {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      padding: 20px 16px;
+      text-align: center;
+      transition: border-color 0.2s;
+    }
+
+    .pillar-chip:hover { border-color: var(--brass); }
+
+    .pillar-chip-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 400;
+      color: var(--brass-pale);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .pillar-chip-name {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--slate);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1.4;
+    }
+
+    /* Pricing section */
+    .pricing-section {
+      background: var(--deep);
+      padding: 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pricing-section::before {
+      content: '';
+      position: absolute;
+      top: -200px; right: -200px;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(181,144,74,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .pricing-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .pricing-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(181,144,74,0.3);
+      border-radius: 12px;
+      padding: 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .pricing-left h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--brass-light);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .pricing-amount {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 72px;
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .pricing-amount span {
+      font-size: 28px;
+      color: var(--brass-light);
+      vertical-align: top;
+      margin-top: 12px;
+      display: inline-block;
+    }
+
+    .pricing-label {
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 28px;
+      letter-spacing: 0.04em;
+    }
+
+    .pricing-desc {
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.8;
+      margin-bottom: 0;
+    }
+
+    .pricing-includes {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .pricing-include {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .pricing-include-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--brass);
+      margin-top: 7px;
+      flex-shrink: 0;
+    }
+
+    .pricing-include-text {
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.6;
+    }
+
+    .pricing-include-text strong {
+      font-weight: 500;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .pricing-note {
+      margin-top: 32px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.3);
+      line-height: 1.7;
+      font-style: italic;
+    }
+
+    @media (max-width: 900px) {
+      .not-is-grid { grid-template-columns: 1fr; }
+      .visit-phases { grid-template-columns: 1fr; }
+      .pillars-grid { grid-template-columns: repeat(2, 1fr); }
+      .pricing-section { padding: 56px 24px; }
+      .pricing-card { grid-template-columns: 1fr; gap: 36px; padding: 32px 24px; }
+      .pricing-amount { font-size: 56px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">
+    <img src="../assets/images/remodel-guide-logo.png" alt="remodel.guide">
+  </a>
+  <ul class="nav-links">
+    <li><a href="/kitchen">Kitchen</a></li>
+    <li><a href="/bathroom">Bathroom</a></li>
+    <li><a href="/basement">Basement</a></li>
+    <li><a href="/flooring">Flooring</a></li>
+    <li><a href="/concierge" style="color:var(--brass);">The Concierge</a></li>
+    <li><a href="https://remodelry.guide/remi" target="_blank" class="nav-cta">Talk to Remi — Free</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/" onclick="closeMobile()">← All Guides</a>
+    <a href="/kitchen" onclick="closeMobile()">Kitchen Remodel</a>
+    <a href="/bathroom" onclick="closeMobile()">Bathroom Renovation</a>
+    <a href="/basement" onclick="closeMobile()">Basement Finishing</a>
+    <a href="/addition" onclick="closeMobile()">Home Addition</a>
+    <a href="/flooring" onclick="closeMobile()">Flooring</a>
+    <a href="/windows" onclick="closeMobile()">Windows</a>
+    <a href="/siding" onclick="closeMobile()">Siding</a>
+    <a href="/painting" onclick="closeMobile()">Painting</a>
+    <a href="/millwork" onclick="closeMobile()">Millwork & Built-Ins</a>
+    <a href="/demo" onclick="closeMobile()">Living Through a Renovation</a>
+    <a href="/concierge" onclick="closeMobile()">What is a Concierge?</a>
+    <a href="https://remodelry.guide/remi" target="_blank" class="mobile-cta">Talk to Remi — It's Free</a>
+  </div>
+</nav>
+
+<!-- COMPANION BANNER -->
+<div class="companion-banner">
+  <p>A free resource from <a href="https://remodelry.guide" target="_blank">Remodelry</a> — Northeast Ohio's remodeling concierge service.</p>
+</div>
+
+<!-- PAGE HEADER -->
+<section class="page-header">
+  <div class="page-header-inner fade-up">
+    <div class="breadcrumb">
+      <a href="/">remodel.guide</a>
+      <span class="breadcrumb-sep">→</span>
+      <span class="breadcrumb-current">What is a Remodeling Concierge?</span>
+    </div>
+    <h1>What is a<br><em>Remodeling Concierge?</em></h1>
+    <p class="page-header-body">People need someone to talk to about their project before they need someone to sell them something. Every contractor who walks into a home has something to sell. Every showroom has product to move. Every designer has their taste to express. A Remodeling Concierge is the one conversation where nobody profits from what you decide — only from whether you're clear when you decide it.</p>
+    <div class="page-header-meta">
+      <span class="meta-tag">A new kind of role</span>
+      <span class="meta-tag">No sales agenda</span>
+      <span class="meta-tag">The Clarity Package</span>
+      <span class="meta-tag">$200 Clarity Consult</span>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT IT IS AND ISN'T -->
+<section class="section-white">
+  <div class="section-inner fade-up">
+
+    <span class="section-label">Let's Start Here</span>
+    <h2>A Remodeling Concierge is not<br><em>any of the things you're thinking.</em></h2>
+
+    <div class="not-is-grid">
+      <div class="not-col not-side">
+        <span class="not-col-label">Not a contractor</span>
+        <div class="not-list">
+          <div class="not-item">
+            <span class="not-marker">—</span>
+            <span>Doesn't do the work</span>
+          </div>
+          <div class="not-item">
+            <span class="not-marker">—</span>
+            <span>Doesn't bid the job</span>
+          </div>
+          <div class="not-item">
+            <span class="not-marker">—</span>
+            <span>Doesn't profit from your decisions</span>
+          </div>
+          <div class="not-item">
+            <span class="not-marker">—</span>
+            <span>Doesn't have a crew to keep busy</span>
+          </div>
+        </div>
+        <br>
+        <span class="not-col-label" style="margin-top:8px;">Not a designer</span>
+        <div class="not-list">
+          <div class="not-item">
+            <span class="not-marker">—</span>
+            <span>Doesn't impose a style</span>
+          </div>
+          <div class="not-item">
+            <span class="not-marker">—</span>
+            <span>Doesn't sell selections</span>
+          </div>
+          <div class="not-item">
+            <span class="not-marker">—</span>
+            <span>Doesn't have a showroom relationship</span>
+          </div>
+        </div>
+        <br>
+        <span class="not-col-label" style="margin-top:8px;">Not a project manager</span>
+        <div class="not-list">
+          <div class="not-item">
+            <span class="not-marker">—</span>
+            <span>Doesn't manage the contractor</span>
+          </div>
+          <div class="not-item">
+            <span class="not-marker">—</span>
+            <span>Doesn't replace the contractor relationship</span>
+          </div>
+          <div class="not-item">
+            <span class="not-marker">—</span>
+            <span>Doesn't handle scheduling or purchasing</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="not-col is-side">
+        <span class="not-col-label">What a Concierge actually is</span>
+        <div class="not-list">
+          <div class="not-item">
+            <span class="not-marker" style="color:var(--brass);">✓</span>
+            <span>The person who shows up before anyone else does — with no financial stake in what you decide</span>
+          </div>
+          <div class="not-item">
+            <span class="not-marker" style="color:var(--brass);">✓</span>
+            <span>A trained field professional with real construction knowledge — not a salesperson in disguise</span>
+          </div>
+          <div class="not-item">
+            <span class="not-marker" style="color:var(--brass);">✓</span>
+            <span>Your advocate in a process where everyone else is advocating for themselves</span>
+          </div>
+          <div class="not-item">
+            <span class="not-marker" style="color:var(--brass);">✓</span>
+            <span>The conversation that happens before estimates — so estimates mean something when they arrive</span>
+          </div>
+          <div class="not-item">
+            <span class="not-marker" style="color:var(--brass);">✓</span>
+            <span>The source of the Clarity Package — a plain-language document that is yours to keep, share, and use with any contractor you choose</span>
+          </div>
+          <div class="not-item">
+            <span class="not-marker" style="color:var(--brass);">✓</span>
+            <span>The reason you walk into every contractor conversation prepared — instead of starting from scratch every time someone shows up to bid</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHY THIS ROLE EXISTS -->
+<section class="section-cream">
+  <div class="section-inner fade-up">
+    <span class="section-label">Why This Role Exists</span>
+    <h2>Every person in the remodeling process<br><em>has something to sell.</em></h2>
+
+    <div class="guide-content">
+
+      <div class="hook-quote">"The contractor sells labor. The showroom sells product. The designer sells taste. The window company sells windows. Nobody is just in the homeowner's corner — giving honest information with nothing to gain from what you decide."</div>
+
+      <p>This is not a criticism of contractors. A small contractor has to close — that is the economic reality of their business. A showroom exists to move product. A designer builds a portfolio. Every one of these people can be honest and excellent at their job while still being motivated by an outcome that is different from yours.</p>
+
+      <p>The homeowner is the only person in the remodeling process with no professional standing. They walk into contractor meetings unprepared, into showrooms without a direction, and into decisions without the context to evaluate what they're being told. The result is scope creep, budget shock, design regret, and the quiet feeling that nobody was really listening.</p>
+
+      <p>A Remodeling Concierge exists to change the position of the homeowner in that process. Not by replacing contractors or designers — they are essential. By ensuring that the homeowner shows up to every one of those conversations from a position of knowledge, clarity, and confidence rather than confusion and vulnerability.</p>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHAT THE CONCIERGE DOES -->
+<section class="section-white">
+  <div class="section-inner fade-up">
+    <span class="section-label">What Happens During a Visit</span>
+    <h2>60 to 90 minutes.<br><em>No pitch. No bid. No agenda except yours.</em></h2>
+    <p style="margin-top:16px;margin-bottom:40px;">The Concierge visit follows the Remodelry Method — a structured, emotionally intelligent process built on 20+ years of residential construction field experience. Here is what happens, phase by phase.</p>
+
+    <div class="visit-phases">
+
+      <div class="visit-phase">
+        <div class="phase-num">01</div>
+        <div class="phase-name">Listen</div>
+        <div class="phase-desc">The Concierge arrives already knowing your project — Remi captured it. They confirm, deepen, and listen for what the conversation may have missed. Your goals, your priorities, what success actually looks like to you.</div>
+      </div>
+
+      <div class="visit-phase">
+        <div class="phase-num">02</div>
+        <div class="phase-name">Inspect</div>
+        <div class="phase-desc">They look at what's actually there — existing conditions, potential issues, what the space can and can't do. No selling. Just seeing clearly. The things that get discovered here protect you later.</div>
+      </div>
+
+      <div class="visit-phase">
+        <div class="phase-num">03</div>
+        <div class="phase-name">Measure</div>
+        <div class="phase-desc">Accurate dimensions, photos, and documentation of the space as it exists today. The kind of detail that makes every contractor conversation sharper — because you arrive with documentation they don't have to create.</div>
+      </div>
+
+      <div class="visit-phase">
+        <div class="phase-num">04</div>
+        <div class="phase-name">Clarify</div>
+        <div class="phase-desc">What's realistic. What the process looks like. What things cost in honest terms. What to watch for. Knowledge before decisions — not after you've already committed to something.</div>
+      </div>
+
+      <div class="visit-phase">
+        <div class="phase-num">05</div>
+        <div class="phase-name">Document</div>
+        <div class="phase-desc">Everything captured in the Clarity Package — yours to keep and use however you choose. Share it with any contractor. Take it to any showroom. Use it to ask the questions that unprepared homeowners never think to ask.</div>
+      </div>
+
+      <div class="visit-phase">
+        <div class="phase-num">06</div>
+        <div class="phase-name">Advise</div>
+        <div class="phase-desc">Plain-language guidance on next steps, questions to ask every contractor, what good bids look like, and how to move forward with confidence. The conversation you needed before anyone else showed up.</div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- THE CLARITY PACKAGE -->
+<section class="section-cream">
+  <div class="section-inner fade-up">
+    <span class="section-label">The Clarity Package</span>
+    <h2>What you leave with.<br><em>Yours to keep — regardless of what comes next.</em></h2>
+    <p style="margin-top:16px;margin-bottom:16px;">The Clarity Package is the output of every Concierge visit. A plain-language document built around your specific project, your specific space, and your specific situation. Not a template. A real assessment of your real project — written in language you can hand directly to a contractor.</p>
+    <p style="margin-bottom:40px;">There is no obligation attached to receiving it. You can take it and source your own contractors. You can use it as the foundation for the next phase of the Remodelry process. Or you can simply use it to feel clear and confident about a project you've been putting off for too long.</p>
+
+    <div class="clarity-preview">
+      <div class="clarity-preview-header">
+        <div class="clarity-preview-title">Clarity Package</div>
+        <div class="clarity-preview-sub">Your project, understood.</div>
+      </div>
+      <div class="clarity-sections">
+
+        <div class="clarity-section-item">
+          <div class="clarity-section-num">01</div>
+          <div class="clarity-section-content">
+            <h4>Your Project Story</h4>
+            <p>What we heard, what we understood, and what we believe is driving this project. Your emotional driver. What success looks like to you. Written in your own words — so it feels right before anything else is built on top of it.</p>
+          </div>
+        </div>
+
+        <div class="clarity-section-item">
+          <div class="clarity-section-num">02</div>
+          <div class="clarity-section-content">
+            <h4>Who's Involved</h4>
+            <p>Decision makers, communication preferences, and your SoulMap profile — how you make decisions, what you need from the process, how a contractor should communicate with you. Written in plain language that travels with the project.</p>
+          </div>
+        </div>
+
+        <div class="clarity-section-item">
+          <div class="clarity-section-num">03</div>
+          <div class="clarity-section-content">
+            <h4>Your Space — What We Found</h4>
+            <p>Overall condition, accurate measurements, infrastructure observations, photo documentation. The before — captured before anything changes. Every contractor you share this with starts from the same accurate baseline.</p>
+          </div>
+        </div>
+
+        <div class="clarity-section-item">
+          <div class="clarity-section-num">04</div>
+          <div class="clarity-section-content">
+            <h4>Your Project Scope</h4>
+            <p>What this project is, in plain language. Room by room — what's in, what's out, what's explicitly not in scope, what's still undecided. No ambiguity. No assumptions. A scope document that prevents the most expensive remodeling conversation — the one that starts with "I thought that was included."</p>
+          </div>
+        </div>
+
+        <div class="clarity-section-item">
+          <div class="clarity-section-num">05</div>
+          <div class="clarity-section-content">
+            <h4>Budget Reality</h4>
+            <p>Honest assessment of whether your stated budget aligns with your scope and finish level. What drives the number. What could be phased. How to read estimates when they arrive — so a wildly low bid and a wildly high bid are both worth questioning.</p>
+          </div>
+        </div>
+
+        <div class="clarity-section-item">
+          <div class="clarity-section-num">06</div>
+          <div class="clarity-section-content">
+            <h4>What to Watch For</h4>
+            <p>The flags from this visit — plain language, what it is, why it matters, what to do about it. The unknowns behind walls. Permit requirements. Lead time flags. Named upfront so they don't surprise you later.</p>
+          </div>
+        </div>
+
+        <div class="clarity-section-item">
+          <div class="clarity-section-num">07</div>
+          <div class="clarity-section-content">
+            <h4>Your Design Direction</h4>
+            <p>Style in your own words. Color direction. The anchor piece — the one element that defines the space that everything else should build around. Inspiration references. Open decisions still to be made.</p>
+          </div>
+        </div>
+
+        <div class="clarity-section-item">
+          <div class="clarity-section-num">08</div>
+          <div class="clarity-section-content">
+            <h4>Decisions to Make</h4>
+            <p>Every decision that needs to happen — and when. Some before estimates. Some before ordering. Some during the project. Organized by stage, not by stress. So you're never surprised by a decision that needed to be made two weeks ago.</p>
+          </div>
+        </div>
+
+        <div class="clarity-section-item">
+          <div class="clarity-section-num">09</div>
+          <div class="clarity-section-content">
+            <h4>Your Next Steps</h4>
+            <p>Specific actions before estimates. Questions to ask every contractor — tailored to your project and your flags. What happens next with Remodelry, if you choose to go further. Written as actions, not suggestions.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="flag-list">
+      <div class="flag-item" style="border-color:var(--brass);background:rgba(181,144,74,0.06);">
+        <div class="flag-icon">✓</div>
+        <div class="flag-content">
+          <h4 style="color:var(--brass);">This document is yours — regardless of what you decide next</h4>
+          <p>The Clarity Package belongs to you. Share it with any contractor you choose. Use it independently. Take it to a showroom. Or use it as the foundation for the next phase of the Remodelry process. There is no obligation to do anything with it except use it to your advantage.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- THE 10 PILLARS -->
+<section class="section-white">
+  <div class="section-inner fade-up">
+    <span class="section-label">The Foundation</span>
+    <h2>Ten pillars of clarity.<br><em>Every one addressed in every visit.</em></h2>
+    <p style="margin-top:16px;margin-bottom:16px;">The Remodelry Method is built on ten areas where remodeling projects most commonly fail — and where preparation most reliably protects homeowners. The Concierge visit and the Clarity Package are structured around all ten. Every visit, every project, every time.</p>
+    <p style="margin-bottom:40px;">Most remodels fail not because of bad contractors or bad taste. They fail because of missing clarity in one or more of these areas — addressed too late to prevent the damage.</p>
+
+    <div class="pillars-grid">
+      <div class="pillar-chip">
+        <div class="pillar-chip-num">01</div>
+        <div class="pillar-chip-name">Scope</div>
+      </div>
+      <div class="pillar-chip">
+        <div class="pillar-chip-num">02</div>
+        <div class="pillar-chip-name">Budget</div>
+      </div>
+      <div class="pillar-chip">
+        <div class="pillar-chip-num">03</div>
+        <div class="pillar-chip-name">Visual</div>
+      </div>
+      <div class="pillar-chip">
+        <div class="pillar-chip-num">04</div>
+        <div class="pillar-chip-name">Timeline</div>
+      </div>
+      <div class="pillar-chip">
+        <div class="pillar-chip-num">05</div>
+        <div class="pillar-chip-name">Code &amp; Construction</div>
+      </div>
+      <div class="pillar-chip">
+        <div class="pillar-chip-num">06</div>
+        <div class="pillar-chip-name">Emotional</div>
+      </div>
+      <div class="pillar-chip">
+        <div class="pillar-chip-num">07</div>
+        <div class="pillar-chip-name">Physical</div>
+      </div>
+      <div class="pillar-chip">
+        <div class="pillar-chip-num">08</div>
+        <div class="pillar-chip-name">Relational</div>
+      </div>
+      <div class="pillar-chip">
+        <div class="pillar-chip-num">09</div>
+        <div class="pillar-chip-name">Decision</div>
+      </div>
+      <div class="pillar-chip">
+        <div class="pillar-chip-num">10</div>
+        <div class="pillar-chip-name">Trust</div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:8px;">
+      <a href="https://remodelry.guide/pillars" target="_blank" class="btn-ghost">Read the full 10 Pillars framework →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- HOW IT STARTS — REMI -->
+<section class="section-cream">
+  <div class="section-inner fade-up">
+    <span class="section-label">How It Starts</span>
+    <h2>Before the Concierge arrives —<br><em>Remi already knows your project.</em></h2>
+
+    <div class="guide-content">
+
+      <p>Every Concierge visit is preceded by a conversation with Remi — Remodelry's free AI intake companion. Remi conducts a warm, structured 10 to 15 minute conversation with you about your project — your scope, your priorities, your budget, your timeline, your design direction, and how you make decisions.</p>
+
+      <p>By the time the Concierge arrives at your door, they already know your project. They know what matters to you. They know what you're worried about. They know your communication style and your decision-making dynamic. They know what Remi flagged as a risk and what questions are still open.</p>
+
+      <p>You don't start from scratch. You don't repeat yourself. The Concierge picks up where Remi left off — going deeper, going in person, seeing what can only be seen by being in the space.</p>
+
+      <div class="flag-list" style="margin-top:32px;">
+        <div class="flag-item" style="border-color:var(--brass);background:rgba(181,144,74,0.06);">
+          <div class="flag-icon">✓</div>
+          <div class="flag-content">
+            <h4 style="color:var(--brass);">Remi is free. The Concierge visit is $200. The Clarity Package is yours to keep.</h4>
+            <p>Start with Remi — it takes 15 minutes and costs nothing. You'll receive a personalized First Look immediately after. Then your Remodelry Concierge will be in touch within 24 hours to schedule the Clarity Consult. When they arrive, they'll already know your project.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PRICING SECTION -->
+<section class="pricing-section">
+  <div class="pricing-inner fade-up">
+
+    <span class="section-label" style="color:var(--brass-light);display:block;margin-bottom:32px;">The Clarity Consult</span>
+
+    <div class="pricing-card">
+      <div class="pricing-left">
+        <h3>Clarity Consult</h3>
+        <div class="pricing-amount"><span>$</span>200</div>
+        <div class="pricing-label">One-time · Northeast Ohio</div>
+        <p class="pricing-desc">The Clarity Consult is the Remodelry entry point — and the most important conversation most homeowners have never had. One visit, one document, one honest picture of your project before anyone with a sales agenda shows up.</p>
+      </div>
+      <div class="pricing-right">
+        <div class="pricing-includes">
+          <div class="pricing-include">
+            <div class="pricing-include-dot"></div>
+            <div class="pricing-include-text"><strong>Remi intake conversation</strong> — free, before the visit. Your project captured in full before the Concierge arrives.</div>
+          </div>
+          <div class="pricing-include">
+            <div class="pricing-include-dot"></div>
+            <div class="pricing-include-text"><strong>In-home Concierge visit</strong> — 60 to 90 minutes. Listen, inspect, measure, clarify, document, advise.</div>
+          </div>
+          <div class="pricing-include">
+            <div class="pricing-include-dot"></div>
+            <div class="pricing-include-text"><strong>Complete Clarity Package</strong> — all nine sections. Your project story, scope, space documentation, budget reality, flags, design direction, decisions, and next steps.</div>
+          </div>
+          <div class="pricing-include">
+            <div class="pricing-include-dot"></div>
+            <div class="pricing-include-text"><strong>No obligation beyond this visit</strong> — the Clarity Package is yours regardless of what you decide next.</div>
+          </div>
+          <div class="pricing-include">
+            <div class="pricing-include-dot"></div>
+            <div class="pricing-include-text"><strong>Contractor-ready documentation</strong> — share it with any contractor you choose. They receive a client who already knows what they want.</div>
+          </div>
+          <div class="pricing-include">
+            <div class="pricing-include-dot"></div>
+            <div class="pricing-include-text"><strong>20+ years of field knowledge</strong> — the Concierge who walks through your home has seen this project before. Many times. They know what to look for.</div>
+          </div>
+        </div>
+        <p class="pricing-note">Currently serving Lorain, Cuyahoga, Erie, Medina, and Summit counties in Northeast Ohio. Additional service tiers available after the Clarity Consult — including contractor introductions and full project accompaniment.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHAT COMES AFTER -->
+<section class="section-white">
+  <div class="section-inner fade-up">
+    <span class="section-label">What Comes After</span>
+    <h2>Three paths forward.<br><em>All on your terms.</em></h2>
+    <p style="margin-top:16px;margin-bottom:40px;">The Clarity Consult is the beginning of the Remodelry process — not the end. After the Clarity Package is in your hands, you choose what comes next. There is no pressure. There is no default. Every path starts from the same place of clarity.</p>
+
+    <div class="guide-content">
+      <div class="level-cards">
+        <div class="level-card">
+          <span class="level-label">Path 01</span>
+          <h4>Go Independent</h4>
+          <p>Take the Clarity Package and source your own contractors. You walk into every estimate prepared — with scope documentation, realistic cost ranges, risk flags, and the right questions to ask. Nobody can take advantage of someone who already knows the answers.</p>
+        </div>
+        <div class="level-card">
+          <span class="level-label">Path 02</span>
+          <h4>Remodelry Introduction</h4>
+          <p>Let the Concierge introduce you to a vetted contractor from the Remodelry network. They receive your project summary before they ever show up. The best first contractor visit you've ever had — because both sides are prepared.</p>
+        </div>
+        <div class="level-card">
+          <span class="level-label">Path 03</span>
+          <h4>Full Accompaniment</h4>
+          <p>The Concierge stays with you through the whole process — showrooms, final scope, bid review, contractor conversations, and check-ins once the work begins. Your advocate, start to finish. You're still driving. We're right there with a map.</p>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:40px;">
+        <a href="https://remodelry.guide/after-clarity" target="_blank" class="btn-ghost">Learn more about what comes after →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REMI CTA -->
+<section class="section-cream">
+  <div class="section-inner fade-up">
+    <div class="remi-cta">
+      <h2>The first step costs nothing.<br><em>Talk to Remi.</em></h2>
+      <p>People need someone to talk to about their project before they need someone to sell them something. That conversation starts with Remi — free, 15 minutes, no contractor, no sales pitch.</p>
+      <p style="margin-top:12px;">You'll receive a personalized First Look immediately after. Then your Remodelry Concierge will be in touch within 24 hours. When they call, they'll already know your project. The $200 Clarity Consult is the next step — and it's the most important conversation most homeowners have never had.</p>
+      <a href="https://remodelry.guide/remi" target="_blank" class="btn-primary" style="margin-top:8px;">Talk to Remi — It's Free</a>
+      <p class="remi-cta-note">Free · No obligation · Your Concierge calls within 24 hours, already knowing your project</p>
+    </div>
+
+    <div style="margin-top:48px;padding-top:48px;border-top:1px solid var(--border);text-align:center;">
+      <span class="section-label" style="display:block;text-align:center;">Learn More at Remodelry</span>
+      <h3 style="margin-bottom:24px;">The full Remodelry experience — Remi, the Concierge, and beyond.</h3>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+        <a href="https://remodelry.guide" target="_blank" class="btn-ghost">remodelry.guide →</a>
+        <a href="https://remodelry.guide/concierge" target="_blank" class="btn-ghost">The Concierge in depth →</a>
+        <a href="https://remodelry.guide/pillars" target="_blank" class="btn-ghost">The 10 Pillars →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="../assets/images/remodel-guide-logo.png" alt="remodel.guide">
+      <p class="footer-tagline">The Homeowner Protection Guide<br>for Residential Remodeling.<br><br>A free resource from <a href="https://remodelry.guide" target="_blank">Remodelry</a> —<br>Northeast Ohio's remodeling concierge service.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <span class="footer-col-title">The Guides</span>
+        <ul>
+          <li><a href="/kitchen">Kitchen Remodel</a></li>
+          <li><a href="/bathroom">Bathroom Renovation</a></li>
+          <li><a href="/basement">Basement Finishing</a></li>
+          <li><a href="/addition">Home Addition</a></li>
+          <li><a href="/flooring">Flooring</a></li>
+          <li><a href="/windows">Window Replacement</a></li>
+          <li><a href="/siding">Siding</a></li>
+          <li><a href="/painting">Interior & Exterior Painting</a></li>
+          <li><a href="/millwork">Millwork & Built-Ins</a></li>
+          <li><a href="/demo">Living Through a Renovation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <span class="footer-col-title">Remodelry</span>
+        <ul>
+          <li><a href="https://remodelry.guide" target="_blank">remodelry.guide</a></li>
+          <li><a href="https://remodelry.guide/remi" target="_blank">Talk to Remi — Free</a></li>
+          <li><a href="https://remodelry.guide/concierge" target="_blank">The Concierge</a></li>
+          <li><a href="https://remodelry.guide/after-clarity" target="_blank">After Clarity</a></li>
+          <li><a href="https://remodelry.guide/pillars" target="_blank">10 Pillars</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 remodel.guide · All rights reserved.</span>
+    <span class="footer-remodelry">A <a href="https://remodelry.guide" target="_blank">Remodelry</a> resource · Serving Northeast Ohio</span>
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script>
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-up').forEach(function(el) { observer.observe(el); });
+
+  var hamburger = document.getElementById('hamburger');
+  var mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', function() {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  function closeMobile() {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  }
+</script>
+
+</body>
+</html>
