@@ -1,1 +1,944 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basement Finishing Guide — remodel.guide</title>
+  <meta name="description" content="The complete homeowner protection guide for basement finishing. Moisture barriers, pressure treated framing, egress windows, soundproofing, access panels, and what to know before a single wall goes up." />
+  <meta name="keywords" content="basement finishing guide, basement moisture barrier, egress window, pressure treated plate, basement soundproofing, Northeast Ohio basement finishing, basement flooring over concrete" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Basement Finishing Guide — The Complete Homeowner Protection Guide" />
+  <meta property="og:description" content="The moisture conversation most contractors skip. Pressure treated plates. Egress windows that turn square footage into bedrooms. What to know before a single wall goes up." />
+  <meta property="og:url" content="https://remodel.guide/basement" />
+  <meta property="og:type" content="article" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <style>
+    /* Moisture section special treatment */
+    .moisture-section {
+      background: var(--deep);
+      padding: 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .moisture-section::before {
+      content: '';
+      position: absolute;
+      top: -200px; left: -200px;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(181,144,74,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .moisture-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .moisture-section .section-label { color: var(--brass-light); }
+    .moisture-section h2 { color: var(--white); }
+    .moisture-section h2 em { color: var(--brass-light); }
+    .moisture-section p { color: rgba(255,255,255,0.65); }
+    .moisture-section h3 { color: var(--white); font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 500; margin-bottom: 12px; }
+    .moisture-section strong { color: rgba(255,255,255,0.9); }
+
+    .moisture-hook {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(20px, 2.5vw, 28px);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--brass-light);
+      line-height: 1.45;
+      padding: 24px 0 24px 24px;
+      border-left: 3px solid rgba(181,144,74,0.3);
+      margin: 32px 0;
+    }
+
+    .moisture-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+      padding: 28px 32px;
+      margin: 24px 0;
+    }
+
+    .moisture-card h3 {
+      color: var(--brass-light) !important;
+      margin-bottom: 14px;
+    }
+
+    .moisture-card p {
+      font-size: 14px;
+      line-height: 1.8;
+      margin-bottom: 12px;
+    }
+
+    .moisture-card p:last-child { margin-bottom: 0; }
+
+    .moisture-flag {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: rgba(196,118,42,0.1);
+      border-left: 3px solid var(--warning);
+      border-radius: 0 8px 8px 0;
+      padding: 16px 18px;
+      margin-top: 16px;
+    }
+
+    .moisture-flag p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 0;
+    }
+
+    .moisture-flag strong { color: var(--warning) !important; }
+
+    .test-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin: 24px 0;
+    }
+
+    .test-step {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .test-step-num {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(181,144,74,0.15);
+      border: 1px solid rgba(181,144,74,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      color: var(--brass-light);
+      flex-shrink: 0;
+    }
+
+    .test-step-content h4 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 6px;
+    }
+
+    .test-step-content p {
+      font-size: 13px;
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 900px) {
+      .moisture-section { padding: 56px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">
+    <img src="../assets/images/remodel-guide-logo.png" alt="remodel.guide">
+  </a>
+  <ul class="nav-links">
+    <li><a href="/kitchen">Kitchen</a></li>
+    <li><a href="/bathroom">Bathroom</a></li>
+    <li><a href="/basement" style="color:var(--brass);">Basement</a></li>
+    <li><a href="/addition">Addition</a></li>
+    <li><a href="/flooring">Flooring</a></li>
+    <li><a href="https://remodelry.guide/remi" target="_blank" class="nav-cta">Talk to Remi — Free</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/" onclick="closeMobile()">← All Guides</a>
+    <a href="/kitchen" onclick="closeMobile()">Kitchen Remodel</a>
+    <a href="/bathroom" onclick="closeMobile()">Bathroom Renovation</a>
+    <a href="/basement" onclick="closeMobile()">Basement Finishing</a>
+    <a href="/addition" onclick="closeMobile()">Home Addition</a>
+    <a href="/flooring" onclick="closeMobile()">Flooring</a>
+    <a href="/windows" onclick="closeMobile()">Windows</a>
+    <a href="/siding" onclick="closeMobile()">Siding</a>
+    <a href="/painting" onclick="closeMobile()">Painting</a>
+    <a href="/millwork" onclick="closeMobile()">Millwork & Built-Ins</a>
+    <a href="/demo" onclick="closeMobile()">Living Through a Renovation</a>
+    <a href="https://remodelry.guide/remi" target="_blank" class="mobile-cta">Talk to Remi — It's Free</a>
+  </div>
+</nav>
+
+<!-- COMPANION BANNER -->
+<div class="companion-banner">
+  <p>A free resource from <a href="https://remodelry.guide" target="_blank">Remodelry</a> — Northeast Ohio's remodeling concierge service.</p>
+</div>
+
+<!-- PAGE HEADER -->
+<section class="page-header">
+  <div class="page-header-inner fade-up">
+    <div class="breadcrumb">
+      <a href="/">remodel.guide</a>
+      <span class="breadcrumb-sep">→</span>
+      <span class="breadcrumb-current">Basement Finishing</span>
+    </div>
+    <h1>The Basement<br><em>Finishing Guide</em></h1>
+    <p class="page-header-body">A finished basement is one of the highest-return investments a homeowner can make. Done right, it adds livable square footage, a legal bedroom, and a functional space at a fraction of the cost of an addition. Done wrong, it becomes the most expensive mistake in the house. The decisions that protect a finished basement are all made before the first wall goes up. This guide covers every one of them.</p>
+    <div class="page-header-meta">
+      <span class="meta-tag">Moisture assessment first</span>
+      <span class="meta-tag">Egress and value</span>
+      <span class="meta-tag">Soundproofing before framing</span>
+      <span class="meta-tag">Access panels planned early</span>
+    </div>
+  </div>
+</section>
+
+<!-- HERO IMAGE -->
+<div style="background:var(--deep);padding:0 80px 0;line-height:0;">
+  <img src="../assets/images/basement-hero.jpg"
+       alt="Basement mid-finishing — framing up, electrical rough-in visible, concrete floor still exposed"
+       class="guide-image"
+       style="margin:0;border-radius:0;max-height:480px;object-fit:cover;width:100%;"
+       onerror="this.style.display='none'">
+</div>
+
+<!-- MAIN CONTENT -->
+<section class="section-white">
+  <div class="section-inner">
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="toc fade-up">
+      <span class="toc-title">What this guide covers</span>
+      <ul class="toc-list">
+        <li><a href="#what-it-is">What basement finishing actually is</a></li>
+        <li><a href="#scope-levels">The three levels — which one are you doing?</a></li>
+        <li><a href="#moisture">The moisture conversation — before everything else</a></li>
+        <li><a href="#framing">Pressure treated plate, egress, and soundproofing</a></li>
+        <li><a href="#access">Access panels — the detail that prevents disasters</a></li>
+        <li><a href="#ceiling">Ceiling choices — drywall vs. drop</a></li>
+        <li><a href="#flooring">Flooring over concrete — what every option requires</a></li>
+        <li><a href="#decision-map">The decision map — in order</a></li>
+        <li><a href="#timeline">The real timeline — week by week</a></li>
+        <li><a href="#watch-for">What to watch for — risks and hidden costs</a></li>
+        <li><a href="#questions">Questions to ask every contractor</a></li>
+        <li><a href="#remi">Before you call anyone — talk to Remi</a></li>
+      </ul>
+    </div>
+
+    <!-- WHAT IT IS -->
+    <div class="guide-content fade-up" id="what-it-is">
+
+      <h2>What basement finishing actually is</h2>
+
+      <div class="hook-quote">"A finished basement built without respect for moisture is not a matter of if it fails. It is a matter of when."</div>
+
+      <p>Water is always present in a basement at some level. The question is not whether moisture exists — it almost always does. The question is whether the finishing system was designed around that reality or pretended it didn't exist.</p>
+
+      <p>A finished basement built correctly lasts decades. A finished basement built with shortcuts on moisture, framing, or access fails silently — until the damage surfaces and the cost to correct it is far greater than the cost to build it right the first time.</p>
+
+      <p>This guide covers everything a homeowner needs to understand before framing begins — the moisture conversation, the egress conversation, the mechanical access conversation, the soundproofing conversation, and every decision in between.</p>
+
+      <img src="../assets/images/basement-framing.jpg"
+           alt="Basement framing in progress — walls going up before insulation and drywall"
+           class="guide-image"
+           onerror="this.style.display='none'">
+
+    </div>
+
+    <!-- SCOPE LEVELS -->
+    <div class="guide-content fade-up" id="scope-levels">
+
+      <h2>The three levels — which one are you doing?</h2>
+
+      <div class="level-cards">
+        <div class="level-card">
+          <span class="level-label">Level 1</span>
+          <h4>Storage Upgrade</h4>
+          <p>Epoxy floor coating. Painted walls. Basic lighting. The basement remains unfinished but organized and functional. No framing. No drywall. No permits in most cases. Also the right answer for a basement with active moisture issues — finishing over a moisture problem seals it in rather than solving it.</p>
+        </div>
+        <div class="level-card">
+          <span class="level-label">Level 2</span>
+          <h4>Partial Finish</h4>
+          <p>One area is finished — a home office, a playroom, a workout space — while mechanicals and storage remain open. Framing, drywall, flooring, and lighting in the finished area. Permits required in most municipalities. Four to eight weeks.</p>
+        </div>
+        <div class="level-card">
+          <span class="level-label">Level 3</span>
+          <h4>Full Finish</h4>
+          <p>The entire basement becomes living space. May include a bathroom, a legal bedroom with egress, a wet bar, a home theater. Full framing, drywall, electrical, plumbing. Eight to fourteen weeks. Permits required everywhere. Licensed general contractor, plumber, and electrician required.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- MOISTURE SECTION — dark treatment -->
+<section class="moisture-section" id="moisture">
+  <div class="moisture-inner fade-up">
+
+    <span class="section-label">The Moisture Conversation</span>
+    <h2>Before everything else —<br><em>before framing, before drywall, before anything.</em></h2>
+
+    <p style="margin-top:20px;">This is the conversation most contractors skip because it slows down the sale. A basement cannot be responsibly finished without first understanding its moisture profile. Not assumed. Not guessed. Understood — through observation, testing, and honest assessment of what the concrete is doing.</p>
+
+    <div class="moisture-hook">"Any contractor who walks a basement and begins talking about framing and drywall without first asking about moisture history is not protecting the homeowner. Moisture is the first conversation. If it isn't — ask it yourself."</div>
+
+    <div class="moisture-card">
+      <h3>The plastic tape test — run this before calling anyone</h3>
+      <p>Tape a 12-inch square of heavy contractor plastic sheeting directly to the concrete floor and to the concrete walls in several locations around the basement. Seal all four edges with tape. Leave it for 48 to 72 hours.</p>
+
+      <div class="test-steps">
+        <div class="test-step">
+          <div class="test-step-num">1</div>
+          <div class="test-step-content">
+            <h4>Moisture on the underside of the plastic</h4>
+            <p>The side that was against the concrete. This indicates moisture migrating up through the slab from below — hydrostatic pressure. Requires a moisture mitigation strategy before any flooring goes down.</p>
+          </div>
+        </div>
+        <div class="test-step">
+          <div class="test-step-num">2</div>
+          <div class="test-step-content">
+            <h4>Moisture on the top side of the plastic</h4>
+            <p>The side facing the room. This indicates condensation from humid air in the basement — a ventilation and humidity problem. Managed differently than hydrostatic pressure.</p>
+          </div>
+        </div>
+        <div class="test-step">
+          <div class="test-step-num">3</div>
+          <div class="test-step-content">
+            <h4>Both present simultaneously</h4>
+            <p>Not uncommon. Both need to be addressed before finishing begins. Run the test in multiple locations — corners, center of slab, along exterior walls.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="moisture-flag">
+        <span style="font-size:18px;flex-shrink:0;">⚠️</span>
+        <p><strong>Active water intrusion — water that appears after rain, water that comes through cracks — must be addressed by a waterproofing contractor before finishing begins.</strong> Finishing over active water intrusion is not a renovation. It is a future mold remediation waiting to happen.</p>
+      </div>
+    </div>
+
+    <div class="moisture-card">
+      <h3>The floor — roll-on moisture barrier is the priority</h3>
+      <p>The concrete floor requires a moisture barrier before any flooring system goes down. There are two primary approaches — and they are not equal.</p>
+      <p><strong>Sheet plastic</strong> — 6-mil poly sheeting laid over the concrete floor — is the most common and least effective solution. It sits on top of the concrete. It does not bond to it. Moisture that migrates through the slab accumulates between the plastic and the concrete with nowhere to go. In moderate to high moisture environments, this creates conditions for mold growth underneath the flooring — invisible, silent, and eventually significant.</p>
+      <p><strong>Roll-on moisture barrier</strong> — products like Drylok Extreme or similar penetrating masonry sealers — bonds chemically to the concrete. It fills the pores in the slab and creates a barrier that is part of the concrete surface rather than a layer sitting on top of it. It does not trap moisture between layers. It manages it at the source.</p>
+      <div class="moisture-flag">
+        <span style="font-size:18px;flex-shrink:0;">✓</span>
+        <p><strong>For a basement floor that will have any finished flooring installed over it — roll-on moisture barrier on the concrete is the right foundation.</strong> Apply it before any subfloor system or flooring goes down. Two coats. Let it cure fully.</p>
+      </div>
+    </div>
+
+    <div class="moisture-card">
+      <h3>The walls — roll-on vs. sheathing</h3>
+      <p>Basement walls present a different moisture challenge than floors. The concrete block or poured concrete wall is in contact with soil on the exterior. Moisture migrates through it.</p>
+      <p><strong>Rigid foam sheathing</strong> — pink or blue board installed against the concrete wall before framing — is the most common approach. It provides insulation and a thermal break. It also, in moderate to high moisture environments, can trap moisture between the foam and the concrete wall. That trapped moisture has nowhere to go and creates conditions for mold on the back side of the sheathing — invisible until the wall is opened.</p>
+      <p><strong>Roll-on moisture barrier applied directly to the concrete wall</strong> before any sheathing or framing is installed addresses moisture at the source. The same penetrating chemistry that works on the floor works on the wall. It creates a better foundation for whatever goes against the wall next.</p>
+      <div class="moisture-flag">
+        <span style="font-size:18px;flex-shrink:0;">⚠️</span>
+        <p><strong>In a basement with known or suspected moisture, roll-on on the walls before sheathing is the better system.</strong> The plastic tape test tells which situation you're in. Run it before committing to a wall assembly.</p>
+      </div>
+    </div>
+
+    <img src="../assets/images/basement-moisture-test.jpg"
+         alt="Plastic sheeting taped to concrete floor for moisture testing"
+         class="guide-image"
+         style="margin:32px 0;"
+         onerror="this.style.display='none'">
+
+  </div>
+</section>
+
+<!-- FRAMING, EGRESS, SOUNDPROOFING -->
+<section class="section-white" id="framing">
+  <div class="section-inner">
+    <div class="guide-content fade-up">
+
+      <h2>Pressure treated plate, egress, and soundproofing</h2>
+
+      <h3>Pressure treated bottom plate — non-negotiable</h3>
+
+      <p>Every basement wall framed on concrete requires a pressure treated bottom plate. The bottom plate is the horizontal lumber that sits on the concrete floor and anchors the wall framing. Standard dimensional lumber in direct contact with concrete absorbs moisture from the slab. It swells. It deteriorates. In time it rots. The wall above it becomes unstable.</p>
+
+      <p>Pressure treated lumber is chemically treated to resist moisture and biological degradation. It is code-required in most municipalities for any framing in contact with concrete. It costs marginally more than standard lumber. It is not optional.</p>
+
+      <div class="flag-list">
+        <div class="flag-item">
+          <div class="flag-icon">⚠️</div>
+          <div class="flag-content">
+            <h4>Confirm pressure treated bottom plate in writing</h4>
+            <p>Ask specifically before framing begins. Confirm it in the written scope of work. A contractor who frames basement walls with standard lumber on concrete is cutting a corner that will cost the homeowner eventually — and it's invisible once drywall goes up.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="margin-top:48px;">Egress — the decision that determines what the space is worth</h3>
+
+      <p>This is the conversation that changes the financial calculation of finishing a basement.</p>
+
+      <p>An egress window is a window large enough to serve as an emergency exit — and large enough to meet the International Residential Code minimum for a sleeping room. In most jurisdictions: minimum net clear opening of 5.7 square feet, minimum height of 24 inches, minimum width of 20 inches, and maximum sill height of 44 inches from the floor.</p>
+
+      <p><strong>A basement bedroom without an egress window is not legally a bedroom.</strong> It cannot be listed as a bedroom on a property listing. It cannot be counted in the bedroom count at resale. It is a room with a bed in it — legally a den, an office, a flex space.</p>
+
+      <p><strong>A basement bedroom with an egress window is a bedroom.</strong> It counts. It adds to the appraised value. It changes the bedroom count on the listing. In most markets, the addition of a legal basement bedroom adds more value than the egress window costs to install.</p>
+
+      <div class="flag-list">
+        <div class="flag-item" style="border-color:var(--brass);background:rgba(181,144,74,0.06);">
+          <div class="flag-icon">✓</div>
+          <div class="flag-content">
+            <h4 style="color:var(--brass);">Install egress before finishing begins</h4>
+            <p>Egress window installation requires excavating a window well on the exterior, cutting through the foundation wall, installing a larger window unit, and building or installing a window well with drainage. It is a significant project — but almost always worth doing before finishing begins, when the disruption is part of the larger construction project rather than a separate excavation after the basement is finished and furnished.</p>
+          </div>
+        </div>
+      </div>
+
+      <img src="../assets/images/basement-egress.jpg"
+           alt="Egress window well being excavated — the scale of the opening required for code compliance"
+           class="guide-image"
+           onerror="this.style.display='none'">
+
+      <h3 style="margin-top:48px;">Soundproofing — planned before framing, not after</h3>
+
+      <p>Soundproofing a basement ceiling is one of the most frequently regretted omissions in basement finishing. After drywall is closed, the options are limited and expensive. Before drywall — and ideally before insulation — the options are accessible and affordable.</p>
+
+      <p><strong>Airborne sound</strong> — voices, television, music — is reduced by mass and absorption. Rockwool Safe'n'Sound or similar acoustic insulation in the joist bays between the basement ceiling and the floor above performs significantly better than standard fiberglass batts for sound control.</p>
+
+      <p><strong>Impact sound</strong> — footsteps, dropped objects, chair scraping — travels through the structure itself. It requires decoupling — separating the drywall ceiling from the joists so impact vibration doesn't transmit directly. Resilient channel or sound isolation clips interrupt the structural connection. This is the detail most basement finishers skip. It is also the detail that makes the most difference for footstep noise.</p>
+
+      <p><strong>Two layers of drywall</strong> on the ceiling — with a layer of acoustic damping compound like Green Glue between them — adds mass and dampening. Combined with resilient channel and acoustic insulation, this assembly produces a meaningfully quieter basement.</p>
+
+      <div class="flag-list">
+        <div class="flag-item">
+          <div class="flag-icon">⚠️</div>
+          <div class="flag-content">
+            <h4>Soundproofing decisions must be made before insulation is ordered</h4>
+            <p>After drywall is closed, adding meaningful soundproofing means tearing out the ceiling. Make this decision at the beginning of the project — not when someone complains about hearing every footstep from above.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ACCESS PANELS -->
+<section class="section-cream" id="access">
+  <div class="section-inner fade-up">
+    <span class="section-label">Access Panels</span>
+    <h2>The detail that prevents<br><em>future disasters.</em></h2>
+    <p style="margin-top:16px;margin-bottom:32px;">Every basement has mechanical systems that require periodic access. HVAC equipment. Plumbing cleanouts. Shutoff valves. Condensate lines. Electrical panels. Sump pumps. These systems existed before the basement was finished. They will need to be accessed after the basement is finished.</p>
+
+    <div class="guide-content">
+
+      <p>A finished basement ceiling with no access panels — or with access panels in the wrong locations — creates an emergency problem when something fails. A plumber who cannot reach a shutoff valve cuts a ceiling. An HVAC technician who cannot reach a condensate pan cuts a ceiling. A homeowner who cannot reach the main water shutoff during a leak cuts a ceiling.</p>
+
+      <p>Access panels are inexpensive. They are flush-mounted, paintable, and nearly invisible when installed correctly. They are also almost always an afterthought — installed at the end of the project in locations chosen for convenience rather than planned at the beginning in locations chosen for function.</p>
+
+      <div class="flag-list">
+        <div class="flag-item" style="border-color:var(--brass);background:rgba(181,144,74,0.06);">
+          <div class="flag-icon">✓</div>
+          <div class="flag-content">
+            <h4 style="color:var(--brass);">Walk the basement with the contractor before framing begins</h4>
+            <p>Identify every mechanical system that will be above or behind the finished ceiling and walls. Mark the location of every shutoff valve, every cleanout, every piece of equipment that will need service. Plan an access panel for each one. Build the framing around the access locations — not the other way around. A basement finished without this planning will eventually have a ceiling cut open.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CEILING CHOICES -->
+<section class="section-white" id="ceiling">
+  <div class="section-inner fade-up">
+    <span class="section-label">Ceiling Choices</span>
+    <h2>The decision most homeowners<br><em>make too quickly.</em></h2>
+    <p style="margin-top:16px;margin-bottom:32px;">The basement ceiling choice is not primarily aesthetic. It is a functional decision with aesthetic consequences — and it is constrained by ceiling height in ways most homeowners don't realize until it's too late.</p>
+
+    <div class="guide-content">
+
+      <div class="level-cards" style="margin-bottom:32px;">
+        <div class="level-card">
+          <span class="level-label">Option 1</span>
+          <h4>Drywall Ceiling</h4>
+          <p>Looks finished. Allows flush recessed lighting. Permanently closes access to everything above it unless panels were planned. In a basement that floods — a drywall ceiling that gets wet is a tear-out, not a dry-out. Appropriate for basements with no moisture history and all mechanical access resolved with panels.</p>
+        </div>
+        <div class="level-card">
+          <span class="level-label">Option 2</span>
+          <h4>Drop Ceiling</h4>
+          <p>Every tile lifts out. Every pipe, valve, and wire is reachable from below. In a basement that floods, wet tiles are replaced individually — the grid and framing survive. Modern drop ceiling systems with drywall-look tiles have significantly improved. Appropriate for any basement with moisture history or unresolved mechanical access.</p>
+        </div>
+        <div class="level-card">
+          <span class="level-label">The constraint</span>
+          <h4>Ceiling Height</h4>
+          <p>Most building codes require 7-foot minimum ceiling height in finished basement living spaces. A basement with 7-foot ceilings loses 4 to 6 inches to a drop ceiling grid and may not meet code. Measure the actual ceiling height — from concrete floor to the bottom of the lowest obstruction — before committing to either option.</p>
+        </div>
+      </div>
+
+      <h3>Lighting — not decorative, structural</h3>
+
+      <p>A basement with no natural light is a basement where lighting determines how the space feels, functions, and is used. Most basement finishing projects underlight the space — because the contractor is thinking about code minimums rather than livability.</p>
+
+      <p><strong>Recessed lighting layout</strong> should be planned on a grid — typically 6 to 8 feet apart in both directions for general illumination — with additional task lighting over work areas and dedicated lighting in any bathroom or utility area. The layout is planned before the electrician does rough-in.</p>
+
+      <p><strong>Color temperature matters more in a basement.</strong> 2700K to 3000K is warm white — comfortable and residential. 4000K and above is cool white — the temperature of commercial spaces. A basement finished with 4000K or 5000K recessed lights feels cold and institutional regardless of the finish level. Specify warm white. Use dimmer switches wherever possible.</p>
+
+    </div>
+  </div>
+</section>
+
+<!-- FLOORING -->
+<section class="section-cream" id="flooring">
+  <div class="section-inner fade-up">
+    <span class="section-label">Flooring Over Concrete</span>
+    <h2>What every option requires<br><em>below grade.</em></h2>
+    <p style="margin-top:16px;margin-bottom:32px;">Concrete is hard, cold, and unforgiving underfoot. It also has moisture content — always. Every flooring choice for a basement has a concrete-specific consideration that a homeowner shopping in a flooring showroom will never hear. Here is what every option actually requires.</p>
+
+    <div class="guide-content">
+
+      <h3>The subfloor system — the layer between slab and finish floor</h3>
+
+      <p>A subfloor system installed over the concrete before finish flooring creates a warmer, more comfortable surface, provides a flat substrate, and combined with the roll-on moisture barrier below it, creates a flooring assembly that performs durably.</p>
+
+      <p><strong>Dimple mat plus plywood</strong> — a plastic sheet with a raised dimple pattern creates a drainage plane between the concrete and the plywood above. Three-quarter inch plywood is fastened through the dimple mat to the concrete. The result is a subfloor that sits slightly above the slab with an air gap underneath — residual moisture dissipates rather than accumulates. Adds approximately one inch of height — a consideration at stair transitions.</p>
+
+      <p><strong>Manufactured subfloor panels</strong> — products like Dricore combine the dimple mat and plywood in a single panel. They install quickly and are widely available. A good solution for a full basement finish where speed and consistency matter.</p>
+
+      <div class="flag-list" style="margin-top:28px;">
+
+        <div class="flag-item" style="border-color:var(--brass);background:rgba(181,144,74,0.06);">
+          <div class="flag-icon">✓</div>
+          <div class="flag-content">
+            <h4 style="color:var(--brass);">Luxury Vinyl Plank (LVP) — most forgiving choice</h4>
+            <p>Waterproof core. Floats over the subfloor without glue. Tolerates minor moisture without damage. Requires a flat substrate. Does not require acclimation like wood products. The right choice for most basement applications.</p>
+          </div>
+        </div>
+
+        <div class="flag-item" style="border-color:var(--brass);background:rgba(181,144,74,0.06);">
+          <div class="flag-icon">✓</div>
+          <div class="flag-content">
+            <h4 style="color:var(--brass);">Engineered hardwood — with conditions</h4>
+            <p>Can be installed over concrete with appropriate moisture preparation. Must be glued or floated — not nailed — over concrete. Requires moisture barrier and ideally a subfloor system. Will not tolerate flooding. Not appropriate for basements with any history of moisture intrusion.</p>
+          </div>
+        </div>
+
+        <div class="flag-item">
+          <div class="flag-icon">⚠️</div>
+          <div class="flag-content">
+            <h4>Solid hardwood — never below grade</h4>
+            <p>Not appropriate for below-grade installation over concrete. Period. Solid hardwood moves with moisture content changes in ways that below-grade environments cannot control. Do not install solid hardwood in a basement regardless of how dry it appears.</p>
+          </div>
+        </div>
+
+        <div class="flag-item" style="border-color:var(--brass);background:rgba(181,144,74,0.06);">
+          <div class="flag-icon">✓</div>
+          <div class="flag-content">
+            <h4 style="color:var(--brass);">Ceramic or porcelain tile — fully waterproof</h4>
+            <p>Tolerates moisture. Requires a flat, stable substrate — concrete that continues to move or has active cracks will crack grout joints and eventually tile. Cold and hard underfoot without radiant heat. Appropriate for basement bathrooms and utility areas.</p>
+          </div>
+        </div>
+
+        <div class="flag-item">
+          <div class="flag-icon">⚠️</div>
+          <div class="flag-content">
+            <h4>Carpet — only in dry basements</h4>
+            <p>Appropriate only for dry basements with full subfloor systems and no history of moisture. Carpet that gets wet in a basement is a mold problem. Specify carpet with a moisture-resistant backing. Install over a proper subfloor — never directly over concrete.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- DECISION MAP -->
+<section class="section-white" id="decision-map">
+  <div class="section-inner fade-up">
+    <span class="section-label">The Decision Map</span>
+    <h2>Every decision, in the order<br><em>it has to be made.</em></h2>
+    <p style="margin-top:16px;margin-bottom:40px;">The sequence matters in a basement more than almost any other project — because decisions made in the wrong order mean tearing out finished work to correct them.</p>
+
+    <div class="guide-content">
+      <div class="decision-map">
+
+        <div class="decision-item">
+          <div class="decision-num">01</div>
+          <div class="decision-content">
+            <h4>Moisture assessment — before everything</h4>
+            <p>Plastic tape test. History review. Any active intrusion addressed by a waterproofing contractor before finishing begins. This is not optional. It is the foundation of every decision that follows.</p>
+          </div>
+        </div>
+
+        <div class="decision-item">
+          <div class="decision-num">02</div>
+          <div class="decision-content">
+            <h4>Egress — if any bedroom is planned, ever</h4>
+            <p>If any bedroom is planned — now or in the future — egress window location and installation is decided and executed before framing begins. After the basement is finished and furnished, egress installation is a significantly more disruptive and expensive project.</p>
+          </div>
+        </div>
+
+        <div class="decision-item">
+          <div class="decision-num">03</div>
+          <div class="decision-content">
+            <h4>Layout — walls, bathroom location, mechanical room boundary</h4>
+            <p>Where are the walls going? Where is the bathroom? Where is the mechanical room boundary? Where are the access panel locations? Layout is drawn before framing begins — and access panel locations are part of the drawing.</p>
+          </div>
+        </div>
+
+        <div class="decision-item">
+          <div class="decision-num">04</div>
+          <div class="decision-content">
+            <h4>Soundproofing — before insulation is ordered</h4>
+            <p>Acoustic insulation type confirmed. Resilient channel or isolation clip decision made. Two-layer drywall ceiling decision made. All before insulation is ordered and before framing inspection is scheduled.</p>
+          </div>
+        </div>
+
+        <div class="decision-item">
+          <div class="decision-num">05</div>
+          <div class="decision-content">
+            <h4>Ceiling type — drywall or drop</h4>
+            <p>Height confirmed against code minimums. Access panel locations confirmed against mechanical locations. This decision is made before framing — not after, when the ceiling height has already been committed.</p>
+          </div>
+        </div>
+
+        <div class="decision-item">
+          <div class="decision-num">06</div>
+          <div class="decision-content">
+            <h4>Subfloor system — before flooring is ordered</h4>
+            <p>Dimple mat plus plywood, manufactured panels, or direct installation based on moisture profile. Confirmed before flooring is ordered. Height impact at stair transitions considered.</p>
+          </div>
+        </div>
+
+        <div class="decision-item">
+          <div class="decision-num">07</div>
+          <div class="decision-content">
+            <h4>Moisture barrier — applied before framing or subfloor</h4>
+            <p>Roll-on on floor confirmed. Wall treatment confirmed. Applied before framing or subfloor begins. Two coats. Full cure time before anything goes over it.</p>
+          </div>
+        </div>
+
+        <div class="decision-item">
+          <div class="decision-num">08</div>
+          <div class="decision-content">
+            <h4>Lighting layout — before electrical rough-in</h4>
+            <p>Full recessed layout planned. Color temperature specified — warm white, 2700K to 3000K. Dimmer locations confirmed. All before the electrician does rough-in. Moving a recessed light after drywall is a repair project.</p>
+          </div>
+        </div>
+
+        <div class="decision-item">
+          <div class="decision-num">09</div>
+          <div class="decision-content">
+            <h4>Bathroom rough-in — slab break or up-flush</h4>
+            <p>If a bathroom is included — slab break for gravity drainage or up-flush macerating system decision made before the plumber is scheduled. Fan duct path to exterior confirmed before framing is closed.</p>
+          </div>
+        </div>
+
+        <div class="decision-item">
+          <div class="decision-num">10</div>
+          <div class="decision-content">
+            <h4>Flooring — based on moisture profile and subfloor system</h4>
+            <p>Material selected based on the results of the moisture assessment and the subfloor system chosen. Ordered with lead time considered. Confirmed before subfloor is complete.</p>
+          </div>
+        </div>
+
+        <div class="decision-item">
+          <div class="decision-num">11</div>
+          <div class="decision-content">
+            <h4>Pressure treated bottom plate — confirmed in writing</h4>
+            <p>Before framing begins. In the written scope of work. This is confirmed before the framer shows up — not discovered afterward when the drywall goes up and the bottom plate is no longer visible.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="section-cream" id="timeline">
+  <div class="section-inner fade-up">
+    <span class="section-label">The Real Timeline</span>
+    <h2>What actually happens,<br><em>week by week.</em></h2>
+    <p style="margin-top:16px;margin-bottom:40px;">A full basement finish that goes well — with bathroom included. Eight to nine weeks. Longer if egress excavation adds time, if slab breaking for bathroom rough-in adds scope, or if moisture remediation was required before finishing began.</p>
+
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-period">Weeks 1–2</div>
+        <div class="timeline-content">
+          <h4>Pre-construction and moisture work</h4>
+          <p>Moisture assessment complete. Any active intrusion addressed. Egress window installed if in scope. Permits pulled. Roll-on moisture barrier applied to floor and walls. Cured before framing begins. This phase cannot be rushed.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-period">Week 3</div>
+        <div class="timeline-content">
+          <h4>Framing</h4>
+          <p>Pressure treated bottom plates set — confirmed before lumber is ordered. Walls framed. Niche and access panel locations framed in. Bathroom wet wall framed. Stair framing adjusted if needed. Egress window opening framed if not already done.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-period">Week 4</div>
+        <div class="timeline-content">
+          <h4>Rough-in</h4>
+          <p>Plumber breaks slab and sets drain if full bathroom included — or up-flush system installed. Electrician runs circuits — outlets, lighting, bathroom, dedicated circuits. HVAC contractor extends ductwork or adds supplies and returns. Framing inspection scheduled.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-period">Week 5</div>
+        <div class="timeline-content">
+          <h4>Insulation and soundproofing</h4>
+          <p>Acoustic insulation in ceiling joist bays — Rockwool Safe'n'Sound or equivalent. Resilient channel installed on ceiling if specified. Exterior wall insulation. Spray foam at rim joists. Framing inspection before drywall begins.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-period">Week 6</div>
+        <div class="timeline-content">
+          <h4>Drywall</h4>
+          <p>Ceiling first — two layers if soundproofing spec calls for it with Green Glue between layers. Walls follow. Bathroom gets moisture-resistant drywall or cement board in wet areas. Taping, mudding, and finishing. Access panels installed before taping — painted after.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-period">Weeks 7–8</div>
+        <div class="timeline-content">
+          <h4>Finish work</h4>
+          <p>Bathroom tile if included. Subfloor system installed over moisture-treated concrete. Flooring throughout. Trim and doors. Cabinet and vanity installation if bathroom included. Lighting fixtures installed. Stair treads and risers if refinishing stairs.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-period">Week 9</div>
+        <div class="timeline-content">
+          <h4>Paint and punch list</h4>
+          <p>Paint throughout. Final fixture connections. Access panels painted to match ceiling. Bathroom fixtures connected. Punch list walk — every item documented and resolved before final payment. Project complete.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHAT TO WATCH FOR -->
+<section class="section-white" id="watch-for">
+  <div class="section-inner fade-up">
+    <span class="section-label">What to Watch For</span>
+    <h2>Basement-specific risks<br><em>named before they happen.</em></h2>
+    <p style="margin-top:16px;margin-bottom:40px;">Basements are where shortcuts hide longest and cost the most when discovered. These risks are preventable — but only if they're known before framing begins.</p>
+
+    <div class="guide-content">
+      <div class="flag-list">
+
+        <div class="flag-item">
+          <div class="flag-icon">⚠️</div>
+          <div class="flag-content">
+            <h4>The contractor who skips the moisture conversation</h4>
+            <p>Any contractor who walks a basement and begins talking about framing and drywall without first asking about moisture history is not protecting the homeowner. If moisture isn't the first conversation — make it the first conversation yourself. Ask directly about the moisture assessment process before signing anything.</p>
+          </div>
+        </div>
+
+        <div class="flag-item">
+          <div class="flag-icon">⚠️</div>
+          <div class="flag-content">
+            <h4>Standard lumber on concrete</h4>
+            <p>Walk the framing before drywall goes up. The bottom plate sitting on the concrete floor should be visually different from the studs above it — pressure treated lumber has a greenish tint. If it looks identical to the studs, ask. Confirm in writing before framing begins and verify before drywall covers it.</p>
+          </div>
+        </div>
+
+        <div class="flag-item">
+          <div class="flag-icon">⚠️</div>
+          <div class="flag-content">
+            <h4>Ceiling closed before access panels are located</h4>
+            <p>Walk the mechanical systems before the ceiling goes up. Know where every shutoff, cleanout, and service point is. Confirm access panel locations before drywall is ordered. This is a five-minute walk that prevents a ceiling cut-out later.</p>
+          </div>
+        </div>
+
+        <div class="flag-item">
+          <div class="flag-icon">⚠️</div>
+          <div class="flag-content">
+            <h4>Egress after the fact</h4>
+            <p>A basement bedroom without egress is a liability at resale — not just a code issue. It must be disclosed. It suppresses the value of the finished space. Any contractor who suggests finishing a bedroom without egress is asking the homeowner to absorb a problem that will surface at the worst possible time.</p>
+          </div>
+        </div>
+
+        <div class="flag-item">
+          <div class="flag-icon">⚠️</div>
+          <div class="flag-content">
+            <h4>The bathroom fan vented nowhere</h4>
+            <p>After the ceiling is closed, confirm the exhaust fan duct path before calling the project complete. A fan that is not vented to the exterior through the rim joist is not a fan — it is a moisture pump into the structure above it. This is a code violation and a maintenance problem compounding over time.</p>
+          </div>
+        </div>
+
+        <div class="flag-item">
+          <div class="flag-icon">⚠️</div>
+          <div class="flag-content">
+            <h4>Flooring direct to concrete with moisture present</h4>
+            <p>Any flooring installed directly to concrete without a moisture barrier in a basement with measurable moisture is a future remediation project. The plastic tape test is free. Run it before flooring is specified. The result determines the entire floor assembly.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUESTIONS -->
+<section class="section-cream" id="questions">
+  <div class="section-inner fade-up">
+    <span class="section-label">Questions to Ask Every Contractor</span>
+    <h2>The questions that reveal<br><em>who knows what they're doing.</em></h2>
+    <p style="margin-top:16px;margin-bottom:40px;">Basement finishing contractors vary widely in their moisture knowledge and long-term systems thinking. These questions separate the ones who build basements that last from the ones who build basements that look finished on day one and fail within five years.</p>
+
+    <div class="guide-content">
+      <div class="questions-list">
+
+        <div class="question-item">
+          <p class="question-text">"What is your moisture assessment process before framing begins?"</p>
+          <p class="question-why">If there is no process — no test, no history review, no protocol — this contractor is not protecting the basement. The right answer involves a specific process for evaluating moisture before any framing happens.</p>
+        </div>
+
+        <div class="question-item">
+          <p class="question-text">"What moisture barrier system do you use on the floor? On the walls?"</p>
+          <p class="question-why">The answer should be specific. Roll-on penetrating sealer on the floor is the right answer for any basement with measurable moisture. Sheathing on the walls alone is a conversation worth having. A contractor who says "we use plastic sheeting" on the floor has not thought through long-term moisture management.</p>
+        </div>
+
+        <div class="question-item">
+          <p class="question-text">"Do you use pressure treated lumber for the bottom plate?"</p>
+          <p class="question-why">Yes without hesitation. If there is hesitation — ask why and confirm in writing in the scope of work before signing. This is a code requirement in most municipalities and a basic protection in all of them.</p>
+        </div>
+
+        <div class="question-item">
+          <p class="question-text">"Where does the bathroom exhaust fan vent?"</p>
+          <p class="question-why">To the exterior through the rim joist. If the answer is "up through the floor" or "into the joist bay" — this is a problem. Moisture pumped into the structure above a basement bathroom creates damage that compounds for years before it's visible.</p>
+        </div>
+
+        <div class="question-item">
+          <p class="question-text">"How are mechanical systems accessed after the ceiling is finished?"</p>
+          <p class="question-why">The answer should involve a specific plan for access panels at every service point. A contractor who says "we figure it out at the end" is installing access panels in locations chosen for their convenience — not the homeowner's future access needs.</p>
+        </div>
+
+        <div class="question-item">
+          <p class="question-text">"What soundproofing is included in your spec?"</p>
+          <p class="question-why">Standard fiberglass insulation is not soundproofing. The right answer includes acoustic insulation — Rockwool or equivalent — and ideally mentions resilient channel or decoupling. Know what is included and what costs extra before signing.</p>
+        </div>
+
+        <div class="question-item">
+          <p class="question-text">"What is your subfloor system over the concrete?"</p>
+          <p class="question-why">The answer should describe a system — dimple mat, manufactured panels, or a specified approach with a rationale. "We put flooring right on the concrete" is a moisture risk that the homeowner absorbs, not the contractor.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REMI CTA -->
+<section class="section-white" id="remi">
+  <div class="section-inner fade-up">
+    <div class="remi-cta">
+      <h2>Before you call anyone —<br><em>talk to Remi.</em></h2>
+      <p>A basement finish is one of the most consequential projects a homeowner can undertake — because it happens below grade, out of sight, in the one part of the house where moisture is always present and shortcuts are hardest to see. The decisions that protect a finished basement are all made before the first wall goes up. Remi captures your specific basement project in 15 minutes and gives you a personalized First Look that maps your decisions, names your risks, and tells you exactly what to bring to every contractor conversation.</p>
+      <a href="https://remodelry.guide/remi" target="_blank" class="btn-primary">Talk to Remi — It's Free</a>
+      <p class="remi-cta-note">No contractor · No sales pitch · Nobody calling you afterward</p>
+    </div>
+
+    <div style="margin-top:48px;padding-top:48px;border-top:1px solid var(--border);text-align:center;">
+      <span class="section-label" style="display:block;text-align:center;">Continue Reading</span>
+      <h3 style="margin-bottom:24px;">More guides from remodel.guide</h3>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+        <a href="/kitchen" class="btn-ghost">Kitchen Remodel →</a>
+        <a href="/bathroom" class="btn-ghost">Bathroom Renovation →</a>
+        <a href="/demo" class="btn-ghost">Living Through a Renovation →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="../assets/images/remodel-guide-logo.png" alt="remodel.guide">
+      <p class="footer-tagline">The Homeowner Protection Guide<br>for Residential Remodeling.<br><br>A free resource from <a href="https://remodelry.guide" target="_blank">Remodelry</a> —<br>Northeast Ohio's remodeling concierge service.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <span class="footer-col-title">The Guides</span>
+        <ul>
+          <li><a href="/kitchen">Kitchen Remodel</a></li>
+          <li><a href="/bathroom">Bathroom Renovation</a></li>
+          <li><a href="/basement">Basement Finishing</a></li>
+          <li><a href="/addition">Home Addition</a></li>
+          <li><a href="/flooring">Flooring</a></li>
+          <li><a href="/windows">Window Replacement</a></li>
+          <li><a href="/siding">Siding</a></li>
+          <li><a href="/painting">Interior Painting</a></li>
+          <li><a href="/millwork">Millwork & Built-Ins</a></li>
+          <li><a href="/demo">Living Through a Renovation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <span class="footer-col-title">Remodelry</span>
+        <ul>
+          <li><a href="https://remodelry.guide" target="_blank">remodelry.guide</a></li>
+          <li><a href="https://remodelry.guide/remi" target="_blank">Talk to Remi — Free</a></li>
+          <li><a href="https://remodelry.guide/concierge" target="_blank">The Concierge</a></li>
+          <li><a href="https://remodelry.guide/after-clarity" target="_blank">After Clarity</a></li>
+          <li><a href="https://remodelry.guide/pillars" target="_blank">10 Pillars</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 remodel.guide · All rights reserved.</span>
+    <span class="footer-remodelry">A <a href="https://remodelry.guide" target="_blank">Remodelry</a> resource · Serving Northeast Ohio</span>
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script>
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-up').forEach(function(el) { observer.observe(el); });
+
+  var hamburger = document.getElementById('hamburger');
+  var mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', function() {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  function closeMobile() {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  }
+</script>
+
+</body>
+</html>
