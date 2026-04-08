@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meet Remi — remodel.guide</title>
+  <meta name="description" content="Remi is Remodelry's free AI intake companion. A real 10-minute conversation — not a form. See what a homeowner receives, what the Concierge receives, and what happens next." />
+  <meta name="keywords" content="Remi AI remodeling, remodeling intake, Remodelry Remi, free remodeling consultation, remodel first look, AI home renovation" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Meet Remi — A real conversation. Not a form." />
+  <meta property="og:description" content="10 minutes with Remi produces a personalized First Look for the homeowner and a complete project dossier for the Concierge. No contractor will call you." />
+  <meta property="og:url" content="https://remodel.guide/remi" />
+  <meta property="og:type" content="article" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <style>
+    /* Conversation demo section */
+    .conversation-section {
+      background: var(--deep);
+      padding: 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .conversation-section::before {
+      content: '';
+      position: absolute;
+      top: -200px; right: -200px;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(181,144,74,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .conversation-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .conversation-section .section-label { color: var(--brass-light); }
+    .conversation-section h2 { color: var(--white); }
+    .conversation-section h2 em { color: var(--brass-light); }
+    .conversation-section p { color: rgba(255,255,255,0.65); }
+
+    .conversation-image {
+      width: 100%;
+      max-width: 680px;
+      margin: 40px auto;
+      display: block;
+      border-radius: 12px;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.4);
+    }
+
+    /* What they receive grid */
+    .receives-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      margin: 40px 0;
+    }
+
+    .receives-col {
+      padding: 40px 36px;
+      border: 1px solid var(--border);
+    }
+
+    .receives-col.homeowner-col {
+      background: var(--cream);
+    }
+
+    .receives-col.concierge-col {
+      background: var(--warm-white);
+    }
+
+    .receives-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .homeowner-col .receives-label { color: var(--brass); }
+    .concierge-col .receives-label { color: var(--slate); }
+
+    .receives-col h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 500;
+      color: var(--deep);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .receives-col p {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--slate);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .receives-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .receives-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--slate);
+      line-height: 1.55;
+    }
+
+    .receives-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--brass);
+      margin-top: 6px;
+      flex-shrink: 0;
+    }
+
+    /* Document preview cards */
+    .doc-preview {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(44,36,32,0.08);
+      margin-top: 24px;
+    }
+
+    .doc-preview-header {
+      background: var(--deep);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .doc-preview-title {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--white);
+      letter-spacing: 0.04em;
+    }
+
+    .doc-preview-tag {
+      font-size: 10px;
+      color: var(--brass-light);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .doc-preview-body {
+      padding: 16px 20px;
+    }
+
+    .doc-preview-line {
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--slate);
+      line-height: 1.7;
+      padding: 6px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .doc-preview-line:last-child { border-bottom: none; }
+
+    .doc-preview-line strong {
+      font-weight: 500;
+      color: var(--deep);
+    }
+
+    /* SoulMap section */
+    .soulmap-section {
+      background: var(--deep);
+      padding: 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .soulmap-section::before {
+      content: '';
+      position: absolute;
+      bottom: -200px; left: -200px;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(181,144,74,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .soulmap-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .soulmap-section .section-label { color: var(--brass-light); }
+    .soulmap-section h2 { color: var(--white); }
+    .soulmap-section h2 em { color: var(--brass-light); }
+    .soulmap-section p { color: rgba(255,255,255,0.65); }
+    .soulmap-section h3 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 8px;
+      margin-top: 28px;
+    }
+    .soulmap-section strong { color: rgba(255,255,255,0.9); }
+
+    .archetype-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 2px;
+      margin: 32px 0;
+    }
+
+    .archetype-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 20px 16px;
+      text-align: center;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .archetype-card:hover {
+      background: rgba(181,144,74,0.1);
+      border-color: rgba(181,144,74,0.3);
+    }
+
+    .archetype-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--brass-light);
+      margin-bottom: 8px;
+    }
+
+    .archetype-desc {
+      font-size: 11px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.55;
+    }
+
+    /* No contractor section */
+    .no-contractor-section {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .no-contractor-image {
+      width: 100%;
+      display: block;
+      max-height: 600px;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .no-contractor-overlay {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 40px 80px;
+      background: linear-gradient(to top, rgba(44,36,32,0.95) 0%, transparent 100%);
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .no-contractor-text p {
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.6);
+      max-width: 480px;
+      line-height: 1.75;
+      margin-bottom: 0;
+    }
+
+    /* How it works steps */
+    .how-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      margin: 40px 0;
+    }
+
+    .how-step {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      padding: 32px 24px;
+      position: relative;
+    }
+
+    .how-step-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
+      font-weight: 400;
+      color: var(--brass-pale);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .how-step-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--deep);
+      margin-bottom: 10px;
+    }
+
+    .how-step-desc {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--slate);
+      line-height: 1.7;
+    }
+
+    .how-step-tag {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--brass);
+      background: var(--brass-pale);
+      border-radius: 4px;
+      padding: 3px 8px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* Contractor summary image */
+    .summary-image-section {
+      background: var(--warm-white);
+      padding: 80px;
+    }
+
+    .summary-image-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .summary-image {
+      width: 100%;
+      max-width: 680px;
+      margin: 40px auto;
+      display: block;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      box-shadow: 0 8px 40px rgba(44,36,32,0.12);
+    }
+
+    @media (max-width: 900px) {
+      .conversation-section { padding: 56px 24px; }
+      .receives-grid { grid-template-columns: 1fr; }
+      .soulmap-section { padding: 56px 24px; }
+      .archetype-grid { grid-template-columns: repeat(2, 1fr); }
+      .how-steps { grid-template-columns: 1fr; }
+      .no-contractor-overlay { padding: 24px; flex-direction: column; gap: 16px; }
+      .summary-image-section { padding: 56px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">
+    <img src="../assets/images/remodel-guide-logo.png" alt="remodel.guide">
+  </a>
+  <ul class="nav-links">
+    <li><a href="/kitchen">Kitchen</a></li>
+    <li><a href="/bathroom">Bathroom</a></li>
+    <li><a href="/basement">Basement</a></li>
+    <li><a href="/concierge">The Concierge</a></li>
+    <li><a href="/remi" style="color:var(--brass);">Meet Remi</a></li>
+    <li><a href="https://remodelry.guide/remi" target="_blank" class="nav-cta">Talk to Remi — Free</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/" onclick="closeMobile()">← All Guides</a>
+    <a href="/kitchen" onclick="closeMobile()">Kitchen Remodel</a>
+    <a href="/bathroom" onclick="closeMobile()">Bathroom Renovation</a>
+    <a href="/basement" onclick="closeMobile()">Basement Finishing</a>
+    <a href="/flooring" onclick="closeMobile()">Flooring</a>
+    <a href="/painting" onclick="closeMobile()">Painting</a>
+    <a href="/concierge" onclick="closeMobile()">What is a Concierge?</a>
+    <a href="/remi" onclick="closeMobile()">Meet Remi</a>
+    <a href="https://remodelry.guide/remi" target="_blank" class="mobile-cta">Talk to Remi — It's Free</a>
+  </div>
+</nav>
+
+<!-- COMPANION BANNER -->
+<div class="companion-banner">
+  <p>A free resource from <a href="https://remodelry.guide" target="_blank">Remodelry</a> — Northeast Ohio's remodeling concierge service.</p>
+</div>
+
+<!-- PAGE HEADER -->
+<section class="page-header">
+  <div class="page-header-inner fade-up">
+    <div class="breadcrumb">
+      <a href="/">remodel.guide</a>
+      <span class="breadcrumb-sep">→</span>
+      <span class="breadcrumb-current">Meet Remi</span>
+    </div>
+    <h1>Meet Remi.<br><em>A real conversation.<br>Not a form.</em></h1>
+    <p class="page-header-body">Remi is Remodelry's free AI intake companion. Not a chatbot. Not a lead form. A warm, structured 10 to 15 minute conversation built on 20+ years of residential construction field knowledge — designed to make the homeowner feel heard and the Concierge visit possible before anyone sets foot in your home.</p>
+    <div class="page-header-meta">
+      <span class="meta-tag">Free · 10-15 minutes</span>
+      <span class="meta-tag">Personalized First Look immediately after</span>
+      <span class="meta-tag">Concierge calls within 24 hours</span>
+      <span class="meta-tag">No contractor will call you</span>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT REMI IS -->
+<section class="section-white">
+  <div class="section-inner fade-up">
+
+    <span class="section-label">What Remi Is</span>
+    <h2>Not a chatbot. Not a form.<br><em>Something genuinely different.</em></h2>
+
+    <div class="guide-content">
+
+      <p>Every homeowner who has filled out a "free estimate" form online knows what happens next. The phone rings — multiple times — from contractors who know nothing about the project and are calling to close a job.</p>
+
+      <p>Remi is the opposite of that. Remi is a purpose-built AI intake specialist — trained on construction field knowledge, behavioral psychology, and the Remodelry methodology. She asks about your project the way a skilled professional would: one question at a time, in the right order, listening to what you actually say and responding to it.</p>
+
+      <p>She can see photos you upload. She identifies design direction from inspiration images. She asks about the household — not just the project. She captures how you make decisions, what you're worried about, and what success looks like to you. And when the conversation ends, two things happen simultaneously that have never happened before in residential remodeling.</p>
+
+      <div class="how-steps">
+
+        <div class="how-step">
+          <div class="how-step-num">01</div>
+          <div class="how-step-title">You talk to Remi</div>
+          <div class="how-step-desc">A warm, natural 10 to 15 minute conversation about your project. Upload photos. Share inspiration. Ask questions. Remi listens — really listens — and responds to what you actually said.</div>
+          <span class="how-step-tag">Free · No commitment</span>
+        </div>
+
+        <div class="how-step">
+          <div class="how-step-num">02</div>
+          <div class="how-step-title">You receive your First Look</div>
+          <div class="how-step-desc">Immediately after the conversation, a personalized document lands in your inbox. Your project at a glance. What it typically involves. Decisions to think about. What to bring to your Concierge visit. Specific to you — not a template.</div>
+          <span class="how-step-tag">Immediate · Personalized</span>
+        </div>
+
+        <div class="how-step">
+          <div class="how-step-num">03</div>
+          <div class="how-step-title">Your Concierge receives a dossier</div>
+          <div class="how-step-desc">Simultaneously, your Remodelry Concierge receives a complete project brief — scope, budget, design direction, behavioral profile, flags, and strategic guidance for the visit. They know your project before they knock on the door.</div>
+          <span class="how-step-tag">Complete · Actionable</span>
+        </div>
+
+        <div class="how-step">
+          <div class="how-step-num">04</div>
+          <div class="how-step-title">Your Concierge calls within 24 hours</div>
+          <div class="how-step-desc">When they call, they already know your project. You don't start from scratch. You don't repeat yourself. The conversation picks up where Remi left off — and moves toward a Concierge visit that is unlike anything you've experienced before.</div>
+          <span class="how-step-tag">24 hours · Already prepared</span>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- THE CONVERSATION -->
+<section class="conversation-section" id="conversation">
+  <div class="conversation-inner fade-up">
+
+    <span class="section-label">A Real Conversation</span>
+    <h2>This is what 10 minutes<br><em>with Remi looks like.</em></h2>
+    <p style="margin-top:20px;max-width:640px;">Susan uploaded a photo of her 90s kitchen. Remi saw it — described exactly what was there, identified the design era, and immediately asked for inspiration photos. Susan wasn't sure about the direction. Remi helped her articulate it. The conversation took about 10 minutes.</p>
+
+    <img src="../assets/images/remi-conversation.png"
+         alt="A 10-minute conversation with Remi — a real conversation, not a form"
+         class="conversation-image"
+         onerror="this.style.display='none'">
+
+    <p style="text-align:center;font-size:13px;color:rgba(255,255,255,0.35);margin-top:-16px;font-style:italic;">An actual Remi conversation — names changed for privacy.</p>
+
+  </div>
+</section>
+
+<!-- WHAT EACH SIDE RECEIVES -->
+<section class="section-white">
+  <div class="section-inner fade-up">
+
+    <span class="section-label">Two Documents. One Conversation.</span>
+    <h2>The homeowner gets this.<br><em>The Concierge gets this.</em></h2>
+    <p style="margin-top:16px;margin-bottom:40px;">The same 10-minute conversation produces two completely different documents — each written for a different audience, each serving a different purpose, both produced the moment the conversation ends.</p>
+
+    <div class="receives-grid">
+
+      <div class="receives-col homeowner-col">
+        <span class="receives-label">The homeowner receives</span>
+        <h3>The Remi First Look</h3>
+        <p>A warm, plain-language document that lands in the homeowner's inbox within seconds of the conversation ending. Personal, specific, and surprisingly accurate — because it is built from what they actually said.</p>
+        <div class="receives-list">
+          <div class="receives-item">
+            <div class="receives-dot"></div>
+            <span><strong>Your project at a glance</strong> — what you're doing, in your own words confirmed back to you</span>
+          </div>
+          <div class="receives-item">
+            <div class="receives-dot"></div>
+            <span><strong>What this project typically involves</strong> — real field knowledge about what a project like yours actually includes and how long it takes</span>
+          </div>
+          <div class="receives-item">
+            <div class="receives-dot"></div>
+            <span><strong>Your style snapshot</strong> — design direction captured from the conversation and any inspiration photos shared</span>
+          </div>
+          <div class="receives-item">
+            <div class="receives-dot"></div>
+            <span><strong>Decisions to think about</strong> — the choices that need to be made and why they matter</span>
+          </div>
+          <div class="receives-item">
+            <div class="receives-dot"></div>
+            <span><strong>Things to watch for</strong> — flags and considerations specific to your project type</span>
+          </div>
+          <div class="receives-item">
+            <div class="receives-dot"></div>
+            <span><strong>Your next step</strong> — your Concierge will be in touch within 24 hours, already knowing your project</span>
+          </div>
+        </div>
+
+        <div class="doc-preview">
+          <div class="doc-preview-header">
+            <div class="doc-preview-title">Remi First Look</div>
+            <div class="doc-preview-tag">Homeowner copy</div>
+          </div>
+          <div class="doc-preview-body">
+            <div class="doc-preview-line"><strong>Your project at a glance</strong> — Full kitchen remodel, layout reconfiguration, new everything</div>
+            <div class="doc-preview-line"><strong>What this typically involves</strong> — 8-12 weeks, cabinet lead times, countertop sequence</div>
+            <div class="doc-preview-line"><strong>Your style snapshot</strong> — Gray shaker, light quartz, warm wood floors, "upscale adult"</div>
+            <div class="doc-preview-line"><strong>Decisions before your visit</strong> — Backsplash direction, appliance specs, expansion feasibility</div>
+            <div class="doc-preview-line"><strong>Things to watch for</strong> — Gas line, electrical panel, cabinet lead times</div>
+            <div class="doc-preview-line"><strong>Your next step</strong> — Concierge in touch within 24 hours</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="receives-col concierge-col">
+        <span class="receives-label">The Concierge receives</span>
+        <h3>The Remi Intake Summary</h3>
+        <p>A complete project dossier that no contractor has ever received before walking through a door. Technical scope, behavioral profile, budget specifics, design direction, flags, and strategic guidance for the visit — all from a 10-minute conversation.</p>
+        <div class="receives-list">
+          <div class="receives-item">
+            <div class="receives-dot"></div>
+            <span><strong>Actionable intelligence</strong> — quick intake summary with project, timeline, budget, and key risks</span>
+          </div>
+          <div class="receives-item">
+            <div class="receives-dot"></div>
+            <span><strong>Client & project profile</strong> — household context, how long in the home, entertains, forever home or not</span>
+          </div>
+          <div class="receives-item">
+            <div class="receives-dot"></div>
+            <span><strong>Technical scope</strong> — every line item, what's in, what's out, layout changes, plumbing impact</span>
+          </div>
+          <div class="receives-item">
+            <div class="receives-dot"></div>
+            <span><strong>Design & style vibe</strong> — style instinct, color direction, anchor piece, inspiration photos, moving away from</span>
+          </div>
+          <div class="receives-item">
+            <div class="receives-dot"></div>
+            <span><strong>Deep client archetype</strong> — SoulMap behavioral profile, decision style, communication approach, spend mindset</span>
+          </div>
+          <div class="receives-item">
+            <div class="receives-dot"></div>
+            <span><strong>Budget & timeline specifics</strong> — stated range, readiness, urgency notes, allocation considerations</span>
+          </div>
+          <div class="receives-item">
+            <div class="receives-dot"></div>
+            <span><strong>Final strategic synthesis</strong> — how to win this visit, communication guidance, flags to address</span>
+          </div>
+          <div class="receives-item">
+            <div class="receives-dot"></div>
+            <span><strong>Photos from the conversation</strong> — space photos and inspiration images, attached and labeled</span>
+          </div>
+        </div>
+
+        <div class="doc-preview">
+          <div class="doc-preview-header">
+            <div class="doc-preview-title">Remi Intake Summary</div>
+            <div class="doc-preview-tag">Concierge copy</div>
+          </div>
+          <div class="doc-preview-body">
+            <div class="doc-preview-line"><strong>Budget posture:</strong> Confident — $85,000-$100,000 including appliances</div>
+            <div class="doc-preview-line"><strong>Decision structure:</strong> Susan leads design; Bruce defers</div>
+            <div class="doc-preview-line"><strong>Primary archetype:</strong> Investor — lead with expertise, not process</div>
+            <div class="doc-preview-line"><strong>Technical scope:</strong> Layout change, expansion, new cabinets, countertops, appliances, flooring</div>
+            <div class="doc-preview-line"><strong>Key flags:</strong> Gas line confirmation, electrical panel, permit for expansion</div>
+            <div class="doc-preview-line"><strong>Strategic note:</strong> Has done her homework. Respect competence immediately.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTRACTOR SUMMARY IMAGE -->
+<section class="summary-image-section">
+  <div class="summary-image-inner fade-up">
+    <span class="section-label" style="display:block;text-align:center;">The Contractor Dossier</span>
+    <h2 style="text-align:center;margin-bottom:16px;">The Concierge gets this.<br><em>Before they ever knock on the door.</em></h2>
+    <p style="text-align:center;max-width:580px;margin:0 auto;">This is what Remi produces for the Concierge — actionable intelligence translated from a homeowner conversation into technical context that allows them to walk in prepared. No other process in residential remodeling produces this before a first visit.</p>
+
+    <img src="../assets/images/remi-contractor-summary.png"
+         alt="The Remi Contractor Summary — what the Concierge receives before the visit"
+         class="summary-image"
+         onerror="this.style.display='none'">
+
+  </div>
+</section>
+
+<!-- SOULMAP -->
+<section class="soulmap-section">
+  <div class="soulmap-inner fade-up">
+
+    <span class="section-label">The Behavioral Intelligence Layer</span>
+    <h2>SoulMap — running silently<br><em>throughout every conversation.</em></h2>
+
+    <p style="margin-top:20px;max-width:680px;">While Remi talks about your project, she is also reading something else — how you communicate, how you make decisions, what your emotional driver is, and what your relationship with the budget looks like. This behavioral layer runs silently throughout the conversation and produces a named archetype that shapes everything about the Concierge visit.</p>
+
+    <div class="archetype-grid">
+      <div class="archetype-card">
+        <div class="archetype-name">Dreamer</div>
+        <div class="archetype-desc">Vision-driven, wants warmth and validation, needs help landing the direction</div>
+      </div>
+      <div class="archetype-card">
+        <div class="archetype-name">Newcomer</div>
+        <div class="archetype-desc">First major project, wants reassurance, benefits from binary choices and clear guidance</div>
+      </div>
+      <div class="archetype-card">
+        <div class="archetype-name">Investor</div>
+        <div class="archetype-desc">Research-driven, confident, respects expertise — lead with competence, not process</div>
+      </div>
+      <div class="archetype-card">
+        <div class="archetype-name">Protector</div>
+        <div class="archetype-desc">Risk-aware, needs flags named early, values honesty over enthusiasm</div>
+      </div>
+      <div class="archetype-card">
+        <div class="archetype-name">Architect</div>
+        <div class="archetype-desc">Systems-thinker, wants precision and efficiency, impatient with vagueness</div>
+      </div>
+    </div>
+
+    <p style="max-width:640px;">The archetype is never announced to the homeowner. It shapes how Remi asks questions, how the Concierge approaches the visit, and how the Clarity Package is written. A Dreamer gets warmth and vision. An Investor gets competence and specifics. A Protector gets honest flags named early and clearly.</p>
+
+    <p style="max-width:640px;margin-top:16px;">This is the difference between a conversation that feels generic and one that feels like someone actually understood you — before they ever set foot in your home.</p>
+
+  </div>
+</section>
+
+<!-- NO CONTRACTOR SLIDE -->
+<section class="no-contractor-section fade-up">
+  <img src="../assets/images/remi-no-contractor.png"
+       alt="No contractor will call you — see what your project looks like before anyone shows up"
+       class="no-contractor-image"
+       onerror="this.style.background='var(--deep)';this.style.minHeight='400px'">
+  <div class="no-contractor-overlay">
+    <div class="no-contractor-text">
+      <p>Remi is free. There is no sales pitch. No one will call you from a contractor's office. What you will receive is a First Look that is more specific and more useful than anything that comes out of a free estimate call — and a Concierge who already knows your project when they reach out.</p>
+    </div>
+    <a href="https://remodelry.guide/remi" target="_blank" class="btn-primary" style="white-space:nowrap;flex-shrink:0;">Talk to Remi — It's Free</a>
+  </div>
+</section>
+
+<!-- WHAT REMI IS NOT -->
+<section class="section-cream">
+  <div class="section-inner fade-up">
+    <span class="section-label">What Remi Is Not</span>
+    <h2>A few things worth<br><em>saying directly.</em></h2>
+
+    <div class="guide-content">
+
+      <div class="flag-list">
+
+        <div class="flag-item" style="border-color:var(--brass);background:rgba(181,144,74,0.06);">
+          <div class="flag-icon">✓</div>
+          <div class="flag-content">
+            <h4 style="color:var(--brass);">Remi is not a generic AI chatbot</h4>
+            <p>Remi runs on Claude — one of the most capable AI models available — with a purpose-built system prompt encoding 20+ years of residential construction field knowledge, behavioral psychology, and the Remodelry methodology. She knows about moisture testing, vapor barriers, egress windows, cabinet lead times, countertop sequencing, SoulMap archetypes, and what questions to ask about a 90s kitchen when someone uploads a photo. She is not general purpose. She is built for this.</p>
+          </div>
+        </div>
+
+        <div class="flag-item" style="border-color:var(--brass);background:rgba(181,144,74,0.06);">
+          <div class="flag-icon">✓</div>
+          <div class="flag-content">
+            <h4 style="color:var(--brass);">Remi is not a lead capture form</h4>
+            <p>Remi does not exist to collect your contact information and sell it to contractors. She exists to produce two documents — one for you, one for the Concierge — that make the entire Remodelry process possible. Your information stays with Remodelry. No contractor receives it without your explicit consent through the Remodelry introduction process.</p>
+          </div>
+        </div>
+
+        <div class="flag-item" style="border-color:var(--brass);background:rgba(181,144,74,0.06);">
+          <div class="flag-icon">✓</div>
+          <div class="flag-content">
+            <h4 style="color:var(--brass);">Remi is not a replacement for the Concierge</h4>
+            <p>Remi cannot see your space. She cannot measure. She cannot assess infrastructure. She cannot read the room the way a person can. What she can do is ensure that the person who does those things arrives already knowing your project — so that the 60 to 90 minutes of the Concierge visit is spent going deeper, not starting from scratch.</p>
+          </div>
+        </div>
+
+        <div class="flag-item" style="border-color:var(--brass);background:rgba(181,144,74,0.06);">
+          <div class="flag-icon">✓</div>
+          <div class="flag-content">
+            <h4 style="color:var(--brass);">Remi is not perfect — and she knows it</h4>
+            <p>Remi is an AI. She occasionally misses nuance, asks a question that could be sharper, or produces a First Look that needs refinement. The Concierge visit is designed to correct and deepen everything Remi captured. The First Look is a starting point, not a final document. Its value is that it exists at all — that you receive something specific and useful within seconds of the conversation ending rather than waiting days for a callback from someone who doesn't know your project.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- REMI CTA -->
+<section class="section-white">
+  <div class="section-inner fade-up">
+    <div class="remi-cta">
+      <h2>The conversation is free.<br><em>The clarity is immediate.</em></h2>
+      <p>People need someone to talk to about their project before they need someone to sell them something. Remi is where that conversation starts.</p>
+      <p style="margin-top:12px;">10 to 15 minutes. A personalized First Look in your inbox immediately after. Your Remodelry Concierge in touch within 24 hours — already knowing your project, already on your side, ready to turn what Remi captured into a Clarity Package that travels with your project from the first estimate to the last brush stroke.</p>
+      <a href="https://remodelry.guide/remi" target="_blank" class="btn-primary" style="margin-top:8px;">Talk to Remi — It's Free</a>
+      <p class="remi-cta-note">Free · No obligation · Your Concierge calls within 24 hours, already knowing your project</p>
+    </div>
+
+    <div style="margin-top:48px;padding-top:48px;border-top:1px solid var(--border);text-align:center;">
+      <span class="section-label" style="display:block;text-align:center;">Want to understand the full process?</span>
+      <h3 style="margin-bottom:24px;">Learn what happens after Remi.</h3>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+        <a href="/concierge" class="btn-ghost">What is a Concierge? →</a>
+        <a href="https://remodelry.guide/after-clarity" target="_blank" class="btn-ghost">What comes after →</a>
+        <a href="/" class="btn-ghost">All project guides →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="../assets/images/remodel-guide-logo.png" alt="remodel.guide">
+      <p class="footer-tagline">The Homeowner Protection Guide<br>for Residential Remodeling.<br><br>A free resource from <a href="https://remodelry.guide" target="_blank">Remodelry</a> —<br>Northeast Ohio's remodeling concierge service.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <span class="footer-col-title">The Guides</span>
+        <ul>
+          <li><a href="/kitchen">Kitchen Remodel</a></li>
+          <li><a href="/bathroom">Bathroom Renovation</a></li>
+          <li><a href="/basement">Basement Finishing</a></li>
+          <li><a href="/addition">Home Addition</a></li>
+          <li><a href="/flooring">Flooring</a></li>
+          <li><a href="/windows">Window Replacement</a></li>
+          <li><a href="/siding">Siding</a></li>
+          <li><a href="/painting">Interior & Exterior Painting</a></li>
+          <li><a href="/millwork">Millwork & Built-Ins</a></li>
+          <li><a href="/demo">Living Through a Renovation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <span class="footer-col-title">Remodelry</span>
+        <ul>
+          <li><a href="https://remodelry.guide" target="_blank">remodelry.guide</a></li>
+          <li><a href="https://remodelry.guide/remi" target="_blank">Talk to Remi — Free</a></li>
+          <li><a href="https://remodelry.guide/concierge" target="_blank">The Concierge</a></li>
+          <li><a href="https://remodelry.guide/after-clarity" target="_blank">After Clarity</a></li>
+          <li><a href="https://remodelry.guide/pillars" target="_blank">10 Pillars</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 remodel.guide · All rights reserved.</span>
+    <span class="footer-remodelry">A <a href="https://remodelry.guide" target="_blank">Remodelry</a> resource · Serving Northeast Ohio</span>
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script>
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-up').forEach(function(el) { observer.observe(el); });
+
+  var hamburger = document.getElementById('hamburger');
+  var mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', function() {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  function closeMobile() {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  }
+</script>
+
+</body>
+</html>
