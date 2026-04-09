@@ -10,6 +10,32 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/style.css">
+<style>
+    /* ── PROOF PLATE ICONS ── */
+    .proof-plate {
+      display: block;
+      width: 110px;
+      height: 110px;
+      float: right;
+      margin: 0 0 16px 20px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--cream);
+      object-fit: contain;
+      padding: 4px;
+    }
+    .proof-plate-dark {
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.12);
+    }
+    .decision-item::after, .timeline-item::after, .flag-content::after,
+    .guide-content::after, .question-item::after, .level-card::after {
+      content: ''; display: table; clear: both;
+    }
+    @media (max-width: 600px) {
+      .proof-plate { float: none; display: block; margin: 0 auto 16px; }
+    }
+</style>
 </head>
 <body>
 <nav>
@@ -21,19 +47,9 @@
     <li><a href="https://remodelry.guide/remi" target="_blank" class="nav-cta">Talk to Remi — Free</a></li>
   </ul>
   <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="/" onclick="closeMobile()">← All Guides</a>
-    <a href="/kitchen" onclick="closeMobile()">Kitchen Remodel</a>
-    <a href="/bathroom" onclick="closeMobile()">Bathroom Renovation</a>
-    <a href="/basement" onclick="closeMobile()">Basement Finishing</a>
-    <a href="/addition" onclick="closeMobile()">Home Addition</a>
-    <a href="/flooring" onclick="closeMobile()">Flooring</a>
-    <a href="/windows" onclick="closeMobile()">Window Replacement</a>
-    <a href="/roofing" onclick="closeMobile()">Roofing</a>
-    <a href="/painting" onclick="closeMobile()">Painting</a>
-    <a href="/millwork" onclick="closeMobile()">Millwork &amp; Built-Ins</a>
-    <a href="/demo" onclick="closeMobile()">Living Through a Renovation</a>
-    <a href="/concierge" onclick="closeMobile()">What is a Concierge?</a>
+    <div class="mobile-menu" id="mobileMenu">
+    <a href="/" onclick="closeMobile()">The Guides</a>
+    <a href="/concierge" onclick="closeMobile()">The Concierge</a>
     <a href="/remi" onclick="closeMobile()">Meet Remi</a>
     <a href="https://remodelry.guide/remi" target="_blank" class="mobile-cta">Talk to Remi — It's Free</a>
   </div>
@@ -48,7 +64,8 @@
       <span class="breadcrumb-sep">→</span>
       <span class="breadcrumb-current">Home Addition</span>
     </div>
-    <h1>The Home<br><em>Addition Guide</em></h1>
+    <img src="../assets/icons/rem-add-01-theme-shield-investment.png" alt="" class="proof-plate" onerror="this.style.display='none'">
+<h1>The Home<br><em>Addition Guide</em></h1>
     <p class="page-header-body">A home addition is the most complex residential project a homeowner can undertake. More moving parts. More trades. More inspections. More decisions. More ways things can go wrong — and more ways things can go right when the right contractor is selected and the right expectations are set from the beginning. This guide is a protection guide — what to understand before anyone is hired and before a shovel goes in the ground.</p>
     <div class="page-header-meta">
       <span class="meta-tag">Contractor selection is everything</span>
@@ -89,6 +106,7 @@
 <section class="section-dark" id="contractor">
   <div class="section-inner fade-up" style="position:relative;z-index:1;">
     <span class="section-label">Contractor Selection</span>
+    <img src="../assets/icons/rem-add-02-selection-variable.png" alt="" class="proof-plate" onerror="this.style.display='none'">
     <h2>The most important decision<br><em>in any addition project.</em></h2>
     <p style="margin-top:20px;margin-bottom:32px;color:rgba(255,255,255,0.65);">On most remodeling projects, contractor selection matters a great deal. On a home addition, it is the primary variable that determines whether the project succeeds or fails. The difference between a contractor with 3 additions completed and one with 30 is not incremental. It is categorical.</p>
     <div class="flag-list">
@@ -120,22 +138,26 @@
 <section class="section-white" id="foundation">
   <div class="section-inner fade-up">
     <span class="section-label">Foundation Type</span>
+    <img src="../assets/icons/rem-add-04-foundation-frost-line.png" alt="" class="proof-plate" onerror="this.style.display='none'">
     <h2>The decision that starts<br><em>everything else.</em></h2>
     <p style="margin-top:16px;margin-bottom:40px;">Before framing can be designed, before permits can be drawn — the foundation type must be determined. This decision affects cost, timeline, the usability of the new space, and whether the addition is feasible where it's planned.</p>
     <div class="guide-content">
       <div class="level-cards">
         <div class="level-card">
           <span class="level-label">Option 1</span>
+          <img src="../assets/icons/rem-add-05-slab-drainage.png" alt="" class="proof-plate" onerror="this.style.display='none'">
           <h4>Slab Foundation</h4>
           <p>Concrete poured directly on grade. Fastest and least expensive. No crawl space or basement underneath. Appropriate for single-story additions where grade permits. Requires careful attention to drainage to prevent water intrusion at the slab edge.</p>
         </div>
         <div class="level-card">
           <span class="level-label">Option 2</span>
+          <img src="../assets/icons/rem-add-06-crawl-space-headroom.png" alt="" class="proof-plate" onerror="this.style.display='none'">
           <h4>Crawl Space</h4>
           <p>Foundation walls with low clearance below the addition floor. Provides access to plumbing and mechanicals. Must be properly ventilated or encapsulated. Adds height to the addition floor relative to grade — a transition detail that must be resolved at the connection to the existing house.</p>
         </div>
         <div class="level-card">
           <span class="level-label">Option 3</span>
+          <img src="../assets/icons/rem-add-07-basement-stair-value.png" alt="" class="proof-plate" onerror="this.style.display='none'">
           <h4>Full Basement</h4>
           <p>Most expensive foundation option — but adds the most usable square footage. Requires significant excavation. Longest timeline of the three options. Requires careful waterproofing and drainage planning — the same moisture conversation that applies to any basement applies here.</p>
         </div>
@@ -156,6 +178,7 @@
 <section class="section-cream" id="permits">
   <div class="section-inner fade-up">
     <span class="section-label">Permits and Timeline</span>
+    <img src="../assets/icons/rem-add-08-permit-timeline-reality.png" alt="" class="proof-plate" onerror="this.style.display='none'">
     <h2>The reality nobody<br><em>warns you about.</em></h2>
     <p style="margin-top:16px;margin-bottom:40px;">Home additions always require permits. In every municipality. Without exception. The permit process — architectural drawings, structural engineering, plan review, and inspections at multiple stages — takes significantly longer than most homeowners expect.</p>
     <div class="guide-content">
@@ -199,6 +222,7 @@
     <h2>The detail that separates<br><em>an addition from a bump-out.</em></h2>
     <div class="guide-content">
       <p>A home addition that looks like an addition is a design failure. The goal is a house that looks like it was always that size. Achieving that requires attention to details that add cost but produce results that look intentional.</p>
+      <img src="../assets/icons/rem-add-09-roofline-pitch-intentional.png" alt="" class="proof-plate" onerror="this.style.display='none'">
       <h3>Roofline — the most visible connection</h3>
       <p>How the new roof connects to the existing roof is the most visible indicator of whether an addition was well-designed. A roofline that continues the pitch and profile of the existing house looks intentional. A roofline that changes pitch or creates a visual break looks like two structures joined together. This must be addressed in the architectural drawings.</p>
       <h3>Exterior finish — matching is harder than it looks</h3>
@@ -212,6 +236,7 @@
 <section class="section-cream" id="grading">
   <div class="section-inner fade-up">
     <span class="section-label">Grading and Drainage</span>
+    <img src="../assets/icons/rem-add-10-grading-positive-drainage.png" alt="" class="proof-plate" onerror="this.style.display='none'">
     <h2>The site work nobody<br><em>thinks about until it rains.</em></h2>
     <div class="guide-content">
       <p>Excavation for an addition displaces significant soil. Where that soil goes, how grade is established, and how water drains away from both the new foundation and the connection point — these decisions determine whether the addition stays dry or becomes a moisture problem.</p>
