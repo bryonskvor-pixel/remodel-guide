@@ -10,6 +10,32 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/style.css">
+<style>
+    /* ── PROOF PLATE ICONS ── */
+    .proof-plate {
+      display: block;
+      width: 110px;
+      height: 110px;
+      float: right;
+      margin: 0 0 16px 20px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--cream);
+      object-fit: contain;
+      padding: 4px;
+    }
+    .proof-plate-dark {
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.12);
+    }
+    .decision-item::after, .timeline-item::after, .flag-content::after,
+    .guide-content::after, .question-item::after, .level-card::after {
+      content: ''; display: table; clear: both;
+    }
+    @media (max-width: 600px) {
+      .proof-plate { float: none; display: block; margin: 0 auto 16px; }
+    }
+</style>
 </head>
 <body>
 <nav>
@@ -21,19 +47,9 @@
     <li><a href="https://remodelry.guide/remi" target="_blank" class="nav-cta">Talk to Remi — Free</a></li>
   </ul>
   <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="/" onclick="closeMobile()">← All Guides</a>
-    <a href="/kitchen" onclick="closeMobile()">Kitchen Remodel</a>
-    <a href="/bathroom" onclick="closeMobile()">Bathroom Renovation</a>
-    <a href="/basement" onclick="closeMobile()">Basement Finishing</a>
-    <a href="/addition" onclick="closeMobile()">Home Addition</a>
-    <a href="/flooring" onclick="closeMobile()">Flooring</a>
-    <a href="/windows" onclick="closeMobile()">Window Replacement</a>
-    <a href="/roofing" onclick="closeMobile()">Roofing</a>
-    <a href="/painting" onclick="closeMobile()">Painting</a>
-    <a href="/millwork" onclick="closeMobile()">Millwork &amp; Built-Ins</a>
-    <a href="/demo" onclick="closeMobile()">Living Through a Renovation</a>
-    <a href="/concierge" onclick="closeMobile()">What is a Concierge?</a>
+    <div class="mobile-menu" id="mobileMenu">
+    <a href="/" onclick="closeMobile()">The Guides</a>
+    <a href="/concierge" onclick="closeMobile()">The Concierge</a>
     <a href="/remi" onclick="closeMobile()">Meet Remi</a>
     <a href="https://remodelry.guide/remi" target="_blank" class="mobile-cta">Talk to Remi — It's Free</a>
   </div>
@@ -49,7 +65,8 @@
       <span class="breadcrumb-sep">→</span>
       <span class="breadcrumb-current">Millwork &amp; Built-Ins</span>
     </div>
-    <h1>Millwork &amp;<br><em>Built-Ins</em></h1>
+    <img src="../assets/icons/rem-mill-01-highest-return-theme-value.png" alt="" class="proof-plate" onerror="this.style.display='none'">
+<h1>Millwork &amp;<br><em>Built-Ins</em></h1>
     <p class="page-header-body">Millwork is the single highest-return upgrade available to a cookie-cutter house. It doesn't change the floor plan. It doesn't move walls. It changes how the house feels — whether it reads as designed or whether it reads as built from a plan set and never touched again. Casing. Baseboard. Crown. Built-ins. Raised panels. Tray ceilings. All of it is achievable in almost any home. The difference between millwork that looks like a magazine and millwork that looks like a home center project is one thing: the carpenter.</p>
     <div class="page-header-meta">
       <span class="meta-tag">The right carpenter makes it</span>
@@ -82,6 +99,7 @@
     </div>
 
     <div class="guide-content fade-up" id="carpenter">
+      <img src="../assets/icons/rem-mill-02-craftsman-vs-production-carpenter.png" alt="" class="proof-plate" onerror="this.style.display='none'">
       <h2>Finding the right carpenter — where this starts and ends</h2>
       <div class="hook-quote">"Millwork is one of the few trades where the skill gap between practitioners is enormous and entirely invisible until the work is done. A craftsman carpenter with an imagination transforms a space. A carpenter without one installs trim that technically checks the box and feels like exactly that."</div>
       <p>There are carpenters who can measure, cut, and nail trim. There are carpenters who understand proportion — what size casing looks right on a given door, how tall a baseboard needs to be to read correctly in a room with nine-foot ceilings, where crown molding adds elegance and where it just adds confusion. The second type is rarer and worth finding before any other decision is made.</p>
@@ -107,6 +125,7 @@
     </div>
 
     <div class="guide-content fade-up" id="lumber">
+      <img src="../assets/icons/rem-mill-03-lumber-moisture-acclimated.png" alt="" class="proof-plate" onerror="this.style.display='none'">
       <h2>Lumber selection and moisture content</h2>
       <p>Millwork failures — gaps at miters, cracks along caulk lines, trim that cups or warps after installation — are almost always lumber failures. Wood moves. It expands and contracts with changes in humidity. Lumber that is installed before it has acclimated to the indoor environment of the house will move after installation, opening joints and breaking paint lines regardless of how well it was installed.</p>
       <p><strong>Moisture content matters.</strong> Properly dried interior trim lumber should have a moisture content of 6 to 8 percent — consistent with the equilibrium moisture content of a conditioned interior space in the Midwest. Lumber that comes off a truck in January and goes on the wall the same day has not acclimated. Lumber purchased from a home center and stored in a warehouse that is not climate controlled may be carrying significantly more moisture than finished work requires.</p>
@@ -120,6 +139,7 @@
 <section class="section-dark" id="painted-stained">
   <div class="section-inner fade-up" style="position:relative;z-index:1;">
     <span class="section-label">The Foundational Decision</span>
+    <img src="../assets/icons/rem-mill-04-painted-vs-stained-rewards.png" alt="" class="proof-plate proof-plate-dark" onerror="this.style.display='none'">
     <h2>Painted or stained —<br><em>it changes everything downstream.</em></h2>
     <p style="margin-top:16px;margin-bottom:32px;color:rgba(255,255,255,0.65);">This is not a finish preference. It is a material selection decision that determines what wood species gets ordered, what primer gets used, what level of surface prep is required, and how forgiving the finished product is of minor imperfections. It needs to be decided before any material is purchased.</p>
 
@@ -153,6 +173,7 @@
   <div class="section-inner">
 
     <div class="guide-content fade-up" id="casing-base">
+      <img src="../assets/icons/rem-mill-05-casing-baseboard-scaled-feel.png" alt="" class="proof-plate" onerror="this.style.display='none'">
       <h2>Casing and baseboard — the foundation of every room</h2>
       <p>Casing and baseboard are the starting point for any millwork upgrade — and the upgrade with the broadest impact per dollar in a cookie-cutter house. Builder-grade trim is typically 2¼-inch flat casing and 3¼-inch base. Upgrading to a larger, more detailed profile changes the visual weight of every door and window opening in the house and is one of the most cost-effective ways to shift a room from production feel to designed feel.</p>
 
@@ -166,6 +187,7 @@
     </div>
 
     <div class="guide-content fade-up" id="crown">
+      <img src="../assets/icons/rem-mill-06-crown-molding-scaled-feel.png" alt="" class="proof-plate" onerror="this.style.display='none'">
       <h2>Crown molding — when it works and when it doesn't</h2>
       <p>Crown molding adds a designed quality to any room it's done well in — and a clumsy, unresolved quality to any room it's done poorly in. The difference is almost entirely in the selection of the right profile for the room and the execution of the corners.</p>
       <p><strong>Profile selection and ceiling height.</strong> A 3½-inch crown profile in a room with eight-foot ceilings is appropriate. The same profile in a room with ten-foot ceilings looks like an afterthought — too small to register from the floor. Taller ceilings want more substantial crown — 4½ to 6 inches or more, sometimes built up from multiple pieces of molding to create a more architectural profile. The carpenter who looks at the ceiling height before pulling a sample is the right carpenter.</p>
@@ -174,6 +196,7 @@
     </div>
 
     <div class="guide-content fade-up" id="builtins">
+      <img src="../assets/icons/rem-mill-07-builtins-changing-room-lives.png" alt="" class="proof-plate" onerror="this.style.display='none'">
       <h2>Built-ins — the upgrade that changes how a room lives</h2>
       <p>A built-in bookcase, window seat, mudroom locker, or entertainment center does two things simultaneously: it adds storage and function, and it makes the room feel like it was designed specifically for the people living in it. No other single millwork element has the same impact per square foot.</p>
 
@@ -188,6 +211,7 @@
     </div>
 
     <div class="guide-content fade-up" id="doors">
+      <img src="../assets/icons/rem-mill-08-door-styles-acoustic-visual.png" alt="" class="proof-plate" onerror="this.style.display='none'">
       <h2>Door styles — the detail nobody notices until it's right</h2>
       <p>Interior door style is one of the most overlooked millwork upgrades in a production home. The six-panel hollow-core door that comes standard in most builder-grade construction is functional and largely invisible — which is the problem. It contributes nothing to the character of the house.</p>
       <p><strong>Solid core vs hollow core.</strong> The upgrade from hollow-core to solid-core doors is primarily acoustic — a solid-core door substantially reduces sound transmission between rooms. For bedrooms, bathrooms, and home offices, solid-core is worth the cost. For closets and mechanical rooms, hollow-core is fine.</p>
@@ -218,6 +242,7 @@
     </div>
 
     <div class="guide-content fade-up" id="tray">
+      <img src="../assets/icons/rem-mill-09-tray-ceilings-architectural-depth.png" alt="" class="proof-plate" onerror="this.style.display='none'">
       <h2>Tray ceilings</h2>
       <p>A tray ceiling — a recessed center section of a ceiling, with a stepped perimeter that drops down to the standard ceiling plane — adds architectural depth and a sense of height to a room that a flat ceiling cannot achieve. In a master bedroom, dining room, or great room, a well-proportioned tray ceiling is a significant upgrade.</p>
       <p>Tray ceilings are framing work first — the recess is created by the framing or by a built-down perimeter, not by the finish carpenter alone. The finish carpenter's role is the trim detail at the transition between the recessed center and the stepped perimeter: the crown, the flat band, or the more elaborate profile that defines the tray edge.</p>
@@ -240,6 +265,7 @@
 <section class="section-dark" id="finish">
   <div class="section-inner fade-up" style="position:relative;z-index:1;">
     <span class="section-label">The Finish Work</span>
+    <img src="../assets/icons/rem-mill-10-finish-work-tooled-clean.png" alt="" class="proof-plate proof-plate-dark" onerror="this.style.display='none'">
     <h2>Caulk, nails, and what separates<br><em>craftsmen from carpenters.</em></h2>
     <p style="margin-top:16px;margin-bottom:32px;color:rgba(255,255,255,0.65);">The difference between millwork that looks like a professional installation and millwork that looks like a home project comes down to two things executed consistently: nail holes filled correctly and caulk lines that disappear. Neither is complicated. Both require patience and attention that not every carpenter applies.</p>
 
