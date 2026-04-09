@@ -10,6 +10,32 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/style.css">
+<style>
+    /* ── PROOF PLATE ICONS ── */
+    .proof-plate {
+      display: block;
+      width: 110px;
+      height: 110px;
+      float: right;
+      margin: 0 0 16px 20px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--cream);
+      object-fit: contain;
+      padding: 4px;
+    }
+    .proof-plate-dark {
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.12);
+    }
+    .decision-item::after, .timeline-item::after, .flag-content::after,
+    .guide-content::after, .question-item::after, .level-card::after {
+      content: ''; display: table; clear: both;
+    }
+    @media (max-width: 600px) {
+      .proof-plate { float: none; display: block; margin: 0 auto 16px; }
+    }
+</style>
 </head>
 <body>
 <nav>
@@ -21,19 +47,9 @@
     <li><a href="https://remodelry.guide/remi" target="_blank" class="nav-cta">Talk to Remi — Free</a></li>
   </ul>
   <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="/" onclick="closeMobile()">← All Guides</a>
-    <a href="/kitchen" onclick="closeMobile()">Kitchen Remodel</a>
-    <a href="/bathroom" onclick="closeMobile()">Bathroom Renovation</a>
-    <a href="/basement" onclick="closeMobile()">Basement Finishing</a>
-    <a href="/addition" onclick="closeMobile()">Home Addition</a>
-    <a href="/flooring" onclick="closeMobile()">Flooring</a>
-    <a href="/windows" onclick="closeMobile()">Window Replacement</a>
-    <a href="/roofing" onclick="closeMobile()">Roofing</a>
-    <a href="/painting" onclick="closeMobile()">Painting</a>
-    <a href="/millwork" onclick="closeMobile()">Millwork &amp; Built-Ins</a>
-    <a href="/demo" onclick="closeMobile()">Living Through a Renovation</a>
-    <a href="/concierge" onclick="closeMobile()">What is a Concierge?</a>
+    <div class="mobile-menu" id="mobileMenu">
+    <a href="/" onclick="closeMobile()">The Guides</a>
+    <a href="/concierge" onclick="closeMobile()">The Concierge</a>
     <a href="/remi" onclick="closeMobile()">Meet Remi</a>
     <a href="https://remodelry.guide/remi" target="_blank" class="mobile-cta">Talk to Remi — It's Free</a>
   </div>
@@ -49,7 +65,8 @@
       <span class="breadcrumb-sep">→</span>
       <span class="breadcrumb-current">Window Replacement</span>
     </div>
-    <h1>The Window<br><em>Replacement Guide</em></h1>
+    <img src="../assets/icons/rem-wind-01-sales-playbook-high-pressure.png" alt="" class="proof-plate" onerror="this.style.display='none'">
+<h1>The Window<br><em>Replacement Guide</em></h1>
     <p class="page-header-body">The window replacement industry has a well-known sales problem. High-pressure presentations. Prices anchored high and "discounted" on the spot if you sign tonight. Lifetime warranties that sound better than they are. This guide names those tactics directly — and gives homeowners the technical knowledge to evaluate windows honestly and get multiple real prices without the pressure.</p>
     <div class="page-header-meta">
       <span class="meta-tag">Sales tactics named</span>
@@ -92,7 +109,8 @@
         <div class="flag-item">
           <div class="flag-icon">⚠️</div>
           <div class="flag-content">
-            <h4>The high anchor price</h4>
+            <img src="../assets/icons/rem-wind-02-anchor-price-discount-strategy.png" alt="" class="proof-plate" onerror="this.style.display='none'">
+          <h4>The high anchor price</h4>
             <p>The initial price presented is almost always significantly higher than the price the company will accept. The anchor exists to make the "discounted" price feel like a deal. A price of $800 per window that drops to $450 if you sign tonight is not a deal — it is a pricing strategy designed to create urgency and make the homeowner feel they are getting something special.</p>
           </div>
         </div>
@@ -119,20 +137,24 @@
       <h2>What actually matters in a window</h2>
       <p>Once the sales pressure is understood and neutralized, the technical evaluation of a window comes down to a small number of meaningful specifications. Here is what actually matters for a window in Northeast Ohio's climate.</p>
 
+      <img src="../assets/icons/rem-wind-04-u-factor-heat-escape-measure.png" alt="" class="proof-plate" onerror="this.style.display='none'">
       <h3>U-factor — the primary performance measure</h3>
       <p>U-factor measures how well a window prevents heat from escaping. Lower is better. A standard double-pane window has a U-factor around 0.30 to 0.35. A high-performance window reaches 0.20 or below. In Northeast Ohio's cold winters, U-factor is the single most important specification for energy performance. Ask for the U-factor of any window being quoted — not just the marketing claim about "energy efficiency."</p>
 
+      <img src="../assets/icons/rem-wind-05-double-vs-triple-pane-sound.png" alt="" class="proof-plate" onerror="this.style.display='none'">
       <h3>Double vs triple pane</h3>
       <p>Double-pane windows with a low-e coating are appropriate for most residential applications in Northeast Ohio and represent a significant improvement over single-pane. Triple-pane windows offer better performance — lower U-factor, better sound reduction — at higher cost. For most homes, high-quality double-pane is the right answer. For homes near highways, airports, or other noise sources, the sound reduction benefit of triple-pane may justify the additional cost.</p>
 
       <h3>Low-e coating</h3>
       <p>Low-emissivity coating — low-e — is a microscopically thin metallic coating applied to the glass that reflects heat while allowing visible light to pass through. It improves U-factor and reduces solar heat gain in summer. Most quality replacement windows include low-e coating. Confirm it is included in any window being quoted.</p>
 
+      <img src="../assets/icons/rem-wind-06-vinyl-fiberglass-stability.png" alt="" class="proof-plate" onerror="this.style.display='none'">
       <h3>Frame material</h3>
       <p>Vinyl frames are the dominant material in residential replacement windows — low maintenance, good thermal performance, and cost-effective. Fiberglass frames offer better dimensional stability and a higher-end appearance. Wood interior frames are available at premium price points and appropriate for homes where interior wood trim matching is important. Each frame material has different expansion and contraction characteristics — a factor in long-term seal integrity.</p>
     </div>
 
     <div class="guide-content fade-up" id="installation">
+      <img src="../assets/icons/rem-wind-03-premium-window-poor-install.png" alt="" class="proof-plate" onerror="this.style.display='none'">
       <h2>Installation — matters more than the window itself</h2>
       <div class="hook-quote">"A premium window poorly installed performs worse than a budget window properly installed. The installation is where most window failures originate — not the product."</div>
       <p>Window installation involves removing the existing window, preparing the opening, installing the new window in the correct plane and level, sealing the perimeter against air and water infiltration, and flashing the exterior correctly. Each step matters. The seal between the window frame and the rough opening is where water infiltration and air leakage originate — and it is invisible once the trim is installed.</p>
@@ -142,6 +164,7 @@
     <div class="guide-content fade-up" id="trim">
       <h2>Interior trim and exterior appearance — two details most homeowners miss</h2>
 
+      <img src="../assets/icons/rem-wind-07-interior-trim-inclusion-check.png" alt="" class="proof-plate" onerror="this.style.display='none'">
       <h3>Interior trim — who handles it?</h3>
       <p>When a window is replaced, the interior trim — the casing around the window on the inside — is typically removed to allow the window to be properly installed. After installation, the trim needs to be reinstalled or replaced.</p>
       <p>Most large window replacement companies do not include interior trim work in their standard installation. The window goes in and the trim is left for the homeowner to manage. In older homes, the original trim may be damaged during removal. In any home, the reinstalled trim needs to be caulked, nailed, and painted or stained to match.</p>
@@ -153,6 +176,7 @@
     </div>
 
     <div class="guide-content fade-up" id="warranty">
+      <img src="../assets/icons/rem-wind-08-warranty-labor-product-split.png" alt="" class="proof-plate" onerror="this.style.display='none'">
       <h2>Warranties — what they actually cover</h2>
       <p>"Lifetime warranty" is one of the most common claims in window replacement marketing — and one of the most commonly misunderstood.</p>
       <p>Most window warranties are transferable to one subsequent owner only, or not transferable at all. "Lifetime" typically means the lifetime of the original purchaser in the original home — not the lifetime of the window or the home. A homeowner who buys windows with a lifetime warranty and sells the house in five years has not transferred that warranty to the new owner in most cases.</p>
@@ -160,6 +184,7 @@
     </div>
 
     <div class="guide-content fade-up" id="prices">
+      <img src="../assets/icons/rem-wind-09-multiple-prices-benchmark.png" alt="" class="proof-plate" onerror="this.style.display='none'">
       <h2>Getting multiple honest prices</h2>
       <p>The single most protective thing a homeowner can do in the window replacement process is get three quotes before signing anything. Here is how to do it effectively.</p>
       <p><strong>Large window company</strong> — schedule the appointment, sit through the presentation, get the price. Note the anchor price and the "discounted" price. Do not sign at the appointment.</p>
@@ -198,7 +223,8 @@
           <p class="question-why">Separate from the product warranty. A minimum of 2 years on installation labor is reasonable. Get it in writing with specific coverage terms.</p>
         </div>
         <div class="question-item">
-          <p class="question-text">"Who does the installation — your own employees or subcontractors?"</p>
+          <p class="question-text"><img src="../assets/icons/rem-wind-10-who-installs-employees-vs-subs.png" alt="" class="proof-plate" onerror="this.style.display='none'">
+          "Who does the installation — your own employees or subcontractors?"</p>
           <p class="question-why">Consistency matters in window installation. A company's own trained crew produces more consistent results than rotating subcontractors.</p>
         </div>
       </div>
