@@ -113,6 +113,31 @@
     @media (max-width: 900px) {
       .shower-section { padding: 56px 24px; }
     }
+  
+    /* ── PROOF PLATE ICONS ── */
+    .proof-plate {
+      display: block;
+      width: 110px;
+      height: 110px;
+      float: right;
+      margin: 0 0 16px 20px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--cream);
+      object-fit: contain;
+      padding: 4px;
+    }
+    .proof-plate-dark {
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.12);
+    }
+    .decision-item::after, .timeline-item::after, .flag-content::after,
+    .guide-content::after, .question-item::after, .level-card::after {
+      content: ''; display: table; clear: both;
+    }
+    @media (max-width: 600px) {
+      .proof-plate { float: none; display: block; margin: 0 auto 16px; }
+    }
   </style>
 </head>
 <body>
@@ -131,19 +156,9 @@
   <button class="hamburger" id="hamburger" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="/" onclick="closeMobile()">← All Guides</a>
-    <a href="/kitchen" onclick="closeMobile()">Kitchen Remodel</a>
-    <a href="/bathroom" onclick="closeMobile()">Bathroom Renovation</a>
-    <a href="/basement" onclick="closeMobile()">Basement Finishing</a>
-    <a href="/addition" onclick="closeMobile()">Home Addition</a>
-    <a href="/flooring" onclick="closeMobile()">Flooring</a>
-    <a href="/windows" onclick="closeMobile()">Window Replacement</a>
-    <a href="/roofing" onclick="closeMobile()">Roofing</a>
-    <a href="/painting" onclick="closeMobile()">Painting</a>
-    <a href="/millwork" onclick="closeMobile()">Millwork &amp; Built-Ins</a>
-    <a href="/demo" onclick="closeMobile()">Living Through a Renovation</a>
-    <a href="/concierge" onclick="closeMobile()">What is a Concierge?</a>
+    <div class="mobile-menu" id="mobileMenu">
+    <a href="/" onclick="closeMobile()">The Guides</a>
+    <a href="/concierge" onclick="closeMobile()">The Concierge</a>
     <a href="/remi" onclick="closeMobile()">Meet Remi</a>
     <a href="https://remodelry.guide/remi" target="_blank" class="mobile-cta">Talk to Remi — It's Free</a>
   </div>
@@ -162,7 +177,8 @@
       <span class="breadcrumb-sep">→</span>
       <span class="breadcrumb-current">Bathroom Renovation</span>
     </div>
-    <h1>The Bathroom<br><em>Renovation Guide</em></h1>
+    <img src="../assets/icons/rem-bath-01-water-damage-reality.png" alt="" class="proof-plate" onerror="this.style.display='none'">
+<h1>The Bathroom<br><em>Renovation Guide</em></h1>
     <p class="page-header-body">Water is unforgiving. A shower built without the right waterproofing doesn't fail visibly — it fails silently, behind tile, into the subfloor and framing, until the damage forces a complete tear-out. The decisions that determine whether a bathroom renovation lasts 20 years or fails in 5 are made before a single tile is set. This guide covers all of them.</p>
     <div class="page-header-meta">
       <span class="meta-tag">Full scope covered</span>
