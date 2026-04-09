@@ -20,6 +20,32 @@
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="../assets/css/style.css">
+<style>
+    /* ── PROOF PLATE ICONS ── */
+    .proof-plate {
+      display: block;
+      width: 110px;
+      height: 110px;
+      float: right;
+      margin: 0 0 16px 20px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--cream);
+      object-fit: contain;
+      padding: 4px;
+    }
+    .proof-plate-dark {
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.12);
+    }
+    .decision-item::after, .timeline-item::after, .flag-content::after,
+    .guide-content::after, .question-item::after, .level-card::after {
+      content: ''; display: table; clear: both;
+    }
+    @media (max-width: 600px) {
+      .proof-plate { float: none; display: block; margin: 0 auto 16px; }
+    }
+</style>
 </head>
 <body>
 
@@ -37,19 +63,9 @@
   <button class="hamburger" id="hamburger" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="/" onclick="closeMobile()">← All Guides</a>
-    <a href="/kitchen" onclick="closeMobile()">Kitchen Remodel</a>
-    <a href="/bathroom" onclick="closeMobile()">Bathroom Renovation</a>
-    <a href="/basement" onclick="closeMobile()">Basement Finishing</a>
-    <a href="/addition" onclick="closeMobile()">Home Addition</a>
-    <a href="/flooring" onclick="closeMobile()">Flooring</a>
-    <a href="/windows" onclick="closeMobile()">Window Replacement</a>
-    <a href="/roofing" onclick="closeMobile()">Roofing</a>
-    <a href="/painting" onclick="closeMobile()">Painting</a>
-    <a href="/millwork" onclick="closeMobile()">Millwork &amp; Built-Ins</a>
-    <a href="/demo" onclick="closeMobile()">Living Through a Renovation</a>
-    <a href="/concierge" onclick="closeMobile()">What is a Concierge?</a>
+    <div class="mobile-menu" id="mobileMenu">
+    <a href="/" onclick="closeMobile()">The Guides</a>
+    <a href="/concierge" onclick="closeMobile()">The Concierge</a>
     <a href="/remi" onclick="closeMobile()">Meet Remi</a>
     <a href="https://remodelry.guide/remi" target="_blank" class="mobile-cta">Talk to Remi — It's Free</a>
   </div>
@@ -68,7 +84,8 @@
       <span class="breadcrumb-sep">→</span>
       <span class="breadcrumb-current">Kitchen Remodel</span>
     </div>
-    <h1>The Kitchen<br><em>Remodel Guide</em></h1>
+    <img src="../assets/icons/rem-kit-01-sequence-logic.png" alt="" class="proof-plate" onerror="this.style.display='none'">
+<h1>The Kitchen<br><em>Remodel Guide</em></h1>
     <p class="page-header-body">The sequence nobody explains — until something goes wrong. Cabinets before countertops. Appliances before cabinets. Lead times before demo. Here is the complete picture of what a kitchen remodel actually involves — before anyone shows up with a bid.</p>
     <div class="page-header-meta">
       <span class="meta-tag">Full scope covered</span>
@@ -184,6 +201,7 @@
         <div class="decision-item">
           <div class="decision-num">02</div>
           <div class="decision-content">
+            <img src="../assets/icons/rem-kit-02-cabinet-lead-times.png" alt="" class="proof-plate" onerror="this.style.display='none'">
             <h4>Cabinet line and door style</h4>
             <p>Cabinets are the backbone of the kitchen. They determine countertop dimensions, appliance specifications, the lighting plan, and backsplash boundaries. Cabinet lead times run 6 to 16 weeks for semi-custom and custom lines. This decision needs to be made earlier than almost any other — and most homeowners make it too late.</p>
           </div>
@@ -192,6 +210,7 @@
         <div class="decision-item">
           <div class="decision-num">03</div>
           <div class="decision-content">
+            <img src="../assets/icons/rem-kit-03-appliance-specs.png" alt="" class="proof-plate" onerror="this.style.display='none'">
             <h4>Appliances — exact model numbers, not just brand</h4>
             <p>Appliance specifications must be confirmed before cabinet design is finalized. A 36-inch range requires different cabinet configuration than a 30-inch range. A counter-depth refrigerator has different depth and height requirements than a standard one. Appliances drive cabinet dimensions — not the other way around.</p>
           </div>
@@ -200,6 +219,7 @@
         <div class="decision-item">
           <div class="decision-num">04</div>
           <div class="decision-content">
+            <img src="../assets/icons/rem-kit-04-slab-selection.png" alt="" class="proof-plate" onerror="this.style.display='none'">
             <h4>Countertop material — selected early, templated late</h4>
             <p>Countertops cannot be templated until cabinets are installed. But the material needs to be selected and ordered early — especially for natural stone slabs, which require visiting a stone yard, choosing a specific slab, and reserving it. Select the material early. Template after cabinet install.</p>
           </div>
@@ -284,7 +304,8 @@
       </div>
 
       <div class="timeline-item">
-        <div class="timeline-period">Week 3</div>
+        <img src="../assets/icons/rem-kit-07-rough-in-inspection.png" alt="" class="proof-plate" onerror="this.style.display='none'">
+          <div class="timeline-period">Week 3</div>
         <div class="timeline-content">
           <h4>Demo</h4>
           <p>Existing cabinets, countertops, flooring, and appliances removed. Walls opened if needed for plumbing or electrical access. Existing conditions documented — this is when surprises behind walls are discovered. A contingency budget exists for this reason.</p>
@@ -300,7 +321,8 @@
       </div>
 
       <div class="timeline-item">
-        <div class="timeline-period">Week 6</div>
+        <img src="../assets/icons/rem-kit-08-templating-wait.png" alt="" class="proof-plate" onerror="this.style.display='none'">
+          <div class="timeline-period">Week 6</div>
         <div class="timeline-content">
           <h4>Inspections and drywall</h4>
           <p>Rough-in inspections happen before walls close. This is non-negotiable — closing walls before inspection means opening them again. After inspection approval, drywall is patched or replaced. Skim coat and prime.</p>
@@ -362,6 +384,7 @@
 <section class="section-white" id="contractor-checklist">
   <div class="section-inner fade-up">
     <span class="section-label">What a Qualified Contractor Does</span>
+    <img src="../assets/icons/rem-kit-09-finish-standards.png" alt="" class="proof-plate" onerror="this.style.display='none'">
     <h2>Know what good looks like<br><em>before you hire anyone.</em></h2>
     <p style="margin-top:16px;margin-bottom:40px;">A homeowner who knows what a qualified kitchen contractor does is a homeowner who can tell the difference between one and the ones who cut corners. Here is what the right contractor does — without being asked.</p>
 
@@ -535,7 +558,8 @@
         </div>
 
         <div class="question-item">
-          <p class="question-text">"What does your payment schedule look like?"</p>
+          <p class="question-text"><img src="../assets/icons/rem-kit-10-payment-schedule.png" alt="" class="proof-plate" onerror="this.style.display='none'">
+"What does your payment schedule look like?"</p>
           <p class="question-why">Never pay more than 10 to 15 percent upfront. A contractor who requires 50 percent or more before work begins is using the homeowner's money to fund other projects. Standard is deposit at signing, draws tied to milestones, final payment at punch list completion.</p>
         </div>
 
