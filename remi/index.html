@@ -377,6 +377,30 @@
       .no-contractor-overlay { padding: 24px; flex-direction: column; gap: 16px; }
       .summary-image-section { padding: 56px 24px; }
     }
+
+    /* ── PROOF PLATE ICONS ── */
+    .proof-plate {
+      display: block;
+      width: 110px;
+      height: 110px;
+      float: right;
+      margin: 0 0 16px 20px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--cream);
+      object-fit: contain;
+      padding: 4px;
+    }
+    .proof-plate-dark {
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.12);
+    }
+    .how-step::after, .flag-content::after, .phase-desc::after, .guide-content::after {
+      content: ''; display: table; clear: both;
+    }
+    @media (max-width: 600px) {
+      .proof-plate { float: none; display: block; margin: 0 auto 16px; }
+    }
   </style>
 </head>
 <body>
@@ -395,19 +419,9 @@
   <button class="hamburger" id="hamburger" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="/" onclick="closeMobile()">← All Guides</a>
-    <a href="/kitchen" onclick="closeMobile()">Kitchen Remodel</a>
-    <a href="/bathroom" onclick="closeMobile()">Bathroom Renovation</a>
-    <a href="/basement" onclick="closeMobile()">Basement Finishing</a>
-    <a href="/addition" onclick="closeMobile()">Home Addition</a>
-    <a href="/flooring" onclick="closeMobile()">Flooring</a>
-    <a href="/windows" onclick="closeMobile()">Window Replacement</a>
-    <a href="/roofing" onclick="closeMobile()">Roofing</a>
-    <a href="/painting" onclick="closeMobile()">Painting</a>
-    <a href="/millwork" onclick="closeMobile()">Millwork &amp; Built-Ins</a>
-    <a href="/demo" onclick="closeMobile()">Living Through a Renovation</a>
-    <a href="/concierge" onclick="closeMobile()">What is a Concierge?</a>
+    <div class="mobile-menu" id="mobileMenu">
+    <a href="/" onclick="closeMobile()">The Guides</a>
+    <a href="/concierge" onclick="closeMobile()">The Concierge</a>
     <a href="/remi" onclick="closeMobile()">Meet Remi</a>
     <a href="https://remodelry.guide/remi" target="_blank" class="mobile-cta">Talk to Remi — It's Free</a>
   </div>
@@ -426,6 +440,7 @@
       <span class="breadcrumb-sep">→</span>
       <span class="breadcrumb-current">Meet Remi</span>
     </div>
+    <img src="../assets/icons/rem-remi-01-conversation-not-form.png" alt="" class="proof-plate" onerror="this.style.display='none'">
     <h1>Meet Remi.<br><em>A real conversation.<br>Not a form.</em></h1>
     <p class="page-header-body">Remi is Remodelry's free AI intake companion. Not a chatbot. Not a lead form. A warm, structured 10 to 15 minute conversation built on 20+ years of residential construction field knowledge — designed to make the homeowner feel heard and the Concierge visit possible before anyone sets foot in your home.</p>
     <div class="page-header-meta">
@@ -455,22 +470,28 @@
       <div class="how-steps">
 
         <div class="how-step">
+          <img src="../assets/icons/rem-remi-02-not-chatbot-genuinely.png" alt="" class="proof-plate" onerror="this.style.display='none'">
           <div class="how-step-num">01</div>
           <div class="how-step-title">You talk to Remi</div>
+          <img src="../assets/icons/rem-remi-03-sees-photos-upload-read.png" alt="" class="proof-plate" onerror="this.style.display='none'">
           <div class="how-step-desc">A warm, natural 10 to 15 minute conversation about your project. Upload photos. Share inspiration. Ask questions. Remi listens — really listens — and responds to what you actually said.</div>
           <span class="how-step-tag">Free · No commitment</span>
         </div>
 
         <div class="how-step">
           <div class="how-step-num">02</div>
+          <img src="../assets/icons/rem-remi-04-free-personalized-first-look.png" alt="" class="proof-plate" onerror="this.style.display='none'">
           <div class="how-step-title">You receive your First Look</div>
+          <img src="../assets/icons/rem-remi-05-immediate-personalized-homeowner.png" alt="" class="proof-plate" onerror="this.style.display='none'">
           <div class="how-step-desc">Immediately after the conversation, a personalized document lands in your inbox. Your project at a glance. What it typically involves. Decisions to think about. What to bring to your Concierge visit. Specific to you — not a template.</div>
           <span class="how-step-tag">Immediate · Personalized</span>
         </div>
 
         <div class="how-step">
+          <img src="../assets/icons/rem-remi-06-simultaneously-your-concierge.png" alt="" class="proof-plate" onerror="this.style.display='none'">
           <div class="how-step-num">03</div>
           <div class="how-step-title">Your Concierge receives a dossier</div>
+          <img src="../assets/icons/rem-remi-07-complete-project-brief.png" alt="" class="proof-plate" onerror="this.style.display='none'">
           <div class="how-step-desc">Simultaneously, your Remodelry Concierge receives a complete project brief — scope, budget, design direction, behavioral profile, flags, and strategic guidance for the visit. They know your project before they knock on the door.</div>
           <span class="how-step-tag">Complete · Actionable</span>
         </div>
@@ -605,6 +626,7 @@
         <div class="doc-preview">
           <div class="doc-preview-header">
             <div class="doc-preview-title">Remi Intake Summary</div>
+            <img src="../assets/icons/rem-remi-09-archetype-never-announced.png" alt="" class="proof-plate" onerror="this.style.display='none'">
             <div class="doc-preview-tag">Concierge copy</div>
           </div>
           <div class="doc-preview-body">
@@ -643,6 +665,7 @@
   <div class="soulmap-inner fade-up">
 
     <span class="section-label">The Behavioral Intelligence Layer</span>
+    <img src="../assets/icons/rem-remi-08-behavioral-intelligence-soulmap.png" alt="" class="proof-plate proof-plate-dark" onerror="this.style.display='none'">
     <h2>SoulMap — running silently<br><em>throughout every conversation.</em></h2>
 
     <p style="margin-top:20px;max-width:680px;">While Remi talks about your project, she is also reading something else — how you communicate, how you make decisions, what your emotional driver is, and what your relationship with the budget looks like. This behavioral layer runs silently throughout the conversation and produces a named archetype that shapes everything about the Concierge visit.</p>
@@ -712,6 +735,7 @@
         <div class="flag-item" style="border-color:var(--brass);background:rgba(181,144,74,0.06);">
           <div class="flag-icon">✓</div>
           <div class="flag-content">
+            <img src="../assets/icons/rem-remi-10-not-lead-capture-form.png" alt="" class="proof-plate" onerror="this.style.display='none'">
             <h4 style="color:var(--brass);">Remi is not a lead capture form</h4>
             <p>Remi does not exist to collect your contact information and sell it to contractors. She exists to produce two documents — one for you, one for the Concierge — that make the entire Remodelry process possible. Your information stays with Remodelry. No contractor receives it without your explicit consent through the Remodelry introduction process.</p>
           </div>
