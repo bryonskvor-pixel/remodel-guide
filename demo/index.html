@@ -247,6 +247,31 @@
       .week-arc-item { grid-template-columns: 1fr; gap: 8px; }
       .week-arc-label { padding-top: 0; }
     }
+  
+    /* ── PROOF PLATE ICONS ── */
+    .proof-plate {
+      display: block;
+      width: 110px;
+      height: 110px;
+      float: right;
+      margin: 0 0 16px 20px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--cream);
+      object-fit: contain;
+      padding: 4px;
+    }
+    .proof-plate-dark {
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.12);
+    }
+    .decision-item::after, .timeline-item::after, .flag-content::after,
+    .guide-content::after, .question-item::after, .level-card::after {
+      content: ''; display: table; clear: both;
+    }
+    @media (max-width: 600px) {
+      .proof-plate { float: none; display: block; margin: 0 auto 16px; }
+    }
   </style>
 </head>
 <body>
@@ -257,9 +282,7 @@
     <img src="../assets/images/remodel-guide-logo.png" alt="remodel.guide">
   </a>
   <ul class="nav-links">
-    <li><a href="/kitchen">Kitchen</a></li>
-    <li><a href="/bathroom">Bathroom</a></li>
-    <li><a href="/basement">Basement</a></li>
+    <li><a href="/">All Guides</a></li>
     <li><a href="/concierge">The Concierge</a></li>
     <li><a href="/remi">Meet Remi</a></li>
     <li><a href="https://remodelry.guide/remi" target="_blank" class="nav-cta">Talk to Remi — Free</a></li>
@@ -267,19 +290,9 @@
   <button class="hamburger" id="hamburger" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="/" onclick="closeMobile()">← All Guides</a>
-    <a href="/kitchen" onclick="closeMobile()">Kitchen Remodel</a>
-    <a href="/bathroom" onclick="closeMobile()">Bathroom Renovation</a>
-    <a href="/basement" onclick="closeMobile()">Basement Finishing</a>
-    <a href="/addition" onclick="closeMobile()">Home Addition</a>
-    <a href="/flooring" onclick="closeMobile()">Flooring</a>
-    <a href="/windows" onclick="closeMobile()">Window Replacement</a>
-    <a href="/siding" onclick="closeMobile()">Siding</a>
-    <a href="/painting" onclick="closeMobile()">Painting</a>
-    <a href="/millwork" onclick="closeMobile()">Millwork &amp; Built-Ins</a>
-    <a href="/demo" onclick="closeMobile()">Living Through a Renovation</a>
-    <a href="/concierge" onclick="closeMobile()">What is a Concierge?</a>
+    <div class="mobile-menu" id="mobileMenu">
+    <a href="/" onclick="closeMobile()">The Guides</a>
+    <a href="/concierge" onclick="closeMobile()">The Concierge</a>
     <a href="/remi" onclick="closeMobile()">Meet Remi</a>
     <a href="https://remodelry.guide/remi" target="_blank" class="mobile-cta">Talk to Remi — It's Free</a>
   </div>
@@ -298,7 +311,8 @@
       <span class="breadcrumb-sep">→</span>
       <span class="breadcrumb-current">Living Through a Renovation</span>
     </div>
-    <h1>Living Through<br><em>a Renovation</em></h1>
+    <img src="../assets/icons/rem-demo-01-preparation-over-friction.png" alt="" class="proof-plate" onerror="this.style.display='none'">
+<h1>Living Through<br><em>a Renovation</em></h1>
     <p class="page-header-body">Read this before any project starts — regardless of what kind of project it is. Most remodel guides cover what gets built. This one covers what it feels like to live in your home while it's being built, what you owe the process, and what the process owes you. Nobody gives homeowners this guide. They should.</p>
     <div class="page-header-meta">
       <span class="meta-tag">Before demo day</span>
@@ -469,6 +483,7 @@
         <div class="flag-item" style="border-color:var(--slate);background:rgba(74,69,63,0.04);">
           <div class="flag-icon">◆</div>
           <div class="flag-content">
+            <img src="../assets/icons/rem-demo-07-agreed-start-end-times.png" alt="" class="proof-plate" onerror="this.style.display='none'">
             <h4>Agreed start and end times — honored every day</h4>
             <p>Start time and end time should be agreed before the project begins and honored without exception. A crew that arrives at 7am when the household has children getting ready for school — without that having been discussed — is a crew that hasn't thought about the homeowner's daily life. Start times and end times are part of the project agreement. Put them in writing.</p>
           </div>
@@ -566,6 +581,7 @@
       <p>Door seals — adhesive-backed zipper strips applied to doorframes — create a sealed entry point through the plastic barrier that opens and closes without breaking the containment. Crew members can pass through without demolishing the barrier every time they move between spaces.</p>
       <p>Any project that involves demo, cutting, sanding, or significant material removal in a space adjacent to occupied rooms should have plastic barrier containment installed before work begins. This is not optional for a contractor who respects the household they are working in.</p>
 
+      <img src="../assets/icons/rem-demo-06-hvac-return-protection.png" alt="" class="proof-plate" onerror="this.style.display='none'">
       <h3>HVAC return protection</h3>
       <p>Every HVAC return air vent in and near the work area should be sealed with plastic and tape before demo begins. Return air vents pull air — and airborne dust — from the room into the ductwork. Construction dust that enters the ductwork is distributed to every room in the house through the supply registers. It is expensive and disruptive to remediate.</p>
       <p>Sealing the returns in the work area costs five minutes and a roll of tape. Not sealing them costs the homeowner hours of cleaning throughout the house and potentially a professional duct cleaning.</p>
@@ -700,7 +716,8 @@
 
     </div>
 
-    <h3>Decision fatigue is real — and it compounds</h3>
+    <img src="../assets/icons/rem-demo-09-decision-fatigue-compounding.png" alt="" class="proof-plate" onerror="this.style.display='none'">
+      <h3>Decision fatigue is real — and it compounds</h3>
     <p>A kitchen remodel involves dozens of decisions. Each one requires mental energy. By week three, that energy is depleted — which is exactly when the countertop template appointment, the hardware selection, and the backsplash confirmation all need to happen. The decisions don't get easier just because the homeowner is tired of making them.</p>
     <p>The antidote is front-loading decisions before demo begins. Every selection that can be made before the project starts should be made before the project starts. The homeowner who has chosen tile, countertops, fixtures, hardware, and paint before day one experiences a fundamentally different project than the homeowner who makes those decisions under construction pressure.</p>
 
