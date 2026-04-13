@@ -1,206 +1,383 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>From the Field — remodel.guide</title>
-  <meta name="description" content="Field-honest writing about remodeling — the products, decisions, and realities that showrooms and contractors don't explain. From the team behind remodel.guide." />
+  <meta name="description" content="Field-honest writing about remodeling products, decisions, and realities that showrooms and contractors don't explain. From 20+ years of residential construction experience. No affiliate links. No sponsored content." />
+  <meta name="keywords" content="remodeling advice, homeowner guide, from the field, countertops, flooring, remodeling tips" />
+  <meta property="og:title" content="From the Field — remodel.guide" />
+  <meta property="og:description" content="What the showroom won't tell you. Written from the field, not from a press release." />
+  <meta property="og:url" content="https://remodel.guide/blog" />
+  <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/style.css">
   <style>
-    .blog-header {
+    .blog-hero {
       background: var(--deep);
-      padding: 120px 80px 80px;
+      padding: 80px 80px 0;
       position: relative;
       overflow: hidden;
     }
-
-    .blog-header::before {
+    .blog-hero::before {
       content: '';
       position: absolute;
-      bottom: -200px; right: -200px;
-      width: 600px; height: 600px;
+      top: -200px; right: -200px;
+      width: 700px; height: 700px;
       border-radius: 50%;
       background: radial-gradient(circle, rgba(181,144,74,0.08) 0%, transparent 70%);
+      pointer-events: none;
     }
-
-    .blog-header-inner {
+    .blog-hero-inner {
       max-width: 900px;
       margin: 0 auto;
       position: relative;
       z-index: 1;
+      padding-bottom: 80px;
     }
-
-    .blog-header img.blog-masthead {
-      width: 100%;
-      border-radius: 12px;
-      margin-bottom: 40px;
-      display: block;
-      max-height: 320px;
-      object-fit: cover;
-      object-position: center;
-    }
-
-    .blog-header h1 {
+    .blog-hero-inner .section-label { color: var(--brass-light); }
+    .blog-hero-inner h1 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(42px, 5vw, 64px);
+      font-size: clamp(40px, 5vw, 68px);
       font-weight: 500;
       color: var(--white);
-      margin-bottom: 16px;
       line-height: 1.1;
+      margin: 16px 0 24px;
     }
-
-    .blog-header p {
+    .blog-hero-inner h1 em { color: var(--brass-light); font-style: italic; }
+    .blog-hero-inner p {
       font-size: 16px;
       font-weight: 300;
-      color: rgba(255,255,255,0.55);
-      max-width: 580px;
-      line-height: 1.75;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.8;
+      max-width: 640px;
     }
-
-    .blog-grid {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 80px;
+    .blog-hero-rule {
       display: flex;
-      flex-direction: column;
-      gap: 2px;
+      gap: 32px;
+      margin-top: 40px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .blog-hero-rule-item {
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.04em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .blog-hero-rule-item::before {
+      content: '';
+      display: block;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--brass);
+      flex-shrink: 0;
     }
 
-    .post-card {
+    /* Post grid */
+    .post-grid {
       display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 40px;
-      align-items: start;
-      padding: 40px 0;
-      border-bottom: 1px solid var(--border);
-      text-decoration: none;
-      transition: opacity 0.2s;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      margin: 48px 0;
     }
-
-    .post-card:hover { opacity: 0.75; }
-    .post-card:last-child { border-bottom: none; }
-
-    .post-card-category {
+    .post-card {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      padding: 40px 36px;
+      text-decoration: none;
+      display: block;
+      transition: border-color 0.2s, transform 0.2s;
+      position: relative;
+    }
+    .post-card:hover { border-color: var(--brass); transform: translateY(-2px); }
+    .post-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--brass);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+    .post-card:hover::after { transform: scaleX(1); }
+    .post-card-label {
       font-size: 10px;
       font-weight: 500;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--brass);
-      margin-bottom: 10px;
+      margin-bottom: 14px;
       display: block;
     }
-
     .post-card h2 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 28px;
+      font-size: clamp(22px, 2.2vw, 30px);
       font-weight: 500;
       color: var(--deep);
       line-height: 1.2;
-      margin-bottom: 12px;
+      margin-bottom: 16px;
     }
-
-    .post-card-deck {
+    .post-card h2 em { font-style: italic; color: var(--brass); }
+    .post-card p {
       font-size: 14px;
       font-weight: 300;
       color: var(--slate);
-      line-height: 1.7;
-      max-width: 560px;
+      line-height: 1.75;
+      margin-bottom: 24px;
     }
-
+    .post-card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    .post-card-tag {
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--slate);
+      background: rgba(74,69,63,0.07);
+      padding: 4px 10px;
+      border-radius: 3px;
+      letter-spacing: 0.03em;
+    }
     .post-card-link {
       font-size: 13px;
       font-weight: 500;
       color: var(--brass);
-      margin-top: 16px;
-      display: block;
+      letter-spacing: 0.04em;
     }
 
-    .post-card-meta {
-      text-align: right;
-      flex-shrink: 0;
+    /* Featured post (first) */
+    .post-card.featured {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+      padding: 48px;
+    }
+    .post-card.featured h2 {
+      font-size: clamp(28px, 3vw, 42px);
     }
 
-    .post-card-tag {
-      display: inline-block;
-      background: var(--cream);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 4px 10px;
-      font-size: 11px;
-      font-weight: 400;
+    /* Coming soon cards */
+    .post-card.coming-soon {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+    .post-card.coming-soon .post-card-label { color: var(--muted); }
+    .coming-soon-badge {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
       color: var(--muted);
+      background: rgba(74,69,63,0.06);
+      border: 1px solid var(--border);
+      padding: 4px 10px;
+      border-radius: 3px;
+      display: inline-block;
+      margin-bottom: 16px;
     }
 
-    @media (max-width: 900px) {
-      .blog-header { padding: 80px 24px 56px; }
-      .blog-grid { padding: 48px 24px; }
-      .post-card { grid-template-columns: 1fr; gap: 16px; }
-      .post-card-meta { text-align: left; }
+    .section-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0;
+    }
+
+    .about-strip {
+      background: var(--deep);
+      padding: 64px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-strip::before {
+      content: '';
+      position: absolute;
+      bottom: -200px; left: -200px;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(181,144,74,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .about-strip-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .about-strip h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(26px, 2.8vw, 38px);
+      font-weight: 500;
+      color: var(--white);
+      line-height: 1.25;
+      margin-bottom: 16px;
+    }
+    .about-strip h2 em { color: var(--brass-light); font-style: italic; }
+    .about-strip p {
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.8;
+    }
+
+    @media(max-width:900px){
+      .blog-hero { padding: 48px 24px 0; }
+      .blog-hero-inner { padding-bottom: 48px; }
+      .blog-hero-rule { flex-direction: column; gap: 12px; }
+      .post-grid { grid-template-columns: 1fr; }
+      .post-card.featured { grid-column: auto; grid-template-columns: 1fr; gap: 0; }
+      .about-strip { padding: 48px 24px; }
+      .about-strip-inner { grid-template-columns: 1fr; gap: 32px; }
     }
   </style>
 </head>
 <body>
 
 <nav>
-  <a href="/" class="nav-logo">
-    <img src="../assets/images/remodel-guide-logo.png" alt="remodel.guide">
-  </a>
+  <a href="/" class="nav-logo"><img src="../assets/images/remodel-guide-logo.png" alt="remodel.guide"></a>
   <ul class="nav-links">
     <li><a href="/">All Guides</a></li>
+    <li><a href="/blog" class="nav-active">From the Field</a></li>
     <li><a href="/concierge">The Concierge</a></li>
-    <li><a href="/remi">Meet Remi</a></li>
     <li><a href="https://remodelry.guide/remi" target="_blank" class="nav-cta">Talk to Remi — Free</a></li>
   </ul>
-  <button class="hamburger" id="hamburger" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
   <div class="mobile-menu" id="mobileMenu">
     <a href="/" onclick="closeMobile()">The Guides</a>
+    <a href="/blog" onclick="closeMobile()">From the Field</a>
     <a href="/concierge" onclick="closeMobile()">The Concierge</a>
-    <a href="/remi" onclick="closeMobile()">Meet Remi</a>
     <a href="https://remodelry.guide/remi" target="_blank" class="mobile-cta">Talk to Remi — It's Free</a>
   </div>
 </nav>
 
-<section class="blog-header">
-  <div class="blog-header-inner fade-up">
-    <img src="../assets/images/from-the-field-header.png"
-         alt="From the Field — remodel.guide"
-         class="blog-masthead"
-         onerror="this.style.display='none'">
-    <h1>From the Field</h1>
-    <p>Field-honest writing about remodeling — the products, decisions, and realities that showrooms and sales appointments don't explain. Written on 20+ years of residential construction experience.</p>
+<div class="companion-banner">
+  <p>A free resource from <a href="https://remodelry.guide" target="_blank">Remodelry</a> — Northeast Ohio's remodeling concierge service.</p>
+</div>
+
+<!-- HERO -->
+<section class="blog-hero">
+  <div class="blog-hero-inner fade-up">
+    <span class="section-label">From the Field</span>
+    <h1>What the showroom<br><em>won't tell you.</em></h1>
+    <p>Field-honest writing about remodeling products, decisions, and realities — from 20+ years in residential construction. No affiliate links. No sponsored content. No agenda except the homeowner's.</p>
+    <div class="blog-hero-rule">
+      <div class="blog-hero-rule-item">Written from the field, not from a press release</div>
+      <div class="blog-hero-rule-item">No affiliate links · No sponsored content</div>
+      <div class="blog-hero-rule-item">A Remodelry resource</div>
+    </div>
   </div>
 </section>
 
+<!-- FIELD HEADER IMAGE -->
+<div style="background:var(--deep);padding:0 80px;line-height:0;">
+  <img src="../assets/images/from-the-field-header.png" alt="From the Field — remodel.guide" style="width:100%;max-height:320px;object-fit:cover;display:block;" onerror="this.style.display='none'">
+</div>
+
+<!-- POSTS -->
 <section class="section-white">
-  <div class="blog-grid fade-up">
+  <div class="section-inner fade-up">
 
-    <a href="/blog/revwood-vs-coretec" class="post-card">
-      <div class="post-card-content">
-        <span class="post-card-category">Flooring</span>
-        <h2>RevWood Premier vs COREtec: What the flooring salesperson won't tell you</h2>
-        <p class="post-card-deck">Both claim waterproof. Both look like hardwood. One is genuinely harder and costs 20% less. The other handles a wet basement without a single asterisk. A field-honest comparison — room by room.</p>
-        <span class="post-card-link">Read the post →</span>
+    <div class="post-grid">
+
+      <!-- POST 1: Countertops (most recent) -->
+      <a href="/blog/countertops" class="post-card featured">
+        <div class="post-card-left">
+          <span class="post-card-label">From the Field · Surfaces</span>
+          <h2>Countertops —<br><em>The Art and the Investment</em></h2>
+          <p>Every material, every consideration, and every question to ask before you stand at a slab yard with a decision to make. The countertop is the visual anchor of the room — every cabinet color, backsplash, hardware finish, and paint color either responds to it or fights against it. Most homeowners walk in underprepared. This changes that.</p>
+          <div class="post-card-tags">
+            <span class="post-card-tag">Every material covered</span>
+            <span class="post-card-tag">Natural stone deep dive</span>
+            <span class="post-card-tag">Fabricator & template guide</span>
+            <span class="post-card-tag">Veining & fissures</span>
+          </div>
+          <span class="post-card-link">Read the full guide →</span>
+        </div>
+        <div class="post-card-right">
+          <img src="../assets/images/countertop-hero.jpg" alt="Natural stone slab at a stone yard" style="width:100%;height:280px;object-fit:cover;border-radius:4px;" onerror="this.style.display='none'">
+        </div>
+      </a>
+
+      <!-- POST 2: RevWood vs COREtec -->
+      <a href="/blog/revwood-vs-coretec" class="post-card">
+        <span class="post-card-label">From the Field · Flooring</span>
+        <h2>RevWood Premier vs COREtec —<br><em>What the flooring salesperson won't tell you</em></h2>
+        <p>AC4 laminate versus 30mil WPC LVP. Hardness ratings, the truth about waterproofing claims, and a room-by-room verdict for which one actually belongs where.</p>
+        <div class="post-card-tags">
+          <span class="post-card-tag">Spec comparison</span>
+          <span class="post-card-tag">Waterproofing reality</span>
+          <span class="post-card-tag">Room-by-room verdict</span>
+        </div>
+        <span class="post-card-link">Read the full post →</span>
+      </a>
+
+      <!-- COMING SOON: Inset vs overlay cabinets -->
+      <div class="post-card coming-soon">
+        <span class="coming-soon-badge">Coming soon</span>
+        <span class="post-card-label">From the Field · Cabinets</span>
+        <h2>Inset vs Overlay Cabinets —<br><em>What the difference actually costs</em></h2>
+        <p>The visual difference is about a quarter inch of door reveal. The cost difference can be 20 to 30 percent of your cabinet budget. Here's what you're actually buying.</p>
+        <div class="post-card-tags">
+          <span class="post-card-tag">Cabinet construction</span>
+          <span class="post-card-tag">True cost breakdown</span>
+        </div>
       </div>
-      <div class="post-card-meta">
-        <span class="post-card-tag">Flooring</span>
+
+      <!-- COMING SOON: Heated floors -->
+      <div class="post-card coming-soon">
+        <span class="coming-soon-badge">Coming soon</span>
+        <span class="post-card-label">From the Field · Tile</span>
+        <h2>How Heated Floors Actually Work —<br><em>The sequence nobody explains before tile goes down</em></h2>
+        <p>The decision to add in-floor heat has to happen before the tile installer shows up. Here's the sequence, the systems, and what happens if this conversation occurs too late.</p>
+        <div class="post-card-tags">
+          <span class="post-card-tag">Electric vs hydronic</span>
+          <span class="post-card-tag">Installation sequence</span>
+        </div>
       </div>
-    </a>
+
+    </div>
 
   </div>
 </section>
 
+<!-- ABOUT THIS BLOG -->
+<section class="about-strip fade-up">
+  <div class="about-strip-inner">
+    <div>
+      <h2>Written from 20 years<br><em>in the field.</em></h2>
+      <p>Every post on this blog comes from direct residential construction experience — cabinetry, flooring, tile, stone, design-build. No affiliate links. No sponsored content. Nothing to sell you. These are the conversations that should happen before you walk into any showroom.</p>
+    </div>
+    <div>
+      <p style="color:rgba(255,255,255,0.5);font-size:13px;font-weight:300;line-height:1.8;margin-bottom:24px;">From the Field is a free resource from Remodelry — Northeast Ohio's remodeling concierge service. Remodelry's job is to be in your corner before anyone shows up with a bid.</p>
+      <a href="https://remodelry.guide" target="_blank" class="btn-ghost" style="border-color:rgba(255,255,255,0.2);color:rgba(255,255,255,0.6);">Learn about Remodelry →</a>
+    </div>
+  </div>
+</section>
+
+<!-- REMI CTA -->
 <section class="section-cream">
-  <div class="section-inner fade-up" style="text-align:center;">
-    <span class="section-label" style="display:block;text-align:center;">More coming</span>
-    <h2 style="margin-bottom:16px;">This is just the beginning.</h2>
-    <p style="max-width:520px;margin:0 auto 32px;font-size:15px;font-weight:300;color:var(--slate);line-height:1.75;">Inset vs overlay cabinets. How heated floors actually work. Quartz vs granite without the sales pitch. What paint sheens actually mean. All of it — from the field.</p>
-    <a href="https://remodelry.guide/remi" target="_blank" class="btn-primary">Talk to Remi while you wait →</a>
+  <div class="section-inner fade-up">
+    <div class="remi-cta">
+      <h2>Ready to talk about<br><em>your specific project?</em></h2>
+      <p>Reading the guides is the first step. Remi takes it further — a 15-minute conversation that captures your specific project, your household, your priorities, and your design direction. Your Remodelry Concierge follows up within 24 hours, already knowing your project, already on your side.</p>
+      <a href="https://remodelry.guide/remi" target="_blank" class="btn-primary" style="margin-top:8px;">Talk to Remi — It's Free</a>
+      <p class="remi-cta-note">Free · No obligation · No sales pitch · Your Concierge calls within 24 hours</p>
+    </div>
   </div>
 </section>
 
@@ -217,22 +394,28 @@
           <li><a href="/kitchen">Kitchen Remodel</a></li>
           <li><a href="/bathroom">Bathroom Renovation</a></li>
           <li><a href="/basement">Basement Finishing</a></li>
+          <li><a href="/addition">Home Addition</a></li>
           <li><a href="/flooring">Flooring</a></li>
           <li><a href="/windows">Window Replacement</a></li>
           <li><a href="/roofing">Roofing</a></li>
           <li><a href="/painting">Painting</a></li>
-          <li><a href="/millwork">Millwork &amp; Built-Ins</a></li>
+          <li><a href="/millwork">Millwork & Built-Ins</a></li>
+          <li><a href="/demo">Living Through a Renovation</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <span class="footer-col-title">From the Field</span>
         <ul>
-          <li><a href="/blog/revwood-vs-coretec">RevWood vs COREtec</a></li>
+          <li><a href="/blog/countertops">Countertops — The Art and the Investment</a></li>
+          <li><a href="/blog/revwood-vs-coretec">RevWood Premier vs COREtec</a></li>
         </ul>
-        <span class="footer-col-title" style="margin-top:24px;">Remodelry</span>
+        <span class="footer-col-title" style="margin-top:24px;display:block;">Remodelry</span>
         <ul>
           <li><a href="https://remodelry.guide" target="_blank">remodelry.guide</a></li>
           <li><a href="https://remodelry.guide/remi" target="_blank">Talk to Remi — Free</a></li>
+          <li><a href="https://remodelry.guide/concierge" target="_blank">The Concierge</a></li>
+          <li><a href="https://remodelry.guide/after-clarity" target="_blank">After Clarity</a></li>
+          <li><a href="https://remodelry.guide/pillars" target="_blank">10 Pillars</a></li>
         </ul>
       </div>
     </div>
@@ -255,5 +438,6 @@
   hamburger.addEventListener('click', function() { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
   function closeMobile() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); }
 </script>
+
 </body>
 </html>
