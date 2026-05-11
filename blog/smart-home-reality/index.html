@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Home in 2026: What's Actually Being Used — From the Field</title>
+  <meta name="description" content="The smart home industry says 51% of households are connected. A remodeling concierge who's been in over a thousand homes says something different. Here's the honest gap between ownership and use — and what it means for your remodel." />
+  <meta name="keywords" content="smart home 2026, home automation reality, smart thermostat, Ring doorbell, Alexa home automation, smart home remodel, what smart home devices are worth it" />
+  <meta property="og:title" content="Smart Home in 2026: What's Actually Being Used" />
+  <meta property="og:description" content="The industry counts devices sold. Here's what's actually running in real homes — and what that means for your remodel." />
+  <meta property="og:url" content="https://remodel.guide/blog/smart-home-reality" />
+  <meta property="og:type" content="article" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <style>
+    .post-header {
+      background: var(--deep);
+      padding: 120px 80px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .post-header::before {
+      content: '';
+      position: absolute;
+      bottom: -200px; right: -200px;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(181,144,74,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .post-header-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .post-blog-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--brass-light);
+      margin-bottom: 8px;
+      display: block;
+    }
+    .post-blog-name {
+      font-size: 13px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 32px;
+      display: block;
+    }
+    .post-header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 4vw, 58px);
+      font-weight: 500;
+      line-height: 1.1;
+      color: var(--white);
+      margin-bottom: 24px;
+    }
+    .post-header h1 em { font-style: italic; color: var(--brass-light); }
+    .post-deck {
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.65);
+      max-width: 640px;
+      margin-bottom: 40px;
+    }
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .post-meta-item {
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.04em;
+    }
+    .post-meta-item strong { color: rgba(255,255,255,0.6); font-weight: 400; }
+
+    .post-body {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 80px 80px;
+    }
+    .post-body p {
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--slate);
+      margin-bottom: 24px;
+    }
+    .post-body h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 500;
+      color: var(--deep);
+      margin: 56px 0 20px;
+      line-height: 1.2;
+    }
+    .post-body h2 em { font-style: italic; color: var(--brass); }
+    .post-body h3 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--deep);
+      margin: 36px 0 12px;
+      letter-spacing: 0.01em;
+    }
+    .post-body strong { font-weight: 500; color: var(--deep); }
+    .post-body ul {
+      margin: 0 0 24px 20px;
+      padding: 0;
+    }
+    .post-body ul li {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--slate);
+      line-height: 1.85;
+      margin-bottom: 6px;
+      padding-left: 8px;
+    }
+
+    /* Pull quote */
+    .pull-quote {
+      border-left: 3px solid var(--brass);
+      padding: 20px 28px;
+      margin: 40px 0;
+      background: var(--cream);
+      border-radius: 0 8px 8px 0;
+    }
+    .pull-quote p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--deep);
+      line-height: 1.5;
+      margin: 0 !important;
+    }
+
+    /* Field note */
+    .field-note {
+      background: var(--deep);
+      color: rgba(255,255,255,0.75);
+      padding: 28px 32px;
+      border-radius: 8px;
+      margin: 40px 0;
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.75;
+    }
+    .field-note-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--brass-light);
+      margin-bottom: 12px;
+      display: block;
+    }
+    .field-note strong { color: var(--white); font-weight: 400; }
+
+    /* Adoption stat blocks */
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin: 40px 0;
+    }
+    .stat-card {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      padding: 28px 24px;
+      text-align: center;
+    }
+    .stat-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
+      font-weight: 500;
+      color: var(--deep);
+      line-height: 1;
+      margin-bottom: 8px;
+      display: block;
+    }
+    .stat-number em { color: var(--brass); font-style: normal; }
+    .stat-label {
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--slate);
+      line-height: 1.5;
+    }
+    .stat-source {
+      font-size: 10px;
+      font-weight: 300;
+      color: var(--muted);
+      margin-top: 8px;
+      display: block;
+      letter-spacing: 0.03em;
+    }
+
+    /* Verdict grid — worth it vs skip */
+    .verdict-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      margin: 40px 0;
+    }
+    .verdict-card {
+      padding: 32px 28px;
+      border: 1px solid var(--border);
+    }
+    .verdict-card.worth { background: var(--cream); }
+    .verdict-card.skip { background: var(--warm-white); }
+    .verdict-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 12px;
+      display: block;
+    }
+    .verdict-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--deep);
+      margin-bottom: 16px;
+      margin-top: 0;
+    }
+    .verdict-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .verdict-card ul li {
+      font-size: 13.5px;
+      font-weight: 300;
+      color: var(--slate);
+      padding-left: 18px;
+      position: relative;
+      line-height: 1.6;
+    }
+    .verdict-card ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--brass);
+      font-size: 11px;
+      top: 2px;
+    }
+
+    /* Infrastructure checklist */
+    .infra-list {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--brass);
+      padding: 32px 36px;
+      margin: 40px 0;
+    }
+    .infra-list h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--deep);
+      margin-bottom: 20px;
+    }
+    .infra-list ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .infra-list ul li {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--slate);
+      padding-left: 20px;
+      position: relative;
+      line-height: 1.65;
+    }
+    .infra-list ul li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--brass);
+      font-size: 12px;
+      font-weight: 500;
+    }
+    .infra-list ul li strong { color: var(--deep); font-weight: 500; }
+
+    .post-nav {
+      border-top: 1px solid var(--border);
+      padding: 48px 80px;
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .post-nav-back {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--slate);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .post-nav-back:hover { color: var(--brass); }
+
+    @media(max-width:900px){
+      .post-header { padding: 80px 24px 56px; }
+      .post-body { padding: 48px 24px; }
+      .stat-grid { grid-template-columns: 1fr 1fr; }
+      .verdict-grid { grid-template-columns: 1fr; }
+      .infra-list { padding: 24px; }
+      .post-nav { padding: 32px 24px; flex-direction: column; align-items: flex-start; }
+    }
+    @media(max-width:600px){
+      .stat-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo"><img src="../../assets/images/remodel-guide-logo.png" alt="remodel.guide"></a>
+  <ul class="nav-links">
+    <li><a href="/">All Guides</a></li>
+    <li><a href="/blog">From the Field</a></li>
+    <li><a href="/concierge">The Concierge</a></li>
+    <li><a href="https://remodelry.guide/remi" target="_blank" class="nav-cta">Talk to Remi — Free</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/" onclick="closeMobile()">The Guides</a>
+    <a href="/blog" onclick="closeMobile()">From the Field</a>
+    <a href="/concierge" onclick="closeMobile()">The Concierge</a>
+    <a href="https://remodelry.guide/remi" target="_blank" class="mobile-cta">Talk to Remi — It's Free</a>
+  </div>
+</nav>
+
+<div class="companion-banner">
+  <p>A free resource from <a href="https://remodelry.guide" target="_blank">Remodelry</a> — Northeast Ohio's remodeling concierge service.</p>
+</div>
+
+<section class="post-header">
+  <div class="post-header-inner fade-up">
+    <span class="post-blog-label">From the Field</span>
+    <span class="post-blog-name">remodel.guide · Home Technology</span>
+    <h1>Smart Home in 2026:<br><em>What's actually being used.</em></h1>
+    <p class="post-deck">The industry reports say over half of American households are connected smart homes. After walking through more than a thousand homes in Northeast Ohio over the last several years, I can tell you what that number actually means — and what it doesn't. Here's the honest gap between what people own and what they use, and what it should mean for your remodel.</p>
+    <div class="post-meta">
+      <span class="post-meta-item"><strong>Ownership vs actual use</strong> · <strong>What's worth it</strong> · <strong>What to plan for in a remodel</strong></span>
+      <span class="post-meta-item">·</span>
+      <span class="post-meta-item">From the Field · remodel.guide</span>
+    </div>
+  </div>
+</section>
+
+<section class="section-white">
+<div class="post-body">
+
+  <p>Every few years the smart home industry announces that this is the year everything changes. The fully connected home is finally here. Your lights, your locks, your thermostat, your appliances, your doorbell, your blinds — all integrated, all controllable by voice, all accessible from your phone anywhere in the world.</p>
+
+  <p>That vision has been arriving for about fifteen years now. And parts of it have genuinely arrived. Other parts are installed in a lot of homes and not used by anyone.</p>
+
+  <p>The research firms count devices sold. They count households that own at least one smart device — which includes a smart TV, a robot vacuum, or a single smart plug purchased on impulse at a big box store. Those numbers make the adoption story look much larger than the lived reality in most homes.</p>
+
+  <p>I've been inside more than a thousand homes in Northeast Ohio over the last several years. I can count on two hands the number that I would describe as genuinely smart homes — integrated systems where the homeowner actually uses voice control or automation in their daily routine. In both cases, it was a technically savvy homeowner who built the system themselves and knew exactly what they were doing. Everyone else had a Ring doorbell, maybe a Nest thermostat, and an Echo on the kitchen counter that plays music and answers questions about the weather.</p>
+
+  <p>The research says I'm wrong — or at least that the picture is more complicated. Let's look at both.</p>
+
+  <h2>What the data actually shows —<br><em>ownership is not the same as use.</em></h2>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <span class="stat-number"><em>51</em>%</span>
+      <span class="stat-label">of US households own at least one smart home device</span>
+      <span class="stat-source">Mordor Intelligence, 2026</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-number"><em>35</em>%</span>
+      <span class="stat-label">of US adults own a smart speaker (Echo, Google Home)</span>
+      <span class="stat-source">Multiple sources, 2025</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-number"><em>23</em>%</span>
+      <span class="stat-label">of smart speaker owners use them for home automation control</span>
+      <span class="stat-source">Dashbot / Survata survey</span>
+    </div>
+  </div>
+
+  <p>That last number is the one that matters. A third of US adults own a smart speaker. Of those owners, only about one in four uses it to actually control anything in the home. The other three are asking Alexa to play a podcast or set a kitchen timer. The devices are in the home. The automation is not.</p>
+
+  <p>The 51% adoption figure that leads most smart home industry reports includes smart TVs — which 57% of US households own — robot vacuums, and individual smart plugs. When you isolate whole-home or multi-room automation, the number drops sharply. The research firm Parks Associates puts whole-home smart systems at roughly 21% of the installed base. Everything else is point solutions: one device solving one problem, not a connected system.</p>
+
+  <div class="pull-quote">
+    <p>"The industry counts devices sold. What it doesn't — and can't — measure is whether anyone turned on the automation after the first week."</p>
+  </div>
+
+  <p>The American Home Shield survey found something that the industry press releases don't lead with: <strong>29% of smart home owners say they actually spend more time managing their home</strong> with smart devices than they did before. The promise was less friction. For a significant share of owners, the reality is more.</p>
+
+  <h2>The voice assistant reality —<br><em>music, timers, and the weather.</em></h2>
+
+  <p>Amazon and Google have both invested billions in building ecosystems that turn voice assistants into the control layer for the connected home. The results are real — but more modest than the marketing suggests.</p>
+
+  <p>The most common things people actually do with Alexa and Google Home, in order: listen to music, check the weather, set timers and alarms, ask general knowledge questions. Those four use cases account for the overwhelming majority of voice assistant interactions in most households. They are genuinely useful. They are also not home automation — they are voice-controlled speakers with good software.</p>
+
+  <p>Voice-controlled home automation — lights, locks, thermostats, scenes — is used by approximately 23% of smart speaker owners, and those users do use it frequently when they use it at all. So the people who have built a working system tend to stick with it. The barrier is getting there in the first place: buying compatible devices, setting up routines, troubleshooting the inevitable connectivity failures, and maintaining it when a device gets an update that breaks the integration.</p>
+
+  <p>Google's smart home ambitions have also had visible turbulence. In April 2025, Google announced end of support for first and second-generation Nest Learning Thermostats — devices that had been sold to homeowners as permanent infrastructure investments. Those thermostats still function manually. Their smart features, the app control and learning algorithms that justified the premium price, are gone. This is not an isolated incident. It is a structural risk of building on any platform that a tech company controls and can deprecate.</p>
+
+  <div class="field-note">
+    <span class="field-note-label">Field Note — The platform abandonment problem</span>
+    <strong>Every smart home device you install is dependent on a company continuing to support it.</strong> Nest thermostats lost smart features when Google moved on. Iris by Lowe's — a whole-home smart platform with a real customer base — shut down entirely in 2019. Logitech Harmony, the most popular universal remote and smart home controller on the market for years, was discontinued in 2021. The devices still exist. The cloud services that made them smart do not. When a contractor or showroom presents a smart home feature as a permanent upgrade to your home, ask: what happens to this device if the company discontinues support? The honest answer is almost always: it becomes a manual device or an expensive paperweight.
+  </div>
+
+  <h2>What's actually mainstream —<br><em>and genuinely used.</em></h2>
+
+  <p>Not everything in the smart home category is oversold. Some products have crossed into genuine mainstream use because they solve a real problem simply, work reliably without much maintenance, and don't require a committed ecosystem to function.</p>
+
+  <h3>Video doorbells — Ring, Nest, and others</h3>
+  <p>Smart doorbells are installed in approximately 33% of US homes and represent the clearest success story in the consumer smart home category. The value proposition is simple and immediate: see who's at the door from your phone, get an alert when a package is delivered, have a recorded video if something is taken from your porch. It solves a real problem. It doesn't require integration with anything else to work. Installation is straightforward. The product works as advertised. This is the template for what a successful smart home device looks like.</p>
+
+  <h3>Smart thermostats — owned more than used fully</h3>
+  <p>Smart thermostats are in 16 to 17% of US internet households — significantly lower than the industry's enthusiasm for the category suggests. The top brands are Google Nest and Honeywell Home, followed by ecobee.</p>
+  <p>Here's where the field observation matters: owning a smart thermostat and using its smart features are two different things. I've seen Schluter in-floor heating thermostats — which ship with app connectivity and scheduling built in — set to a manual temperature and left there indefinitely. The homeowner paid for the smart capability. They never set it up. They turn it on when they want warm floors and turn it off when they don't. The device is being used as a $200 manual switch.</p>
+  <p>This pattern repeats across smart thermostat categories. The device is installed. The scheduling and remote access features that justify the premium are never configured. Independent ENERGY STAR data puts average annual savings from smart thermostats at around 8% on heating and cooling costs — not the 26% manufacturers claim, and only realized when the scheduling features are actually used. A smart thermostat set to one temperature and never touched saves nothing over a standard programmable thermostat.</p>
+
+  <h3>Smart locks — growing but not mainstream</h3>
+  <p>Smart locks are in about 22% of homes. The genuine use case — keyless entry for family members, temporary codes for housekeepers or contractors, remote locking — is real and solves a real problem. The limitation is that a lock is also a security device, and smart locks introduce failure modes that traditional locks don't have: dead batteries, failed connectivity, firmware updates that temporarily brick the device. For most households these are manageable. Worth knowing before installation.</p>
+
+  <h3>Smart lighting — installed in remodels, used rarely</h3>
+  <p>Smart lighting systems appear in 38% of homes that have smart devices — but that's 38% of the roughly half of homes that have any smart device, not 38% of all homes. And ownership again diverges from use. The most common pattern: smart bulbs installed during a remodel, used manually via the app for the first few weeks, then controlled by the wall switch like every other light in the house because walking to the switch is faster than opening an app. The exception is homeowners who invest in a full scene-based system with dedicated smart switches — those tend to stick because the interaction model (tap a scene at the switch, not hunt through an app) is actually faster than traditional switching.</p>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <span class="stat-number"><em>33</em>%</span>
+      <span class="stat-label">of US homes have a smart doorbell — the highest genuine use rate in the category</span>
+      <span class="stat-source">SQ Magazine, 2025</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-number"><em>29</em>%</span>
+      <span class="stat-label">of smart home owners say they spend MORE time managing their home, not less</span>
+      <span class="stat-source">American Home Shield survey, 2024</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-number"><em>8</em>%</span>
+      <span class="stat-label">average annual HVAC savings from smart thermostats — vs. 26% manufacturers claim</span>
+      <span class="stat-source">ENERGY STAR independent data</span>
+    </div>
+  </div>
+
+  <h2>What this means for your remodel —<br><em>the decisions that matter at rough-in.</em></h2>
+
+  <p>A remodel is the moment when smart home infrastructure decisions are either made correctly or deferred until they're expensive to fix. The walls are open. The electrician is there. Conduit and wire run at rough-in cost a fraction of what they cost after drywall. This is the right time to think about infrastructure — not necessarily to install finished smart devices, but to preserve the option to add them without tearing anything apart.</p>
+
+  <p>The important distinction: some smart home decisions require planning at rough-in. Others can be added any time with a device that plugs in or replaces a switch. Knowing which is which prevents both over-building and under-preparing.</p>
+
+  <div class="infra-list">
+    <h4>What to plan for at rough-in — decisions you can't easily undo later</h4>
+    <ul>
+      <li><strong>Neutral wire at every switch location.</strong> Smart switches require a neutral wire. Most homes built before 2000 don't have one at every switch box. Running it during a remodel costs almost nothing. Adding it later means opening walls. If there's any chance you'll want smart switches in the next ten years, put a neutral wire in every switch box during the rough-in.</li>
+      <li><strong>Dedicated circuits for EV charging and high-draw appliances.</strong> An EV charger in a garage needs a dedicated 50-amp circuit. Running that conduit during a renovation is straightforward. Adding it after a finished garage is a significant job. Same for induction ranges, which draw more than standard electric ranges.</li>
+      <li><strong>CAT6 ethernet to key locations.</strong> Wi-Fi has gotten very good. It still isn't as reliable as a wired connection for devices that need consistent connectivity — a home office, a media room, a security camera location, a front door. Running CAT6 during a remodel costs almost nothing relative to the overall project. Add a few drops in locations that might matter and you have options forever.</li>
+      <li><strong>In-floor heat wiring before tile.</strong> Radiant floor heat — Schluter Ditra-Heat and similar — must be installed before the tile goes down. This decision cannot be made after the tile is set. If there's any interest in heated floors in a bathroom or kitchen, the conversation has to happen at the layout stage, not after the tile is chosen.</li>
+      <li><strong>Doorbell wiring and chime location.</strong> If you're replacing a doorbell and want a video doorbell, most video doorbells need existing doorbell wiring for power. Confirm the wiring is in place before drywall closes.</li>
+    </ul>
+  </div>
+
+  <h2>The honest verdict —<br><em>what's worth it and what to defer.</em></h2>
+
+  <div class="verdict-grid">
+    <div class="verdict-card worth">
+      <span class="verdict-label">Worth doing — clear ROI and genuine use</span>
+      <h3>These earn their place</h3>
+      <ul>
+        <li><strong>Smart thermostat</strong> — but only if you'll actually configure the scheduling. A Nest or ecobee set to one temperature and left there is a $250 manual thermostat. Set it up properly and the 8% savings on HVAC costs is real and compounds annually.</li>
+        <li><strong>Video doorbell</strong> — solves a real problem simply, works without ecosystem integration, genuinely used by the people who have them.</li>
+        <li><strong>Smart lock</strong> — if keyless entry and temporary codes match how you actually live. Useful for households with kids, frequent contractors, or short-term rental use.</li>
+        <li><strong>Neutral wire at every switch box</strong> — costs almost nothing at rough-in, preserves every smart switch option indefinitely.</li>
+        <li><strong>CAT6 drops at key locations</strong> — cheap at rough-in, valuable forever, works with any future technology.</li>
+      </ul>
+    </div>
+    <div class="verdict-card skip">
+      <span class="verdict-label">Defer or skip — gap between promise and actual use is largest here</span>
+      <h3>Think carefully before committing</h3>
+      <ul>
+        <li><strong>Whole-home smart lighting systems</strong> — significant cost, high maintenance, low daily use for most households. Invest in good switches and good bulbs first. Add smart control if you find yourself actually wanting it.</li>
+        <li><strong>Smart appliances</strong> — refrigerators, dishwashers, and ranges with app connectivity are used for their app features by a small fraction of owners. The appliance itself is the investment. The smart features are mostly marketing.</li>
+        <li><strong>Contractor-installed smart home packages</strong> — if a contractor is bundling a smart home package into a remodel quote, ask what specific devices are included, what ecosystem they require, and what happens to the functionality if that ecosystem changes. Don't accept a vague "smart home upgrade" line item.</li>
+        <li><strong>Voice-controlled everything</strong> — if you don't already use a voice assistant for home control and genuinely enjoy it, a remodel is not the moment to build your life around one. Start with a $50 smart speaker and live with it for six months first.</li>
+        <li><strong>In-ceiling speaker systems</strong> — wired speaker infrastructure is expensive at rough-in and requires an ongoing commitment to a specific audio ecosystem. Wireless speakers have closed the quality gap significantly. Unless audio is a priority and you've thought carefully about the system, this is a feature that's easy to oversell during a remodel.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>The question nobody asks the contractor</h2>
+
+  <p>When a contractor or showroom presents a smart home upgrade during a remodel, the right question is not "is this cool" — it is "will I actually use this daily, and what does it cost if I don't?"</p>
+
+  <p>The smart thermostat that gets configured and used will pay for itself. The smart thermostat that gets set to 70 and forgotten is just a thermostat with a nicer screen. The smart lighting scene that gets triggered every movie night is a genuine quality-of-life improvement. The smart lighting system that gets controlled manually because opening the app is slower than walking to the switch is a several-hundred-dollar lesson in the difference between features and habits.</p>
+
+  <p>The homes where smart technology actually works are homes where the owners chose specific devices to solve specific problems they already had — not homes where smart features were installed comprehensively during a remodel because the technology existed and the contractor knew how to sell it.</p>
+
+  <div class="field-note">
+    <span class="field-note-label">The Bottom Line</span>
+    <strong>The smart home revolution is real — it's just more selective than the industry suggests.</strong> Video doorbells, smart thermostats that are actually configured, and smart locks for households that need them are genuine improvements to daily life. The broader vision — every light, appliance, and system integrated into a single voice-controlled platform — remains a feature of a small number of homes occupied by people who actively wanted to build that system and maintained it over time. <br><br>
+    <strong>In a remodel, the right smart home decisions are infrastructure decisions</strong> — neutral wires, ethernet drops, conduit in the right places — that preserve every future option at almost no cost. The wrong smart home decisions are finished systems installed comprehensively into a remodel because they were available and the pitch was compelling. Build the infrastructure. Add the devices when you know which ones you'll actually use.
+  </div>
+
+</div>
+</section>
+
+<div class="post-nav">
+  <a href="/blog" class="post-nav-back">← Back to From the Field</a>
+  <a href="https://remodelry.guide/remi" target="_blank" class="btn-primary" style="font-size:13px;padding:12px 24px;">Talk to Remi — It's Free</a>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="../../assets/images/remodel-guide-logo.png" alt="remodel.guide">
+      <p class="footer-tagline">The Homeowner Protection Guide<br>for Residential Remodeling.<br><br>A free resource from <a href="https://remodelry.guide" target="_blank">Remodelry</a> —<br>Northeast Ohio's remodeling concierge service.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <span class="footer-col-title">The Guides</span>
+        <ul>
+          <li><a href="/kitchen">Kitchen Remodel</a></li>
+          <li><a href="/bathroom">Bathroom Renovation</a></li>
+          <li><a href="/basement">Basement Finishing</a></li>
+          <li><a href="/addition">Home Addition</a></li>
+          <li><a href="/flooring">Flooring</a></li>
+          <li><a href="/windows">Window Replacement</a></li>
+          <li><a href="/roofing">Roofing</a></li>
+          <li><a href="/painting">Painting</a></li>
+          <li><a href="/millwork">Millwork &amp; Built-Ins</a></li>
+          <li><a href="/demo">Living Through a Renovation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <span class="footer-col-title">From the Field</span>
+        <ul>
+          <li><a href="/blog/smart-home-reality">Smart Home in 2026 — What's Actually Being Used</a></li>
+          <li><a href="/blog/windows-replacement">Pella &amp; Andersen vs Factory Vinyl</a></li>
+          <li><a href="/blog/countertops">Countertops — The Art and the Investment</a></li>
+          <li><a href="/blog/revwood-vs-coretec">RevWood Premier vs COREtec</a></li>
+        </ul>
+        <span class="footer-col-title" style="margin-top:24px;display:block;">Remodelry</span>
+        <ul>
+          <li><a href="https://remodelry.guide" target="_blank">remodelry.guide</a></li>
+          <li><a href="https://remodelry.guide/remi" target="_blank">Talk to Remi — Free</a></li>
+          <li><a href="https://remodelry.guide/concierge" target="_blank">The Concierge</a></li>
+          <li><a href="https://remodelry.guide/after-clarity" target="_blank">After Clarity</a></li>
+          <li><a href="https://remodelry.guide/pillars" target="_blank">10 Pillars</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 remodel.guide · All rights reserved.</span>
+    <span class="footer-remodelry">A <a href="https://remodelry.guide" target="_blank">Remodelry</a> resource · Serving Northeast Ohio</span>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-up').forEach(function(el) { observer.observe(el); });
+  var hamburger = document.getElementById('hamburger');
+  var mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', function() { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
+  function closeMobile() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); }
+</script>
+</body>
+</html>
