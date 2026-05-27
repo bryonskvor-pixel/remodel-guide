@@ -14,6 +14,7 @@
   // ─── UPDATE THIS LIST WITH EVERY NEW POST ───────────────────────────────
   // Add new posts at the TOP. Format: { href, label }
   var FROM_THE_FIELD = [
+    { href: '/blog/kitchen-ventilation', label: 'Kitchen Ventilation — What Your Range Hood Isn\'t Doing' },
     { href: '/blog/smart-home-reality',  label: 'Smart Home in 2026 — What\'s Actually Being Used' },
     { href: '/blog/windows-replacement', label: 'Pella &amp; Andersen vs Factory Vinyl' },
     { href: '/blog/countertops',         label: 'Countertops — The Art and the Investment' },
