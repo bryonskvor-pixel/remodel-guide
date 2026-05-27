@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kitchen Ventilation: What Your Range Hood Isn't Doing — From the Field</title>
+  <meta name="description" content="Most kitchens in America are under-ventilated. The over-the-stove microwave is the most common non-solution in residential construction. A field-honest guide to CFM, ducted vs recirculating, makeup air, downdraft planning, and what to decide before a kitchen remodel begins." />
+  <meta name="keywords" content="kitchen ventilation, range hood CFM, ducted vs recirculating range hood, over the range microwave ventilation, makeup air kitchen, downdraft cooktop island, kitchen exhaust planning remodel" />
+  <meta property="og:title" content="Kitchen Ventilation: What Your Range Hood Isn't Doing" />
+  <meta property="og:description" content="The house that smells like dinner for 24 hours has a ventilation problem. Here's how to fix it — and what to plan for before the remodel begins." />
+  <meta property="og:url" content="https://remodel.guide/blog/kitchen-ventilation" />
+  <meta property="og:type" content="article" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <style>
+    .post-header {
+      background: var(--deep);
+      padding: 120px 80px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .post-header::before {
+      content: '';
+      position: absolute;
+      bottom: -200px; right: -200px;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(181,144,74,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .post-header-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .post-blog-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--brass-light);
+      margin-bottom: 8px;
+      display: block;
+    }
+    .post-blog-name {
+      font-size: 13px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 32px;
+      display: block;
+    }
+    .post-header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 4vw, 58px);
+      font-weight: 500;
+      line-height: 1.1;
+      color: var(--white);
+      margin-bottom: 24px;
+    }
+    .post-header h1 em { font-style: italic; color: var(--brass-light); }
+    .post-deck {
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.65);
+      max-width: 640px;
+      margin-bottom: 40px;
+    }
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .post-meta-item {
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.04em;
+    }
+    .post-meta-item strong { color: rgba(255,255,255,0.6); font-weight: 400; }
+    .post-body {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 80px 80px;
+    }
+    .post-body p {
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--slate);
+      margin-bottom: 24px;
+    }
+    .post-body h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 500;
+      color: var(--deep);
+      margin: 56px 0 20px;
+      line-height: 1.2;
+    }
+    .post-body h2 em { font-style: italic; color: var(--brass); }
+    .post-body h3 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--deep);
+      margin: 36px 0 12px;
+      letter-spacing: 0.01em;
+    }
+    .post-body strong { font-weight: 500; color: var(--deep); }
+    .post-body ul {
+      margin: 0 0 24px 20px;
+      padding: 0;
+    }
+    .post-body ul li {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--slate);
+      line-height: 1.85;
+      margin-bottom: 6px;
+      padding-left: 8px;
+    }
+    .guide-image {
+      width: 100%;
+      border-radius: 4px;
+      margin: 32px 0 12px;
+      display: block;
+    }
+    .guide-image-caption {
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 32px;
+      font-style: italic;
+    }
+
+    /* Pull quote */
+    .pull-quote {
+      border-left: 3px solid var(--brass);
+      padding: 20px 28px;
+      margin: 40px 0;
+      background: var(--cream);
+      border-radius: 0 8px 8px 0;
+    }
+    .pull-quote p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--deep);
+      line-height: 1.5;
+      margin: 0 !important;
+    }
+
+    /* Field note */
+    .field-note {
+      background: var(--deep);
+      color: rgba(255,255,255,0.75);
+      padding: 28px 32px;
+      border-radius: 8px;
+      margin: 40px 0;
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.75;
+    }
+    .field-note-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--brass-light);
+      margin-bottom: 12px;
+      display: block;
+    }
+    .field-note strong { color: var(--white); font-weight: 400; }
+
+    /* Hood type cards */
+    .hood-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      margin: 40px 0;
+    }
+    .hood-card {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      padding: 28px 26px;
+    }
+    .hood-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 10px;
+      display: block;
+    }
+    .hood-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 21px;
+      font-weight: 500;
+      color: var(--deep);
+      margin-bottom: 10px;
+      margin-top: 0;
+      line-height: 1.2;
+    }
+    .hood-card p {
+      font-size: 13.5px !important;
+      line-height: 1.75 !important;
+      margin-bottom: 10px !important;
+      color: var(--slate);
+    }
+    .hood-card p:last-child { margin-bottom: 0 !important; }
+    .hood-specs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+    }
+    .hood-spec-item { font-size: 12px; line-height: 1.5; }
+    .hood-spec-label {
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--brass);
+      display: block;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .hood-spec-value { color: var(--slate); font-weight: 300; }
+
+    /* Stat callout */
+    .stat-callout {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--brass);
+      padding: 28px 32px;
+      margin: 40px 0;
+      display: flex;
+      gap: 28px;
+      align-items: flex-start;
+    }
+    .stat-callout-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 56px;
+      font-weight: 500;
+      color: var(--brass);
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .stat-callout-text { }
+    .stat-callout-text p {
+      font-size: 14px !important;
+      line-height: 1.7 !important;
+      margin-bottom: 0 !important;
+      color: var(--slate);
+    }
+    .stat-callout-text strong { color: var(--deep); font-weight: 500; }
+    .stat-callout-source {
+      font-size: 10px;
+      font-weight: 300;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      display: block;
+      margin-top: 6px;
+    }
+
+    /* Planning checklist */
+    .planning-list {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--brass);
+      padding: 32px 36px;
+      margin: 40px 0;
+    }
+    .planning-list h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--deep);
+      margin-bottom: 20px;
+    }
+    .planning-list ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .planning-list ul li {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--slate);
+      padding-left: 22px;
+      position: relative;
+      line-height: 1.7;
+    }
+    .planning-list ul li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--brass);
+      font-size: 12px;
+      font-weight: 500;
+      top: 1px;
+    }
+    .planning-list ul li strong { color: var(--deep); font-weight: 500; }
+
+    .post-nav {
+      border-top: 1px solid var(--border);
+      padding: 48px 80px;
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .post-nav-back {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--slate);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .post-nav-back:hover { color: var(--brass); }
+
+    @media(max-width:900px){
+      .post-header { padding: 80px 24px 56px; }
+      .post-body { padding: 48px 24px; }
+      .hood-grid { grid-template-columns: 1fr; }
+      .hood-specs { grid-template-columns: 1fr; }
+      .stat-callout { flex-direction: column; gap: 12px; }
+      .stat-callout-number { font-size: 40px; }
+      .planning-list { padding: 24px; }
+      .post-nav { padding: 32px 24px; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo"><img src="../../assets/images/remodel-guide-logo.png" alt="remodel.guide"></a>
+  <ul class="nav-links">
+    <li><a href="/">All Guides</a></li>
+    <li><a href="/blog">From the Field</a></li>
+    <li><a href="/concierge">The Concierge</a></li>
+    <li><a href="https://remodelry.guide/remi" target="_blank" class="nav-cta">Talk to Remi — Free</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/" onclick="closeMobile()">The Guides</a>
+    <a href="/blog" onclick="closeMobile()">From the Field</a>
+    <a href="/concierge" onclick="closeMobile()">The Concierge</a>
+    <a href="https://remodelry.guide/remi" target="_blank" class="mobile-cta">Talk to Remi — It's Free</a>
+  </div>
+</nav>
+
+<div class="companion-banner">
+  <p>A free resource from <a href="https://remodelry.guide" target="_blank">Remodelry</a> — Northeast Ohio's remodeling concierge service.</p>
+</div>
+
+<section class="post-header">
+  <div class="post-header-inner fade-up">
+    <span class="post-blog-label">From the Field</span>
+    <span class="post-blog-name">remodel.guide · Kitchen</span>
+    <h1>Kitchen Ventilation:<br><em>What your range hood isn't doing.</em></h1>
+    <p class="post-deck">If your house smells like dinner the next morning, you have a ventilation problem. Most American kitchens do. The over-the-stove microwave is the most common non-solution in residential construction — and it's in roughly half of all American homes. Here's what actually works, what the numbers mean, and what to decide before a kitchen remodel begins.</p>
+    <div class="post-meta">
+      <span class="post-meta-item"><strong>OTR microwave reality</strong> · <strong>CFM explained</strong> · <strong>Downdraft planning</strong> · <strong>Makeup air</strong></span>
+      <span class="post-meta-item">·</span>
+      <span class="post-meta-item">From the Field · remodel.guide</span>
+    </div>
+  </div>
+</section>
+
+<section class="section-white">
+<div class="post-body">
+
+  <p>The over-the-range microwave is one of the most successful appliance sales stories of the last thirty years. It saves counter space. It coordinates with the range below it. It comes with a fan. Builders love it because it covers the ventilation checkbox without requiring any ductwork. Homeowners buy it because it makes sense in the showroom.</p>
+
+  <p>The fan recirculates greasy, smoky air through a charcoal filter and pushes it back into the kitchen. The house smells like whatever you cooked for the next twelve to twenty-four hours. The filter traps some grease. It does nothing about moisture, heat, or combustion byproducts. This is not a ventilation system. It is a microwave with a fan.</p>
+
+  <p>This is the most common kitchen ventilation situation in America — and most homeowners don't know it until they're planning a kitchen remodel and someone finally explains what they've been living with.</p>
+
+  <h2>What's actually in American kitchens —<br><em>and what it means for the air you breathe.</em></h2>
+
+  <div class="stat-callout">
+    <div class="stat-callout-number">10–25%</div>
+    <div class="stat-callout-text">
+      <p><strong>That's the share of households that actually run their range hood while cooking</strong> — even in homes that have a real one. Most people have some form of ventilation over their stove. Most of them don't turn it on, because it's loud, because it seems like overkill for everyday cooking, or because they never developed the habit. The air quality consequences are real regardless of whether the hood is running.</p>
+      <span class="stat-callout-source">Rocky Mountain Institute analysis, 2023</span>
+    </div>
+  </div>
+
+  <p>Stanford University researchers found that gas stoves increase long-term indoor NO2 exposure by an average of 4.0 parts per billion — roughly 75% of the World Health Organization's safe annual guideline — in homes with normal cooking patterns. In homes under 800 square feet, residents experience four times the NO2 concentration of those in homes over 3,000 square feet, simply because there's less volume to dilute the emissions. The gas stove is not inherently dangerous. An unventilated gas stove in a tight, modern kitchen is a different conversation.</p>
+
+  <p>Electric and induction cooktops produce fewer combustion byproducts — but they still generate grease particulates, moisture, and cooking odors that accumulate in cabinets, on surfaces, and in the air without adequate exhaust. Ventilation is not a gas-stove-only problem.</p>
+
+  <img src="../../assets/images/kitchen-ventilation-otr.jpg" alt="Over-the-range microwave above a gas range" class="guide-image" onerror="this.style.display='none'">
+  <p class="guide-image-caption">The over-the-range microwave is in roughly half of American homes. Most are recirculating — filtering air through a charcoal filter and pushing it back into the kitchen. That is not ventilation.</p>
+
+  <h2>Ducted vs recirculating —<br><em>the only distinction that actually matters.</em></h2>
+
+  <p>Every kitchen ventilation conversation starts with one question: does the air go outside, or does it come back into the kitchen? Everything else — brand, CFM rating, hood style — is secondary to this distinction.</p>
+
+  <p><strong>Ducted ventilation</strong> moves air from above the cooking surface through ductwork to the exterior of the house. Grease, moisture, heat, odors, and combustion byproducts leave the building. This is what ventilation means. A properly sized, properly installed ducted hood is the only solution to the lingering-smell problem.</p>
+
+  <p><strong>Recirculating ventilation</strong> pulls air through filters — typically a metal mesh grease filter and a charcoal odor filter — and returns it to the kitchen. Grease is captured in the mesh filter. Some odors are reduced by the charcoal filter. Moisture, heat, and combustion byproducts are not removed. They go back into the kitchen. Recirculating systems are better than nothing — but they are not a substitute for ducted ventilation in any kitchen where real cooking happens.</p>
+
+  <div class="pull-quote">
+    <p>"A recirculating hood over a gas range is a charcoal filter between you and your combustion byproducts. The air isn't going anywhere. It's going back into your kitchen."</p>
+  </div>
+
+  <p>The recirculating system exists because ductwork costs money and requires planning. Running a duct from an interior kitchen through a wall or ceiling to the exterior is a construction task — it requires cutting through finished surfaces, routing around framing, and installing an exterior cap with a backdraft damper. In a remodel, it is a reasonable job. In a finished home with no existing duct path, it is a significant one. Builders and installers default to recirculating because it is faster and cheaper. The homeowner pays for that shortcut in air quality for the life of the kitchen.</p>
+
+  <h2>CFM — what the number means<br><em>and what you actually need.</em></h2>
+
+  <p>CFM stands for cubic feet per minute — the volume of air the hood moves when running. It is the primary performance specification for any ventilation system and the number most often misunderstood in a showroom conversation.</p>
+
+  <p>The general residential guideline is to move the air in your kitchen approximately 15 times per hour. For a standard 10 x 12 kitchen with 9-foot ceilings, that works out to roughly 270 CFM as a minimum. Most kitchen designers use a simpler rule of thumb: <strong>100 CFM per 10,000 BTUs of gas burner output</strong>, or for electric ranges, approximately 100 CFM per linear foot of cooking surface.</p>
+
+  <p>A standard gas range runs 40,000 to 60,000 BTUs total across all burners. That puts the ventilation requirement at 400 to 600 CFM for adequate coverage during normal cooking. A pro-style range — Wolf, Viking, BlueStar — can run 100,000 BTUs or more. The 600 CFM hood that came with the kitchen is meaningfully undersized for the 48-inch pro range the homeowner installed five years later.</p>
+
+  <p>The over-the-range microwave fan typically runs at 200 to 400 CFM — on the low end of what a modest gas range requires, and well below what's needed for high-heat cooking. Even a ducted OTR microwave at its maximum CFM is a compromised ventilation solution over anything above a basic electric range.</p>
+
+  <div class="field-note">
+    <span class="field-note-label">Field Note — The CFM dishonesty in showrooms</span>
+    <strong>CFM ratings on range hoods are measured in lab conditions with straight, short ductwork and no restrictions.</strong> Real installations have elbows, transitions from round to rectangular, grease filters, exterior caps, and varying duct lengths — all of which reduce actual airflow. A hood rated at 600 CFM installed with two 90-degree elbows and 15 feet of duct may deliver 400 CFM in practice. When sizing a hood, buy more capacity than the calculation suggests, use smooth-wall metal ductwork (never flexible accordion duct), minimize elbows, and keep duct runs as short and direct as possible.
+  </div>
+
+  <h2>Hood types — what each one is<br><em>and where it belongs.</em></h2>
+
+  <img src="../../assets/images/kitchen-ventilation-wall-hood.jpg" alt="Ducted wall-mount range hood over a gas range" class="guide-image" onerror="this.style.display='none'">
+  <p class="guide-image-caption">A wall-mount ducted hood is the most effective and most straightforward ventilation solution for a range against a wall. The duct runs straight up through the cabinet and out through the soffit or ceiling.</p>
+
+  <div class="hood-grid">
+    <div class="hood-card">
+      <span class="hood-label">Most Common · Best Performance</span>
+      <h3>Wall-Mount Ducted Hood</h3>
+      <p>Mounted against a wall above a range or cooktop, ducted to the exterior through the wall or ceiling. The most effective residential ventilation solution and the most straightforward to install in a kitchen remodel. The duct run is typically short and direct. Available in under-cabinet profile for lower ceilings or chimney-style for standard and high ceilings.</p>
+      <p>This is the right solution for any range against a wall where ductwork can reach the exterior. If you are remodeling a kitchen and the range is staying on an exterior wall — or a wall adjacent to an attic or exterior — this is the answer.</p>
+      <div class="hood-specs">
+        <div class="hood-spec-item"><span class="hood-spec-label">CFM range</span><span class="hood-spec-value">300–1,200+</span></div>
+        <div class="hood-spec-item"><span class="hood-spec-label">Duct path</span><span class="hood-spec-value">Through wall or ceiling</span></div>
+        <div class="hood-spec-item"><span class="hood-spec-label">Best for</span><span class="hood-spec-value">Wall range, any cooking style</span></div>
+        <div class="hood-spec-item"><span class="hood-spec-label">Planning required</span><span class="hood-spec-value">Duct path at rough-in</span></div>
+      </div>
+    </div>
+
+    <div class="hood-card">
+      <span class="hood-label">Island Cooktop · Requires Ceiling Duct</span>
+      <h3>Island Hood</h3>
+      <p>Suspended from the ceiling above an island cooktop. Requires ductwork routed through the ceiling and out through the roof or an exterior wall — a more complex duct path than a wall-mount installation. Island hoods need to be larger than wall-mount equivalents for the same cooktop, because smoke rising from an island has no wall to contain it and can drift in any direction before the hood captures it.</p>
+      <p>Size up significantly: an island hood should extend at least 6 inches beyond the cooktop on all sides. CFM requirements for island installations are higher than for equivalent wall cooktops for the same reason. This is the right solution for an island cooktop where ceiling height and design allow for an overhead hood.</p>
+      <div class="hood-specs">
+        <div class="hood-spec-item"><span class="hood-spec-label">CFM range</span><span class="hood-spec-value">600–1,200+ recommended</span></div>
+        <div class="hood-spec-item"><span class="hood-spec-label">Duct path</span><span class="hood-spec-value">Through ceiling to roof or wall</span></div>
+        <div class="hood-spec-item"><span class="hood-spec-label">Best for</span><span class="hood-spec-value">Island cooktops, open kitchens</span></div>
+        <div class="hood-spec-item"><span class="hood-spec-label">Planning required</span><span class="hood-spec-value">Ceiling duct at framing stage</span></div>
+      </div>
+    </div>
+
+    <div class="hood-card">
+      <span class="hood-label">Island Alternative · Plan at Rough-In</span>
+      <h3>Downdraft Ventilation</h3>
+      <p>Downdraft systems pull cooking air downward through vents at or behind the cooktop, routing it through ductwork beneath the floor or through the cabinet base to the exterior. They are the design-forward alternative to an island hood — no overhead fixture, clear sightlines, clean aesthetic — and they work. With the right planning, a properly specified downdraft system handles everyday cooking on an island cooktop effectively.</p>
+      <p>The honest limitations: downdraft systems work against physics. Heat and steam rise. Pulling them downward requires more fan power to achieve equivalent capture, and tall pots can defeat the system by lifting steam above the vent intake. For high-heat cooking — searing, deep frying, high-BTU gas burners — a downdraft system requires a higher CFM rating than the equivalent overhead hood to achieve comparable performance. The physics don't change, but a well-specified system compensates for them.</p>
+      <p><strong>The planning requirement is non-negotiable.</strong> The ductwork for a downdraft system runs beneath the floor or through the island cabinet base to the exterior. On a slab foundation, this means a dedicated conduit run must be planned and installed before the concrete is poured or the floor is finished. In a wood-frame floor, the duct path runs between joists. Either way, this decision must happen at rough-in — not after the island is built and the floors are finished. A downdraft retrofit in a completed kitchen is a significant construction project. A downdraft installed during a kitchen remodel is a straightforward one.</p>
+      <div class="hood-specs">
+        <div class="hood-spec-item"><span class="hood-spec-label">CFM range</span><span class="hood-spec-value">400–600 minimum recommended</span></div>
+        <div class="hood-spec-item"><span class="hood-spec-label">Duct path</span><span class="hood-spec-value">Below floor or through cabinet base</span></div>
+        <div class="hood-spec-item"><span class="hood-spec-label">Best for</span><span class="hood-spec-value">Island cooktops, open sightlines</span></div>
+        <div class="hood-spec-item"><span class="hood-spec-label">Planning required</span><span class="hood-spec-value">Must be decided at rough-in</span></div>
+      </div>
+    </div>
+
+    <div class="hood-card">
+      <span class="hood-label">Insert Hood · Custom Applications</span>
+      <h3>Built-In Insert Hood</h3>
+      <p>A liner or insert hood is the ventilation component only — a blower unit installed inside a custom or semi-custom hood enclosure built by the cabinetmaker. The homeowner or designer specifies the visual enclosure; the insert provides the performance. Common in high-end kitchen remodels where the hood is a design element — stone, wood, plaster — rather than a stainless steel appliance.</p>
+      <p>Performance is entirely dependent on the insert specified — inserts are available from 400 CFM to 1,200+ CFM. The critical requirement is that the enclosure be sized to allow adequate airflow into the hood opening. A beautiful custom hood built too tight around an undersized opening chokes airflow regardless of the blower's rated CFM.</p>
+      <div class="hood-specs">
+        <div class="hood-spec-item"><span class="hood-spec-label">CFM range</span><span class="hood-spec-value">400–1,200+</span></div>
+        <div class="hood-spec-item"><span class="hood-spec-label">Duct path</span><span class="hood-spec-value">Through wall or ceiling</span></div>
+        <div class="hood-spec-item"><span class="hood-spec-label">Best for</span><span class="hood-spec-value">Custom hood enclosures</span></div>
+        <div class="hood-spec-item"><span class="hood-spec-label">Planning required</span><span class="hood-spec-value">Opening size critical</span></div>
+      </div>
+    </div>
+  </div>
+
+  <img src="../../assets/images/kitchen-ventilation-island.jpg" alt="Island range hood over a kitchen island cooktop" class="guide-image" onerror="this.style.display='none'">
+  <p class="guide-image-caption">An island hood needs to be sized larger than a wall-mount hood for the same cooktop. With no wall to contain rising smoke, the hood canopy needs to extend well beyond the cooking surface on all sides.</p>
+
+  <h2>The makeup air problem —<br><em>the thing nobody mentions before you buy a pro range.</em></h2>
+
+  <p>Here is the conversation that should happen before any kitchen remodel involving a high-powered range hood — and almost never does.</p>
+
+  <p>Air is a zero-sum system. When your range hood exhausts air from the kitchen, that air has to be replaced from somewhere. In older, leaky homes, replacement air infiltrates through gaps around windows, doors, and penetrations — the house breathes in naturally to compensate. In modern, energy-efficient, well-sealed homes, this doesn't happen. The hood creates negative pressure. Performance drops. Doors become hard to open. And in homes with gas appliances — a furnace, a water heater, a gas fireplace — a depressurized house can backdraft combustion gases from those appliances into the living space. Carbon monoxide is one of those gases.</p>
+
+  <p>The International Residential Code is direct about this: <strong>any hood capable of exhausting more than 400 CFM must be provided with dedicated makeup air at approximately the same rate.</strong> The makeup air system — a powered damper that opens when the hood runs, supplying outdoor air to replace what's being exhausted — is a code requirement in most jurisdictions for any hood above the 400 CFM threshold.</p>
+
+  <p>This matters because 400 CFM is not a high-end specification. It is the minimum for a standard gas range with average burner output. Anyone who has purchased or is considering a pro-style range — Wolf, Viking, BlueStar, Thermador — and paired it with a hood rated at 600, 900, or 1,200 CFM needs a makeup air system. Most of them don't have one. Most of them were never told they needed one.</p>
+
+  <div class="field-note">
+    <span class="field-note-label">Field Note — The backdrafting risk</span>
+    <strong>A high-CFM hood running in a tight house without makeup air will depressurize the space and pull combustion gases backward through every atmospheric-vented appliance in the home.</strong> That includes gas water heaters, furnaces with standing pilots, and gas fireplaces. The symptoms are often subtle — a slight smell, mild headache, carbon monoxide detector alerts that seem intermittent. The cause is a 1,200 CFM hood installed in a 2022 house with spray foam insulation and no makeup air provision. This is a real and documented hazard. If you have a high-output hood and gas appliances, have an HVAC contractor evaluate the system. If you are planning a kitchen remodel with a pro-style range, put makeup air on the conversation list before the hood is selected.
+  </div>
+
+  <h2>What to plan for in a kitchen remodel —<br><em>the decisions that can't happen after the walls close.</em></h2>
+
+  <p>Ventilation is the category of kitchen decision most often deferred until it's expensive to fix. The duct path, the hood type, the makeup air provision — all of these are cheap to address during a remodel and costly to address afterward. Here is what needs to be decided before rough-in.</p>
+
+  <div class="planning-list">
+    <h4>Before the walls close — ventilation decisions at rough-in</h4>
+    <ul>
+      <li><strong>Decide on hood type before the framing is finished.</strong> Wall-mount, island, downdraft, and insert all require different rough-in conditions. The duct path for a wall-mount hood is different from a ceiling penetration for an island hood, which is entirely different from a below-floor run for a downdraft. This decision drives framing, not the other way around.</li>
+      <li><strong>Specify smooth metal ductwork — never flexible.</strong> Flexible accordion duct is easier to install and significantly reduces airflow. Every foot of flexible duct and every unnecessary elbow costs CFM. Specify 6-inch or 8-inch round smooth-wall galvanized duct, minimize elbows, and keep the run as short and direct as possible to the exterior cap.</li>
+      <li><strong>Plan the exterior cap location.</strong> The duct needs to terminate at an exterior wall cap or roof cap with a backdraft damper. On a two-story house with the kitchen on the first floor, this may mean a long run through the second floor ceiling to the roof — or a shorter run through an exterior wall if the kitchen is on an outside wall. Identify the path before framing is complete.</li>
+      <li><strong>For island cooktops with downdraft: the duct path goes in now or not at all.</strong> On a slab foundation, this means a conduit sleeve in the concrete before the pour. On a wood-frame floor, the duct route between joists is planned and cleared before subfloor goes down. There is no good retrofit option for a downdraft duct through a finished slab or a finished floor system.</li>
+      <li><strong>If the hood exceeds 400 CFM, plan for makeup air.</strong> A makeup air damper — a motorized vent that opens when the hood runs — needs a location, a duct penetration, and an electrical connection. These are simple to provide during rough-in and disruptive to add after. If there is any chance the kitchen will include a pro-style range, plan the makeup air provision now and decide whether to activate it when the range is selected.</li>
+      <li><strong>Size the hood to the range, not the opening.</strong> The hood should be specified based on the BTU output of the range being installed, not the width of the existing opening or the size that fits the cabinet layout. If a pro-style range is going in, a 400 CFM hood is undersized regardless of how well it fits the space.</li>
+    </ul>
+  </div>
+
+  <h2>The honest bottom line</h2>
+
+  <p>Most American kitchens are under-ventilated. The over-the-range microwave handles light cooking in a small space and nothing beyond that. The recirculating hood over a gas range is a better option than an OTR microwave — and still not ventilation in any meaningful sense. The ducted wall-mount hood, properly sized and properly installed, is the solution that every kitchen with real cooking deserves.</p>
+
+  <p>The ventilation conversation is the one most often skipped in a kitchen remodel because the showroom focuses on surfaces and appliances. A kitchen designer who doesn't ask about hood type, duct path, and makeup air before the layout is set is designing around the wrong constraints. The ventilation system is infrastructure. It needs to be decided first — before the hood style, before the cabinet layout, and well before the countertop.</p>
+
+  <p>If you're planning a kitchen remodel and haven't had the ventilation conversation yet, have it before anything else is specified. The duct path is much easier to route through an open wall than a finished one.</p>
+
+</div>
+</section>
+
+<div class="post-nav">
+  <a href="/blog" class="post-nav-back">← Back to From the Field</a>
+  <a href="https://remodelry.guide/remi" target="_blank" class="btn-primary" style="font-size:13px;padding:12px 24px;">Talk to Remi — It's Free</a>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="../../assets/images/remodel-guide-logo.png" alt="remodel.guide">
+      <p class="footer-tagline">The Homeowner Protection Guide<br>for Residential Remodeling.<br><br>A free resource from <a href="https://remodelry.guide" target="_blank">Remodelry</a> —<br>Northeast Ohio's remodeling concierge service.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <span class="footer-col-title">The Guides</span>
+        <ul>
+          <li><a href="/kitchen">Kitchen Remodel</a></li>
+          <li><a href="/bathroom">Bathroom Renovation</a></li>
+          <li><a href="/basement">Basement Finishing</a></li>
+          <li><a href="/addition">Home Addition</a></li>
+          <li><a href="/flooring">Flooring</a></li>
+          <li><a href="/windows">Window Replacement</a></li>
+          <li><a href="/roofing">Roofing</a></li>
+          <li><a href="/painting">Painting</a></li>
+          <li><a href="/millwork">Millwork &amp; Built-Ins</a></li>
+          <li><a href="/demo">Living Through a Renovation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <span class="footer-col-title">From the Field</span>
+        <ul>
+          <li><a href="/blog/kitchen-ventilation">Kitchen Ventilation — What Your Range Hood Isn't Doing</a></li>
+          <li><a href="/blog/smart-home-reality">Smart Home in 2026 — What's Actually Being Used</a></li>
+          <li><a href="/blog/windows-replacement">Pella &amp; Andersen vs Factory Vinyl</a></li>
+          <li><a href="/blog/countertops">Countertops — The Art and the Investment</a></li>
+          <li><a href="/blog/revwood-vs-coretec">RevWood Premier vs COREtec</a></li>
+        </ul>
+        <span class="footer-col-title" style="margin-top:24px;display:block;">Remodelry</span>
+        <ul>
+          <li><a href="https://remodelry.guide" target="_blank">remodelry.guide</a></li>
+          <li><a href="https://remodelry.guide/remi" target="_blank">Talk to Remi — Free</a></li>
+          <li><a href="https://remodelry.guide/concierge" target="_blank">The Concierge</a></li>
+          <li><a href="https://remodelry.guide/after-clarity" target="_blank">After Clarity</a></li>
+          <li><a href="https://remodelry.guide/pillars" target="_blank">10 Pillars</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 remodel.guide · All rights reserved.</span>
+    <span class="footer-remodelry">A <a href="https://remodelry.guide" target="_blank">Remodelry</a> resource · Serving Northeast Ohio</span>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-up').forEach(function(el) { observer.observe(el); });
+  var hamburger = document.getElementById('hamburger');
+  var mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', function() { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
+  function closeMobile() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); }
+</script>
+</body>
+</html>
