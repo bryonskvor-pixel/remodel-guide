@@ -1,0 +1,2050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Legacy Junk Removal & Demolition | Cleveland & NE Ohio | 216</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-deep: #1a3a1a;
+    --green-mid: #2d5a2d;
+    --green-bright: #3d7a3d;
+    --amber: #e8a020;
+    --amber-light: #f5b840;
+    --cream: #f5f0e8;
+    --off-white: #faf8f4;
+    --dark: #111810;
+    --gray-warm: #8a8478;
+    --gray-light: #e8e4dc;
+    --text-body: #2a2a26;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--off-white);
+    color: var(--text-body);
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: var(--dark);
+    border-bottom: 3px solid var(--amber);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    height: 64px;
+  }
+
+  .nav-logo {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-logo img {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
+    /* Logo has dark background — show on dark nav naturally */
+    filter: drop-shadow(0 1px 3px rgba(0,0,0,0.4));
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--cream);
+    text-decoration: none;
+    opacity: 0.85;
+    transition: opacity 0.2s, color 0.2s;
+  }
+
+  .nav-links a:hover { opacity: 1; color: var(--amber); }
+
+  .nav-cta {
+    background: var(--amber);
+    color: var(--dark) !important;
+    padding: 0.45rem 1.1rem;
+    border-radius: 2px;
+    opacity: 1 !important;
+    font-weight: 700 !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--amber-light) !important; }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    background: var(--green-deep);
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding-top: 64px;
+  }
+
+  /* Faded hero image — servant hands */
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('legacy-hero-bg.png');
+    background-size: cover;
+    background-position: center 40%;
+    background-repeat: no-repeat;
+    opacity: 0.13;
+    z-index: 0;
+  }
+
+  /* Gradient overlay — deep green left, opens right */
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      105deg,
+      rgba(26,58,26,0.94) 0%,
+      rgba(26,58,26,0.78) 45%,
+      rgba(26,58,26,0.42) 100%
+    );
+    z-index: 1;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    width: 100%;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 2px;
+    background: var(--amber);
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: clamp(3rem, 7vw, 6rem);
+    line-height: 1.0;
+    color: var(--cream);
+    margin-bottom: 1.5rem;
+    max-width: 700px;
+  }
+
+  h1 em {
+    font-style: normal;
+    color: var(--amber);
+    display: block;
+  }
+
+  .hero-sub {
+    font-size: 1.15rem;
+    color: rgba(245, 240, 232, 0.75);
+    max-width: 520px;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+    font-weight: 400;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 3.5rem;
+  }
+
+  .btn-primary {
+    background: var(--amber);
+    color: var(--dark);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 1rem 2.2rem;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s, transform 0.1s;
+  }
+
+  .btn-primary:hover { background: var(--amber-light); transform: translateY(-1px); }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--cream);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 1rem 2.2rem;
+    border: 2px solid rgba(245,240,232,0.35);
+    border-radius: 2px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .btn-secondary:hover { border-color: var(--cream); }
+
+  .hero-phone {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem;
+    color: rgba(245,240,232,0.6);
+    letter-spacing: 0.05em;
+  }
+
+  .hero-phone a {
+    color: var(--amber);
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: 700;
+    display: block;
+    margin-top: 0.2rem;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    text-align: left;
+  }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--amber);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.5);
+    margin-top: 0.2rem;
+  }
+
+  .angi-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 4px;
+    padding: 0.6rem 1.2rem;
+    margin-top: 2rem;
+  }
+
+  .angi-badge-icon {
+    width: 36px;
+    height: 36px;
+    background: #e85c2a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    color: white;
+    font-size: 0.8rem;
+    font-family: 'Barlow Condensed', sans-serif;
+  }
+
+  .angi-badge-text {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.8rem;
+    color: var(--cream);
+    letter-spacing: 0.05em;
+  }
+
+  .angi-badge-text strong {
+    display: block;
+    font-size: 1rem;
+    color: var(--amber);
+  }
+
+  /* ─── SECTION SHARED ─── */
+  section { padding: 6rem 2rem; }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .section-eyebrow::before {
+    content: '';
+    display: block;
+    width: 1.5rem;
+    height: 2px;
+    background: var(--amber);
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.1;
+    color: var(--dark);
+    margin-bottom: 1.25rem;
+  }
+
+  .section-intro {
+    font-size: 1.05rem;
+    color: var(--gray-warm);
+    max-width: 560px;
+    line-height: 1.7;
+  }
+
+  /* ─── WHO WE SERVE ─── */
+  .serve-section {
+    background: var(--cream);
+  }
+
+  .serve-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    margin-top: 3.5rem;
+    background: var(--gray-light);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .serve-card {
+    background: var(--off-white);
+    padding: 2.5rem 2rem;
+    position: relative;
+    transition: background 0.25s;
+  }
+
+  .serve-card:hover { background: white; }
+
+  .serve-card::before {
+    content: '';
+    display: block;
+    width: 3rem;
+    height: 4px;
+    background: var(--amber);
+    margin-bottom: 1.5rem;
+  }
+
+  .serve-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .serve-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: var(--dark);
+  }
+
+  .serve-card p {
+    font-size: 0.95rem;
+    color: var(--gray-warm);
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+  }
+
+  .serve-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .serve-list li {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: var(--green-mid);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .serve-list li::before {
+    content: '→';
+    color: var(--amber);
+    font-weight: 700;
+  }
+
+  /* ─── HOW IT WORKS ─── */
+  .hiw-section {
+    background: var(--dark);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hiw-section h2 { color: var(--cream); }
+  .hiw-section .section-intro { color: rgba(245,240,232,0.6); }
+
+  .hiw-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    margin-top: 4rem;
+    position: relative;
+  }
+
+  .hiw-steps::before {
+    content: '';
+    position: absolute;
+    top: 3rem;
+    left: 16.66%;
+    right: 16.66%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--amber), var(--amber-light), var(--amber));
+    opacity: 0.4;
+  }
+
+  .step {
+    padding: 0 2rem;
+    text-align: center;
+  }
+
+  .step-num {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    background: var(--green-deep);
+    border: 3px solid var(--amber);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--amber);
+    position: relative;
+    z-index: 1;
+  }
+
+  .step h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--cream);
+    margin-bottom: 0.75rem;
+  }
+
+  .step p {
+    font-size: 0.95rem;
+    color: rgba(245,240,232,0.55);
+    line-height: 1.7;
+  }
+
+  /* ─── SEE OUR WORK ─── */
+  .work-section {
+    background: var(--green-deep);
+    padding: 6rem 2rem;
+  }
+
+  .work-inner {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .work-text h2 { color: var(--cream); }
+
+  .work-text p {
+    color: rgba(245,240,232,0.65);
+    font-size: 1.05rem;
+    line-height: 1.75;
+    margin-top: 1rem;
+    max-width: 480px;
+  }
+
+  .work-callouts {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-top: 2rem;
+  }
+
+  .work-callout {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: rgba(255,255,255,0.05);
+    border-left: 3px solid var(--amber);
+    border-radius: 0 3px 3px 0;
+  }
+
+  .callout-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 0.1rem; }
+
+  .work-callout strong {
+    display: block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.05em;
+    color: var(--cream);
+    margin-bottom: 0.2rem;
+  }
+
+  .work-callout span {
+    font-size: 0.85rem;
+    color: rgba(245,240,232,0.5);
+    line-height: 1.5;
+  }
+
+  .ig-reel-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .ig-reel-wrapper .instagram-media {
+    border-radius: 8px !important;
+    overflow: hidden;
+    width: 100% !important;
+  }
+
+  .ig-follow-note {
+    font-size: 0.82rem;
+    color: rgba(245,240,232,0.4);
+    text-align: center;
+  }
+
+  .ig-follow-note a {
+    color: var(--amber);
+    text-decoration: none;
+  }
+
+  .ig-follow-note a:hover { text-decoration: underline; }
+
+  @media (max-width: 900px) {
+    .work-inner {
+      grid-template-columns: 1fr;
+    }
+    .ig-reel-wrapper { max-width: 400px; margin: 0 auto; width: 100%; }
+  }
+
+  /* ─── PRICING ─── */
+  .pricing-section {
+    background: var(--off-white);
+  }
+
+  .pricing-intro {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .pricing-tabs {
+    display: flex;
+    gap: 0;
+    border: 2px solid var(--gray-light);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .tab {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.75rem 1.5rem;
+    background: white;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    color: var(--gray-warm);
+  }
+
+  .tab.active {
+    background: var(--green-deep);
+    color: var(--amber);
+  }
+
+  .pricing-panel { display: none; }
+  .pricing-panel.active { display: block; }
+
+  .pricing-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+  }
+
+  .pricing-table thead {
+    background: var(--green-deep);
+    color: var(--cream);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .pricing-table th {
+    padding: 1rem 1.5rem;
+    text-align: left;
+    font-weight: 600;
+  }
+
+  .pricing-table td {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--gray-light);
+    vertical-align: middle;
+  }
+
+  .pricing-table tr:last-child td { border-bottom: none; }
+
+  .pricing-table tr:nth-child(even) td { background: var(--cream); }
+
+  .price-badge {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--green-mid);
+  }
+
+  .price-note {
+    font-size: 0.8rem;
+    color: var(--gray-warm);
+    margin-top: 0.25rem;
+  }
+
+  .pricing-disclaimer {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--gray-warm);
+    font-style: italic;
+  }
+
+  .popular-tag {
+    background: var(--amber);
+    color: var(--dark);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.15rem 0.5rem;
+    border-radius: 2px;
+    margin-left: 0.5rem;
+  }
+
+  /* ─── WHAT WE TAKE ─── */
+  .items-section {
+    background: var(--cream);
+  }
+
+  .items-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .items-card {
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+  }
+
+  .items-card-header {
+    padding: 1.25rem 1.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .items-card-header.yes { background: var(--green-deep); }
+  .items-card-header.no { background: #5a1a1a; }
+
+  .items-card-header h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--cream);
+  }
+
+  .items-card-header .badge-icon {
+    font-size: 1.3rem;
+  }
+
+  .items-list {
+    padding: 1.5rem 1.75rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    list-style: none;
+  }
+
+  .items-list li {
+    font-size: 0.9rem;
+    color: var(--text-body);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .items-list.yes-items li::before { content: '✓'; color: var(--green-mid); font-weight: 700; }
+  .items-list.no-items li::before { content: '✗'; color: #c0392b; font-weight: 700; }
+
+  .items-note {
+    padding: 1rem 1.75rem;
+    background: rgba(0,0,0,0.02);
+    border-top: 1px solid var(--gray-light);
+    font-size: 0.82rem;
+    color: var(--gray-warm);
+    font-style: italic;
+  }
+
+  /* ─── BOOKING ─── */
+  .booking-section {
+    background: var(--green-deep);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .booking-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 50%;
+    height: 200%;
+    background: var(--green-mid);
+    opacity: 0.25;
+    clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
+  }
+
+  .booking-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+    position: relative;
+    z-index: 1;
+  }
+
+  .booking-left h2 { color: var(--cream); }
+  .booking-left .section-intro { color: rgba(245,240,232,0.65); }
+
+  .booking-left .section-eyebrow { margin-top: 2rem; }
+
+  .contact-info {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .contact-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    background: rgba(232,160,32,0.15);
+    border: 1px solid rgba(232,160,32,0.3);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  .contact-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 0.25rem;
+  }
+
+  .contact-value {
+    font-size: 1rem;
+    color: var(--cream);
+    text-decoration: none;
+  }
+
+  .contact-value:hover { color: var(--amber); }
+
+  /* Calendly placeholder */
+  .calendly-placeholder {
+    background: rgba(255,255,255,0.06);
+    border: 2px dashed rgba(255,255,255,0.2);
+    border-radius: 6px;
+    padding: 3rem 2rem;
+    text-align: center;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .calendly-placeholder h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--cream);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .calendly-placeholder p {
+    font-size: 0.9rem;
+    color: rgba(245,240,232,0.5);
+    max-width: 300px;
+    line-height: 1.6;
+  }
+
+  .calendly-placeholder .cal-icon {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .calendly-badge {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--amber);
+    border: 1px solid rgba(232,160,32,0.3);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+  }
+
+  /* Fallback form */
+  .fallback-form {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .fallback-form h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.5);
+    margin-bottom: 1rem;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .form-field label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.5);
+  }
+
+  .form-field input,
+  .form-field select,
+  .form-field textarea {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 3px;
+    padding: 0.75rem 1rem;
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.9rem;
+    color: var(--cream);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .form-field input::placeholder,
+  .form-field textarea::placeholder {
+    color: rgba(245,240,232,0.3);
+  }
+
+  .form-field input:focus,
+  .form-field select:focus,
+  .form-field textarea:focus {
+    border-color: var(--amber);
+  }
+
+  .form-field select option { background: var(--green-deep); }
+
+  .form-field textarea { resize: vertical; min-height: 100px; }
+
+  .form-submit {
+    width: 100%;
+    padding: 1rem;
+    background: var(--amber);
+    color: var(--dark);
+    border: none;
+    border-radius: 3px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .form-submit:hover { background: var(--amber-light); }
+
+  /* ─── ABOUT STRIP ─── */
+  .about-strip {
+    background: var(--amber);
+    padding: 3rem 2rem;
+  }
+
+  .about-strip .container {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .about-strip-text {
+    flex: 1;
+    min-width: 280px;
+  }
+
+  .about-strip-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--dark);
+    margin-bottom: 0.75rem;
+  }
+
+  .about-strip-text p {
+    color: rgba(17,24,16,0.7);
+    line-height: 1.7;
+    font-size: 0.95rem;
+  }
+
+  .about-strip-stats {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .about-stat {
+    text-align: center;
+  }
+
+  .about-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--dark);
+    line-height: 1;
+  }
+
+  .about-stat-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(17,24,16,0.6);
+    margin-top: 0.3rem;
+  }
+
+  /* ─── TESTIMONIALS ─── */
+  .reviews-section {
+    background: var(--off-white);
+  }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .review-card {
+    background: white;
+    border-radius: 4px;
+    padding: 2rem;
+    border-top: 4px solid var(--green-mid);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  }
+
+  .stars {
+    color: var(--amber);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
+  }
+
+  .review-text {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text-body);
+    margin-bottom: 1.25rem;
+    font-style: italic;
+  }
+
+  .review-author {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    color: var(--dark);
+  }
+
+  .review-source {
+    font-size: 0.78rem;
+    color: var(--gray-warm);
+    margin-top: 0.15rem;
+  }
+
+  /* ─── FAQ ─── */
+  .faq-section {
+    background: var(--cream);
+  }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--gray-light);
+    margin-top: 3rem;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .faq-item {
+    background: white;
+    padding: 2rem;
+  }
+
+  .faq-item h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.03em;
+    color: var(--dark);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+
+  .faq-item h4::before {
+    content: 'Q';
+    background: var(--amber);
+    color: var(--dark);
+    font-size: 0.65rem;
+    font-weight: 900;
+    padding: 0.1rem 0.35rem;
+    border-radius: 2px;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .faq-item p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--gray-warm);
+    padding-left: 1.5rem;
+  }
+
+  /* ─── SERVICE AREA ─── */
+  .area-section {
+    background: var(--dark);
+    padding: 4rem 2rem;
+  }
+
+  .area-section h2 { color: var(--cream); }
+
+  .area-inner {
+    display: flex;
+    gap: 4rem;
+    align-items: flex-start;
+    margin-top: 2.5rem;
+    flex-wrap: wrap;
+  }
+
+  .area-text {
+    flex: 1;
+    min-width: 280px;
+    font-size: 0.95rem;
+    color: rgba(245,240,232,0.6);
+    line-height: 1.7;
+  }
+
+  .area-cities {
+    flex: 2;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+    min-width: 320px;
+  }
+
+  .city-tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: rgba(245,240,232,0.6);
+    padding: 0.4rem 0.8rem;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 2px;
+    text-align: center;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .city-tag:hover { color: var(--amber); border-color: rgba(232,160,32,0.4); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: #0a0f0a;
+    padding: 3rem 2rem 2rem;
+    border-top: 3px solid var(--amber);
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .footer-brand-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: var(--cream);
+    margin-bottom: 0.75rem;
+  }
+
+  .footer-brand-name span { color: var(--amber); }
+
+  .footer-tagline {
+    font-size: 0.9rem;
+    color: rgba(245,240,232,0.4);
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+    max-width: 240px;
+  }
+
+  .footer-phone {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--amber);
+    text-decoration: none;
+    display: block;
+  }
+
+  .footer-col h5 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 1rem;
+  }
+
+  .footer-col ul { list-style: none; }
+
+  .footer-col li {
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-col a {
+    font-size: 0.88rem;
+    color: rgba(245,240,232,0.45);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-col a:hover { color: var(--cream); }
+
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    color: rgba(245,240,232,0.25);
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .serve-grid { grid-template-columns: 1fr; }
+    .hiw-steps { grid-template-columns: 1fr; }
+    .hiw-steps::before { display: none; }
+    .items-grid { grid-template-columns: 1fr; }
+    .booking-grid { grid-template-columns: 1fr; }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .faq-grid { grid-template-columns: 1fr; }
+    .area-cities { grid-template-columns: repeat(3, 1fr); }
+    .footer-inner { grid-template-columns: 1fr 1fr; }
+    nav .nav-links { display: none; }
+  }
+
+  @media (max-width: 600px) {
+    .form-row { grid-template-columns: 1fr; }
+    .items-list { grid-template-columns: 1fr; }
+    .area-cities { grid-template-columns: repeat(2, 1fr); }
+    .footer-inner { grid-template-columns: 1fr; }
+    .hero-stats { gap: 1.5rem; }
+    .hero-logo { height: 80px; }
+    .footer-logo { height: 60px; }
+  }
+
+  /* ─── SMOOTH REVEAL ANIMATION ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Hero logo lockup */
+  .hero-logo-lockup {
+    margin-bottom: 2rem;
+    animation: fadeUp 0.5s ease both;
+  }
+
+  .hero-logo {
+    height: 120px;
+    width: auto;
+    max-width: 480px;
+    object-fit: contain;
+    /* The logo has a dark/grey background — we use mix-blend or just let it sit naturally on dark hero */
+    filter: drop-shadow(0 4px 16px rgba(0,0,0,0.5));
+  }
+
+  /* Footer logo */
+  .footer-logo {
+    height: 80px;
+    width: auto;
+    max-width: 280px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+    display: block;
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4));
+  }
+
+  .footer-brand-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: var(--cream);
+    margin-bottom: 0.75rem;
+  }
+
+  .footer-brand-name span { color: var(--amber); }
+
+  .hero-eyebrow { animation: fadeUp 0.6s ease both; }
+  h1 { animation: fadeUp 0.6s 0.1s ease both; }
+  .hero-sub { animation: fadeUp 0.6s 0.2s ease both; }
+  .hero-actions { animation: fadeUp 0.6s 0.3s ease both; }
+  .hero-phone { animation: fadeUp 0.6s 0.4s ease both; }
+  .hero-stats { animation: fadeUp 0.6s 0.5s ease both; }
+  .angi-badge { animation: fadeUp 0.6s 0.6s ease both; }
+
+  /* ─── STICKY PHONE BAR (mobile) ─── */
+  .sticky-call {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    background: var(--amber);
+    padding: 0.9rem;
+    text-align: center;
+  }
+
+  .sticky-call a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--dark);
+    text-decoration: none;
+  }
+
+  @media (max-width: 700px) {
+    .sticky-call { display: block; }
+    body { padding-bottom: 52px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="legacy-logo.png" alt="Legacy Junk Removal & Demolition — Est. 2023">
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#work">Our Work</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#what-we-take">What We Take</a></li>
+    <li><a href="#area">Service Area</a></li>
+    <li><a href="#book" class="nav-cta">Get a Quote</a></li>
+  </ul>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-logo-lockup">
+      <img src="legacy-logo.png" alt="Legacy Junk Removal & Demolition 216" class="hero-logo">
+    </div>
+    <div class="hero-eyebrow">Cleveland & Northeast Ohio</div>
+    <h1>We Haul It.<em>You Move On.</em></h1>
+    <p class="hero-sub">Full cleanouts, dumpster rentals, and demolition subcontracting — one crew, one call. Faster than you expect.</p>
+    <div class="hero-actions">
+      <a href="#book" class="btn-primary">Book a Free Quote</a>
+      <a href="#services" class="btn-secondary">See What We Do</a>
+    </div>
+    <div class="hero-phone">
+      Call or text anytime
+      <a href="tel:2163528453">(216) 352-8453</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">Same</div>
+        <div class="stat-label">Day Available</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">200+</div>
+        <div class="stat-label">Jobs Completed</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">5★</div>
+        <div class="stat-label">Avg. Review</div>
+      </div>
+    </div>
+    <div class="angi-badge">
+      <div class="angi-badge-icon">Angi</div>
+      <div class="angi-badge-text">
+        <strong>2025 Super Service Award</strong>
+        Top-rated on the Angi Network
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SERVICES ─── -->
+<section class="serve-section" id="services">
+  <div class="container">
+    <div class="section-eyebrow">What We Do</div>
+    <h2>One-Stop Removal & Demo</h2>
+    <p class="section-intro">Whether you're a homeowner clearing out a lifetime of stuff or a contractor who needs a reliable sub — we handle it.</p>
+
+    <div class="serve-grid">
+      <div class="serve-card">
+        <span class="serve-icon">🏠</span>
+        <h3>Residential Cleanouts</h3>
+        <p>Estates, garages, basements, attics, or full-house cleanouts. We load it, haul it, and leave the space clean. No judgment, no hassle.</p>
+        <ul class="serve-list">
+          <li>Estate & hoarder cleanouts</li>
+          <li>Garage & basement clearing</li>
+          <li>Appliance & furniture removal</li>
+          <li>Yard debris & outdoor junk</li>
+          <li>Single-item pickups</li>
+        </ul>
+      </div>
+      <div class="serve-card">
+        <span class="serve-icon">🚛</span>
+        <h3>Dumpster Rental</h3>
+        <p>Flexible rental periods, fast delivery, fair pricing. Perfect for contractors, property managers, and DIY projects. We drop it, you fill it.</p>
+        <ul class="serve-list">
+          <li>10, 15, and 20-yard containers</li>
+          <li>Next-day delivery available</li>
+          <li>Flexible pickup scheduling</li>
+          <li>Driveway-safe placement</li>
+          <li>Contractor accounts welcome</li>
+        </ul>
+      </div>
+      <div class="serve-card">
+        <span class="serve-icon">⚒️</span>
+        <h3>Demo Subcontracting</h3>
+        <p>Need interior demo done right before your crew comes in? We handle selective and full interior demo, haul the debris, and leave a clean slate.</p>
+        <ul class="serve-list">
+          <li>Interior selective demo</li>
+          <li>Bathroom & kitchen gut-outs</li>
+          <li>Deck & structure removal</li>
+          <li>Debris haul-out included</li>
+          <li>Contractor billing available</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── HOW IT WORKS ─── -->
+<section class="hiw-section" id="how">
+  <div class="container">
+    <div class="section-eyebrow">The Process</div>
+    <h2>Simple as It Gets</h2>
+    <p class="section-intro">We built this for busy people who don't want to manage it. One call, clear pricing, we show up.</p>
+
+    <div class="hiw-steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Call or Book Online</h3>
+        <p>Text, call, or use our online scheduler. We'll get back to you fast — often same day — with a straightforward quote.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>We Show Up Ready</h3>
+        <p>Our crew arrives on time with the right equipment. We assess the job, confirm the price, and get to work. No hidden fees.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Gone. Done. Clean.</h3>
+        <p>We load everything, sweep up, and haul it away. You're left with a clear space and nothing left to deal with.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SEE OUR WORK ─── -->
+<section class="work-section" id="work">
+  <div class="container">
+    <div class="work-inner">
+      <div class="work-text">
+        <div class="section-eyebrow" style="color:var(--amber)">Real Jobs. Real Results.</div>
+        <h2>Watch Us Work</h2>
+        <p>This is what we do. Full basement demo — cleared, hauled, and done in a single visit. No subbing it out, no surprises, no mess left behind.</p>
+        <div class="work-callouts">
+          <div class="work-callout">
+            <span class="callout-icon">⚒️</span>
+            <div>
+              <strong>Interior Demo</strong>
+              <span>We strip it clean so your crew walks into a ready space</span>
+            </div>
+          </div>
+          <div class="work-callout">
+            <span class="callout-icon">🚛</span>
+            <div>
+              <strong>Same-Day Haul-Out</strong>
+              <span>Debris is gone before we leave — not staged outside</span>
+            </div>
+          </div>
+          <div class="work-callout">
+            <span class="callout-icon">📞</span>
+            <div>
+              <strong>One Call Does It</strong>
+              <span>Demo sub, cleanout, dumpster — we handle the whole thing</span>
+            </div>
+          </div>
+        </div>
+        <a href="#book" class="btn-primary" style="margin-top:2rem; display:inline-block;">Get a Quote on Your Job →</a>
+      </div>
+      <div class="work-video">
+        <div class="ig-reel-wrapper">
+          <blockquote class="instagram-media"
+            data-instgrm-captioned
+            data-instgrm-permalink="https://www.instagram.com/reel/DRw-QqXjbAj/?utm_source=ig_embed&utm_campaign=loading"
+            data-instgrm-version="14"
+            style="background:#FFF; border:0; border-radius:8px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin:0; max-width:400px; min-width:280px; padding:0; width:100%;">
+            <div style="padding:16px;">
+              <a href="https://www.instagram.com/reel/DRw-QqXjbAj/?utm_source=ig_embed&utm_campaign=loading"
+                style="background:#FFFFFF; line-height:0; padding:0; text-align:center; text-decoration:none; width:100%;"
+                target="_blank">
+                <div style="display:flex; flex-direction:row; align-items:center;">
+                  <div style="background-color:#F4F4F4; border-radius:50%; flex-grow:0; height:40px; margin-right:14px; width:40px;"></div>
+                  <div style="display:flex; flex-direction:column; flex-grow:1; justify-content:center;">
+                    <div style="background-color:#F4F4F4; border-radius:4px; flex-grow:0; height:14px; margin-bottom:6px; width:100px;"></div>
+                    <div style="background-color:#F4F4F4; border-radius:4px; flex-grow:0; height:14px; width:60px;"></div>
+                  </div>
+                </div>
+                <div style="padding:19% 0;"></div>
+                <div style="display:block; height:50px; margin:0 auto 12px; width:50px;">
+                  <svg width="50px" height="50px" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="#000000"><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></svg>
+                </div>
+                <div style="padding-top:8px;"><div style="color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-weight:550; line-height:18px;">View this post on Instagram</div></div>
+                <div style="padding:12.5% 0;"></div>
+              </a>
+              <p style="color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; margin:8px 0 0; overflow:hidden; padding:8px 0 7px; text-align:center; white-space:nowrap;">
+                <a href="https://www.instagram.com/reel/DRw-QqXjbAj/?utm_source=ig_embed&utm_campaign=loading"
+                  style="color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;"
+                  target="_blank">A post shared by antonio branch (@legacyjunkremoval216)</a>
+              </p>
+            </div>
+          </blockquote>
+          <script async src="//www.instagram.com/embed.js"></script>
+          <p class="ig-follow-note">Follow <a href="https://www.instagram.com/legacyjunkremoval216" target="_blank">@legacyjunkremoval216</a> for more job footage</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PRICING ─── -->
+<section class="pricing-section" id="pricing">
+  <div class="container">
+    <div class="pricing-intro">
+      <div>
+        <div class="section-eyebrow">Transparent Pricing</div>
+        <h2>No Surprises. Ever.</h2>
+        <p class="section-intro">Prices based on load volume, labor, and haul distance. We quote before we start — always.</p>
+      </div>
+      <div class="pricing-tabs">
+        <button class="tab active" onclick="showTab('junk')">Junk Removal</button>
+        <button class="tab" onclick="showTab('dumpster')">Dumpster Rental</button>
+        <button class="tab" onclick="showTab('demo')">Demo Sub</button>
+      </div>
+    </div>
+
+    <div id="tab-junk" class="pricing-panel active">
+      <table class="pricing-table">
+        <thead>
+          <tr>
+            <th>Load Size</th>
+            <th>Description</th>
+            <th>Est. Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Minimum Load</strong></td>
+            <td>1–2 items (single appliance, chair, etc.)</td>
+            <td><div class="price-badge">$75 – $125</div></td>
+          </tr>
+          <tr>
+            <td><strong>¼ Truck Load</strong></td>
+            <td>Small cleanout, a few bags plus boxes</td>
+            <td><div class="price-badge">$150 – $225</div></td>
+          </tr>
+          <tr>
+            <td><strong>½ Truck Load</strong> <span class="popular-tag">Popular</span></td>
+            <td>Mid-size garage, spare bedroom, small storage unit</td>
+            <td><div class="price-badge">$250 – $350</div></td>
+          </tr>
+          <tr>
+            <td><strong>¾ Truck Load</strong></td>
+            <td>Large garage, basement, or partial estate</td>
+            <td><div class="price-badge">$375 – $475</div></td>
+          </tr>
+          <tr>
+            <td><strong>Full Truck Load</strong></td>
+            <td>Full estate, hoarder cleanout, complete property</td>
+            <td><div class="price-badge">$500 – $650</div></td>
+          </tr>
+          <tr>
+            <td><strong>Multi-Load</strong></td>
+            <td>Large estates or multi-day jobs</td>
+            <td><div class="price-badge">Custom Quote</div><div class="price-note">Call for bulk pricing</div></td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="pricing-disclaimer">* Prices are estimates. Final quote given on-site before work begins. Heavy items (concrete, dirt, roofing) may carry additional fees.</p>
+    </div>
+
+    <div id="tab-dumpster" class="pricing-panel">
+      <table class="pricing-table">
+        <thead>
+          <tr>
+            <th>Container Size</th>
+            <th>Best For</th>
+            <th>7-Day Rental</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>10-Yard</strong><div class="price-note">12ft × 8ft × 3.5ft</div></td>
+            <td>Small cleanout, bathroom demo, single room remodel</td>
+            <td><div class="price-badge">$325 – $375</div></td>
+          </tr>
+          <tr>
+            <td><strong>15-Yard</strong> <span class="popular-tag">Popular</span><div class="price-note">14ft × 8ft × 4.5ft</div></td>
+            <td>Kitchen gut, garage cleanout, deck removal</td>
+            <td><div class="price-badge">$375 – $425</div></td>
+          </tr>
+          <tr>
+            <td><strong>20-Yard</strong><div class="price-note">16ft × 8ft × 6ft</div></td>
+            <td>Full interior demo, large estate, roofing jobs</td>
+            <td><div class="price-badge">$425 – $500</div></td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="pricing-disclaimer">* Rental periods beyond 7 days available. Heavy debris (concrete, brick, dirt) requires a separate quote. Overage weight fees may apply. Delivery within service area included.</p>
+    </div>
+
+    <div id="tab-demo" class="pricing-panel">
+      <table class="pricing-table">
+        <thead>
+          <tr>
+            <th>Scope</th>
+            <th>What's Included</th>
+            <th>Pricing</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Bathroom Demo</strong></td>
+            <td>Tub/shower removal, tile demo, vanity, drywall — haul-out included</td>
+            <td><div class="price-badge">From $450</div></td>
+          </tr>
+          <tr>
+            <td><strong>Kitchen Demo</strong> <span class="popular-tag">Common</span></td>
+            <td>Cabinet removal, counters, tile, drywall — debris hauled same day</td>
+            <td><div class="price-badge">From $600</div></td>
+          </tr>
+          <tr>
+            <td><strong>Interior Selective</strong></td>
+            <td>Wall removal, flooring tear-out, ceiling work — per scope</td>
+            <td><div class="price-badge">Custom Quote</div></td>
+          </tr>
+          <tr>
+            <td><strong>Deck / Structure</strong></td>
+            <td>Deck demo and haul, shed removal, fence removal</td>
+            <td><div class="price-badge">From $350</div></td>
+          </tr>
+          <tr>
+            <td><strong>Full Interior</strong></td>
+            <td>Complete gut-out, all materials removed and hauled</td>
+            <td><div class="price-badge">Custom Quote</div><div class="price-note">Call for project pricing</div></td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="pricing-disclaimer">* Contractor subs billed at agreed rates. Permits are the responsibility of the GC. We carry liability insurance — COI available on request.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── WHAT WE TAKE ─── -->
+<section class="items-section" id="what-we-take">
+  <div class="container">
+    <div class="section-eyebrow">Accepted Items</div>
+    <h2>What We Will & Won't Take</h2>
+    <p class="section-intro">We handle the vast majority of residential and commercial debris. A few categories require special handling — here's the honest list.</p>
+
+    <div class="items-grid">
+      <div class="items-card">
+        <div class="items-card-header yes">
+          <span class="badge-icon">✅</span>
+          <h3>We Take All of This</h3>
+        </div>
+        <ul class="items-list yes-items">
+          <li>Furniture & mattresses</li>
+          <li>Appliances (washer, dryer, stove)</li>
+          <li>Electronics & TVs</li>
+          <li>Yard waste & debris</li>
+          <li>Construction materials</li>
+          <li>Carpeting & flooring</li>
+          <li>Hot tubs & sheds</li>
+          <li>Exercise equipment</li>
+          <li>Clothing & household goods</li>
+          <li>Office furniture</li>
+          <li>Bicycles & sporting goods</li>
+          <li>Boxes & general junk</li>
+          <li>Drywall & lumber</li>
+          <li>Concrete & brick (call first)</li>
+        </ul>
+        <div class="items-note">Items in good condition are donated or recycled when possible.</div>
+      </div>
+      <div class="items-card">
+        <div class="items-card-header no">
+          <span class="badge-icon">🚫</span>
+          <h3>We Cannot Accept</h3>
+        </div>
+        <ul class="items-list no-items">
+          <li>Hazardous chemicals</li>
+          <li>Paint (unless dried solid)</li>
+          <li>Motor oil & fuel</li>
+          <li>Pesticides & herbicides</li>
+          <li>Asbestos materials</li>
+          <li>Medical / biohazard waste</li>
+          <li>Propane tanks (full)</li>
+          <li>Vehicle batteries</li>
+          <li>Refrigerators with Freon*</li>
+          <li>Fluorescent light bulbs</li>
+          <li>Tires (call — may apply fee)</li>
+          <li>Railroad ties</li>
+        </ul>
+        <div class="items-note">*Refrigerators & AC units can be accepted after Freon is certified-removed. Call us for guidance on disposal options for restricted items.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ABOUT STRIP ─── -->
+<div class="about-strip">
+  <div class="container">
+    <div class="about-strip-text">
+      <h2>Built in Cleveland. Built to Last.</h2>
+      <p>Legacy Junk Removal is a locally owned operation serving Northeast Ohio. We show up on time, give you a real price, and work until the job is done. The name means something to us — it's about the kind of work you're proud to leave behind.</p>
+    </div>
+    <div class="about-strip-stats">
+      <div class="about-stat">
+        <div class="about-stat-num">216</div>
+        <div class="about-stat-label">Area Code &<br>Home Base</div>
+      </div>
+      <div class="about-stat">
+        <div class="about-stat-num">2025</div>
+        <div class="about-stat-label">Angi Super<br>Service Award</div>
+      </div>
+      <div class="about-stat">
+        <div class="about-stat-num">Same</div>
+        <div class="about-stat-label">Day Service<br>Available</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── TESTIMONIALS ─── -->
+<section class="reviews-section" id="reviews">
+  <div class="container">
+    <div class="section-eyebrow">What Clients Say</div>
+    <h2>Rated Top in NE Ohio</h2>
+
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">"Called on a Friday morning, they showed up by noon. Took a full garage and two bedrooms worth of furniture. Charged exactly what they quoted. I'd recommend them to everyone."</p>
+        <div class="review-author">Diane K.</div>
+        <div class="review-source">Angi — Cleveland, OH</div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">"We needed a dumpster for a kitchen gut-out and a demo crew to strip the space before our GC came in. Legacy handled both. Communication was easy and they cleaned up after themselves."</p>
+        <div class="review-author">Marcus T.</div>
+        <div class="review-source">Google — Contractor, Euclid OH</div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">"My mother passed and we needed the whole house cleared. They were respectful, efficient, and affordable. More than I could ask for under those circumstances. Good people."</p>
+        <div class="review-author">Angela P.</div>
+        <div class="review-source">Angi — Parma, OH</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── BOOKING ─── -->
+<section class="booking-section" id="book">
+  <div class="container">
+    <div class="booking-grid">
+      <div class="booking-left">
+        <div class="section-eyebrow">Get a Quote</div>
+        <h2>Ready to Clear It Out?</h2>
+        <p class="section-intro">Schedule online or call us directly. We'll confirm your appointment fast and come to you with a firm quote before a single item moves.</p>
+
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div>
+              <div class="contact-label">Call or Text Anytime</div>
+              <a href="tel:2163528453" class="contact-value">(216) 352-8453</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div>
+              <div class="contact-label">Service Area</div>
+              <span class="contact-value">Cleveland & Northeast Ohio</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">🕐</div>
+            <div>
+              <div class="contact-label">Hours</div>
+              <span class="contact-value">Mon–Sat 7am–7pm · Same-day often available</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <!-- Calendly Placeholder -->
+        <div class="calendly-placeholder">
+          <div class="cal-icon">📅</div>
+          <h3>Schedule Online</h3>
+          <p>Online scheduling is coming soon. In the meantime, call or use the form below — we respond fast.</p>
+          <div class="calendly-badge">Scheduling via Cal.com — Coming Soon</div>
+          <p style="font-size:0.78rem; color:rgba(245,240,232,0.3); margin-top:0.5rem;">
+            <!-- DEVELOPER NOTE: Replace this block with Cal.com or Calendly embed:<br>
+            &lt;div id="my-cal-inline"&gt;&lt;/div&gt; and the Cal embed script -->
+          </p>
+        </div>
+
+        <!-- Fallback Form -->
+        <div class="fallback-form">
+          <h4>Or send us a message — we'll reply within the hour</h4>
+          <div class="form-row">
+            <div class="form-field">
+              <label>First Name</label>
+              <input type="text" placeholder="Antonio">
+            </div>
+            <div class="form-field">
+              <label>Last Name</label>
+              <input type="text" placeholder="Branch">
+            </div>
+          </div>
+          <div class="form-field">
+            <label>Phone Number</label>
+            <input type="tel" placeholder="(216) 000-0000">
+          </div>
+          <div class="form-field">
+            <label>Service Needed</label>
+            <select>
+              <option value="">Select a service...</option>
+              <option>Residential Cleanout</option>
+              <option>Single-Item Pickup</option>
+              <option>Dumpster Rental</option>
+              <option>Demo Subcontracting</option>
+              <option>Not Sure — Need a Quote</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label>Tell Us About the Job</label>
+            <textarea placeholder="Describe what needs to go — location, approximate volume, any heavy items, timeline..."></textarea>
+          </div>
+          <button class="form-submit">Send Quote Request →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FAQ ─── -->
+<section class="faq-section" id="faq">
+  <div class="container">
+    <div class="section-eyebrow">Common Questions</div>
+    <h2>FAQ</h2>
+
+    <div class="faq-grid">
+      <div class="faq-item">
+        <h4>Do I need to be home during the pickup?</h4>
+        <p>Not necessarily. If items are accessible and payment is arranged, we can complete many jobs without you on-site. We'll send a photo confirmation when done.</p>
+      </div>
+      <div class="faq-item">
+        <h4>How quickly can you come out?</h4>
+        <p>Same-day availability is common, especially on weekdays. We'll always give you a confirmed window — usually a 2-hour arrival range.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Do you donate or recycle anything?</h4>
+        <p>Yes. Furniture, clothing, and usable household goods are donated when possible. We divert as much from the landfill as we can.</p>
+      </div>
+      <div class="faq-item">
+        <h4>How does dumpster rental work?</h4>
+        <p>You book a container, we deliver it to your driveway or job site, you fill it on your schedule, and we haul it away when you're ready. Simple.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Are you licensed and insured?</h4>
+        <p>Yes. Legacy Junk Removal LLC carries full liability insurance. Certificates of insurance are available for contractors upon request.</p>
+      </div>
+      <div class="faq-item">
+        <h4>How is the price determined?</h4>
+        <p>Volume and weight of the load, labor required, and haul distance. We give you a firm quote before we start — no surprises at the end.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Can I book a recurring or ongoing contract?</h4>
+        <p>Absolutely. Property managers, real estate investors, and contractors with ongoing work can set up accounts with scheduled service and contractor rates.</p>
+      </div>
+      <div class="faq-item">
+        <h4>What about heavy items like concrete or dirt?</h4>
+        <p>We can handle them — but heavy debris is priced separately due to disposal costs. Call us first so we can quote accurately and bring the right equipment.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SERVICE AREA ─── -->
+<section class="area-section" id="area">
+  <div class="container">
+    <div class="section-eyebrow" style="color:var(--amber)">Where We Work</div>
+    <h2>Cleveland & Northeast Ohio</h2>
+    <div class="area-inner">
+      <div class="area-text">
+        <p>We're based in the 216 and serve the greater Cleveland metro and surrounding counties. Not seeing your city? Call us — if it's within range, we'll make it work.</p>
+        <br>
+        <a href="tel:2163528453" class="btn-primary" style="margin-top:1rem;">Check Your Area →</a>
+      </div>
+      <div class="area-cities">
+        <div class="city-tag">Cleveland</div>
+        <div class="city-tag">Lakewood</div>
+        <div class="city-tag">Parma</div>
+        <div class="city-tag">Euclid</div>
+        <div class="city-tag">Westlake</div>
+        <div class="city-tag">Strongsville</div>
+        <div class="city-tag">Mentor</div>
+        <div class="city-tag">Lorain</div>
+        <div class="city-tag">Elyria</div>
+        <div class="city-tag">Solon</div>
+        <div class="city-tag">Beachwood</div>
+        <div class="city-tag">Rocky River</div>
+        <div class="city-tag">Garfield Hts.</div>
+        <div class="city-tag">North Olmsted</div>
+        <div class="city-tag">Mayfield Hts.</div>
+        <div class="city-tag">Brunswick</div>
+        <div class="city-tag">Medina</div>
+        <div class="city-tag">Painesville</div>
+        <div class="city-tag">Willoughby</div>
+        <div class="city-tag">Avon</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <img src="legacy-logo.png" alt="Legacy Junk Removal & Demolition" class="footer-logo">
+      <p class="footer-tagline">Cleveland's one-stop junk removal, dumpster rental, and demolition crew. We do the work you don't want to.</p>
+      <a href="tel:2163528453" class="footer-phone">(216) 352-8453</a>
+    </div>
+    <div class="footer-col">
+      <h5>Services</h5>
+      <ul>
+        <li><a href="#services">Residential Cleanouts</a></li>
+        <li><a href="#services">Dumpster Rental</a></li>
+        <li><a href="#services">Demo Subcontracting</a></li>
+        <li><a href="#services">Estate Cleanouts</a></li>
+        <li><a href="#services">Single-Item Pickup</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Info</h5>
+      <ul>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#what-we-take">What We Take</a></li>
+        <li><a href="#area">Service Area</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="tel:2163528453">Call (216) 352-8453</a></li>
+        <li><a href="sms:2163528453">Text Us</a></li>
+        <li><a href="#book">Request a Quote</a></li>
+        <li><a href="https://www.instagram.com/legacyjunkremoval216" target="_blank">Instagram</a></li>
+        <li><a href="#book">Schedule Online</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Legacy Junk Removal LLC · Est. 2023 · Cleveland, Ohio</span>
+    <span>2025 Angi Super Service Award Winner</span>
+  </div>
+</footer>
+
+<!-- Mobile sticky call bar -->
+<div class="sticky-call">
+  <a href="tel:2163528453">📞 Call or Text · (216) 352-8453</a>
+</div>
+
+<script>
+  function showTab(tab) {
+    // Hide all panels
+    document.querySelectorAll('.pricing-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    // Show selected
+    document.getElementById('tab-' + tab).classList.add('active');
+    event.target.classList.add('active');
+  }
+</script>
+
+</body>
+</html>
