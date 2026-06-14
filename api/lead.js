@@ -353,7 +353,8 @@ export default async function handler(req, res) {
     neighborhood = '',
     scope       = '',
     timeline    = '',
-    source_city = ''
+    source_city = '',
+    sms_opt_in  = false
   } = req.body || {};
 
   // Phone is required — reject if missing
@@ -406,18 +407,20 @@ export default async function handler(req, res) {
     console.error('Twilio Bryon SMS error:', e.message);
   }
 
-  // 3. ── TEXT TO HOMEOWNER ───────────────────────────────────────────
-  const leadSMS = [
-    `Hi ${firstName || 'there'} — Bryon Skvor here from remodel.guide.`,
-    `Got your request for a free kitchen consultation in ${cityLbl}.`,
-    `I'll reach out within 24 hours to schedule your visit.`,
-    `Questions? Call or text me at (440) 252-1053.`
-  ].join(' ');
+  // 3. ── TEXT TO HOMEOWNER (only if opted in) ───────────────────────
+  if (sms_opt_in) {
+    const leadSMS = [
+      `Hi ${firstName || 'there'} — Bryon Skvor here from remodel.guide.`,
+      `Got your request for a free kitchen consultation in ${cityLbl}.`,
+      `I'll reach out within 24 hours to schedule your visit.`,
+      `Questions? Call or text me at (440) 252-1053.`
+    ].join(' ');
 
-  try {
-    results.twilio_lead = await sendSMS(phone, leadSMS);
-  } catch (e) {
-    console.error('Twilio lead SMS error:', e.message);
+    try {
+      results.twilio_lead = await sendSMS(phone, leadSMS);
+    } catch (e) {
+      console.error('Twilio lead SMS error:', e.message);
+    }
   }
 
   // 4. ── EMAIL TO BRYON ──────────────────────────────────────────────
