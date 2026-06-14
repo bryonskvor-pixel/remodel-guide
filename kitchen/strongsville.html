@@ -595,6 +595,16 @@ footer { background:var(--charcoal); padding:44px 24px 28px }
             <option>Open up the layout</option>
           </select>
         </div>
+        <div class="fgroup">
+          <label class="flabel">Email (optional)</label>
+          <input class="finput" type="email" id="hf-email" placeholder="jane@email.com">
+        </div>
+        <div class="fgroup" style="margin-bottom:16px;">
+          <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-size:0.82rem;color:var(--slate);line-height:1.5;">
+            <input type="checkbox" id="hf-sms" style="margin-top:2px;accent-color:var(--brass);width:15px;height:15px;flex-shrink:0;">
+            <span>Yes, text me updates about my consultation request. Message &amp; data rates may apply. Reply STOP to opt out.</span>
+          </label>
+        </div>
         <button class="fsubmit" onclick="submitHeroForm()">Request My Free Consultation →</button>
         <p class="fnote">
           One call from Bryon within 24 hours. No contractor flood.<br>
@@ -869,6 +879,12 @@ footer { background:var(--charcoal); padding:44px 24px 28px }
             <option>Just planning for now</option>
           </select>
         </div>
+        <div class="fgroup" style="margin-bottom:16px;">
+          <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-size:0.82rem;color:var(--slate);line-height:1.5;">
+            <input type="checkbox" id="bf-sms" style="margin-top:2px;accent-color:var(--brass);width:15px;height:15px;flex-shrink:0;">
+            <span>Yes, text me updates about my consultation request. Message &amp; data rates may apply. Reply STOP to opt out.</span>
+          </label>
+        </div>
         <button class="fsubmit" onclick="submitBottomForm()">Request My Free In-Home Consultation →</button>
         <p class="fnote" style="margin-top:14px;">
           Bryon Skvor · (440) 252-1053 · bryon@remodel.guide<br>
@@ -945,6 +961,8 @@ async function submitHeroForm() {
   btn.disabled = true;
   btn.textContent = 'Sending...';
 
+  const smsOptIn = document.getElementById('hf-sms').checked;
+
   try {
     await fetch('/api/lead', {
       method: 'POST',
@@ -953,11 +971,12 @@ async function submitHeroForm() {
         firstName,
         lastName:     getVal('hf-last'),
         phone,
-        email:        '',
+        email:        getVal('hf-email'),
         neighborhood: getVal('hf-hood'),
         scope:        getVal('hf-scope'),
         timeline:     '',
-        source_city:  'strongsville'
+        source_city:  'strongsville',
+        sms_opt_in:   smsOptIn
       })
     });
   } catch (e) {
@@ -978,6 +997,8 @@ async function submitBottomForm() {
   btn.disabled = true;
   btn.textContent = 'Sending...';
 
+  const smsOptIn = document.getElementById('bf-sms').checked;
+
   try {
     await fetch('/api/lead', {
       method: 'POST',
@@ -990,7 +1011,8 @@ async function submitBottomForm() {
         neighborhood: getVal('bf-hood'),
         scope:        getVal('bf-scope'),
         timeline:     getVal('bf-timeline'),
-        source_city:  'strongsville'
+        source_city:  'strongsville',
+        sms_opt_in:   smsOptIn
       })
     });
   } catch (e) {
