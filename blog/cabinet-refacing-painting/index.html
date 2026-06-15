@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Kitchen You Already Have: Cabinet Refacing, Painting, and the Middle Path — From the Field</title>
+  <meta name="description" content="You bought a builder-grade house with oak cabinets and planned to move. Now you're staying. Here's the middle path between gutting the kitchen and living with honey oak forever — cabinet painting, door replacement, refacing, and everything that goes alongside it." />
+  <meta name="keywords" content="cabinet refacing, cabinet painting, replace cabinet doors, oak cabinet update, kitchen remodel without demo, builder grade cabinet update, soft close drawer boxes, kitchen refresh" />
+  <meta property="og:title" content="The Kitchen You Already Have: Cabinet Refacing, Painting, and the Middle Path" />
+  <meta property="og:description" content="You don't have to gut the kitchen to get a kitchen you love. Here's what's actually possible — and what each option costs." />
+  <meta property="og:url" content="https://remodel.guide/blog/cabinet-refacing-painting" />
+  <meta property="og:type" content="article" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <style>
+    .post-header {
+      background: var(--deep);
+      padding: 120px 80px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .post-header::before {
+      content: '';
+      position: absolute;
+      bottom: -200px; right: -200px;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(181,144,74,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .post-header-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .post-blog-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--brass-light);
+      margin-bottom: 8px;
+      display: block;
+    }
+    .post-blog-name {
+      font-size: 13px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 32px;
+      display: block;
+    }
+    .post-header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 4vw, 58px);
+      font-weight: 500;
+      line-height: 1.1;
+      color: var(--white);
+      margin-bottom: 24px;
+    }
+    .post-header h1 em { font-style: italic; color: var(--brass-light); }
+    .post-deck {
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.65);
+      max-width: 640px;
+      margin-bottom: 40px;
+    }
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .post-meta-item {
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.04em;
+    }
+    .post-meta-item strong { color: rgba(255,255,255,0.6); font-weight: 400; }
+    .post-body {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 80px 80px;
+    }
+    .post-body p {
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--slate);
+      margin-bottom: 24px;
+    }
+    .post-body h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 500;
+      color: var(--deep);
+      margin: 56px 0 20px;
+      line-height: 1.2;
+    }
+    .post-body h2 em { font-style: italic; color: var(--brass); }
+    .post-body h3 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--deep);
+      margin: 36px 0 12px;
+      letter-spacing: 0.01em;
+    }
+    .post-body strong { font-weight: 500; color: var(--deep); }
+    .post-body ul {
+      margin: 0 0 24px 20px;
+      padding: 0;
+    }
+    .post-body ul li {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--slate);
+      line-height: 1.85;
+      margin-bottom: 6px;
+      padding-left: 8px;
+    }
+    .guide-image {
+      width: 100%;
+      border-radius: 4px;
+      margin: 32px 0 12px;
+      display: block;
+    }
+    .guide-image-caption {
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 32px;
+      font-style: italic;
+    }
+
+    /* Pull quote */
+    .pull-quote {
+      border-left: 3px solid var(--brass);
+      padding: 20px 28px;
+      margin: 40px 0;
+      background: var(--cream);
+      border-radius: 0 8px 8px 0;
+    }
+    .pull-quote p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--deep);
+      line-height: 1.5;
+      margin: 0 !important;
+    }
+
+    /* Field note */
+    .field-note {
+      background: var(--deep);
+      color: rgba(255,255,255,0.75);
+      padding: 28px 32px;
+      border-radius: 8px;
+      margin: 40px 0;
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.75;
+    }
+    .field-note-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--brass-light);
+      margin-bottom: 12px;
+      display: block;
+    }
+    .field-note strong { color: var(--white); font-weight: 400; }
+
+    /* Option cards — the spectrum */
+    .option-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      margin: 40px 0;
+    }
+    .option-card {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--border);
+      padding: 28px 30px;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+    .option-card.tier-1 { border-left-color: #C8B89A; }
+    .option-card.tier-2 { border-left-color: var(--brass); }
+    .option-card.tier-3 { border-left-color: #8B7355; }
+    .option-card.tier-4 { border-left-color: var(--deep); }
+    .option-left { }
+    .option-tier {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 6px;
+      display: block;
+    }
+    .option-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--deep);
+      margin: 0 0 8px;
+      line-height: 1.2;
+    }
+    .option-cost {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--brass);
+    }
+    .option-right p {
+      font-size: 14px !important;
+      line-height: 1.75 !important;
+      margin-bottom: 10px !important;
+      color: var(--slate);
+    }
+    .option-right p:last-child { margin-bottom: 0 !important; }
+
+    /* Cost comparison table */
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 40px 0;
+      font-size: 14px;
+    }
+    .compare-table th {
+      background: var(--deep);
+      color: var(--white);
+      padding: 14px 20px;
+      text-align: left;
+      font-weight: 500;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+    }
+    .compare-table th:first-child {
+      color: rgba(255,255,255,0.5);
+      font-weight: 300;
+    }
+    .compare-table td {
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border);
+      font-weight: 300;
+      color: var(--slate);
+      vertical-align: top;
+      line-height: 1.6;
+    }
+    .compare-table tr:nth-child(even) td { background: var(--cream); }
+    .compare-table td:first-child {
+      font-weight: 500;
+      color: var(--deep);
+      font-size: 13px;
+    }
+    .compare-table .winner { color: var(--brass); font-weight: 500; }
+
+    /* Add-on cards */
+    .addon-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      margin: 40px 0;
+    }
+    .addon-card {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      padding: 26px 26px;
+    }
+    .addon-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 10px;
+      display: block;
+    }
+    .addon-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--deep);
+      margin: 0 0 10px;
+      line-height: 1.2;
+    }
+    .addon-card p {
+      font-size: 13.5px !important;
+      line-height: 1.75 !important;
+      margin-bottom: 0 !important;
+      color: var(--slate);
+    }
+
+    .post-nav {
+      border-top: 1px solid var(--border);
+      padding: 48px 80px;
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .post-nav-back {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--slate);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .post-nav-back:hover { color: var(--brass); }
+
+    @media(max-width:900px){
+      .post-header { padding: 80px 24px 56px; }
+      .post-body { padding: 48px 24px; }
+      .option-card { grid-template-columns: 1fr; gap: 12px; }
+      .addon-grid { grid-template-columns: 1fr; }
+      .post-nav { padding: 32px 24px; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo"><img src="../../assets/images/remodel-guide-logo.png" alt="remodel.guide"></a>
+  <ul class="nav-links">
+    <li><a href="/">All Guides</a></li>
+    <li><a href="/blog">From the Field</a></li>
+    <li><a href="/concierge">The Concierge</a></li>
+    <li><a href="https://remodelry.guide/remi" target="_blank" class="nav-cta">Talk to Remi — Free</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/" onclick="closeMobile()">The Guides</a>
+    <a href="/blog" onclick="closeMobile()">From the Field</a>
+    <a href="/concierge" onclick="closeMobile()">The Concierge</a>
+    <a href="https://remodelry.guide/remi" target="_blank" class="mobile-cta">Talk to Remi — It's Free</a>
+  </div>
+</nav>
+
+<div class="companion-banner">
+  <p>A free resource from <a href="https://remodelry.guide" target="_blank">Remodelry</a> — Northeast Ohio's remodeling concierge service.</p>
+</div>
+
+<section class="post-header">
+  <div class="post-header-inner fade-up">
+    <span class="post-blog-label">From the Field</span>
+    <span class="post-blog-name">remodel.guide · Cabinets</span>
+    <h1>The Kitchen You Already Have —<br><em>Cabinet refacing, painting, and the middle path.</em></h1>
+    <p class="post-deck">You bought a builder-grade house with oak cabinets and planned to move. Rates went to seven percent and the next house tripled in price. You're staying. Here's what's actually possible between gutting the kitchen and tolerating honey oak for another decade — and what each option actually costs.</p>
+    <div class="post-meta">
+      <span class="post-meta-item"><strong>Painting vs refacing</strong> · <strong>New doors and fronts</strong> · <strong>What to add alongside</strong></span>
+      <span class="post-meta-item">·</span>
+      <span class="post-meta-item">From the Field · remodel.guide</span>
+    </div>
+  </div>
+</section>
+
+<section class="section-white">
+<div class="post-body">
+
+  <p>There are millions of homeowners in this situation right now. Bought a production home between 1990 and 2010. Builder-grade raised-panel oak cabinets throughout. Planned to move up in five years. It's been twelve years. Mortgage rates are at seven percent, the house they'd move into costs twice what it did when they bought their current one, and the oak cabinets they've tolerated since move-in day are still there, still orange, still very much 1998.</p>
+
+  <p>The renovation industry talks to two kinds of homeowners: the ones doing a full gut remodel and the ones who aren't doing anything. The homeowner in the middle — the one who wants a kitchen that doesn't feel dated but can't justify a $60,000 demolition project in a house they might sell in five years — gets almost no useful information.</p>
+
+  <p>That's this post.</p>
+
+  <p>The middle path is real, it works, and it produces results that photograph like a full remodel. Understanding what's on the table — and what each option honestly delivers — is what makes the difference between a project that transforms the kitchen and one that falls short of what it could have been.</p>
+
+  <h2>First — check the boxes.</h2>
+
+  <p>Every option on this list depends on one thing being true: the cabinet boxes are structurally sound. The boxes are the carcasses — the plywood or particleboard frames that are screwed to the wall and hold everything together. In a builder-grade kitchen from the 1990s or 2000s, the boxes are almost always in fine condition. They are the last thing to fail. What fails first is the finish, the doors, the drawer fronts, and the hardware — exactly the things this post is about replacing.</p>
+
+  <p>Before committing to any of these options, open every cabinet and drawer. Look at the inside bottom of base cabinets for water damage or soft spots — especially under the sink. Check that doors and drawers open and close square without binding. Look at the box interiors for signs of previous pest activity. If the boxes are solid, you have options. If there is significant water damage, delamination, or structural failure in the boxes, the conversation changes — but that's the exception in a typical builder house, not the rule.</p>
+
+  <div class="pull-quote">
+    <p>"The boxes in a builder-grade kitchen are almost always the last thing that fails. What looks tired — the orange oak, the brass hinges, the flat drawer fronts — is exactly what can be replaced without touching the structure."</p>
+  </div>
+
+  <h2>The options on the table —<br><em>from least to most investment.</em></h2>
+
+  <div class="option-stack">
+
+    <div class="option-card tier-1">
+      <div class="option-left">
+        <span class="option-tier">Option 1 · Lowest Cost</span>
+        <h3>Professional Cabinet Painting</h3>
+        <span class="option-cost">$1,500 – $5,000</span>
+      </div>
+      <div class="option-right">
+        <p>A professional cabinet painter removes all doors and drawer fronts, takes them off-site or sprays them in place, preps and primes every surface, and applies a cabinet-grade finish — conversion varnish or alkyd enamel — that is harder and more durable than anything you can roll on with a brush from a paint store. The result, done well, is a smooth factory-like finish that completely transforms the kitchen's color and feel.</p>
+        <p>What painting cannot do: change the door profile. If the oak raised-panel door is the problem — and for most people in this situation, it is — painting it white or gray makes it a white raised-panel door. The profile stays. The style doesn't change. For homeowners who love their door style and only want a color update, painting is a strong value. For homeowners who want to get rid of the raised-panel oak profile entirely, painting alone won't get there.</p>
+        <p><strong>The honest durability conversation:</strong> a professionally painted cabinet finish is not as durable as a factory-finished door. High-traffic areas — around the pulls, at the door edges, along the base of lower cabinets — will show wear faster than new doors would. In a house you're planning to stay in for twenty years, this matters. In a house you might sell in five to eight years, a professionally painted kitchen looks excellent and holds up for the duration.</p>
+      </div>
+    </div>
+
+    <div class="option-card tier-2">
+      <div class="option-left">
+        <span class="option-tier">Option 2 · Best Value</span>
+        <h3>Paint Boxes + New Doors &amp; Drawer Fronts</h3>
+        <span class="option-cost">$3,500 – $9,000</span>
+      </div>
+      <div class="option-right">
+        <p>This is the move for most builder-grade oak kitchens. The existing door and drawer fronts come off. New doors and drawer fronts — shaker, slab, beadboard, whatever direction the design is going — are ordered to the existing box opening dimensions. The cabinet boxes get a professional paint job. New doors arrive factory-finished or get painted to match. New hinges go on. The result is a kitchen that looks like it has new cabinets — because the part of the cabinet everyone sees every day is, in fact, new.</p>
+        <p>The door profile change is what gets the oak out of the room. A flat-panel shaker door painted white or a warm sage green reads as a completely different kitchen than a raised-panel oak door in any color. This is the transformation that photographs like a full remodel and costs a fraction of one.</p>
+        <p>Door styles available through semi-custom and RTA (ready-to-assemble) suppliers have expanded dramatically. Thermofoil, MDF, solid wood, and PVC options cover every price point. The factory finish on a good thermofoil or MDF door is more durable than paint on an existing door in high-wear locations. This combination — painted boxes, new doors and fronts — gives most of the visual result of a full remodel without the demo, the lead time, or the cost.</p>
+      </div>
+    </div>
+
+    <div class="option-card tier-3">
+      <div class="option-left">
+        <span class="option-tier">Option 3 · Most Complete</span>
+        <h3>Full Reface — New Veneer, Doors &amp; Fronts</h3>
+        <span class="option-cost">$7,000 – $15,000</span>
+      </div>
+      <div class="option-right">
+        <p>Full cabinet refacing covers every visible surface of the existing boxes with new material — typically wood veneer, rigid thermofoil, or high-pressure laminate — before adding new doors and drawer fronts. The result is that every surface visible when a cabinet is open also looks new. The box interiors, the face frames, the sides visible at the end of a run — all recovered with matching material.</p>
+        <p>Refacing makes the most sense when the box exteriors are visibly worn, when the face frames have damage or staining that paint won't cover, or when a high-end material finish is the goal and matching it with paint on the boxes would be difficult. It is also the option that most closely approximates the appearance of new cabinets from every angle — open or closed.</p>
+        <p>At 30% to 50% less than full cabinet replacement, refacing delivers a nearly complete kitchen transformation while keeping the footprint, the layout, and the existing countertop openings exactly where they are.</p>
+      </div>
+    </div>
+
+    <div class="option-card tier-4">
+      <div class="option-left">
+        <span class="option-tier">For Reference</span>
+        <h3>Full Cabinet Replacement</h3>
+        <span class="option-cost">$15,000 – $45,000+</span>
+      </div>
+      <div class="option-right">
+        <p>Full cabinet replacement — demo, new boxes, new doors, new installation — is the right answer when the layout needs to change, when the boxes are damaged, when the ceiling height changes, or when the project scope justifies the investment. It is not the right answer for every kitchen with dated oak cabinets. For a homeowner who is happy with the kitchen's layout and footprint, full replacement delivers a result that is not dramatically better than Option 2 or 3 at two to five times the cost and three to four times the disruption.</p>
+        <p>This is the option the industry defaults to because it's the highest-margin project. It is not always the right project.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <h2>The cost comparison —<br><em>what you're actually choosing between.</em></h2>
+
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th>Option</th>
+        <th>Typical Cost</th>
+        <th>Timeline</th>
+        <th>Changes Door Style</th>
+        <th>Durability</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Professional painting only</td>
+        <td>$1,500 – $5,000</td>
+        <td>3–5 days</td>
+        <td>No</td>
+        <td>Good — shows wear in high-traffic areas over time</td>
+      </tr>
+      <tr>
+        <td>Paint boxes + new doors &amp; fronts</td>
+        <td class="winner">$3,500 – $9,000</td>
+        <td>1–2 weeks</td>
+        <td class="winner">Yes</td>
+        <td class="winner">Very good — new factory-finished doors at high-wear points</td>
+      </tr>
+      <tr>
+        <td>Full reface</td>
+        <td>$7,000 – $15,000</td>
+        <td>2–3 weeks</td>
+        <td class="winner">Yes</td>
+        <td class="winner">Excellent — new material on all visible surfaces</td>
+      </tr>
+      <tr>
+        <td>Full cabinet replacement</td>
+        <td>$15,000 – $45,000+</td>
+        <td>4–8 weeks</td>
+        <td class="winner">Yes</td>
+        <td class="winner">Excellent</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>What to add alongside —<br><em>the upgrades that complete the transformation.</em></h2>
+
+  <p>A cabinet refresh — whether painting, new doors, or full reface — is the foundation. What goes alongside it determines whether the kitchen reads as a cosmetic touch-up or a genuine transformation. These are the additions that move the result from "updated" to "different kitchen."</p>
+
+  <div class="addon-grid">
+
+    <div class="addon-card">
+      <span class="addon-label">Add This · Daily Impact</span>
+      <h3>Soft-Close Drawer Boxes</h3>
+      <p>If the existing drawers don't have soft-close slides, replacing the drawer boxes while the doors and fronts are coming off anyway is the highest daily-use upgrade in a kitchen refresh. Soft-close undermount drawer slides — Blum Tandembox, Grass, or equivalent — eliminate the sound of slamming drawers completely. It's the one feature that every person who visits the kitchen will notice and comment on. The cost per drawer box including slides runs $80 to $150 installed. In a kitchen where the project is already open, it is one of the most effective dollars spent.</p>
+    </div>
+
+    <div class="addon-card">
+      <span class="addon-label">Add This · Biggest Visual Change Per Dollar</span>
+      <h3>Crown Molding and Light Rail</h3>
+      <p>Crown molding at the top of upper cabinets and light rail trim at the bottom is the detail that separates a builder-grade cabinet refresh from a kitchen that looks like it was designed intentionally. Crown molding fills the gap between cabinet top and ceiling, adds visual weight and finish to the upper cabinets, and changes the perceived quality of the entire room from across the kitchen. Light rail at the bottom of upper cabinets creates a shadow line and provides a mounting surface for under-cabinet lighting. Together these two trim details cost $500 to $1,500 installed and do more visual work than almost anything else at that price point.</p>
+    </div>
+
+    <div class="addon-card">
+      <span class="addon-label">Add This · Sequence Matters</span>
+      <h3>New Countertops</h3>
+      <p>The existing countertops can stay in place through the entire cabinet painting or refacing project — countertops don't need to come off for any of the above work. They come out only when it's time to install the new ones, which can happen the same day the new countertop arrives. This means the kitchen stays functional through the cabinet project and the countertop disruption is a single day. New countertops alongside painted or refaced cabinets is what the room photographs as a full kitchen remodel — because at that point, every surface the eye lands on is new.</p>
+    </div>
+
+    <div class="addon-card">
+      <span class="addon-label">Add This · Completes the Room</span>
+      <h3>Backsplash and Flooring</h3>
+      <p>New backsplash tile goes in after countertops are installed. New flooring — LVP, hardwood, tile — ideally goes in before the cabinet project begins so the transition to existing flooring in adjacent rooms is handled cleanly. The sequence for a complete kitchen refresh: flooring first, then cabinet work and crown, then countertops, then backsplash. Each trade works in a space that's already been prepared by the previous one. The result is a kitchen where nothing reads as original builder-grade — because nothing visible is.</p>
+    </div>
+
+    <div class="addon-card">
+      <span class="addon-label">Add This · The Detail That Dates a Kitchen</span>
+      <h3>Hardware</h3>
+      <p>Brass cup pulls and knobs are the most visible signal that a kitchen is from the 1990s — more than the oak itself in some kitchens. New hardware is the least expensive and fastest update in a cabinet refresh: matte black bar pulls, brushed nickel knobs, unlacquered brass for a warmer look. The cost is $4 to $25 per piece depending on finish and style. On a kitchen with 30 cabinet doors and 15 drawer fronts, a complete hardware replacement runs $200 to $600 in materials and an afternoon in labor. It is the last thing to go in and the first thing people notice.</p>
+    </div>
+
+    <div class="addon-card">
+      <span class="addon-label">Add This · The Practical Upgrade</span>
+      <h3>Under-Cabinet Lighting</h3>
+      <p>LED under-cabinet lighting — hardwired or plug-in strip lights — is installed after the light rail trim goes up and before the backsplash tile goes in. It changes how the kitchen functions at night, illuminates the countertop work surface, and adds warmth that overhead lighting alone can't provide. Hardwired under-cabinet lighting costs $300 to $800 installed depending on the number of runs and whether the switches tie into existing circuits. Plug-in LED strips can be added for under $100 in materials. Either way, it's one of the few lighting upgrades that makes the kitchen genuinely more functional rather than just more attractive.</p>
+    </div>
+
+  </div>
+
+  <img src="../../assets/images/cabinet-refacing-before-after.jpg" alt="Cabinet refresh with new shaker doors, painted boxes, and crown molding" class="guide-image" onerror="this.style.display='none'">
+  <p class="guide-image-caption">New shaker doors, painted boxes, crown molding, and new hardware. The cabinet boxes are original. Everything visible is new.</p>
+
+  <h2>The painting quality conversation —<br><em>what separates a good paint job from a bad one.</em></h2>
+
+  <p>Cabinet painting has a bad reputation in some circles because a lot of cabinet painting has been done badly. Brush marks in the finish. Paint that peels at the edges within a year. Doors that stick closed because the paint wasn't fully cured before rehang. These are not inherent failures of the process — they are failures of preparation, product selection, and technique.</p>
+
+  <p>A professional cabinet paint job that holds up is built on three things: thorough degreasing and sanding before any primer touches the surface, the right primer and topcoat products (conversion varnish or alkyd enamel, not latex wall paint), and proper cure time before the doors are rehung and hardware is installed. Shortcuts on any of these three steps produce results that look fine for six months and start failing at the twelve-month mark.</p>
+
+  <div class="field-note">
+    <span class="field-note-label">Field Note — What to ask a cabinet painter before hiring</span>
+    <strong>Ask these three questions before any cabinet painter gets the job:</strong> What product are you using for the topcoat — and is it a conversion varnish or alkyd enamel? How do you handle degreasing and surface prep on MDF and wood doors? And how long do you wait before rehanging doors after the final coat? A painter who can answer all three specifically — not vaguely — knows what they're doing. A painter who says "we use a really good paint" and moves on is telling you something important about their process.
+  </div>
+
+  <h2>The sequence that makes it work —<br><em>order of operations matters.</em></h2>
+
+  <p>A kitchen refresh done in the wrong order creates problems that are expensive to undo. The right sequence:</p>
+
+  <ul>
+    <li><strong>Flooring first</strong> — if new flooring is part of the project, it goes in before any cabinet work begins. Running new LVP or hardwood under the toe kicks of existing cabinets is the clean way to do it. Flooring installed after cabinet painting risks damage to the new finish and creates a cut line at the base of cabinets that shows.</li>
+    <li><strong>Cabinet work second</strong> — painting, new doors, refacing, crown molding, hardware, under-cabinet lighting. The cabinets are the project that most disrupts the kitchen — doors off, painting happening, trim being nailed. Get this done and let the kitchen settle before countertops are templated.</li>
+    <li><strong>Countertop template after cabinets are complete</strong> — the fabricator templates after the cabinet work is finished and the cabinets are in their final position. Existing countertops stay in place through the entire cabinet project. They come out the day the new ones arrive.</li>
+    <li><strong>Backsplash last</strong> — tile goes in after the countertop is installed. The counter provides the reference surface for the bottom course of tile. Installing backsplash before countertops creates a seam and a caulk joint that may not line up correctly.</li>
+  </ul>
+
+  <div class="field-note">
+    <span class="field-note-label">The Bottom Line</span>
+    <strong>The kitchen refresh is not a compromise. Done right — new doors or a professional reface, painted boxes, soft-close drawers, crown molding, new countertops and backsplash — it produces a result that is genuinely indistinguishable from a full gut remodel to anyone who didn't see the before.</strong><br><br>
+    The homeowner who is staying in their builder-grade house longer than they planned has a real option here. The budget is a fraction of a full renovation. The timeline is weeks, not months. The kitchen is functional through most of the process. And the result — when the sequence is right and the trades are good — is a kitchen that no longer reads as 1998.<br><br>
+    <strong>The oak doesn't have to stay. The kitchen doesn't have to be gutted. There's a middle path, and it works.</strong>
+  </div>
+
+</div>
+</section>
+
+<div class="post-nav">
+  <a href="/blog" class="post-nav-back">← Back to From the Field</a>
+  <a href="https://remodelry.guide/remi" target="_blank" class="btn-primary" style="font-size:13px;padding:12px 24px;">Talk to Remi — It's Free</a>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="../../assets/images/remodel-guide-logo.png" alt="remodel.guide">
+      <p class="footer-tagline">The Homeowner Protection Guide<br>for Residential Remodeling.<br><br>A free resource from <a href="https://remodelry.guide" target="_blank">Remodelry</a> —<br>Northeast Ohio's remodeling concierge service.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <span class="footer-col-title">The Guides</span>
+        <ul>
+          <li><a href="/kitchen">Kitchen Remodel</a></li>
+          <li><a href="/bathroom">Bathroom Renovation</a></li>
+          <li><a href="/basement">Basement Finishing</a></li>
+          <li><a href="/addition">Home Addition</a></li>
+          <li><a href="/flooring">Flooring</a></li>
+          <li><a href="/windows">Window Replacement</a></li>
+          <li><a href="/roofing">Roofing</a></li>
+          <li><a href="/painting">Painting</a></li>
+          <li><a href="/millwork">Millwork &amp; Built-Ins</a></li>
+          <li><a href="/demo">Living Through a Renovation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <span class="footer-col-title">From the Field</span>
+        <ul>
+          <li><a href="/blog/cabinet-refacing-painting">Cabinet Refacing, Painting &amp; the Middle Path</a></li>
+          <li><a href="/blog/kitchen-ventilation">Kitchen Ventilation — What Your Range Hood Isn't Doing</a></li>
+          <li><a href="/blog/smart-home-reality">Smart Home in 2026 — What's Actually Being Used</a></li>
+          <li><a href="/blog/windows-replacement">Pella &amp; Andersen vs Factory Vinyl</a></li>
+          <li><a href="/blog/countertops">Countertops — The Art and the Investment</a></li>
+          <li><a href="/blog/revwood-vs-coretec">RevWood Premier vs COREtec</a></li>
+        </ul>
+        <span class="footer-col-title" style="margin-top:24px;display:block;">Remodelry</span>
+        <ul>
+          <li><a href="https://remodelry.guide" target="_blank">remodelry.guide</a></li>
+          <li><a href="https://remodelry.guide/remi" target="_blank">Talk to Remi — Free</a></li>
+          <li><a href="https://remodelry.guide/concierge" target="_blank">The Concierge</a></li>
+          <li><a href="https://remodelry.guide/after-clarity" target="_blank">After Clarity</a></li>
+          <li><a href="https://remodelry.guide/pillars" target="_blank">10 Pillars</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 remodel.guide · All rights reserved.</span>
+    <span class="footer-remodelry">A <a href="https://remodelry.guide" target="_blank">Remodelry</a> resource · Serving Northeast Ohio</span>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-up').forEach(function(el) { observer.observe(el); });
+  var hamburger = document.getElementById('hamburger');
+  var mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', function() { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
+  function closeMobile() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); }
+</script>
+</body>
+</html>
