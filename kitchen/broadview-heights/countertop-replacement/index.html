@@ -298,6 +298,11 @@ footer { background:var(--charcoal); padding:44px 24px 28px }
 .scroll-top { position:fixed; bottom:24px; right:24px; width:42px; height:42px; background:var(--brass); border-radius:50%; display:none; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 4px 16px rgba(0,0,0,0.2); z-index:100; transition:background 0.2s }
 .scroll-top.vis { display:flex }
 .scroll-top svg { width:18px; height:18px; stroke:var(--charcoal); fill:none; stroke-width:2.5 }
+.faq-q { font-weight:600; font-size:0.97rem; color:var(--charcoal); cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:16px; user-select:none; }
+.faq-chevron { width:18px; height:18px; flex-shrink:0; stroke:var(--slate); fill:none; stroke-width:2; transition:transform 0.2s; }
+.faq-item.open .faq-chevron { transform:rotate(180deg) }
+.faq-a { display:none; font-size:0.9rem; color:var(--slate); line-height:1.78; margin-top:12px; font-weight:300; }
+.faq-item.open .faq-a { display:block }
 </style>
 </head>
 <body>
@@ -662,3 +667,4 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 </script>
 </body>
 </html>
+
