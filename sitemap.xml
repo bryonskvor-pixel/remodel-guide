@@ -107,6 +107,230 @@
   </url>
 
   <!-- ═══════════════════════════════════════════════
+       LOCAL SEO TARGETING — FIVE CITY FUNNELS
+  ════════════════════════════════════════════════ -->
+
+  <!-- 📍 NORTH RIDGEVILLE FUNNEL -->
+  <url>
+    <loc>https://remodel.guide/kitchen/north-ridgeville</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://remodel.guide/kitchen/north-ridgeville/cabinet-refacing</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://remodel.guide/kitchen/north-ridgeville/cost-and-financing</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://remodel.guide/kitchen/north-ridgeville/countertop-replacement</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://remodel.guide/kitchen/north-ridgeville/cabinet-painting</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://remodel.guide/kitchen/north-ridgeville/contractors</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://remodel.guide/kitchen/north-ridgeville/appliances</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 📍 BRUNSWICK FUNNEL -->
+  <url>
+    <loc>https://remodel.guide/kitchen/brunswick</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://remodel.guide/kitchen/brunswick/cabinet-refacing</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://remodel.guide/kitchen/brunswick/cost-and-financing</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://remodel.guide/kitchen/brunswick/countertop-replacement</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://remodel.guide/kitchen/brunswick/cabinet-painting</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://remodel.guide/kitchen/brunswick/contractors</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://remodel.guide/kitchen/brunswick/appliances</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 📍 BROADVIEW HEIGHTS FUNNEL -->
+  <url>
+    <loc>https://remodel.guide/kitchen/broadview-heights</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://remodel.guide/kitchen/broadview-heights/cabinet-refacing</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://remodel.guide/kitchen/broadview-heights/cost-and-financing</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://remodel.guide/kitchen/broadview-heights/countertop-replacement</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://remodel.guide/kitchen/broadview-heights/cabinet-painting</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://remodel.guide/kitchen/broadview-heights/contractors</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://remodel.guide/kitchen/broadview-heights/appliances</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 📍 WESTLAKE FUNNEL -->
+  <url>
+    <loc>https://remodel.guide/kitchen/westlake</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://remodel.guide/kitchen/westlake/cabinet-refacing</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://remodel.guide/kitchen/westlake/cost-and-financing</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://remodel.guide/kitchen/westlake/countertop-replacement</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://remodel.guide/kitchen/westlake/cabinet-painting</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://remodel.guide/kitchen/westlake/contractors</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://remodel.guide/kitchen/westlake/appliances</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 📍 MEDINA FUNNEL -->
+  <url>
+    <loc>https://remodel.guide/kitchen/medina</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://remodel.guide/kitchen/medina/cabinet-refacing</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://remodel.guide/kitchen/medina/cost-and-financing</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://remodel.guide/kitchen/medina/countertop-replacement</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://remodel.guide/kitchen/medina/cabinet-painting</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://remodel.guide/kitchen/medina/contractors</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://remodel.guide/kitchen/medina/appliances</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- ═══════════════════════════════════════════════
        BLOG — FROM THE FIELD
   ════════════════════════════════════════════════ -->
 
@@ -139,12 +363,14 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-<url>
-  <loc>https://remodel.guide/blog/smart-home-reality/</loc>
-  <lastmod>2026-05-11</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.7</priority>
-</url>
+
+  <url>
+    <loc>https://remodel.guide/blog/smart-home-reality/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- NOTE: /siding/ referenced in footer navigation but not yet live.
        Add when the page is published. -->
 
