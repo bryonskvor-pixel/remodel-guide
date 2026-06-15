@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Bryon Skvor — Kitchen Remodeling Specialist · Northeast Ohio | remodel.guide</title>
+<meta name="description" content="Bryon Skvor has 20+ years in residential construction — cabinetry, flooring, design-build. He's PMP certified and works directly with Northeast Ohio homeowners. No showroom. No pressure. He calls you within 24 hours.">
+<link rel="canonical" href="https://remodel.guide/about">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Bryon Skvor",
+  "jobTitle": "Kitchen Remodeling Specialist",
+  "description": "PMP-certified remodeling professional with 20+ years of residential construction experience in cabinetry, flooring, and design-build. Serves Northeast Ohio homeowners through remodel.guide.",
+  "url": "https://remodel.guide/about",
+  "image": "https://remodel.guide/assets/images/bryon-skvor.jpg",
+  "email": "bryon@remodel.guide",
+  "telephone": "+14402521053",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "North Royalton",
+    "addressRegion": "OH",
+    "addressCountry": "US"
+  },
+  "areaServed": [
+    "Strongsville", "Broadview Heights", "Brunswick",
+    "Medina", "North Ridgeville", "Westlake",
+    "Rocky River", "Bay Village"
+  ],
+  "knowsAbout": [
+    "Kitchen Remodeling", "Cabinet Refacing", "Cabinet Installation",
+    "Countertop Replacement", "LVP Flooring", "Hardwood Flooring",
+    "Residential Construction", "Project Management"
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --charcoal:  #1F2623;
+  --charcoal2: #2C3530;
+  --stone:     #F5F0E8;
+  --stone2:    #EDE8DF;
+  --brass:     #B5904A;
+  --brass-lt:  #CCA85E;
+  --slate:     #6B7280;
+  --slate-lt:  #9CA3AF;
+  --white:     #FFFFFF;
+  --border:    #E5E0D8;
+  --success:   #27774A;
+  --r:         4px;
+  --r-lg:      10px;
+  --max:       1100px;
+  --shadow:    0 2px 16px rgba(31,38,35,0.08);
+  --shadow-lg: 0 8px 40px rgba(31,38,35,0.13);
+}
+
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0 }
+html { scroll-behavior:smooth }
+body { font-family:'DM Sans',sans-serif; background:var(--stone); color:var(--charcoal); -webkit-font-smoothing:antialiased; line-height:1.6 }
+img { max-width:100%; display:block }
+a { color:inherit; text-decoration:none }
+
+/* NAV */
+nav {
+  position:sticky; top:0; z-index:200;
+  background:var(--charcoal);
+  height:58px;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 24px;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+}
+.nav-brand {
+  font-family:'Playfair Display',serif;
+  font-size:1.05rem; color:var(--white);
+  display:flex; align-items:center; gap:10px;
+  text-decoration:none;
+}
+.nav-dot { width:7px; height:7px; border-radius:50%; background:var(--brass); flex-shrink:0 }
+.nav-links { display:flex; gap:24px; align-items:center }
+.nav-links a { font-size:0.83rem; color:rgba(255,255,255,0.55); transition:color 0.2s }
+.nav-links a:hover { color:var(--white) }
+.nav-pill {
+  font-size:0.78rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase;
+  background:var(--brass); color:var(--charcoal);
+  padding:8px 18px; border-radius:var(--r);
+  transition:background 0.2s; white-space:nowrap;
+}
+.nav-pill:hover { background:var(--brass-lt) }
+@media(max-width:640px) { .nav-links { display:none } }
+
+/* HERO */
+.hero {
+  background:var(--charcoal);
+  padding:72px 24px 64px;
+  position:relative; overflow:hidden;
+}
+.hero::after {
+  content:''; position:absolute;
+  bottom:0; left:0; right:0; height:3px;
+  background:linear-gradient(90deg,var(--brass) 0%,transparent 60%);
+}
+.hero-inner {
+  max-width:var(--max); margin:0 auto;
+  display:grid; grid-template-columns:1fr 380px;
+  gap:72px; align-items:center;
+}
+.hero-eyebrow {
+  font-size:0.7rem; font-weight:600;
+  letter-spacing:0.15em; text-transform:uppercase;
+  color:var(--brass); margin-bottom:20px;
+  display:flex; align-items:center; gap:12px;
+}
+.hero-eyebrow::after {
+  content:''; flex:1; height:1px;
+  background:rgba(181,144,74,0.2);
+}
+.hero h1 {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.6rem,5vw,4rem);
+  font-weight:900; color:var(--white);
+  line-height:1.05; margin-bottom:6px;
+  letter-spacing:-0.015em;
+}
+.hero-title {
+  font-family:'Playfair Display',serif;
+  font-size:1.15rem; font-weight:700;
+  font-style:italic; color:var(--brass);
+  margin-bottom:28px;
+}
+.hero-intro {
+  font-size:1rem; color:rgba(255,255,255,0.65);
+  line-height:1.8; margin-bottom:36px;
+  max-width:480px; font-weight:300;
+}
+.hero-intro strong { color:rgba(255,255,255,0.9); font-weight:500 }
+.hero-credentials {
+  display:flex; flex-direction:column; gap:10px;
+}
+.credential {
+  display:flex; align-items:center; gap:10px;
+  font-size:0.85rem; color:rgba(255,255,255,0.5);
+}
+.cred-dot {
+  width:5px; height:5px; border-radius:50%;
+  background:var(--brass); flex-shrink:0;
+}
+
+/* PHOTO BLOCK */
+.hero-photo-wrap {
+  position:relative;
+}
+.hero-photo {
+  width:100%; border-radius:var(--r);
+  display:block; filter:grayscale(10%);
+}
+.hero-photo-placeholder {
+  width:100%; aspect-ratio:3/4;
+  background:var(--charcoal2);
+  border-radius:var(--r);
+  border:1px solid rgba(255,255,255,0.08);
+  display:flex; align-items:center; justify-content:center;
+  flex-direction:column; gap:12px;
+}
+.hero-photo-placeholder span {
+  font-size:0.75rem; color:rgba(255,255,255,0.2);
+  letter-spacing:0.08em; text-transform:uppercase;
+}
+
+/* QUOTE STRIP */
+.quote-strip {
+  background:var(--brass);
+  padding:44px 24px;
+}
+.quote-strip-inner {
+  max-width:760px; margin:0 auto; text-align:center;
+}
+.quote-strip blockquote {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.5rem,3vw,2.2rem);
+  font-weight:700; font-style:italic;
+  color:var(--white); line-height:1.3; margin-bottom:12px;
+}
+.quote-strip cite {
+  font-size:0.82rem; font-weight:400;
+  color:rgba(255,255,255,0.7);
+  font-style:normal; letter-spacing:0.06em;
+}
+
+/* SECTIONS */
+.section { padding:72px 24px }
+.section-white { background:var(--white) }
+.section-stone { background:var(--stone) }
+.section-dark { background:var(--charcoal) }
+.sec-inner { max-width:var(--max); margin:0 auto }
+.sec-eyebrow {
+  font-size:0.68rem; font-weight:600;
+  letter-spacing:0.15em; text-transform:uppercase;
+  color:var(--brass); margin-bottom:12px; display:block;
+}
+h2 {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.8rem,3.5vw,2.6rem);
+  font-weight:700; line-height:1.15; margin-bottom:24px;
+}
+h2 em { font-style:italic; color:var(--brass) }
+.h2-light { color:var(--white) }
+.h2-light em { color:var(--brass-lt) }
+.prose {
+  font-size:0.97rem; font-weight:300;
+  color:var(--slate); line-height:1.9;
+  max-width:680px;
+}
+.prose p { margin-bottom:20px }
+.prose p:last-child { margin-bottom:0 }
+.prose strong { font-weight:500; color:var(--charcoal) }
+
+/* TWO-COL */
+.two-col {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:64px; align-items:start;
+  margin-top:48px;
+}
+
+/* TIMELINE */
+.timeline { display:flex; flex-direction:column; gap:0; margin-top:40px }
+.tl-item {
+  display:grid; grid-template-columns:110px 1fr;
+  gap:28px; padding:28px 0;
+  border-bottom:1px solid var(--border); align-items:start;
+}
+.tl-item:last-child { border-bottom:none }
+.tl-period {
+  font-family:'Playfair Display',serif;
+  font-size:1rem; font-weight:700;
+  color:var(--brass); line-height:1.3; padding-top:3px;
+}
+.tl-content h4 {
+  font-size:0.9rem; font-weight:600;
+  color:var(--charcoal); margin-bottom:6px;
+}
+.tl-content p {
+  font-size:0.86rem; font-weight:300;
+  color:var(--slate); line-height:1.75; margin-bottom:0;
+}
+
+/* WHAT TO EXPECT */
+.expect-grid {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:2px; margin-top:40px;
+}
+.expect-card {
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.07);
+  padding:28px 24px;
+}
+.expect-card .num {
+  font-family:'Playfair Display',serif;
+  font-size:2.2rem; font-weight:900;
+  color:var(--brass); line-height:1; margin-bottom:10px;
+}
+.expect-card h4 {
+  font-size:0.88rem; font-weight:600;
+  color:var(--white); margin-bottom:8px;
+}
+.expect-card p {
+  font-size:0.82rem; font-weight:300;
+  color:rgba(255,255,255,0.5); line-height:1.7;
+}
+
+/* TRUST BAR */
+.trust-bar {
+  background:var(--stone2);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  padding:32px 24px;
+}
+.trust-bar-inner {
+  max-width:var(--max); margin:0 auto;
+  display:flex; align-items:center;
+  justify-content:center; gap:48px; flex-wrap:wrap;
+}
+.trust-item {
+  display:flex; align-items:center; gap:10px;
+  font-size:0.83rem; font-weight:500; color:var(--charcoal);
+}
+.trust-item svg { width:16px; height:16px; color:var(--brass) }
+
+/* CTA SECTION */
+.cta-wrap {
+  background:var(--charcoal2);
+  border-radius:var(--r-lg);
+  padding:48px; margin-top:56px;
+  text-align:center;
+}
+.cta-wrap h3 {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.5rem,3vw,2rem);
+  font-weight:700; color:var(--white);
+  margin-bottom:12px;
+}
+.cta-wrap p {
+  font-size:0.93rem; font-weight:300;
+  color:rgba(255,255,255,0.6);
+  max-width:480px; margin:0 auto 28px; line-height:1.75;
+}
+.btn-primary {
+  display:inline-block;
+  background:var(--brass); color:var(--charcoal);
+  padding:14px 32px; border-radius:var(--r);
+  font-weight:600; font-size:0.95rem;
+  transition:background 0.2s,transform 0.15s;
+}
+.btn-primary:hover { background:var(--brass-lt); transform:translateY(-1px) }
+.cta-note {
+  font-size:0.75rem; color:rgba(255,255,255,0.3);
+  margin-top:12px; font-style:italic;
+}
+
+/* FOOTER */
+footer {
+  background:var(--charcoal);
+  padding:40px 24px 24px;
+}
+.footer-inner {
+  max-width:var(--max); margin:0 auto;
+  display:grid; grid-template-columns:1fr 1fr 1fr;
+  gap:48px; padding-bottom:32px;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+}
+.footer-brand {
+  font-family:'Playfair Display',serif;
+  font-size:1.1rem; color:var(--white);
+  display:flex; align-items:center; gap:10px;
+  margin-bottom:10px;
+}
+.footer-tagline {
+  font-size:0.8rem; color:rgba(255,255,255,0.35);
+  font-weight:300; line-height:1.6; max-width:260px;
+}
+.footer-col h4 {
+  font-size:0.72rem; font-weight:600;
+  letter-spacing:0.1em; text-transform:uppercase;
+  color:rgba(255,255,255,0.3); margin-bottom:14px;
+}
+.footer-col ul { list-style:none }
+.footer-col li { margin-bottom:8px }
+.footer-col a {
+  font-size:0.83rem; font-weight:300;
+  color:rgba(255,255,255,0.5); transition:color 0.2s;
+}
+.footer-col a:hover { color:var(--white) }
+.footer-bottom {
+  max-width:var(--max); margin:20px auto 0;
+  display:flex; justify-content:space-between; align-items:center;
+  font-size:0.75rem; color:rgba(255,255,255,0.25);
+}
+
+/* RESPONSIVE */
+@media(max-width:860px) {
+  .hero-inner { grid-template-columns:1fr }
+  .hero-photo-wrap { display:none }
+  .two-col { grid-template-columns:1fr; gap:40px }
+  .expect-grid { grid-template-columns:1fr }
+  .footer-inner { grid-template-columns:1fr 1fr; gap:32px }
+}
+@media(max-width:600px) {
+  .tl-item { grid-template-columns:1fr; gap:6px }
+  .footer-inner { grid-template-columns:1fr }
+  .footer-bottom { flex-direction:column; gap:8px; text-align:center }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-brand">
+    <div class="nav-dot"></div>
+    remodel.guide
+  </a>
+  <div class="nav-links">
+    <a href="/kitchen">All Cities</a>
+    <a href="/kitchen/strongsville">Strongsville</a>
+    <a href="/kitchen/broadview-heights">Broadview Heights</a>
+  </div>
+  <a href="/kitchen/strongsville#bottom-form" class="nav-pill">Free Consultation</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">Kitchen Remodeling Specialist · Northeast Ohio</div>
+      <h1>Bryon Skvor</h1>
+      <p class="hero-title">20 years in construction. I come to you.</p>
+      <p class="hero-intro">
+        I've spent two decades on the construction side of the industry — cabinets, flooring, design-build, showrooms. Now I work directly with homeowners in <strong>Strongsville, Broadview Heights, Brunswick, Medina, North Ridgeville, and Westlake</strong> to help them get their kitchen done right. Free in-home visit. I call you within 24 hours. No showroom required.
+      </p>
+      <div class="hero-credentials">
+        <div class="credential">
+          <div class="cred-dot"></div>
+          <span>20+ Years Residential Construction</span>
+        </div>
+        <div class="credential">
+          <div class="cred-dot"></div>
+          <span>PMP Certified</span>
+        </div>
+        <div class="credential">
+          <div class="cred-dot"></div>
+          <span>Cabinetry · Flooring · Design-Build</span>
+        </div>
+        <div class="credential">
+          <div class="cred-dot"></div>
+          <span>North Royalton, Ohio</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-photo-wrap">
+      <img src="/assets/images/bryon-skvor.jpg"
+           alt="Bryon Skvor — Kitchen Remodeling Specialist, Northeast Ohio"
+           class="hero-photo"
+           onerror="this.parentElement.innerHTML='<div class=\'hero-photo-placeholder\'><div class=\'nav-dot\' style=\'width:40px;height:40px;\'></div><span>Photo coming soon</span></div>'" />
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<div class="quote-strip">
+  <div class="quote-strip-inner">
+    <blockquote>"I don't do showrooms. I come to your kitchen."</blockquote>
+    <cite>— Bryon Skvor · (440) 252-1053</cite>
+  </div>
+</div>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+      Free in-home visit
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+      Every level of remodel
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+      Bryon calls within 24 hrs
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+      No showroom pressure
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+      PMP certified
+    </div>
+  </div>
+</div>
+
+<!-- THE STORY -->
+<section class="section section-white">
+  <div class="sec-inner">
+    <div class="two-col">
+      <div>
+        <span class="sec-eyebrow">Why I do this</span>
+        <h2>Twenty years inside the industry.<br><em>Always watching homeowners get lost.</em></h2>
+      </div>
+      <div class="prose">
+        <p>I've spent more than twenty years in residential construction — cabinetry shops, flooring showrooms, design-build teams. I've seen the inside of more kitchens than I can count, and I've watched homeowners get overwhelmed, over-sold, and under-prepared at every step.</p>
+        <p>The problem is never the contractor. The problem is that homeowners walk into this process without a professional standing. The showroom wants to move product. The contractor needs to close jobs. Nobody in that chain is there just to help the homeowner understand what they actually need.</p>
+        <p><strong>That's what I'm here for.</strong> I come to your home, I look at your actual kitchen, and I tell you honestly what's possible at your budget — from a cabinet tune-up to a full renovation. No upsell agenda. No showroom appointment. Just a real conversation with someone who knows what's behind your walls.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BACKGROUND -->
+<section class="section section-stone">
+  <div class="sec-inner">
+    <span class="sec-eyebrow">Background</span>
+    <h2>Where the knowledge<br><em>actually comes from.</em></h2>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-period">20+ Yrs</div>
+        <div class="tl-content">
+          <h4>Residential &amp; Light Commercial Construction</h4>
+          <p>Cabinetry, flooring, design-build, and showrooms across Northeast Ohio. Not a sales background — a field background. I've been in the homes, seen what goes wrong during installation, and learned how to catch those problems before any money is spent.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-period">PMP</div>
+        <div class="tl-content">
+          <h4>Project Management Professional Certification</h4>
+          <p>The PMP is the gold standard in project management — demonstrated experience running real projects, verified by examination. For a kitchen remodel, it means thinking in scope, sequence, risk, and timeline instead of just materials and labor. It's why I can walk into a kitchen and see a project instead of just a room.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-period">Cabinets</div>
+        <div class="tl-content">
+          <h4>Deep Expertise in the Most Complex Kitchen Decision</h4>
+          <p>Cabinets drive every other decision in a kitchen — countertop dimensions, appliance specs, lighting placement, the whole sequence. I know cabinet construction, finish options, lead times, and installation at a professional level. That means real guidance, not showroom sales language.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-period">Flooring</div>
+        <div class="tl-content">
+          <h4>LVP, Hardwood, Tile, Carpet — No Sales Agenda</h4>
+          <p>I've sold every flooring material, installed it, and seen it fail when the wrong product went in the wrong place. That experience is what makes the guidance honest. If LVP makes sense for your kitchen, I'll tell you. If it doesn't, I'll tell you that too.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-period">NEO</div>
+        <div class="tl-content">
+          <h4>I Know These Homes Specifically</h4>
+          <p>Most of the homes I work in were built between 1985 and 2010 by national builders — and I know what that means: builder-grade cabinets, laminate countertops, basic layouts that are completely functional but never felt like yours. These are exactly the kitchens that respond best to a smart, focused remodel.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT HAPPENS -->
+<section class="section section-dark">
+  <div class="sec-inner">
+    <span class="sec-eyebrow" style="color:var(--brass-lt)">What to expect</span>
+    <h2 class="h2-light">How a free consultation<br><em>actually works.</em></h2>
+
+    <div class="expect-grid">
+      <div class="expect-card">
+        <div class="num">01</div>
+        <h4>You fill out the form</h4>
+        <p>Takes two minutes. First name, phone, and a rough sense of what you're thinking. That's enough to start.</p>
+      </div>
+      <div class="expect-card">
+        <div class="num">02</div>
+        <h4>Bryon calls within 24 hrs</h4>
+        <p>Not a call center. Not a third-party scheduler. Me, personally. We talk about your kitchen and find a time that works.</p>
+      </div>
+      <div class="expect-card">
+        <div class="num">03</div>
+        <h4>I come to your home</h4>
+        <p>I look at the actual space — layout, existing cabinets, walls, light — and give you an honest assessment of what's possible and what it costs. No showroom trip required.</p>
+      </div>
+    </div>
+
+    <div class="cta-wrap">
+      <h3>Ready to talk about your kitchen?</h3>
+      <p>Find your city below and fill out the form. I'll call you within 24 hours.</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+        <a href="/kitchen/strongsville#bottom-form" class="btn-primary">Strongsville</a>
+        <a href="/kitchen/broadview-heights#bottom-form" class="btn-primary">Broadview Heights</a>
+        <a href="/kitchen/brunswick#bottom-form" class="btn-primary">Brunswick</a>
+        <a href="/kitchen/medina#bottom-form" class="btn-primary">Medina</a>
+        <a href="/kitchen/north-ridgeville#bottom-form" class="btn-primary">North Ridgeville</a>
+        <a href="/kitchen/westlake#bottom-form" class="btn-primary">Westlake</a>
+      </div>
+      <p class="cta-note">Free · No obligation · You hear from me, not a contractor call center</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">
+        <div class="nav-dot"></div>
+        remodel.guide
+      </div>
+      <p class="footer-tagline">Northeast Ohio's kitchen remodeling resource. Free in-home consultations across Cuyahoga, Medina, and Lorain counties.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Cities</h4>
+      <ul>
+        <li><a href="/kitchen/strongsville">Strongsville</a></li>
+        <li><a href="/kitchen/broadview-heights">Broadview Heights</a></li>
+        <li><a href="/kitchen/brunswick">Brunswick</a></li>
+        <li><a href="/kitchen/medina">Medina</a></li>
+        <li><a href="/kitchen/north-ridgeville">North Ridgeville</a></li>
+        <li><a href="/kitchen/westlake">Westlake</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>remodel.guide</h4>
+      <ul>
+        <li><a href="/kitchen">Kitchen Remodeling</a></li>
+        <li><a href="/about">About Bryon</a></li>
+        <li><a href="tel:+14402521053">(440) 252-1053</a></li>
+        <li><a href="mailto:bryon@remodel.guide">bryon@remodel.guide</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 remodel.guide · North Royalton, Ohio · (440) 252-1053</p>
+    <p>Powered by <a href="https://remodelry.guide" style="color:rgba(255,255,255,0.3)">Remodelry</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

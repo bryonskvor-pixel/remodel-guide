@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -304,10 +304,10 @@ footer { background:var(--charcoal); padding:44px 24px 28px }
 
 <!-- NAV -->
 <nav>
-  <div class="nav-brand" onclick="window.location.href='/kitchen/broadview-heights'">
+  <a href="/kitchen/broadview-heights" class="nav-brand">
     <div class="nav-dot"></div>
     remodel.guide
-  </div>
+  </a>
   <div class="nav-links">
     <a href="#the-loop">The Hybrid Play</a>
     <a href="#process">The Process</a>
@@ -600,7 +600,7 @@ async function submitHeroForm() {
         neighborhood: getVal('hf-hood'),
         scope:        'Hybrid Doors & Box Painting Makeover',
         timeline:     'ASAP — Service Page Painting Intake',
-        source_city:  'broadview_heights',
+        source_city: 'broadview-heights',
         sms_opt_in:   smsOptIn
       })
     });

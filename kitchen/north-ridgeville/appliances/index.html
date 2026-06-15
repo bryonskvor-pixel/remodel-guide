@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -268,10 +268,10 @@ footer { background:var(--charcoal); padding:44px 24px 28px }
 <body>
 
 <nav>
-  <div class="nav-brand" onclick="window.location.href='/kitchen/north-ridgeville'">
+  <a href="/kitchen/north-ridgeville" class="nav-brand">
     <div class="nav-dot"></div>
     remodel.guide
-  </div>
+  </a>
   <div class="nav-links">
     <a href="#integration-risks">The Setup Risks</a>
     <a href="#clearance-rules">Clearance Rules</a>
@@ -522,9 +522,9 @@ footer { background:var(--charcoal); padding:44px 24px 28px }
       <h4>Core City Hubs</h4>
       <ul>
         <li><a href="/kitchen/north-ridgeville">North Ridgeville Hub</a></li>
-        <li><a href="#">Brunswick Hub</a></li>
-        <li><a href="#">Westlake Hub</a></li>
-        <li><a href="#">Broadview Heights Hub</a></li>
+        <li><a href="/kitchen/brunswick">Brunswick Hub</a></li>
+        <li><a href="/kitchen/westlake">Westlake Hub</a></li>
+        <li><a href="/kitchen/broadview-heights">Broadview Heights Hub</a></li>
       </ul>
     </div>
   </div>
@@ -604,7 +604,7 @@ async function submitBottomForm() {
         neighborhood: getVal('bf-hood'),
         scope:        'Appliance Sizing Evaluation',
         timeline:     'ASAP — Appliance Page Bottom Intake',
-        source_city:  'north_ridgeville',
+        source_city: 'north-ridgeville',
         sms_opt_in:   smsOptIn
       })
     });

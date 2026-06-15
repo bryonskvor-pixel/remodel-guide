@@ -6,6 +6,61 @@
       "source": "/kitchen/north-ridgeville/redooring",
       "destination": "/kitchen/north-ridgeville/cabinet-painting",
       "permanent": true
+    },
+    {
+      "source": "/kitchen/broadview-heights/countertop-replacements",
+      "destination": "/kitchen/broadview-heights/countertop-replacement",
+      "permanent": true
+    },
+    {
+      "source": "/kitchen/north-ridgeville/cost-and-financing",
+      "destination": "/kitchen/north-ridgeville/remodel-cost",
+      "permanent": true
+    },
+    {
+      "source": "/kitchen/brunswick/cost-and-financing",
+      "destination": "/kitchen/brunswick/remodel-cost",
+      "permanent": true
+    },
+    {
+      "source": "/kitchen/broadview-heights/cost-and-financing",
+      "destination": "/kitchen/broadview-heights/remodel-cost",
+      "permanent": true
+    },
+    {
+      "source": "/kitchen/westlake/cost-and-financing",
+      "destination": "/kitchen/westlake/remodel-cost",
+      "permanent": true
+    },
+    {
+      "source": "/kitchen/medina/cost-and-financing",
+      "destination": "/kitchen/medina/remodel-cost",
+      "permanent": true
+    },
+    {
+      "source": "/kitchen/north-ridgeville/contractors",
+      "destination": "/kitchen/north-ridgeville/local-contractor",
+      "permanent": true
+    },
+    {
+      "source": "/kitchen/brunswick/contractors",
+      "destination": "/kitchen/brunswick/local-contractor",
+      "permanent": true
+    },
+    {
+      "source": "/kitchen/broadview-heights/contractors",
+      "destination": "/kitchen/broadview-heights/local-contractor",
+      "permanent": true
+    },
+    {
+      "source": "/kitchen/westlake/contractors",
+      "destination": "/kitchen/westlake/local-contractor",
+      "permanent": true
+    },
+    {
+      "source": "/kitchen/medina/contractors",
+      "destination": "/kitchen/medina/local-contractor",
+      "permanent": true
     }
   ]
 }
