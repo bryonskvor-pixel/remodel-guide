@@ -888,8 +888,11 @@
             <span class="step-num" id="num-finish">3</span>
             Cabinet Finish
           </div>
-          <div class="step-title">Choose a color or wood</div>
-          <div class="swatch-grid" id="grid-cabinetFinish"></div>
+          <div class="step-title">Paint color or wood stain</div>
+          <div style="font-size:10px;font-weight:600;color:#9C9480;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Painted Finishes</div>
+          <div class="swatch-grid" id="grid-cabinetFinish-paint"></div>
+          <div style="font-size:10px;font-weight:600;color:#9C9480;letter-spacing:0.1em;text-transform:uppercase;margin:14px 0 6px;">Wood Stains · actual door photos</div>
+          <div class="option-grid" id="grid-cabinetFinish-stain"></div>
         </div>
 
         <!-- STEP 4: Countertop -->
@@ -1082,7 +1085,8 @@ const state = {
 
 function init() {
   renderGrid('cabinetStyle',  'grid-cabinetStyle',  false, '3/4')
-  renderGrid('cabinetFinish', 'grid-cabinetFinish', true)
+  renderGridFiltered('cabinetFinish', 'grid-cabinetFinish-paint', true,  item => !item.imageUrl)
+  renderGridFiltered('cabinetFinish', 'grid-cabinetFinish-stain', false, item => !!item.imageUrl, '1/1')
   renderGrid('countertop',    'grid-countertop',    false, '4/3')
   renderGrid('flooring',      'grid-flooring',      false)
   renderGrid('wallColor',     'grid-wallColor',     true)
@@ -1120,7 +1124,7 @@ function renderGrid(key, containerId, isSwatch, imgAspect) {
     btn.dataset.id = item.id
     btn.dataset.key = key
 
-    if (isSwatch) {
+    if (isSwatch && !item.imageUrl) {
       btn.className = 'swatch-btn'
       btn.title = item.label
       btn.innerHTML = `
@@ -1149,14 +1153,20 @@ function renderGrid(key, containerId, isSwatch, imgAspect) {
   })
 }
 
+function renderGridFiltered(key, containerId, isSwatch, filterFn, imgAspect) {
+  const origItems = PRODUCTS[key]
+  PRODUCTS[key] = origItems.filter(filterFn)
+  renderGrid(key, containerId, isSwatch, imgAspect)
+  PRODUCTS[key] = origItems
+}
+
 // ── SELECTION HANDLING ────────────────────────────────────────────────────────
 
 function handleSelection(key, id, containerId) {
   state.selections[key] = id
 
-  // Update button states
-  const container = document.getElementById(containerId)
-  container.querySelectorAll('button').forEach(btn => {
+  // Clear all grids for this key (supports split grids like cabinetFinish)
+  document.querySelectorAll(`[data-key="${key}"]`).forEach(btn => {
     btn.classList.toggle('selected', btn.dataset.id === id)
   })
 

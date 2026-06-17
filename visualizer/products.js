@@ -6,9 +6,10 @@
 //          Mohawk RevWood/SolidTech flooring, Sherwin-Williams ColorSnap,
 //          MSI Surfaces backsplash tile.
 
-const _KTU = 'https://www.kitchentuneup.com/siteassets/national-site/door-catalog'
+const _KTU   = 'https://www.kitchentuneup.com/siteassets/national-site/door-catalog'
 const _GRANEX = 'https://granexindustries.com/wp-content/uploads/2023/11'
-const _MSI = 'https://cdn.msisurfaces.com/images'
+const _MSI   = 'https://cdn.msisurfaces.com/images'
+const _CLIQ  = 'https://www.cliqstudios.com/media/woodtype/image/c/r'
 
 const PRODUCTS = {
 
@@ -84,32 +85,38 @@ const PRODUCTS = {
     { id: 'gibraltar',             label: 'Gibraltar',          swatch: '#2E2C2A', prompt: 'painted Gibraltar — deepest charcoal-black matte, dramatic contemporary finish' },
     // PAINTED — WARM TONES
     { id: 'vintage-sepia',         label: 'Vintage Sepia Oak',  swatch: '#B8896A', prompt: 'Vintage Sepia Oak finish — warm rustic brown with aged sepia oak undertone' },
-    // STAINED / WOOD SPECIES
-    { id: 'maple-natural',         label: 'Maple Natural',      swatch: '#E8C888', prompt: 'natural maple stain — light warm honey-blonde maple wood grain finish' },
-    { id: 'oak-natural',           label: 'Oak Natural',        swatch: '#D4AC70', prompt: 'natural oak stain — warm light golden-brown oak grain finish' },
-    { id: 'oak-ginger',            label: 'Oak Ginger',         swatch: '#C8824A', prompt: 'Oak Ginger stain — warm orange-brown ginger-toned oak wood finish' },
-    { id: 'oak-safari',            label: 'Oak Safari',         swatch: '#A8783C', prompt: 'Oak Safari stain — medium golden brown oak with safari undertone' },
-    { id: 'oak-warm-gray',         label: 'Oak Warm Gray',      swatch: '#B4ADA0', prompt: 'Oak Warm Gray stain — gray-washed oak with warm undertone, light and airy' },
-    { id: 'maple-caramel',         label: 'Maple Caramel',      swatch: '#C8924A', prompt: 'Maple Caramel stain — warm amber-caramel maple wood finish' },
-    { id: 'maple-iron',            label: 'Maple Iron',         swatch: '#6A6258', prompt: 'Maple Iron stain — cool gray-iron stain over maple, contemporary' },
-    { id: 'maple-shale',           label: 'Maple Shale',        swatch: '#9C9490', prompt: 'Maple Shale stain — warm gray shale stain over maple grain' },
-    { id: 'maple-warm-gray',       label: 'Maple Warm Gray',    swatch: '#B0A898', prompt: 'Maple Warm Gray stain — warm gray-washed maple, soft and modern' },
-    { id: 'cherry-natural',        label: 'Cherry Natural',     swatch: '#A05C40', prompt: 'natural cherry stain — warm reddish-brown cherry wood grain finish' },
-    { id: 'cherry-cinnamon',       label: 'Cherry Cinnamon',    swatch: '#8C4A30', prompt: 'Cherry Cinnamon stain — deep warm cinnamon-red cherry wood finish' },
-    { id: 'cherry-safari',         label: 'Cherry Safari',      swatch: '#7A4428', prompt: 'Cherry Safari stain — dark warm brown-red cherry with safari undertone' },
-    { id: 'hickory-aged',          label: 'Aged Hickory',       swatch: '#9C7A50', prompt: 'Aged Hickory stain — warm medium brown hickory with aged character and natural knots' },
-    { id: 'walnut-caramel',        label: 'Walnut Caramel',     swatch: '#8C6840', prompt: 'Walnut Caramel stain — warm caramel-brown walnut with visible straight grain' },
-    { id: 'walnut-dark',           label: 'Dark Walnut',        swatch: '#5C3D2E', prompt: 'dark walnut stain — rich deep chocolate-brown walnut wood finish' },
-    { id: 'walnut-shale',          label: 'Walnut Shale',       swatch: '#7A7268', prompt: 'Walnut Shale stain — gray-shale wash over walnut grain, sophisticated' },
-    { id: 'walnut-warm-gray',      label: 'Walnut Warm Gray',   swatch: '#9A928A', prompt: 'Walnut Warm Gray stain — warm gray wash over walnut, contemporary' },
-    { id: 'alder-downy',           label: 'Alder Downy',        swatch: '#D4C0A0', prompt: 'Alder Downy stain — very light natural alder, soft creamy wood finish' },
-    { id: 'alder-knotty-natural',  label: 'Knotty Alder Clear', swatch: '#C4A47A', prompt: 'clear knotty alder finish — natural warm alder with character knots and honey tone' },
-    { id: 'alder-brown-olive',     label: 'Alder Brown Olive',  swatch: '#7A7254', prompt: 'Knotty Alder Brown Olive stain — warm olive-brown stain over knotty alder' },
-    { id: 'willow-natural',        label: 'Willow Natural',     swatch: '#D0B888', prompt: 'natural willow maple stain — light warm blonde willow maple wood finish' },
-    { id: 'elm-dark',              label: 'Swiss Elm Dark',     swatch: '#6E5840', prompt: 'Swiss Elm Dark stain — warm deep brown over elm grain, European character' },
-    { id: 'rustic-light-oak',      label: 'Rustic Light Oak',   swatch: '#C0A070', prompt: 'Rustic Light Oak finish — warm light oak with rustic grain character, natural and earthy' },
-    { id: 'weathered-grey-oak',    label: 'Weathered Grey Oak', swatch: '#A0978C', prompt: 'Weathered Grey Oak finish — gray-weathered oak with natural wood character' },
-    { id: 'driftwood',             label: 'Driftwood',          swatch: '#ACA090', prompt: 'Driftwood finish — sun-bleached warm gray with subtle wood grain, coastal' },
+    // STAINED / WOOD — actual door sample photos (CliqStudios Craftsman line)
+    // MAPLE STAINS
+    { id: 'maple-natural',    label: 'Maple Natural',    swatch: '#E8C888', imageUrl: `${_CLIQ}/craftsman-maple-natural-wood-stain-250x250.jpg`,  prompt: 'natural maple stain — light warm honey-blonde maple wood grain finish' },
+    { id: 'maple-honey',      label: 'Maple Honey',      swatch: '#D4A855', imageUrl: `${_CLIQ}/craftsman-maple-honey-250x250.jpg`,               prompt: 'Maple Honey stain — warm golden honey stain on maple wood grain' },
+    { id: 'maple-caramel',    label: 'Maple Caramel',    swatch: '#C8924A', imageUrl: `${_CLIQ}/craftsman-maple-caramel-250x250.jpg`,             prompt: 'Maple Caramel stain — warm amber-caramel stain on maple grain' },
+    { id: 'maple-saddle',     label: 'Maple Saddle',     swatch: '#8A6040', imageUrl: `${_CLIQ}/craftsman-maple-saddle-250x250.jpg`,              prompt: 'Maple Saddle stain — warm leather saddle-brown stain on maple grain' },
+    { id: 'maple-chestnut',   label: 'Maple Chestnut',   swatch: '#A0653A', imageUrl: `${_CLIQ}/craftsman-maple-chestnut-250x250.jpg`,           prompt: 'Maple Chestnut stain — rich warm chestnut brown stain on maple grain' },
+    { id: 'maple-nutmeg',     label: 'Maple Nutmeg',     swatch: '#8A5A32', imageUrl: `${_CLIQ}/craftsman-maple-nutmeg-250x250.jpg`,             prompt: 'Maple Nutmeg stain — warm medium spice brown stain on maple grain' },
+    { id: 'maple-mocha',      label: 'Maple Mocha',      swatch: '#6A4430', imageUrl: `${_CLIQ}/craftsman-maple-mocha-250x250.jpg`,              prompt: 'Maple Mocha stain — rich warm mocha-brown stain on maple grain' },
+    { id: 'maple-espresso',   label: 'Maple Espresso',   swatch: '#3A2818', imageUrl: `${_CLIQ}/craftsman-maple-espresso-250x250.jpg`,           prompt: 'Maple Espresso stain — deep dark espresso stain on maple grain' },
+    { id: 'maple-driftwood',  label: 'Maple Driftwood',  swatch: '#A8A090', imageUrl: `${_CLIQ}/craftsman-maple-driftwood-250x250.jpg`,          prompt: 'Maple Driftwood stain — gray-washed weathered driftwood stain on maple grain' },
+    { id: 'maple-pewter',     label: 'Maple Pewter',     swatch: '#8C8880', imageUrl: `${_CLIQ}/craftsman-maple-pewter-250x250.jpg`,             prompt: 'Maple Pewter stain — cool gray pewter stain on maple grain' },
+    { id: 'maple-smoke',      label: 'Maple Smoke',      swatch: '#6A6660', imageUrl: `${_CLIQ}/craftsman-maple-smoke-250x250.jpg`,              prompt: 'Maple Smoke stain — deep gray smoke stain on maple grain' },
+    // OAK STAINS
+    { id: 'oak-natural',      label: 'Oak Natural',      swatch: '#D4AC70', imageUrl: `${_CLIQ}/craftsman-oak-natural-wood-stain-250x250.jpg`,   prompt: 'natural oak stain — warm light golden-brown oak grain finish' },
+    { id: 'oak-honey',        label: 'Oak Honey',        swatch: '#C89840', imageUrl: `${_CLIQ}/craftsman-oak-honey-250x250.jpg`,               prompt: 'Oak Honey stain — warm golden honey stain on oak grain' },
+    { id: 'oak-saddle',       label: 'Oak Saddle',       swatch: '#A8783C', imageUrl: `${_CLIQ}/craftsman-oak-saddle-250x250.jpg`,              prompt: 'Oak Saddle stain — warm medium brown saddle stain on oak grain' },
+    { id: 'oak-chestnut',     label: 'Oak Chestnut',     swatch: '#8C5A30', imageUrl: `${_CLIQ}/craftsman-oak-chestnut-250x250.jpg`,            prompt: 'Oak Chestnut stain — rich warm chestnut stain on oak grain' },
+    { id: 'oak-espresso',     label: 'Oak Espresso',     swatch: '#3A2818', imageUrl: `${_CLIQ}/craftsman-oak-espresso-250x250.jpg`,            prompt: 'Oak Espresso stain — deep dark espresso stain on oak grain' },
+    // CHERRY STAINS
+    { id: 'cherry-natural',   label: 'Cherry Natural',   swatch: '#A05C40', imageUrl: `${_CLIQ}/craftsman-cherry-natural-wood-stain-250x250.jpg`, prompt: 'natural cherry stain — warm reddish-brown cherry wood grain finish' },
+    { id: 'cherry-mocha',     label: 'Cherry Mocha',     swatch: '#7A4830', imageUrl: `${_CLIQ}/craftsman-cherry-mocha-250x250.jpg`,            prompt: 'Cherry Mocha stain — rich warm mocha stain on cherry grain' },
+    { id: 'cherry-chocolate', label: 'Cherry Chocolate', swatch: '#4A2A1A', imageUrl: `${_CLIQ}/craftsman-cherry-chocolate-250x250.jpg`,        prompt: 'Cherry Chocolate stain — deep rich chocolate stain on cherry grain' },
+    { id: 'cherry-espresso',  label: 'Cherry Espresso',  swatch: '#2E1A0E', imageUrl: `${_CLIQ}/craftsman-cherry-espresso-250x250.jpg`,         prompt: 'Cherry Espresso stain — very deep espresso stain on cherry grain' },
+    { id: 'cherry-burgundy',  label: 'Cherry Burgundy',  swatch: '#6A2830', imageUrl: `${_CLIQ}/craftsman-cherry-burgundy-250x250.jpg`,         prompt: 'Cherry Burgundy stain — rich warm burgundy-red stain on cherry grain' },
+    // HICKORY
+    { id: 'hickory-natural',  label: 'Hickory Natural',  swatch: '#C8A060', imageUrl: `${_CLIQ}/craftsman-hickory-natural-wood-stain-250x250.jpg`, prompt: 'natural hickory stain — warm honey-brown hickory with natural knot character' },
+    // KNOTTY ALDER STAINS
+    { id: 'alder-natural',    label: 'Knotty Alder Natural', swatch: '#C4A47A', imageUrl: `${_CLIQ}/craftsman-knotty-alder-natural-wood-stain-250x250.jpg`, prompt: 'natural knotty alder stain — warm honey alder with rustic knot character' },
+    { id: 'alder-honey',      label: 'Knotty Alder Honey',   swatch: '#C09040', imageUrl: `${_CLIQ}/craftsman-knotty-alder-honey-250x250.jpg`,   prompt: 'Knotty Alder Honey stain — warm golden honey stain on knotty alder grain' },
+    { id: 'alder-espresso',   label: 'Knotty Alder Espresso',swatch: '#4A2C18', imageUrl: `${_CLIQ}/craftsman-knotty-alder-espresso-250x250.jpg`, prompt: 'Knotty Alder Espresso stain — deep dark espresso stain on knotty alder' },
+    { id: 'alder-saddle',     label: 'Knotty Alder Saddle',  swatch: '#9C7040', imageUrl: `${_CLIQ}/craftsman-knotty-alder-saddle-250x250.jpg`,  prompt: 'Knotty Alder Saddle stain — warm medium brown saddle stain on knotty alder' },
   ],
 
   // ── COUNTERTOPS ─────────────────────────────────────────────────────────────
