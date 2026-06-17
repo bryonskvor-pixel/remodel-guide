@@ -1360,16 +1360,15 @@ function buildPrompt() {
     ? get('backsplash', s.backsplash) : null
 
   const parts = [
-    `Redesign the kitchen in this photo.`,
-    `Replace the cabinets with ${style.prompt}.`,
-    `The cabinet color is ${finish.prompt}.`,
+    `Redesign this kitchen photo with the following specific changes.`,
+    `Replace all cabinet doors and drawer fronts with ${style.prompt}, finished in ${finish.prompt} — this is the most important change.`,
     `Replace the countertops with ${counter.prompt}.`,
     `Replace the flooring with ${floor.prompt}.`,
     `${wall.prompt}.`,
   ]
-  if (backsplash) parts.push(`Add ${backsplash.prompt} as the kitchen backsplash.`)
+  if (backsplash) parts.push(`Replace the backsplash with ${backsplash.prompt}.`)
   parts.push(
-    `Maintain the exact same kitchen layout, camera angle, perspective, window placement, and room proportions.`,
+    `Keep the exact same room layout, camera angle, perspective, window placement, ceiling, and room proportions unchanged.`,
     `Photorealistic, professional interior design photography, natural light, high resolution.`,
   )
   return parts.join(' ')
@@ -1423,6 +1422,7 @@ async function pollForResult() {
 
     try {
       const res = await fetch(`/api/poll?id=${encodeURIComponent(state.taskId)}`)
+      if (!res.ok) throw new Error(`Poll ${res.status}`)
       const data = await res.json()
 
       if (data.status === 'Ready' && data.result?.sample) {
@@ -1448,10 +1448,9 @@ function showResult(imageUrl) {
   const img = document.getElementById('previewImg')
   const loading = document.getElementById('previewLoading')
 
-  // Load the generated image
+  // Preload then display — no crossOrigin needed (BFL CDN doesn't serve CORS headers)
   const tempImg = new Image()
-  tempImg.crossOrigin = 'anonymous'
-  tempImg.onload = () => {
+  const finish = () => {
     img.src = imageUrl
     loading.classList.remove('visible')
     state.generated = true
@@ -1465,20 +1464,8 @@ function showResult(imageUrl) {
       document.getElementById('leadOverlay').classList.add('visible')
     }
   }
-  tempImg.onerror = () => {
-    img.src = imageUrl
-    img.classList.add('blurred')
-    loading.classList.remove('visible')
-    if (state.leadCaptured) {
-      img.classList.remove('blurred')
-      updateRegenUI()
-    } else {
-      document.getElementById('leadOverlay').classList.add('visible')
-    }
-    state.generated = true
-    document.getElementById('generateBtn').textContent = 'Generate →'
-    document.getElementById('generateBtn').disabled = false
-  }
+  tempImg.onload = finish
+  tempImg.onerror = finish
   tempImg.src = imageUrl
 }
 
