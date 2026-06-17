@@ -1518,6 +1518,7 @@ async function submitLead(e) {
         firstName, lastName, phone, email,
         sms_opt_in: smsOptIn,
         selections: selectionLabels,
+        kitchenPhotoBase64: state.uploadedImageBase64 || null,
       }),
     })
 

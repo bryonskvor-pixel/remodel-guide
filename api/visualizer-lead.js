@@ -51,19 +51,21 @@ async function writeToAirtable(fields) {
   return data.id
 }
 
-async function sendEmail({ to, subject, html, text }) {
+async function sendEmail({ to, subject, html, text, attachments }) {
   const key = process.env.RESEND_API_KEY
   if (!key) {
     console.warn('RESEND_API_KEY missing — skipping email')
     return null
   }
+  const payload = { from: FROM_EMAIL, to, subject, html, text }
+  if (attachments && attachments.length) payload.attachments = attachments
   const res = await fetch(RESEND_API, {
     method: 'POST',
     headers: {
       'Authorization': `Bearer ${key}`,
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ from: FROM_EMAIL, to, subject, html, text }),
+    body: JSON.stringify(payload),
   })
   if (!res.ok) {
     const err = await res.json()
@@ -73,7 +75,7 @@ async function sendEmail({ to, subject, html, text }) {
   return res.json()
 }
 
-function alertEmailHtml({ firstName, lastName, phone, email, smsOptIn, selections, submittedAt }) {
+function alertEmailHtml({ firstName, lastName, phone, email, smsOptIn, selections, submittedAt, hasPhoto }) {
   const name = [firstName, lastName].filter(Boolean).join(' ') || 'Unknown'
   const time = new Date(submittedAt || Date.now()).toLocaleString('en-US', {
     month: 'short', day: 'numeric', year: 'numeric',
@@ -106,6 +108,10 @@ function alertEmailHtml({ firstName, lastName, phone, email, smsOptIn, selection
   <tr><td style="background:#B5904A;padding:14px 36px;">
     <div style="font-size:13px;font-weight:600;color:#1F2623;">Kitchen Design Visualizer · Completed a design</div>
   </td></tr>
+  ${hasPhoto ? `<tr><td style="background:#fff;padding:24px 36px 0;">
+    <img src="cid:kitchen_photo" alt="Their kitchen" style="width:100%;border-radius:6px;display:block;">
+    <div style="font-size:10px;font-weight:600;color:#9C9480;letter-spacing:0.1em;text-transform:uppercase;margin-top:8px;">Uploaded kitchen photo</div>
+  </td></tr>` : ''}
   <tr><td style="background:#fff;padding:36px 36px 28px;">
     <div style="font-family:Georgia,serif;font-size:24px;color:#1F2623;margin-bottom:24px;">${name}</div>
     <table width="100%" cellpadding="0" cellspacing="0" style="background:#F5F0E8;border-radius:6px;padding:20px 24px;margin-bottom:24px;">
@@ -208,12 +214,13 @@ export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' })
 
   const {
-    firstName    = '',
-    lastName     = '',
-    phone        = '',
-    email        = '',
-    sms_opt_in   = false,
-    selections   = {},
+    firstName          = '',
+    lastName           = '',
+    phone              = '',
+    email              = '',
+    sms_opt_in         = false,
+    selections         = {},
+    kitchenPhotoBase64 = null,
   } = req.body || {}
 
   if (!phone) {
@@ -252,12 +259,17 @@ export default async function handler(req, res) {
     console.error('Airtable error:', e.message)
   }
 
+  const photoAttachments = kitchenPhotoBase64
+    ? [{ filename: 'kitchen.jpg', content: kitchenPhotoBase64, content_id: 'kitchen_photo' }]
+    : []
+
   try {
     results.email_bryon = await sendEmail({
-      to:      BRYON_EMAIL,
-      subject: `Visualizer lead — ${name} — designed a kitchen`,
-      html:    alertEmailHtml({ firstName, lastName, phone, email, smsOptIn: sms_opt_in, selections, submittedAt: now }),
-      text:    `New visualizer lead\n\n${name}\n${displayPhone(phone)}${sms_opt_in ? ' ✓ OK to text' : ''}\n${email || 'No email'}\n\n${designSummary}`,
+      to:          BRYON_EMAIL,
+      subject:     `Visualizer lead — ${name} — designed a kitchen`,
+      html:        alertEmailHtml({ firstName, lastName, phone, email, smsOptIn: sms_opt_in, selections, submittedAt: now, hasPhoto: !!kitchenPhotoBase64 }),
+      text:        `New visualizer lead\n\n${name}\n${displayPhone(phone)}${sms_opt_in ? ' ✓ OK to text' : ''}\n${email || 'No email'}\n\n${designSummary}`,
+      attachments: photoAttachments,
     })
   } catch (e) {
     console.error('Resend alert error:', e.message)
