@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kitchen Design Visualizer — remodel.guide</title>
+  <meta name="description" content="Upload a photo of your kitchen, choose your cabinets, countertops, flooring, and paint color — and see the transformation instantly. Free." />
+  <link rel="canonical" href="https://remodel.guide/visualizer/" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <style>
+    /* ── LAYOUT ── */
+    .viz-page {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      padding-top: 77px; /* nav height */
+      overflow: hidden;
+    }
+
+    .viz-banner {
+      background: var(--deep);
+      padding: 10px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .viz-banner-text {
+      font-size: 12px;
+      color: rgba(255,255,255,0.55);
+      font-weight: 300;
+    }
+
+    .viz-banner-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      color: var(--brass-light);
+      font-weight: 500;
+    }
+
+    .viz-layout {
+      display: grid;
+      grid-template-columns: 400px 1fr;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    /* ── LEFT PANEL: CONTROLS ── */
+    .viz-controls {
+      border-right: 1px solid var(--border);
+      overflow-y: auto;
+      background: var(--warm-white);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .viz-controls-inner {
+      padding: 28px 28px 120px;
+    }
+
+    .step-block {
+      margin-bottom: 28px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .step-block:last-of-type {
+      border-bottom: none;
+    }
+
+    .step-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .step-label .step-num {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9px;
+      font-weight: 500;
+      color: var(--muted);
+      flex-shrink: 0;
+      transition: all 0.2s;
+    }
+
+    .step-label .step-num.done {
+      background: var(--brass);
+      border-color: var(--brass);
+      color: var(--white);
+    }
+
+    .step-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--deep);
+      margin-bottom: 14px;
+    }
+
+    /* ── UPLOAD ZONE ── */
+    .upload-zone {
+      border: 2px dashed var(--border);
+      border-radius: 8px;
+      padding: 28px 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      background: var(--cream);
+      position: relative;
+    }
+
+    .upload-zone:hover,
+    .upload-zone.drag-over {
+      border-color: var(--brass);
+      background: rgba(181,144,74,0.04);
+    }
+
+    .upload-zone input[type="file"] {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+      width: 100%;
+      height: 100%;
+    }
+
+    .upload-icon {
+      font-size: 28px;
+      margin-bottom: 8px;
+      opacity: 0.5;
+    }
+
+    .upload-text {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.5;
+    }
+
+    .upload-text strong {
+      color: var(--brass);
+      font-weight: 500;
+    }
+
+    .upload-thumb {
+      width: 100%;
+      border-radius: 6px;
+      object-fit: cover;
+      max-height: 140px;
+      display: none;
+    }
+
+    .upload-thumb.visible { display: block; }
+
+    .upload-change-btn {
+      margin-top: 8px;
+      font-size: 11px;
+      color: var(--brass);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0;
+      display: none;
+    }
+
+    .upload-change-btn.visible { display: block; }
+
+    /* ── OPTION GRIDS ── */
+    .option-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .option-btn {
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--warm-white);
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.15s;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .option-btn:hover {
+      border-color: var(--brass-pale);
+      background: var(--cream);
+    }
+
+    .option-btn.selected {
+      border-color: var(--brass);
+      background: rgba(181,144,74,0.06);
+    }
+
+    .option-btn-name {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--deep);
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .option-btn-desc {
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 300;
+      display: block;
+      line-height: 1.4;
+    }
+
+    /* ── SWATCH GRIDS (color options) ── */
+    .swatch-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+
+    .swatch-btn {
+      border: 2px solid transparent;
+      border-radius: 6px;
+      cursor: pointer;
+      padding: 0;
+      background: none;
+      transition: all 0.15s;
+    }
+
+    .swatch-btn:hover { transform: scale(1.05); }
+
+    .swatch-btn.selected {
+      border-color: var(--brass);
+      box-shadow: 0 0 0 2px rgba(181,144,74,0.3);
+    }
+
+    .swatch-color {
+      width: 100%;
+      height: 40px;
+      border-radius: 4px 4px 0 0;
+    }
+
+    .swatch-name {
+      font-size: 10px;
+      font-weight: 400;
+      color: var(--slate);
+      text-align: center;
+      padding: 5px 4px;
+      background: var(--warm-white);
+      border-radius: 0 0 4px 4px;
+      border: 1px solid var(--border);
+      border-top: none;
+      line-height: 1.3;
+    }
+
+    /* ── GENERATE BUTTON ── */
+    .viz-generate-wrap {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 400px;
+      padding: 16px 28px;
+      background: linear-gradient(to top, var(--warm-white) 70%, transparent);
+      z-index: 10;
+    }
+
+    .viz-generate-btn {
+      width: 100%;
+      padding: 14px 24px;
+      background: var(--brass);
+      color: var(--deep);
+      border: none;
+      border-radius: 6px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .viz-generate-btn:hover:not(:disabled) {
+      background: var(--brass-light);
+    }
+
+    .viz-generate-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .viz-generate-hint {
+      font-size: 11px;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 6px;
+    }
+
+    /* ── RIGHT PANEL: PREVIEW ── */
+    .viz-preview {
+      background: #1A1714;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Placeholder state */
+    .preview-placeholder {
+      text-align: center;
+      padding: 48px;
+    }
+
+    .preview-placeholder-icon {
+      font-size: 48px;
+      opacity: 0.2;
+      margin-bottom: 16px;
+    }
+
+    .preview-placeholder-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      color: rgba(255,255,255,0.25);
+      font-style: italic;
+      line-height: 1.4;
+    }
+
+    .preview-placeholder-sub {
+      font-size: 12px;
+      color: rgba(255,255,255,0.15);
+      margin-top: 10px;
+      font-weight: 300;
+    }
+
+    /* Image display */
+    .preview-image-wrap {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: none;
+    }
+
+    .preview-image-wrap.visible { display: block; }
+
+    .preview-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: filter 0.5s ease;
+    }
+
+    .preview-img.blurred {
+      filter: blur(18px) brightness(0.7);
+    }
+
+    /* Loading overlay */
+    .preview-loading {
+      position: absolute;
+      inset: 0;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: rgba(26,23,20,0.8);
+      backdrop-filter: blur(4px);
+    }
+
+    .preview-loading.visible { display: flex; }
+
+    .loading-spinner {
+      width: 40px;
+      height: 40px;
+      border: 2px solid rgba(181,144,74,0.2);
+      border-top-color: var(--brass);
+      border-radius: 50%;
+      animation: spin 0.9s linear infinite;
+      margin-bottom: 16px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .loading-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      color: rgba(255,255,255,0.7);
+      font-style: italic;
+    }
+
+    .loading-subtext {
+      font-size: 11px;
+      color: rgba(255,255,255,0.3);
+      margin-top: 6px;
+      font-weight: 300;
+    }
+
+    /* Lead capture overlay */
+    .preview-lead-overlay {
+      position: absolute;
+      inset: 0;
+      display: none;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 32px;
+    }
+
+    .preview-lead-overlay.visible { display: flex; }
+
+    .lead-card {
+      background: rgba(28,24,20,0.96);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(181,144,74,0.25);
+      border-radius: 12px;
+      padding: 32px 36px;
+      width: 100%;
+      max-width: 480px;
+    }
+
+    .lead-card-eyebrow {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--brass);
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .lead-card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      color: var(--white);
+      font-weight: 500;
+      margin-bottom: 6px;
+      line-height: 1.2;
+    }
+
+    .lead-card-sub {
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+      font-weight: 300;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    .lead-form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .lead-form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .lead-form-field.full {
+      grid-column: 1 / -1;
+    }
+
+    .lead-form-field label {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      font-weight: 500;
+    }
+
+    .lead-form-field input {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 5px;
+      padding: 10px 12px;
+      font-size: 14px;
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .lead-form-field input::placeholder { color: rgba(255,255,255,0.2); }
+
+    .lead-form-field input:focus {
+      border-color: rgba(181,144,74,0.5);
+    }
+
+    .lead-sms-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 14px 0 20px;
+    }
+
+    .lead-sms-row input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      accent-color: var(--brass);
+      cursor: pointer;
+    }
+
+    .lead-sms-row label {
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+      font-weight: 300;
+      cursor: pointer;
+    }
+
+    .lead-submit-btn {
+      width: 100%;
+      padding: 14px;
+      background: var(--brass);
+      color: var(--deep);
+      border: none;
+      border-radius: 6px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .lead-submit-btn:hover:not(:disabled) { background: var(--brass-light); }
+    .lead-submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .lead-fine-print {
+      font-size: 11px;
+      color: rgba(255,255,255,0.2);
+      text-align: center;
+      margin-top: 12px;
+      line-height: 1.5;
+    }
+
+    /* Unlock success badge */
+    .preview-unlock-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: var(--brass);
+      color: var(--deep);
+      padding: 6px 14px;
+      border-radius: 100px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      display: none;
+    }
+
+    .preview-unlock-badge.visible { display: block; }
+
+    .preview-download-btn {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(28,24,20,0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(181,144,74,0.3);
+      color: var(--brass-light);
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      display: none;
+    }
+
+    .preview-download-btn.visible { display: block; }
+
+    /* Selections summary bar */
+    .preview-selections-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(26,23,20,0.95), transparent);
+      padding: 32px 24px 16px;
+      display: none;
+    }
+
+    .preview-selections-bar.visible { display: block; }
+
+    .selections-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .selection-chip {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 100px;
+      padding: 4px 10px;
+      font-size: 11px;
+      color: rgba(255,255,255,0.5);
+      font-weight: 300;
+    }
+
+    .selection-chip strong {
+      color: var(--brass-light);
+      font-weight: 500;
+    }
+
+    /* Error state */
+    .preview-error {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(180,40,40,0.9);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 400;
+      display: none;
+      white-space: nowrap;
+    }
+
+    .preview-error.visible { display: block; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      .viz-page { overflow: auto; height: auto; }
+      .viz-banner { padding: 10px 20px; }
+      .viz-layout { grid-template-columns: 1fr; overflow: visible; }
+      .viz-controls { overflow: visible; border-right: none; border-bottom: 1px solid var(--border); }
+      .viz-controls-inner { padding: 20px 20px 100px; }
+      .viz-preview { min-height: 60vw; }
+      .viz-generate-wrap { width: 100%; }
+      .swatch-grid { grid-template-columns: repeat(4, 1fr); }
+      .lead-form-row { grid-template-columns: 1fr; }
+      .lead-card { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">
+    <img src="../assets/images/remodel-guide-logo.png" alt="remodel.guide">
+  </a>
+  <ul class="nav-links">
+    <li><a href="/">All Guides</a></li>
+    <li><a href="/concierge">The Concierge</a></li>
+    <li><a href="/remi">Meet Remi</a></li>
+    <li><a href="https://remodelry.guide/remi" target="_blank" class="nav-cta">Talk to Remi — Free</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/" onclick="closeMobile()">The Guides</a>
+    <a href="/concierge" onclick="closeMobile()">The Concierge</a>
+    <a href="/remi" onclick="closeMobile()">Meet Remi</a>
+    <a href="https://remodelry.guide/remi" target="_blank" class="mobile-cta">Talk to Remi — It's Free</a>
+  </div>
+</nav>
+
+<!-- MAIN PAGE -->
+<div class="viz-page">
+
+  <!-- BANNER -->
+  <div class="viz-banner">
+    <span class="viz-banner-title">Kitchen Design Visualizer</span>
+    <span class="viz-banner-text">Upload your kitchen · choose your finishes · see the transformation</span>
+  </div>
+
+  <!-- TWO-COLUMN LAYOUT -->
+  <div class="viz-layout">
+
+    <!-- LEFT: CONTROLS -->
+    <div class="viz-controls">
+      <div class="viz-controls-inner">
+
+        <!-- STEP 1: Upload -->
+        <div class="step-block">
+          <div class="step-label">
+            <span class="step-num" id="num-upload">1</span>
+            Your Kitchen
+          </div>
+          <div class="step-title">Upload a photo</div>
+          <div class="upload-zone" id="uploadZone">
+            <input type="file" id="photoInput" accept="image/*" aria-label="Upload kitchen photo">
+            <div id="uploadPrompt">
+              <div class="upload-icon">⬆</div>
+              <div class="upload-text">
+                <strong>Click to upload</strong> or drag your photo here<br>
+                <span style="font-size:11px;">JPG, PNG or HEIC · ideally a wide kitchen shot</span>
+              </div>
+            </div>
+            <img class="upload-thumb" id="uploadThumb" alt="Your kitchen" />
+          </div>
+          <button class="upload-change-btn" id="uploadChangeBtn" onclick="resetUpload()">
+            ↩ Change photo
+          </button>
+        </div>
+
+        <!-- STEP 2: Cabinet Style -->
+        <div class="step-block">
+          <div class="step-label">
+            <span class="step-num" id="num-style">2</span>
+            Cabinet Style
+          </div>
+          <div class="step-title">Choose a door style</div>
+          <div class="option-grid" id="grid-cabinetStyle"></div>
+        </div>
+
+        <!-- STEP 3: Cabinet Finish -->
+        <div class="step-block">
+          <div class="step-label">
+            <span class="step-num" id="num-finish">3</span>
+            Cabinet Finish
+          </div>
+          <div class="step-title">Choose a color or wood</div>
+          <div class="swatch-grid" id="grid-cabinetFinish"></div>
+        </div>
+
+        <!-- STEP 4: Countertop -->
+        <div class="step-block">
+          <div class="step-label">
+            <span class="step-num" id="num-counter">4</span>
+            Countertop
+          </div>
+          <div class="step-title">Choose a surface</div>
+          <div class="option-grid" id="grid-countertop"></div>
+        </div>
+
+        <!-- STEP 5: Flooring -->
+        <div class="step-block">
+          <div class="step-label">
+            <span class="step-num" id="num-floor">5</span>
+            Flooring
+          </div>
+          <div class="step-title">Choose a floor</div>
+          <div class="option-grid" id="grid-flooring"></div>
+        </div>
+
+        <!-- STEP 6: Wall Color -->
+        <div class="step-block">
+          <div class="step-label">
+            <span class="step-num" id="num-wall">6</span>
+            Wall Color
+          </div>
+          <div class="step-title">Sherwin-Williams paint</div>
+          <div class="swatch-grid" id="grid-wallColor"></div>
+        </div>
+
+      </div>
+
+      <!-- STICKY GENERATE -->
+      <div class="viz-generate-wrap">
+        <button class="viz-generate-btn" id="generateBtn" disabled onclick="startGeneration()">
+          Generate My Kitchen →
+        </button>
+        <div class="viz-generate-hint" id="generateHint">Complete all 6 steps to generate</div>
+      </div>
+    </div>
+
+    <!-- RIGHT: PREVIEW -->
+    <div class="viz-preview" id="previewPanel">
+
+      <!-- Placeholder -->
+      <div class="preview-placeholder" id="previewPlaceholder">
+        <div class="preview-placeholder-icon">⬡</div>
+        <div class="preview-placeholder-text">Your kitchen,<br><em style="color:rgba(181,144,74,0.5);">reimagined.</em></div>
+        <div class="preview-placeholder-sub">Upload a photo on the left to begin</div>
+      </div>
+
+      <!-- Image display (hidden until upload or generation) -->
+      <div class="preview-image-wrap" id="previewImageWrap">
+        <img class="preview-img" id="previewImg" alt="Kitchen preview" />
+
+        <!-- Selections bar (shows after upload while configuring) -->
+        <div class="preview-selections-bar" id="selectionsBar">
+          <div class="selections-chips" id="selectionsChips"></div>
+        </div>
+
+        <!-- Loading overlay -->
+        <div class="preview-loading" id="previewLoading">
+          <div class="loading-spinner"></div>
+          <div class="loading-text">Designing your kitchen...</div>
+          <div class="loading-subtext">This takes about 15–25 seconds</div>
+        </div>
+
+        <!-- Lead capture overlay (shows after generation) -->
+        <div class="preview-lead-overlay" id="leadOverlay">
+          <div class="lead-card">
+            <div class="lead-card-eyebrow">Your design is ready</div>
+            <div class="lead-card-title">See the full render —<br><em style="color:var(--brass-light);">it's free.</em></div>
+            <div class="lead-card-sub">Enter your info and Bryon will send the full image plus a free consultation call.</div>
+
+            <form id="leadForm" onsubmit="submitLead(event)">
+              <div class="lead-form-row">
+                <div class="lead-form-field">
+                  <label for="firstName">First name</label>
+                  <input type="text" id="firstName" name="firstName" placeholder="Jane" required>
+                </div>
+                <div class="lead-form-field">
+                  <label for="lastName">Last name</label>
+                  <input type="text" id="lastName" name="lastName" placeholder="Smith">
+                </div>
+              </div>
+              <div class="lead-form-row">
+                <div class="lead-form-field">
+                  <label for="phone">Phone <span style="color:rgba(255,255,255,0.25);">*</span></label>
+                  <input type="tel" id="phone" name="phone" placeholder="(440) 555-0100" required>
+                </div>
+                <div class="lead-form-field">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" placeholder="jane@email.com">
+                </div>
+              </div>
+              <div class="lead-sms-row">
+                <input type="checkbox" id="smsOptIn" name="smsOptIn">
+                <label for="smsOptIn">OK to text me about my kitchen project</label>
+              </div>
+              <button type="submit" class="lead-submit-btn" id="leadSubmitBtn">
+                Unlock My Design →
+              </button>
+            </form>
+
+            <div class="lead-fine-print">No spam. No pressure. Your info goes directly to Bryon.</div>
+          </div>
+        </div>
+
+        <!-- Unlock badge -->
+        <div class="preview-unlock-badge" id="unlockBadge">✓ Design unlocked</div>
+
+        <!-- Download button -->
+        <a class="preview-download-btn" id="downloadBtn" download="my-kitchen-design.jpg">
+          ↓ Save image
+        </a>
+
+        <!-- Error message -->
+        <div class="preview-error" id="previewError">Generation failed — please try again</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="products.js"></script>
+<script>
+// ── STATE ─────────────────────────────────────────────────────────────────────
+
+const state = {
+  uploadedImageBase64: null,
+  uploadedImageDataUrl: null,
+  selections: {
+    cabinetStyle:  null,
+    cabinetFinish: null,
+    countertop:    null,
+    flooring:      null,
+    wallColor:     null,
+  },
+  taskId:       null,
+  resultUrl:    null,
+  generated:    false,
+  leadCaptured: false,
+}
+
+// ── INIT ──────────────────────────────────────────────────────────────────────
+
+function init() {
+  renderGrid('cabinetStyle',  'grid-cabinetStyle',  false)
+  renderGrid('cabinetFinish', 'grid-cabinetFinish', true)
+  renderGrid('countertop',    'grid-countertop',    false)
+  renderGrid('flooring',      'grid-flooring',      false)
+  renderGrid('wallColor',     'grid-wallColor',     true)
+  setupUpload()
+}
+
+// ── GRID RENDERING ────────────────────────────────────────────────────────────
+
+function renderGrid(key, containerId, isSwatch) {
+  const container = document.getElementById(containerId)
+  const items = PRODUCTS[key]
+
+  items.forEach(item => {
+    const btn = document.createElement('button')
+    btn.type = 'button'
+    btn.dataset.id = item.id
+    btn.dataset.key = key
+
+    if (isSwatch) {
+      btn.className = 'swatch-btn'
+      btn.title = item.label
+      btn.innerHTML = `
+        <div class="swatch-color" style="background:${item.swatch};"></div>
+        <div class="swatch-name">${item.label}</div>
+      `
+    } else {
+      btn.className = 'option-btn'
+      btn.innerHTML = `
+        <span class="option-btn-name">${item.label}</span>
+        <span class="option-btn-desc">${item.desc}</span>
+      `
+    }
+
+    btn.addEventListener('click', () => handleSelection(key, item.id, containerId))
+    container.appendChild(btn)
+  })
+}
+
+// ── SELECTION HANDLING ────────────────────────────────────────────────────────
+
+function handleSelection(key, id, containerId) {
+  state.selections[key] = id
+
+  // Update button states
+  const container = document.getElementById(containerId)
+  container.querySelectorAll('button').forEach(btn => {
+    btn.classList.toggle('selected', btn.dataset.id === id)
+  })
+
+  // Mark step done
+  const stepNumMap = {
+    cabinetStyle:  'num-style',
+    cabinetFinish: 'num-finish',
+    countertop:    'num-counter',
+    flooring:      'num-floor',
+    wallColor:     'num-wall',
+  }
+  const numEl = document.getElementById(stepNumMap[key])
+  if (numEl) numEl.classList.add('done')
+
+  updateGenerateButton()
+  updateSelectionsBar()
+}
+
+// ── UPLOAD ────────────────────────────────────────────────────────────────────
+
+function setupUpload() {
+  const zone   = document.getElementById('uploadZone')
+  const input  = document.getElementById('photoInput')
+
+  input.addEventListener('change', e => {
+    if (e.target.files[0]) handleFile(e.target.files[0])
+  })
+
+  zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('drag-over') })
+  zone.addEventListener('dragleave', () => zone.classList.remove('drag-over'))
+  zone.addEventListener('drop', e => {
+    e.preventDefault()
+    zone.classList.remove('drag-over')
+    if (e.dataTransfer.files[0]) handleFile(e.dataTransfer.files[0])
+  })
+}
+
+function handleFile(file) {
+  if (!file.type.startsWith('image/')) return
+
+  const reader = new FileReader()
+  reader.onload = e => {
+    const dataUrl = e.target.result
+    resizeImage(dataUrl, 1280, (resizedDataUrl) => {
+      state.uploadedImageDataUrl = resizedDataUrl
+      // Strip the data:image/...;base64, prefix for BFL API
+      state.uploadedImageBase64 = resizedDataUrl.split(',')[1]
+
+      // Show thumbnail in upload zone
+      const thumb = document.getElementById('uploadThumb')
+      const prompt = document.getElementById('uploadPrompt')
+      const changeBtn = document.getElementById('uploadChangeBtn')
+      thumb.src = resizedDataUrl
+      thumb.classList.add('visible')
+      prompt.style.display = 'none'
+      changeBtn.classList.add('visible')
+
+      // Mark upload step done
+      document.getElementById('num-upload').classList.add('done')
+
+      // Show image in preview
+      showPreviewImage(resizedDataUrl)
+      updateGenerateButton()
+    })
+  }
+  reader.readAsDataURL(file)
+}
+
+function resizeImage(dataUrl, maxWidth, callback) {
+  const img = new Image()
+  img.onload = () => {
+    const scale = Math.min(1, maxWidth / img.width)
+    const w = Math.round(img.width * scale)
+    const h = Math.round(img.height * scale)
+    const canvas = document.createElement('canvas')
+    canvas.width = w
+    canvas.height = h
+    canvas.getContext('2d').drawImage(img, 0, 0, w, h)
+    callback(canvas.toDataURL('image/jpeg', 0.88))
+  }
+  img.src = dataUrl
+}
+
+function resetUpload() {
+  state.uploadedImageBase64 = null
+  state.uploadedImageDataUrl = null
+  state.generated = false
+  state.resultUrl = null
+
+  const thumb = document.getElementById('uploadThumb')
+  const prompt = document.getElementById('uploadPrompt')
+  const changeBtn = document.getElementById('uploadChangeBtn')
+  const input = document.getElementById('photoInput')
+  thumb.src = ''
+  thumb.classList.remove('visible')
+  prompt.style.display = ''
+  changeBtn.classList.remove('visible')
+  input.value = ''
+
+  document.getElementById('num-upload').classList.remove('done')
+  document.getElementById('previewImageWrap').classList.remove('visible')
+  document.getElementById('previewPlaceholder').style.display = ''
+  document.getElementById('previewLoading').classList.remove('visible')
+  document.getElementById('leadOverlay').classList.remove('visible')
+  document.getElementById('unlockBadge').classList.remove('visible')
+  document.getElementById('downloadBtn').classList.remove('visible')
+
+  updateGenerateButton()
+}
+
+// ── PREVIEW PANEL ─────────────────────────────────────────────────────────────
+
+function showPreviewImage(src) {
+  const placeholder = document.getElementById('previewPlaceholder')
+  const wrap = document.getElementById('previewImageWrap')
+  const img = document.getElementById('previewImg')
+
+  placeholder.style.display = 'none'
+  img.src = src
+  img.classList.remove('blurred')
+  wrap.classList.add('visible')
+}
+
+function updateSelectionsBar() {
+  const bar = document.getElementById('selectionsBar')
+  const chips = document.getElementById('selectionsChips')
+  const hasAny = Object.values(state.selections).some(v => v)
+
+  if (!hasAny || !state.uploadedImageDataUrl || state.generated) {
+    bar.classList.remove('visible')
+    return
+  }
+
+  bar.classList.add('visible')
+  chips.innerHTML = ''
+
+  const labels = {
+    cabinetStyle:  'Style',
+    cabinetFinish: 'Finish',
+    countertop:    'Counter',
+    flooring:      'Floor',
+    wallColor:     'Wall',
+  }
+
+  Object.entries(state.selections).forEach(([key, id]) => {
+    if (!id) return
+    const product = PRODUCTS[key].find(p => p.id === id)
+    if (!product) return
+    const chip = document.createElement('span')
+    chip.className = 'selection-chip'
+    chip.innerHTML = `<strong>${labels[key]}:</strong> ${product.label}`
+    chips.appendChild(chip)
+  })
+}
+
+// ── GENERATE BUTTON ───────────────────────────────────────────────────────────
+
+function updateGenerateButton() {
+  const btn = document.getElementById('generateBtn')
+  const hint = document.getElementById('generateHint')
+
+  const allSelected = Object.values(state.selections).every(v => v !== null)
+  const hasImage = !!state.uploadedImageBase64
+
+  const ready = allSelected && hasImage
+  btn.disabled = !ready
+
+  if (!hasImage) {
+    hint.textContent = 'Upload a photo first'
+  } else if (!allSelected) {
+    const remaining = Object.values(state.selections).filter(v => !v).length
+    hint.textContent = `${remaining} selection${remaining > 1 ? 's' : ''} remaining`
+  } else {
+    hint.textContent = 'All set — generate your design'
+  }
+}
+
+// ── GENERATION ────────────────────────────────────────────────────────────────
+
+function buildPrompt() {
+  const s = state.selections
+  const get = (key, id) => PRODUCTS[key].find(p => p.id === id)
+
+  const style  = get('cabinetStyle',  s.cabinetStyle)
+  const finish = get('cabinetFinish', s.cabinetFinish)
+  const counter = get('countertop',   s.countertop)
+  const floor   = get('flooring',     s.flooring)
+  const wall    = get('wallColor',    s.wallColor)
+
+  return [
+    `Redesign the kitchen in this photo.`,
+    `Replace the cabinets with ${style.prompt}.`,
+    `The cabinet color is ${finish.prompt}.`,
+    `Replace the countertops with ${counter.prompt}.`,
+    `Replace the flooring with ${floor.prompt}.`,
+    `${wall.prompt}.`,
+    `Maintain the exact same kitchen layout, camera angle, perspective, window placement, and room proportions.`,
+    `Photorealistic, professional interior design photography, natural light, high resolution.`,
+  ].join(' ')
+}
+
+async function startGeneration() {
+  const btn = document.getElementById('generateBtn')
+  btn.disabled = true
+  btn.textContent = 'Generating...'
+
+  hideError()
+  document.getElementById('selectionsBar').classList.remove('visible')
+  document.getElementById('previewImg').classList.add('blurred')
+  document.getElementById('previewLoading').classList.add('visible')
+  document.getElementById('leadOverlay').classList.remove('visible')
+
+  const prompt = buildPrompt()
+
+  try {
+    const res = await fetch('/api/generate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        imageBase64: state.uploadedImageBase64,
+        prompt,
+      }),
+    })
+
+    if (!res.ok) throw new Error(`Generate failed: ${res.status}`)
+    const data = await res.json()
+    state.taskId = data.taskId
+    pollForResult()
+  } catch (err) {
+    console.error(err)
+    showError('Generation failed — please try again')
+    resetGenerateButton()
+  }
+}
+
+async function pollForResult() {
+  const maxAttempts = 60
+  let attempts = 0
+
+  const poll = async () => {
+    attempts++
+    if (attempts > maxAttempts) {
+      showError('Timed out — please try again')
+      resetGenerateButton()
+      return
+    }
+
+    try {
+      const res = await fetch(`/api/poll?id=${encodeURIComponent(state.taskId)}`)
+      const data = await res.json()
+
+      if (data.status === 'Ready' && data.result?.sample) {
+        state.resultUrl = data.result.sample
+        showResult(state.resultUrl)
+      } else if (data.status === 'Error' || data.status === 'Content Moderated') {
+        showError('Generation failed — please try again')
+        resetGenerateButton()
+      } else {
+        // Still pending
+        setTimeout(poll, 2000)
+      }
+    } catch (err) {
+      console.error('Poll error:', err)
+      setTimeout(poll, 3000)
+    }
+  }
+
+  poll()
+}
+
+function showResult(imageUrl) {
+  const img = document.getElementById('previewImg')
+  const loading = document.getElementById('previewLoading')
+
+  // Load the generated image
+  const tempImg = new Image()
+  tempImg.crossOrigin = 'anonymous'
+  tempImg.onload = () => {
+    img.src = imageUrl
+    img.classList.add('blurred')
+    loading.classList.remove('visible')
+    document.getElementById('leadOverlay').classList.add('visible')
+    state.generated = true
+
+    document.getElementById('generateBtn').textContent = 'Regenerate →'
+    document.getElementById('generateBtn').disabled = false
+  }
+  tempImg.onerror = () => {
+    // Image loaded but crossOrigin might have issues — show it anyway
+    img.src = imageUrl
+    img.classList.add('blurred')
+    loading.classList.remove('visible')
+    document.getElementById('leadOverlay').classList.add('visible')
+    state.generated = true
+
+    document.getElementById('generateBtn').textContent = 'Regenerate →'
+    document.getElementById('generateBtn').disabled = false
+  }
+  tempImg.src = imageUrl
+}
+
+function resetGenerateButton() {
+  document.getElementById('previewLoading').classList.remove('visible')
+  document.getElementById('previewImg').classList.remove('blurred')
+  document.getElementById('generateBtn').textContent = 'Generate My Kitchen →'
+  document.getElementById('generateBtn').disabled = false
+  updateSelectionsBar()
+}
+
+// ── LEAD CAPTURE ──────────────────────────────────────────────────────────────
+
+async function submitLead(e) {
+  e.preventDefault()
+  const submitBtn = document.getElementById('leadSubmitBtn')
+  submitBtn.disabled = true
+  submitBtn.textContent = 'Sending...'
+
+  const firstName  = document.getElementById('firstName').value.trim()
+  const lastName   = document.getElementById('lastName').value.trim()
+  const phone      = document.getElementById('phone').value.trim()
+  const email      = document.getElementById('email').value.trim()
+  const smsOptIn   = document.getElementById('smsOptIn').checked
+
+  const selectionLabels = {}
+  Object.entries(state.selections).forEach(([key, id]) => {
+    const product = PRODUCTS[key].find(p => p.id === id)
+    selectionLabels[key] = product ? product.label : ''
+  })
+
+  try {
+    const res = await fetch('/api/visualizer-lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        firstName, lastName, phone, email,
+        sms_opt_in: smsOptIn,
+        selections: selectionLabels,
+      }),
+    })
+
+    if (!res.ok) throw new Error('Lead submission failed')
+
+    // Unlock the image
+    unlockImage()
+  } catch (err) {
+    console.error(err)
+    submitBtn.disabled = false
+    submitBtn.textContent = 'Try Again'
+  }
+}
+
+function unlockImage() {
+  const img = document.getElementById('previewImg')
+  const overlay = document.getElementById('leadOverlay')
+  const badge = document.getElementById('unlockBadge')
+  const dlBtn = document.getElementById('downloadBtn')
+
+  img.classList.remove('blurred')
+  overlay.classList.remove('visible')
+  badge.classList.add('visible')
+
+  if (state.resultUrl) {
+    dlBtn.href = state.resultUrl
+    dlBtn.classList.add('visible')
+  }
+
+  state.leadCaptured = true
+}
+
+// ── ERROR HELPERS ─────────────────────────────────────────────────────────────
+
+function showError(msg) {
+  const el = document.getElementById('previewError')
+  el.textContent = msg
+  el.classList.add('visible')
+  setTimeout(() => el.classList.remove('visible'), 5000)
+}
+
+function hideError() {
+  document.getElementById('previewError').classList.remove('visible')
+}
+
+// ── NAV ───────────────────────────────────────────────────────────────────────
+
+var hamburger = document.getElementById('hamburger')
+var mobileMenu = document.getElementById('mobileMenu')
+hamburger.addEventListener('click', function() {
+  hamburger.classList.toggle('open')
+  mobileMenu.classList.toggle('open')
+})
+function closeMobile() {
+  hamburger.classList.remove('open')
+  mobileMenu.classList.remove('open')
+}
+
+// ── START ─────────────────────────────────────────────────────────────────────
+
+init()
+</script>
+
+</body>
+</html>
