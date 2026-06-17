@@ -217,6 +217,9 @@ export default async function handler(req, res) {
   if (!phone) {
     return res.status(400).json({ error: 'Phone number is required' })
   }
+  if (!email) {
+    return res.status(400).json({ error: 'Email is required' })
+  }
 
   const name = [firstName, lastName].filter(Boolean).join(' ') || 'New Lead'
   const now  = new Date().toISOString()
@@ -257,17 +260,15 @@ export default async function handler(req, res) {
     console.error('Resend alert error:', e.message)
   }
 
-  if (email) {
-    try {
-      results.email_lead = await sendEmail({
-        to:      email,
-        subject: `Your kitchen design — ${firstName || 'here\'s what you built'}`,
-        html:    confirmEmailHtml({ firstName, selections }),
-        text:    `Hi ${firstName || 'there'} — here's your kitchen design:\n\n${designSummary}\n\nBryon Skvor will reach out within 24 hours. Questions? (440) 252-1053`,
-      })
-    } catch (e) {
-      console.error('Resend confirmation error:', e.message)
-    }
+  try {
+    results.email_lead = await sendEmail({
+      to:      email,
+      subject: `Your kitchen design — ${firstName || 'here\'s what you built'}`,
+      html:    confirmEmailHtml({ firstName, selections }),
+      text:    `Hi ${firstName || 'there'} — here's your kitchen design:\n\n${designSummary}\n\nBryon Skvor will reach out within 24 hours. Questions? (440) 252-1053`,
+    })
+  } catch (e) {
+    console.error('Resend confirmation error:', e.message)
   }
 
   return res.status(200).json({ success: true, results })
