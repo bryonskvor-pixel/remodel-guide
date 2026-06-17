@@ -13,6 +13,14 @@
 
   <link rel="stylesheet" href="../assets/css/style.css">
 
+  <!-- Cal.com embed -->
+  <script type="text/javascript">
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+    Cal("init", "90", {origin:"https://app.cal.com"});
+    Cal.config = Cal.config || {};
+    Cal.config.forwardQueryParams = true;
+  </script>
+
   <style>
     /* ── LAYOUT ── */
     .viz-page {
@@ -661,6 +669,144 @@
       .lead-form-row { grid-template-columns: 1fr; }
       .lead-card { padding: 24px 20px; }
     }
+
+    /* ── IMAGE OPTION CARDS ── */
+    .option-btn.has-image {
+      padding: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      text-align: left;
+    }
+    .option-btn.has-image .option-img {
+      width: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 6px 6px 0 0;
+    }
+    .option-btn.has-image .option-btn-info {
+      padding: 8px 10px 10px;
+    }
+    .option-btn.has-image .option-btn-name {
+      font-size: 13px;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 2px;
+    }
+    .option-btn.has-image .option-btn-desc {
+      font-size: 11px;
+      display: block;
+      line-height: 1.4;
+    }
+
+    /* ── REGEN SYSTEM ── */
+    .regen-btn {
+      position: absolute;
+      bottom: 56px;
+      right: 16px;
+      background: var(--brass);
+      color: #fff;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      display: none;
+      transition: background 0.15s;
+    }
+    .regen-btn:hover { background: var(--brass-light); }
+    .regen-btn.visible { display: block; }
+    .regen-counter {
+      position: absolute;
+      top: 14px;
+      left: 16px;
+      background: rgba(28,24,20,0.75);
+      color: var(--brass-light);
+      padding: 4px 12px;
+      border-radius: 100px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      display: none;
+    }
+    .regen-counter.visible { display: block; }
+
+    /* ── CAL MODAL ── */
+    .cal-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(28,24,20,0.88);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .cal-modal.visible { display: flex; }
+    .cal-modal-card {
+      background: var(--warm-white);
+      border-radius: 12px;
+      max-width: 700px;
+      width: 100%;
+      max-height: 92vh;
+      overflow-y: auto;
+      position: relative;
+    }
+    .cal-modal-header {
+      padding: 32px 36px 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .cal-modal-eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 8px;
+    }
+    .cal-modal-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      color: var(--deep);
+      margin: 0 0 8px;
+    }
+    .cal-modal-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: var(--slate);
+      line-height: 1.6;
+      margin: 0;
+    }
+    .cal-modal-close {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 22px;
+      color: var(--muted);
+      cursor: pointer;
+      line-height: 1;
+    }
+    .cal-modal-embed {
+      padding: 0 16px 16px;
+    }
+    .cal-modal-skip {
+      display: block;
+      text-align: center;
+      padding: 12px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      color: var(--muted);
+      cursor: pointer;
+      border: none;
+      background: none;
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -776,6 +922,16 @@
           <div class="swatch-grid" id="grid-wallColor"></div>
         </div>
 
+        <!-- STEP 7: Backsplash (optional) -->
+        <div class="step-block">
+          <div class="step-label">
+            <span class="step-num" id="num-backsplash">7</span>
+            Backsplash
+          </div>
+          <div class="step-title">MSI tile — optional</div>
+          <div class="option-grid" id="grid-backsplash"></div>
+        </div>
+
       </div>
 
       <!-- STICKY GENERATE -->
@@ -783,7 +939,7 @@
         <button class="viz-generate-btn" id="generateBtn" disabled onclick="startGeneration()">
           Generate My Kitchen →
         </button>
-        <div class="viz-generate-hint" id="generateHint">Complete all 6 steps to generate</div>
+        <div class="viz-generate-hint" id="generateHint">Complete steps 1–6 to generate</div>
       </div>
     </div>
 
@@ -857,6 +1013,14 @@
         <!-- Unlock badge -->
         <div class="preview-unlock-badge" id="unlockBadge">✓ Design unlocked</div>
 
+        <!-- Regen counter -->
+        <div class="regen-counter" id="regenCounter"></div>
+
+        <!-- Regen button -->
+        <button class="regen-btn" id="regenBtn" onclick="tryAnotherDesign()">
+          Try a different design →
+        </button>
+
         <!-- Download button -->
         <a class="preview-download-btn" id="downloadBtn" download="my-kitchen-design.jpg">
           ↓ Save image
@@ -867,6 +1031,22 @@
       </div>
 
     </div>
+  </div>
+</div>
+
+<!-- CAL.COM BOOKING MODAL -->
+<div class="cal-modal" id="calModal">
+  <div class="cal-modal-card">
+    <button class="cal-modal-close" onclick="closeCalModal()">×</button>
+    <div class="cal-modal-header">
+      <div class="cal-modal-eyebrow">Unlock 5 more designs</div>
+      <h2 class="cal-modal-title">Book your free in-home visit</h2>
+      <p class="cal-modal-sub">Schedule 90 minutes with Bryon to see your options in real materials — actual door samples, quartz slabs, and flooring you can touch. Book below and you'll unlock 5 more design renders.</p>
+    </div>
+    <div class="cal-modal-embed">
+      <div style="width:100%;height:580px;overflow:scroll" id="my-cal-inline-90"></div>
+    </div>
+    <button class="cal-modal-skip" onclick="closeCalModal()">Skip for now — I'll book later</button>
   </div>
 </div>
 
@@ -883,27 +1063,49 @@ const state = {
     countertop:    null,
     flooring:      null,
     wallColor:     null,
+    backsplash:    'keep-backsplash', // optional — defaults to keep existing
   },
   taskId:       null,
   resultUrl:    null,
   generated:    false,
   leadCaptured: false,
+  regenCount:   0,
+  calBooked:    false,
 }
 
 // ── INIT ──────────────────────────────────────────────────────────────────────
 
 function init() {
-  renderGrid('cabinetStyle',  'grid-cabinetStyle',  false)
+  renderGrid('cabinetStyle',  'grid-cabinetStyle',  false, '3/4')
   renderGrid('cabinetFinish', 'grid-cabinetFinish', true)
-  renderGrid('countertop',    'grid-countertop',    false)
+  renderGrid('countertop',    'grid-countertop',    false, '4/3')
   renderGrid('flooring',      'grid-flooring',      false)
   renderGrid('wallColor',     'grid-wallColor',     true)
+  renderGrid('backsplash',    'grid-backsplash',    false, '4/3')
   setupUpload()
+
+  // Wire up Cal.com inline embed and booking success event
+  if (typeof Cal !== 'undefined') {
+    Cal.ns['90']('inline', {
+      elementOrSelector: '#my-cal-inline-90',
+      config: { layout: 'month_view', useSlotsViewOnSmallScreen: 'true' },
+      calLink: 'bryon-skvor-so5vgy/90',
+    })
+    Cal.ns['90']('ui', { hideEventTypeDetails: false, layout: 'month_view' })
+    Cal.ns['90']('on', {
+      action: 'bookingSuccessful',
+      callback: () => {
+        state.calBooked = true
+        closeCalModal()
+        updateRegenUI()
+      },
+    })
+  }
 }
 
 // ── GRID RENDERING ────────────────────────────────────────────────────────────
 
-function renderGrid(key, containerId, isSwatch) {
+function renderGrid(key, containerId, isSwatch, imgAspect) {
   const container = document.getElementById(containerId)
   const items = PRODUCTS[key]
 
@@ -920,11 +1122,20 @@ function renderGrid(key, containerId, isSwatch) {
         <div class="swatch-color" style="background:${item.swatch};"></div>
         <div class="swatch-name">${item.label}</div>
       `
+    } else if (item.imageUrl) {
+      btn.className = 'option-btn has-image'
+      btn.innerHTML = `
+        <img class="option-img" src="${item.imageUrl}" alt="${item.label}" loading="lazy" style="aspect-ratio:${imgAspect || '4/3'};">
+        <div class="option-btn-info">
+          <span class="option-btn-name">${item.label}</span>
+          <span class="option-btn-desc">${item.desc || ''}</span>
+        </div>
+      `
     } else {
       btn.className = 'option-btn'
       btn.innerHTML = `
         <span class="option-btn-name">${item.label}</span>
-        <span class="option-btn-desc">${item.desc}</span>
+        <span class="option-btn-desc">${item.desc || ''}</span>
       `
     }
 
@@ -951,6 +1162,7 @@ function handleSelection(key, id, containerId) {
     countertop:    'num-counter',
     flooring:      'num-floor',
     wallColor:     'num-wall',
+    backsplash:    'num-backsplash',
   }
   const numEl = document.getElementById(stepNumMap[key])
   if (numEl) numEl.classList.add('done')
@@ -1083,10 +1295,11 @@ function updateSelectionsBar() {
     countertop:    'Counter',
     flooring:      'Floor',
     wallColor:     'Wall',
+    backsplash:    'Backsplash',
   }
 
   Object.entries(state.selections).forEach(([key, id]) => {
-    if (!id) return
+    if (!id || id === 'keep-backsplash') return
     const product = PRODUCTS[key].find(p => p.id === id)
     if (!product) return
     const chip = document.createElement('span')
@@ -1102,7 +1315,8 @@ function updateGenerateButton() {
   const btn = document.getElementById('generateBtn')
   const hint = document.getElementById('generateHint')
 
-  const allSelected = Object.values(state.selections).every(v => v !== null)
+  const coreKeys = ['cabinetStyle', 'cabinetFinish', 'countertop', 'flooring', 'wallColor']
+  const allSelected = coreKeys.every(k => state.selections[k] !== null)
   const hasImage = !!state.uploadedImageBase64
 
   const ready = allSelected && hasImage
@@ -1111,7 +1325,7 @@ function updateGenerateButton() {
   if (!hasImage) {
     hint.textContent = 'Upload a photo first'
   } else if (!allSelected) {
-    const remaining = Object.values(state.selections).filter(v => !v).length
+    const remaining = coreKeys.filter(k => !state.selections[k]).length
     hint.textContent = `${remaining} selection${remaining > 1 ? 's' : ''} remaining`
   } else {
     hint.textContent = 'All set — generate your design'
@@ -1124,22 +1338,28 @@ function buildPrompt() {
   const s = state.selections
   const get = (key, id) => PRODUCTS[key].find(p => p.id === id)
 
-  const style  = get('cabinetStyle',  s.cabinetStyle)
-  const finish = get('cabinetFinish', s.cabinetFinish)
-  const counter = get('countertop',   s.countertop)
-  const floor   = get('flooring',     s.flooring)
-  const wall    = get('wallColor',    s.wallColor)
+  const style      = get('cabinetStyle',  s.cabinetStyle)
+  const finish     = get('cabinetFinish', s.cabinetFinish)
+  const counter    = get('countertop',    s.countertop)
+  const floor      = get('flooring',      s.flooring)
+  const wall       = get('wallColor',     s.wallColor)
+  const backsplash = s.backsplash && s.backsplash !== 'keep-backsplash'
+    ? get('backsplash', s.backsplash) : null
 
-  return [
+  const parts = [
     `Redesign the kitchen in this photo.`,
     `Replace the cabinets with ${style.prompt}.`,
     `The cabinet color is ${finish.prompt}.`,
     `Replace the countertops with ${counter.prompt}.`,
     `Replace the flooring with ${floor.prompt}.`,
     `${wall.prompt}.`,
+  ]
+  if (backsplash) parts.push(`Add ${backsplash.prompt} as the kitchen backsplash.`)
+  parts.push(
     `Maintain the exact same kitchen layout, camera angle, perspective, window placement, and room proportions.`,
     `Photorealistic, professional interior design photography, natural light, high resolution.`,
-  ].join(' ')
+  )
+  return parts.join(' ')
 }
 
 async function startGeneration() {
@@ -1220,23 +1440,30 @@ function showResult(imageUrl) {
   tempImg.crossOrigin = 'anonymous'
   tempImg.onload = () => {
     img.src = imageUrl
-    img.classList.add('blurred')
     loading.classList.remove('visible')
-    document.getElementById('leadOverlay').classList.add('visible')
     state.generated = true
-
-    document.getElementById('generateBtn').textContent = 'Regenerate →'
+    document.getElementById('generateBtn').textContent = 'Generate →'
     document.getElementById('generateBtn').disabled = false
+    if (state.leadCaptured) {
+      img.classList.remove('blurred')
+      updateRegenUI()
+    } else {
+      img.classList.add('blurred')
+      document.getElementById('leadOverlay').classList.add('visible')
+    }
   }
   tempImg.onerror = () => {
-    // Image loaded but crossOrigin might have issues — show it anyway
     img.src = imageUrl
     img.classList.add('blurred')
     loading.classList.remove('visible')
-    document.getElementById('leadOverlay').classList.add('visible')
+    if (state.leadCaptured) {
+      img.classList.remove('blurred')
+      updateRegenUI()
+    } else {
+      document.getElementById('leadOverlay').classList.add('visible')
+    }
     state.generated = true
-
-    document.getElementById('generateBtn').textContent = 'Regenerate →'
+    document.getElementById('generateBtn').textContent = 'Generate →'
     document.getElementById('generateBtn').disabled = false
   }
   tempImg.src = imageUrl
@@ -1308,6 +1535,64 @@ function unlockImage() {
   }
 
   state.leadCaptured = true
+  updateRegenUI()
+}
+
+// ── REGENERATION SYSTEM ───────────────────────────────────────────────────────
+
+function updateRegenUI() {
+  const btn = document.getElementById('regenBtn')
+  const counter = document.getElementById('regenCounter')
+  if (!state.leadCaptured) return
+
+  const FREE_LIMIT = 3
+  const BOOKED_LIMIT = 8
+
+  const maxRegens = state.calBooked ? BOOKED_LIMIT : FREE_LIMIT
+  const remaining = maxRegens - state.regenCount
+
+  btn.classList.add('visible')
+  counter.classList.add('visible')
+
+  if (remaining > 0) {
+    btn.textContent = `Try a different design →`
+    btn.disabled = false
+    counter.textContent = `${remaining} free design${remaining !== 1 ? 's' : ''} remaining`
+  } else if (!state.calBooked) {
+    btn.textContent = 'Book a visit to unlock 5 more →'
+    btn.disabled = false
+    counter.textContent = 'Free designs used'
+  } else {
+    btn.textContent = 'No more regens available'
+    btn.disabled = true
+    counter.textContent = ''
+  }
+}
+
+function tryAnotherDesign() {
+  const FREE_LIMIT = 3
+  const BOOKED_LIMIT = 8
+  const maxRegens = state.calBooked ? BOOKED_LIMIT : FREE_LIMIT
+
+  if (state.regenCount >= FREE_LIMIT && !state.calBooked) {
+    showCalModal()
+    return
+  }
+
+  if (state.regenCount >= maxRegens) return
+
+  state.regenCount++
+  updateRegenUI()
+  startGeneration()
+}
+
+function showCalModal() {
+  document.getElementById('calModal').classList.add('visible')
+}
+
+function closeCalModal() {
+  document.getElementById('calModal').classList.remove('visible')
+  if (state.calBooked) updateRegenUI()
 }
 
 // ── ERROR HELPERS ─────────────────────────────────────────────────────────────

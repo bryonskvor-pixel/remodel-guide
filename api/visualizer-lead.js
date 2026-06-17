@@ -85,7 +85,8 @@ function alertEmailHtml({ firstName, lastName, phone, email, smsOptIn, selection
     ['Countertop',     selections.countertop],
     ['Flooring',       selections.flooring],
     ['Wall Color',     selections.wallColor],
-  ].map(([label, val]) => `
+    selections.backsplash && selections.backsplash !== 'Keep Existing' ? ['Backsplash', selections.backsplash] : null,
+  ].filter(Boolean).map(([label, val]) => `
     <tr>
       <td style="font-size:12px;font-weight:600;color:#6B7280;text-transform:uppercase;letter-spacing:0.07em;padding:6px 0;width:120px;">${label}</td>
       <td style="font-size:14px;color:#1F2623;padding:6px 0;">${val || '—'}</td>
@@ -150,7 +151,8 @@ function confirmEmailHtml({ firstName, selections }) {
     ['Countertop',     selections.countertop],
     ['Flooring',       selections.flooring],
     ['Wall Color',     selections.wallColor],
-  ].map(([label, val]) => `<li style="font-size:14px;color:#1F2623;line-height:2;">${label}: <strong>${val}</strong></li>`).join('')
+    selections.backsplash && selections.backsplash !== 'Keep Existing' ? ['Backsplash', selections.backsplash] : null,
+  ].filter(Boolean).map(([label, val]) => `<li style="font-size:14px;color:#1F2623;line-height:2;">${label}: <strong>${val}</strong></li>`).join('')
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -230,6 +232,7 @@ export default async function handler(req, res) {
     selections.countertop    && `Countertop: ${selections.countertop}`,
     selections.flooring      && `Flooring: ${selections.flooring}`,
     selections.wallColor     && `Wall Color: ${selections.wallColor}`,
+    selections.backsplash && selections.backsplash !== 'Keep Existing' && `Backsplash: ${selections.backsplash}`,
   ].filter(Boolean).join(' · ')
 
   const results = { airtable: null, email_bryon: null, email_lead: null }
