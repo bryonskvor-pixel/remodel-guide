@@ -10,6 +10,7 @@ const _KTU   = 'https://www.kitchentuneup.com/siteassets/national-site/door-cata
 const _GRANEX = 'https://granexindustries.com/wp-content/uploads/2023/11'
 const _MSI   = 'https://cdn.msisurfaces.com/images'
 const _CLIQ  = 'https://www.cliqstudios.com/media/woodtype/image/c/r'
+const _MOHAWK = 'https://s7d4.scene7.com/is/image/MohawkResidential'
 
 const PRODUCTS = {
 
@@ -157,33 +158,33 @@ const PRODUCTS = {
   // ── FLOORING ────────────────────────────────────────────────────────────────
 
   flooring: [
-    // MOHAWK REVWOOD LAMINATE
-    { id: 'revwood-stonecroft',    label: 'Stonecroft Oak',        desc: 'Mohawk RevWood · Warm medium brown',        prompt: 'Mohawk RevWood Stonecroft Oak laminate flooring — warm medium brown oak plank with natural grain' },
-    { id: 'revwood-brookdale',     label: 'Brookdale Hickory',     desc: 'Mohawk RevWood · Rustic amber & brown',     prompt: 'Mohawk RevWood Brookdale Hickory laminate — rustic multi-tone amber and brown hickory planks' },
-    { id: 'revwood-southcharm',    label: 'Southern Charm Oak',    desc: 'Mohawk RevWood · Warm honey, character',    prompt: 'Mohawk RevWood Southern Charm laminate flooring — warm honey-toned oak with natural character marks' },
-    { id: 'revwood-antique-pecan', label: 'Antique Pecan',         desc: 'Mohawk RevWood · Rich warm pecan',          prompt: 'Mohawk RevWood Antique Pecan laminate flooring — rich warm pecan tones with antique grain character' },
-    { id: 'revwood-saratoga',      label: 'Saratoga Oak',          desc: 'Mohawk RevWood · Light natural oak',        prompt: 'Mohawk RevWood Saratoga Oak laminate flooring — light natural oak with subtle grain, bright and airy' },
-    { id: 'revwood-aged-barrel',   label: 'Aged Barrel',           desc: 'Mohawk RevWood · Deep warm rustic',         prompt: 'Mohawk RevWood Aged Barrel laminate flooring — deep warm rustic brown with aged barrel character' },
-    { id: 'revwood-driftwood',     label: 'Driftwood Heritage',    desc: 'Mohawk RevWood · Gray-washed, coastal',     prompt: 'Mohawk RevWood Driftwood Heritage laminate flooring — gray-washed wood tone with coastal driftwood character' },
-    { id: 'revwood-copper-ridge',  label: 'Copper Ridge',          desc: 'Mohawk RevWood · Warm copper-brown tones',  prompt: 'Mohawk RevWood Copper Ridge laminate flooring — warm copper and brown tones with natural grain' },
-    { id: 'revwood-reclaimed',     label: 'Reclaimed Heritage',    desc: 'Mohawk RevWood · Weathered vintage look',   prompt: 'Mohawk RevWood Reclaimed Heritage laminate flooring — weathered vintage wood look with character marks' },
-    { id: 'revwood-classic-brown', label: 'Classic Brown',         desc: 'Mohawk RevWood · Versatile medium brown',   prompt: 'Mohawk RevWood Classic Brown laminate flooring — versatile medium brown wood grain, timeless' },
-    { id: 'revwood-nat-heritage',  label: 'Natural Heritage',      desc: 'Mohawk RevWood · Warm light natural',       prompt: 'Mohawk RevWood Natural Heritage laminate flooring — warm light natural wood tone with gentle grain' },
-    { id: 'revwood-brushed-oak',   label: 'Brushed Oak',           desc: 'Mohawk RevWood · Wire-brushed, textured',   prompt: 'Mohawk RevWood Brushed Oak laminate flooring — wire-brushed oak texture with light natural color' },
+    // MOHAWK REVWOOD LAMINATE — swatches from s7d4.scene7.com (CORS open)
+    { id: 'revwood-stonecroft',    label: 'Stonecroft Oak',        desc: 'Mohawk RevWood · Warm medium brown',        imageUrl: `${_MOHAWK}/33541_01_swatch`, prompt: 'Mohawk RevWood Stonecroft Oak laminate flooring — warm medium brown oak plank with natural grain' },
+    { id: 'revwood-brookdale',     label: 'Brookdale Hickory',     desc: 'Mohawk RevWood · Rustic amber & brown',     imageUrl: `${_MOHAWK}/33605_03_swatch`, prompt: 'Mohawk RevWood Brookdale Hickory laminate — rustic multi-tone amber and brown hickory planks' },
+    { id: 'revwood-southcharm',    label: 'Southern Charm Oak',    desc: 'Mohawk RevWood · Warm honey, character',    imageUrl: `${_MOHAWK}/33577_04_swatch`, prompt: 'Mohawk RevWood Southern Charm laminate flooring — warm honey-toned oak with natural character marks' },
+    { id: 'revwood-antique-pecan', label: 'Antique Pecan',         desc: 'Mohawk RevWood · Rich warm pecan',          imageUrl: `${_MOHAWK}/33606_04_swatch`, prompt: 'Mohawk RevWood Antique Pecan laminate flooring — rich warm pecan tones with antique grain character' },
+    { id: 'revwood-saratoga',      label: 'Saratoga Oak',          desc: 'Mohawk RevWood · Light natural oak',        imageUrl: `${_MOHAWK}/33612_01_swatch`, prompt: 'Mohawk RevWood Saratoga Oak laminate flooring — light natural oak with subtle grain, bright and airy' },
+    { id: 'revwood-aged-barrel',   label: 'Aged Barrel',           desc: 'Mohawk RevWood · Deep warm rustic',         imageUrl: `${_MOHAWK}/33606_01_swatch`, prompt: 'Mohawk RevWood Aged Barrel laminate flooring — deep warm rustic brown with aged barrel character' },
+    { id: 'revwood-driftwood',     label: 'Driftwood Heritage',    desc: 'Mohawk RevWood · Gray-washed, coastal',     imageUrl: `${_MOHAWK}/33638_832_swatch`, prompt: 'Mohawk RevWood Driftwood Heritage laminate flooring — gray-washed wood tone with coastal driftwood character' },
+    { id: 'revwood-copper-ridge',  label: 'Copper Ridge',          desc: 'Mohawk RevWood · Warm copper-brown tones',  imageUrl: `${_MOHAWK}/33605_05_swatch`, prompt: 'Mohawk RevWood Copper Ridge laminate flooring — warm copper and brown tones with natural grain' },
+    { id: 'revwood-reclaimed',     label: 'Reclaimed Heritage',    desc: 'Mohawk RevWood · Weathered vintage look',   imageUrl: `${_MOHAWK}/33639_851_swatch`, prompt: 'Mohawk RevWood Reclaimed Heritage laminate flooring — weathered vintage wood look with character marks' },
+    { id: 'revwood-classic-brown', label: 'Classic Brown',         desc: 'Mohawk RevWood · Versatile medium brown',   imageUrl: `${_MOHAWK}/33541_05_swatch`, prompt: 'Mohawk RevWood Classic Brown laminate flooring — versatile medium brown wood grain, timeless' },
+    { id: 'revwood-nat-heritage',  label: 'Natural Heritage',      desc: 'Mohawk RevWood · Warm light natural',       imageUrl: `${_MOHAWK}/33611_01_swatch`, prompt: 'Mohawk RevWood Natural Heritage laminate flooring — warm light natural wood tone with gentle grain' },
+    { id: 'revwood-brushed-oak',   label: 'Brushed Oak',           desc: 'Mohawk RevWood · Wire-brushed, textured',   imageUrl: `${_MOHAWK}/33619_122_swatch`, prompt: 'Mohawk RevWood Brushed Oak laminate flooring — wire-brushed oak texture with light natural color' },
     // MOHAWK SOLIDTECH LVP
-    { id: 'solidtech-toasted',     label: 'Toasted Almond LVP',   desc: 'Mohawk SolidTech · Warm honey LVP',         prompt: 'Mohawk SolidTech Toasted Almond luxury vinyl plank flooring — warm honey-toned LVP with wood look' },
-    { id: 'solidtech-grey',        label: 'Steel Grey LVP',        desc: 'Mohawk SolidTech · Cool modern gray',       prompt: 'Mohawk SolidTech Steel Grey luxury vinyl plank flooring — cool gray modern LVP with subtle grain' },
-    { id: 'solidtech-latte',       label: 'Latte LVP',             desc: 'Mohawk SolidTech · Warm latte neutral',     prompt: 'Mohawk SolidTech Latte luxury vinyl plank flooring — warm latte-toned LVP, light and inviting' },
-    { id: 'solidtech-ashwood',     label: 'Ashwood LVP',           desc: 'Mohawk SolidTech · Light ashy blonde',      prompt: 'Mohawk SolidTech Ashwood luxury vinyl plank flooring — light ashy blonde LVP, Scandinavian inspired' },
-    { id: 'solidtech-espresso',    label: 'Espresso LVP',          desc: 'Mohawk SolidTech · Deep dark brown',        prompt: 'Mohawk SolidTech Espresso luxury vinyl plank flooring — deep dark espresso brown LVP planks' },
-    { id: 'solidtech-smoke',       label: 'Smoked Oak LVP',        desc: 'Mohawk SolidTech · Gray-brown smoked look', prompt: 'Mohawk SolidTech Smoked Oak luxury vinyl plank flooring — gray-brown smoked oak LVP' },
-    { id: 'solidtech-antique-oak', label: 'Antique Oak LVP',       desc: 'Mohawk SolidTech · Warm vintage character', prompt: 'Mohawk SolidTech Antique Oak luxury vinyl plank flooring — warm vintage oak character LVP' },
+    { id: 'solidtech-toasted',     label: 'Toasted Almond LVP',   desc: 'Mohawk SolidTech · Warm honey LVP',         imageUrl: `${_MOHAWK}/33591_01_swatch`, prompt: 'Mohawk SolidTech Toasted Almond luxury vinyl plank flooring — warm honey-toned LVP with wood look' },
+    { id: 'solidtech-grey',        label: 'Steel Grey LVP',        desc: 'Mohawk SolidTech · Cool modern gray',       imageUrl: `${_MOHAWK}/33592_02_swatch`, prompt: 'Mohawk SolidTech Steel Grey luxury vinyl plank flooring — cool gray modern LVP with subtle grain' },
+    { id: 'solidtech-latte',       label: 'Latte LVP',             desc: 'Mohawk SolidTech · Warm latte neutral',     imageUrl: `${_MOHAWK}/33591_02_swatch`, prompt: 'Mohawk SolidTech Latte luxury vinyl plank flooring — warm latte-toned LVP, light and inviting' },
+    { id: 'solidtech-ashwood',     label: 'Ashwood LVP',           desc: 'Mohawk SolidTech · Light ashy blonde',      imageUrl: `${_MOHAWK}/33611_03_swatch`, prompt: 'Mohawk SolidTech Ashwood luxury vinyl plank flooring — light ashy blonde LVP, Scandinavian inspired' },
+    { id: 'solidtech-espresso',    label: 'Espresso LVP',          desc: 'Mohawk SolidTech · Deep dark brown',        imageUrl: `${_MOHAWK}/33592_04_swatch`, prompt: 'Mohawk SolidTech Espresso luxury vinyl plank flooring — deep dark espresso brown LVP planks' },
+    { id: 'solidtech-smoke',       label: 'Smoked Oak LVP',        desc: 'Mohawk SolidTech · Gray-brown smoked look', imageUrl: `${_MOHAWK}/33638_861_swatch`, prompt: 'Mohawk SolidTech Smoked Oak luxury vinyl plank flooring — gray-brown smoked oak LVP' },
+    { id: 'solidtech-antique-oak', label: 'Antique Oak LVP',       desc: 'Mohawk SolidTech · Warm vintage character', imageUrl: `${_MOHAWK}/33606_03_swatch`, prompt: 'Mohawk SolidTech Antique Oak luxury vinyl plank flooring — warm vintage oak character LVP' },
     // HARDWOOD LOOKS
-    { id: 'white-oak-natural',     label: 'White Oak Natural',     desc: 'Light natural blonde hardwood look',        prompt: 'natural white oak hardwood flooring — light natural blonde with subtle cathedral grain' },
-    { id: 'white-oak-grey',        label: 'White Oak Gray',        desc: 'Gray-washed white oak, modern',             prompt: 'gray-washed white oak hardwood flooring — cool gray over natural oak grain, Scandinavian modern' },
-    { id: 'medium-oak',            label: 'Medium Oak',            desc: 'Classic medium brown oak',                  prompt: 'classic medium brown oak hardwood flooring — warm golden-brown oak with straight grain' },
-    { id: 'dark-walnut-floor',     label: 'Dark Walnut',           desc: 'Rich dark walnut hardwood look',            prompt: 'dark walnut hardwood flooring — rich deep chocolate brown with straight walnut grain' },
-    { id: 'wide-plank-oak',        label: 'Wide Plank Oak',        desc: 'Wide format rustic oak planks',             prompt: 'wide plank oak hardwood flooring — broad 5-inch plus planks with natural rustic oak character' },
+    { id: 'white-oak-natural',     label: 'White Oak Natural',     desc: 'Light natural blonde hardwood look',        imageUrl: `${_MOHAWK}/33612_02_swatch`, prompt: 'natural white oak hardwood flooring — light natural blonde with subtle cathedral grain' },
+    { id: 'white-oak-grey',        label: 'White Oak Gray',        desc: 'Gray-washed white oak, modern',             imageUrl: `${_MOHAWK}/33619_831_swatch`, prompt: 'gray-washed white oak hardwood flooring — cool gray over natural oak grain, Scandinavian modern' },
+    { id: 'medium-oak',            label: 'Medium Oak',            desc: 'Classic medium brown oak',                  imageUrl: `${_MOHAWK}/33577_01_swatch`, prompt: 'classic medium brown oak hardwood flooring — warm golden-brown oak with straight grain' },
+    { id: 'dark-walnut-floor',     label: 'Dark Walnut',           desc: 'Rich dark walnut hardwood look',            imageUrl: `${_MOHAWK}/33639_861_swatch`, prompt: 'dark walnut hardwood flooring — rich deep chocolate brown with straight walnut grain' },
+    { id: 'wide-plank-oak',        label: 'Wide Plank Oak',        desc: 'Wide format rustic oak planks',             imageUrl: `${_MOHAWK}/33639_133_swatch`, prompt: 'wide plank oak hardwood flooring — broad 5-inch plus planks with natural rustic oak character' },
     // TILE OPTIONS
     { id: 'large-white-tile',      label: 'Large White Porcelain', desc: '24×24 white tile, minimal grout',           prompt: 'large format 24x24 white porcelain tile flooring with minimal grout lines, clean modern look' },
     { id: 'gray-tile',             label: 'Gray Stone Tile',       desc: 'Gray stone look tile, textured',            prompt: 'gray stone look porcelain tile flooring with natural texture and subtle variation' },
