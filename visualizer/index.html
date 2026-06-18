@@ -392,39 +392,159 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      background: rgba(26,23,20,0.8);
+      background: rgba(26,23,20,0.85);
       backdrop-filter: blur(4px);
+      padding: 0 48px;
     }
 
     .preview-loading.visible { display: flex; }
 
     .loading-spinner {
-      width: 40px;
-      height: 40px;
+      width: 32px;
+      height: 32px;
       border: 2px solid rgba(181,144,74,0.2);
       border-top-color: var(--brass);
       border-radius: 50%;
       animation: spin 0.9s linear infinite;
-      margin-bottom: 16px;
+      margin-bottom: 24px;
     }
 
     @keyframes spin {
       to { transform: rotate(360deg); }
     }
 
-    .loading-text {
+    .loading-stage {
       font-family: 'Cormorant Garamond', serif;
       font-size: 18px;
-      color: rgba(255,255,255,0.7);
+      color: rgba(255,255,255,0.8);
       font-style: italic;
+      margin-bottom: 20px;
+      text-align: center;
+      min-height: 1.4em;
+      transition: opacity 0.3s;
+    }
+
+    .loading-bar-track {
+      width: 100%;
+      max-width: 280px;
+      height: 3px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 2px;
+      overflow: hidden;
+      margin-bottom: 14px;
+    }
+
+    .loading-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--brass);
+      border-radius: 2px;
+      transition: width 0.4s ease-out;
     }
 
     .loading-subtext {
       font-size: 11px;
-      color: rgba(255,255,255,0.3);
-      margin-top: 6px;
+      color: rgba(255,255,255,0.25);
       font-weight: 300;
+      letter-spacing: 0.05em;
     }
+
+    /* Before/After slider */
+    .ba-slider {
+      display: none;
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      cursor: ew-resize;
+      user-select: none;
+    }
+
+    .ba-slider.visible { display: block; }
+
+    .ba-after-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .ba-clip {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      overflow: hidden;
+      /* width set by JS */
+    }
+
+    .ba-before-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      /* width set by JS to match container so object-fit aligns identically */
+    }
+
+    .ba-handle {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      transform: translateX(-50%);
+      width: 44px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      pointer-events: none;
+      /* left set by JS */
+    }
+
+    .ba-handle-line {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 2px;
+      background: #fff;
+      box-shadow: 0 0 6px rgba(0,0,0,0.5);
+    }
+
+    .ba-handle-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      color: #333;
+      font-weight: 600;
+    }
+
+    .ba-label {
+      position: absolute;
+      top: 14px;
+      background: rgba(0,0,0,0.55);
+      color: rgba(255,255,255,0.85);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 4px;
+      pointer-events: none;
+    }
+
+    .ba-label-before { left: 14px; }
+    .ba-label-after  { right: 14px; }
 
     /* Lead capture overlay */
     .preview-lead-overlay {
@@ -1002,8 +1122,25 @@
         <!-- Loading overlay -->
         <div class="preview-loading" id="previewLoading">
           <div class="loading-spinner"></div>
-          <div class="loading-text">Designing your kitchen...</div>
-          <div class="loading-subtext">This takes about 15–25 seconds</div>
+          <div class="loading-stage" id="loadingStage">Analyzing your kitchen...</div>
+          <div class="loading-bar-track">
+            <div class="loading-bar-fill" id="loadingBar"></div>
+          </div>
+          <div class="loading-subtext" id="loadingSubtext">Usually 30–45 seconds</div>
+        </div>
+
+        <!-- Before/After slider (shown after lead unlock) -->
+        <div class="ba-slider" id="baSlider">
+          <img class="ba-after-img" id="baAfterImg" alt="Your redesigned kitchen" />
+          <div class="ba-clip" id="baClip">
+            <img class="ba-before-img" id="baBeforeImg" alt="Before" />
+          </div>
+          <div class="ba-handle" id="baHandle">
+            <div class="ba-handle-line"></div>
+            <div class="ba-handle-btn">◀▶</div>
+          </div>
+          <div class="ba-label ba-label-before">Before</div>
+          <div class="ba-label ba-label-after">After</div>
         </div>
 
         <!-- Lead capture overlay (shows after generation) -->
@@ -1124,6 +1261,7 @@ function init() {
   renderGrid('backsplash',    'grid-backsplash',    false, '4/3')
   renderGrid('hardware',      'grid-hardware',      false, '1/1')
   setupUpload()
+  initSlider()
 
   // Wire up Cal.com inline embed and booking success event
   if (typeof Cal !== 'undefined') {
@@ -1306,6 +1444,9 @@ function resetUpload() {
   document.getElementById('leadOverlay').classList.remove('visible')
   document.getElementById('unlockBadge').classList.remove('visible')
   document.getElementById('downloadBtn').classList.remove('visible')
+  document.getElementById('baSlider').classList.remove('visible')
+  document.getElementById('previewImg').style.display = ''
+  resetProgressBar()
 
   updateGenerateButton()
 }
@@ -1379,6 +1520,108 @@ function updateGenerateButton() {
   }
 }
 
+// ── PROGRESS BAR ──────────────────────────────────────────────────────────────
+
+const STAGES = [
+  { at:  0, text: 'Analyzing your kitchen...' },
+  { at:  8, text: 'Planning the redesign...' },
+  { at: 20, text: 'Rendering cabinets & finishes...' },
+  { at: 35, text: 'Refining the details...' },
+  { at: 50, text: 'Almost ready...' },
+]
+
+let _progressTimer = null
+let _progressStart = 0
+
+function startProgressBar() {
+  _progressStart = Date.now()
+  const bar   = document.getElementById('loadingBar')
+  const stage = document.getElementById('loadingStage')
+  bar.style.transition = 'none'
+  bar.style.width = '0%'
+  stage.textContent = STAGES[0].text
+
+  clearInterval(_progressTimer)
+  _progressTimer = setInterval(() => {
+    const elapsed = (Date.now() - _progressStart) / 1000
+    const current = [...STAGES].reverse().find(s => elapsed >= s.at) || STAGES[0]
+    stage.textContent = current.text
+    const pct = Math.min(92, Math.round((elapsed / 70) * 92))
+    bar.style.transition = 'width 0.4s ease-out'
+    bar.style.width = pct + '%'
+  }, 300)
+}
+
+function stopProgressBar() {
+  clearInterval(_progressTimer)
+  const bar = document.getElementById('loadingBar')
+  bar.style.transition = 'width 0.3s ease-out'
+  bar.style.width = '100%'
+  document.getElementById('loadingStage').textContent = 'Done!'
+}
+
+function resetProgressBar() {
+  clearInterval(_progressTimer)
+  const bar = document.getElementById('loadingBar')
+  bar.style.transition = 'none'
+  bar.style.width = '0%'
+  document.getElementById('loadingStage').textContent = STAGES[0].text
+}
+
+// ── BEFORE/AFTER SLIDER ───────────────────────────────────────────────────────
+
+function initSlider() {
+  const slider    = document.getElementById('baSlider')
+  const clip      = document.getElementById('baClip')
+  const handle    = document.getElementById('baHandle')
+  const beforeImg = document.getElementById('baBeforeImg')
+  let dragging = false
+
+  function setPos(clientX) {
+    const rect = slider.getBoundingClientRect()
+    const pct  = Math.max(2, Math.min(98, ((clientX - rect.left) / rect.width) * 100))
+    clip.style.width      = pct + '%'
+    handle.style.left     = pct + '%'
+    beforeImg.style.width = rect.width + 'px'
+  }
+
+  slider.addEventListener('mousedown',  e => { dragging = true; setPos(e.clientX); })
+  window.addEventListener('mousemove',  e => { if (dragging) setPos(e.clientX); })
+  window.addEventListener('mouseup',    () => { dragging = false; })
+  slider.addEventListener('touchstart', e => { dragging = true; setPos(e.touches[0].clientX); }, { passive: true })
+  window.addEventListener('touchmove',  e => {
+    if (!dragging) return
+    e.preventDefault()
+    setPos(e.touches[0].clientX)
+  }, { passive: false })
+  window.addEventListener('touchend', () => { dragging = false; })
+  window.addEventListener('resize',   () => {
+    if (slider.classList.contains('visible')) {
+      beforeImg.style.width = slider.offsetWidth + 'px'
+    }
+  })
+}
+
+function showSlider(beforeSrc, afterSrc) {
+  const slider    = document.getElementById('baSlider')
+  const clip      = document.getElementById('baClip')
+  const handle    = document.getElementById('baHandle')
+  const beforeImg = document.getElementById('baBeforeImg')
+  const afterImg  = document.getElementById('baAfterImg')
+  const img       = document.getElementById('previewImg')
+
+  afterImg.src  = afterSrc
+  beforeImg.src = beforeSrc
+  img.style.display = 'none'
+  slider.classList.add('visible')
+
+  // Place handle at center
+  const w = slider.offsetWidth || slider.getBoundingClientRect().width
+  clip.style.width      = '50%'
+  handle.style.left     = '50%'
+  beforeImg.style.width = w + 'px'
+}
+
 // ── GENERATION ────────────────────────────────────────────────────────────────
 
 function buildPrompt() {
@@ -1419,9 +1662,12 @@ async function startGeneration() {
 
   hideError()
   document.getElementById('selectionsBar').classList.remove('visible')
+  document.getElementById('baSlider').classList.remove('visible')
+  document.getElementById('previewImg').style.display = ''
   document.getElementById('previewImg').classList.add('blurred')
   document.getElementById('previewLoading').classList.add('visible')
   document.getElementById('leadOverlay').classList.remove('visible')
+  startProgressBar()
 
   const prompt = buildPrompt()
 
@@ -1489,18 +1735,22 @@ function showResult(imageUrl) {
   // Preload then display — no crossOrigin needed (BFL CDN doesn't serve CORS headers)
   const tempImg = new Image()
   const finish = () => {
-    img.src = imageUrl
-    loading.classList.remove('visible')
-    state.generated = true
-    document.getElementById('generateBtn').textContent = 'Generate →'
-    document.getElementById('generateBtn').disabled = false
-    if (state.leadCaptured) {
-      img.classList.remove('blurred')
-      updateRegenUI()
-    } else {
-      img.classList.add('blurred')
-      document.getElementById('leadOverlay').classList.add('visible')
-    }
+    stopProgressBar()
+    // Brief pause so the bar visibly completes before hiding
+    setTimeout(() => {
+      loading.classList.remove('visible')
+      state.generated = true
+      document.getElementById('generateBtn').textContent = 'Generate →'
+      document.getElementById('generateBtn').disabled = false
+      if (state.leadCaptured) {
+        showSlider(state.uploadedImageDataUrl, imageUrl)
+        updateRegenUI()
+      } else {
+        img.src = imageUrl
+        img.classList.add('blurred')
+        document.getElementById('leadOverlay').classList.add('visible')
+      }
+    }, 400)
   }
   tempImg.onload = finish
   tempImg.onerror = finish
@@ -1508,6 +1758,7 @@ function showResult(imageUrl) {
 }
 
 function resetGenerateButton() {
+  resetProgressBar()
   document.getElementById('previewLoading').classList.remove('visible')
   document.getElementById('previewImg').classList.remove('blurred')
   document.getElementById('generateBtn').textContent = 'Generate My Kitchen →'
@@ -1559,18 +1810,17 @@ async function submitLead(e) {
 }
 
 function unlockImage() {
-  const img = document.getElementById('previewImg')
   const overlay = document.getElementById('leadOverlay')
-  const badge = document.getElementById('unlockBadge')
-  const dlBtn = document.getElementById('downloadBtn')
+  const badge   = document.getElementById('unlockBadge')
+  const dlBtn   = document.getElementById('downloadBtn')
 
-  img.classList.remove('blurred')
   overlay.classList.remove('visible')
   badge.classList.add('visible')
 
   if (state.resultUrl) {
     dlBtn.href = state.resultUrl
     dlBtn.classList.add('visible')
+    showSlider(state.uploadedImageDataUrl, state.resultUrl)
   }
 
   state.leadCaptured = true
