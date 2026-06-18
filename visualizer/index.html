@@ -790,6 +790,13 @@
       .lead-form-row { grid-template-columns: 1fr; }
       .lead-modal-backdrop { align-items: flex-start; padding: 70px 16px 24px; overflow-y: auto; }
       .lead-modal-card { padding: 32px 20px 24px; }
+      /* Tighter cards on mobile: 3-col grid, fixed image height, name only */
+      .option-grid { grid-template-columns: repeat(3, 1fr); gap: 6px; }
+      .option-btn { padding: 8px 10px; }
+      .option-btn.has-image .option-img { height: 64px; }
+      .option-btn.has-image .option-btn-info { padding: 5px 7px 7px; }
+      .option-btn.has-image .option-btn-name { font-size: 11px; }
+      .option-btn.has-image .option-btn-desc { display: none; }
     }
 
     /* ── IMAGE OPTION CARDS ── */
