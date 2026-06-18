@@ -546,52 +546,70 @@
     .ba-label-before { left: 14px; }
     .ba-label-after  { right: 14px; }
 
-    /* Lead capture overlay */
-    .preview-lead-overlay {
-      position: absolute;
-      inset: 0;
+    /* Lead capture modal (centered) */
+    .lead-modal-backdrop {
       display: none;
-      align-items: flex-end;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.65);
+      backdrop-filter: blur(3px);
+      z-index: 2000;
+      align-items: center;
       justify-content: center;
-      padding: 32px;
+      padding: 24px;
     }
 
-    .preview-lead-overlay.visible { display: flex; }
+    .lead-modal-backdrop.visible { display: flex; }
 
-    .lead-card {
-      background: rgba(28,24,20,0.96);
-      backdrop-filter: blur(20px);
+    .lead-modal-card {
+      background: rgba(22,19,16,0.99);
       border: 1px solid rgba(181,144,74,0.25);
-      border-radius: 12px;
-      padding: 32px 36px;
+      border-radius: 14px;
+      padding: 40px 40px 32px;
       width: 100%;
-      max-width: 480px;
+      max-width: 460px;
+      position: relative;
     }
 
-    .lead-card-eyebrow {
+    .lead-modal-close {
+      position: absolute;
+      top: 16px;
+      right: 18px;
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.3);
+      font-size: 24px;
+      line-height: 1;
+      cursor: pointer;
+      padding: 4px 8px;
+      transition: color 0.15s;
+    }
+    .lead-modal-close:hover { color: rgba(255,255,255,0.65); }
+
+    .lead-modal-eyebrow {
       font-size: 10px;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--brass);
       font-weight: 500;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
-    .lead-card-title {
+    .lead-modal-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 26px;
+      font-size: 28px;
       color: var(--white);
       font-weight: 500;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
       line-height: 1.2;
     }
 
-    .lead-card-sub {
+    .lead-modal-sub {
       font-size: 13px;
-      color: rgba(255,255,255,0.45);
+      color: rgba(255,255,255,0.4);
       font-weight: 300;
-      margin-bottom: 24px;
-      line-height: 1.6;
+      margin-bottom: 28px;
+      line-height: 1.65;
     }
 
     .lead-form-row {
@@ -686,24 +704,6 @@
       line-height: 1.5;
     }
 
-    /* Unlock success badge */
-    .preview-unlock-badge {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background: var(--brass);
-      color: var(--deep);
-      padding: 6px 14px;
-      border-radius: 100px;
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      display: none;
-    }
-
-    .preview-unlock-badge.visible { display: block; }
-
     .preview-download-btn {
       position: absolute;
       bottom: 20px;
@@ -720,6 +720,7 @@
       cursor: pointer;
       text-decoration: none;
       display: none;
+      background: none;
     }
 
     .preview-download-btn.visible { display: block; }
@@ -787,16 +788,8 @@
       .viz-generate-wrap { width: 100%; }
       .swatch-grid { grid-template-columns: repeat(4, 1fr); }
       .lead-form-row { grid-template-columns: 1fr; }
-      .lead-card { padding: 24px 20px; }
-      /* Lead overlay covers full viewport on mobile so the form isn't clipped by the short preview box */
-      .preview-lead-overlay {
-        position: fixed;
-        z-index: 1000;
-        overflow-y: auto;
-        align-items: flex-start;
-        padding: 80px 16px 24px;
-      }
-      .lead-card { max-width: 100%; }
+      .lead-modal-backdrop { align-items: flex-start; padding: 70px 16px 24px; overflow-y: auto; }
+      .lead-modal-card { padding: 32px 20px 24px; }
     }
 
     /* ── IMAGE OPTION CARDS ── */
@@ -1143,50 +1136,6 @@
           <div class="ba-label ba-label-after">After</div>
         </div>
 
-        <!-- Lead capture overlay (shows after generation) -->
-        <div class="preview-lead-overlay" id="leadOverlay">
-          <div class="lead-card">
-            <div class="lead-card-eyebrow">Your design is ready</div>
-            <div class="lead-card-title">See the full render —<br><em style="color:var(--brass-light);">it's free.</em></div>
-            <div class="lead-card-sub">Enter your info and Bryon will send the full image plus a free consultation call.</div>
-
-            <form id="leadForm" onsubmit="submitLead(event)">
-              <div class="lead-form-row">
-                <div class="lead-form-field">
-                  <label for="firstName">First name</label>
-                  <input type="text" id="firstName" name="firstName" placeholder="Jane" required>
-                </div>
-                <div class="lead-form-field">
-                  <label for="lastName">Last name</label>
-                  <input type="text" id="lastName" name="lastName" placeholder="Smith">
-                </div>
-              </div>
-              <div class="lead-form-row">
-                <div class="lead-form-field">
-                  <label for="phone">Phone <span style="color:rgba(255,255,255,0.25);">*</span></label>
-                  <input type="tel" id="phone" name="phone" placeholder="(440) 555-0100" required>
-                </div>
-                <div class="lead-form-field">
-                  <label for="email">Email <span style="color:rgba(255,255,255,0.25);">*</span></label>
-                  <input type="email" id="email" name="email" placeholder="jane@email.com" required>
-                </div>
-              </div>
-              <div class="lead-sms-row">
-                <input type="checkbox" id="smsOptIn" name="smsOptIn">
-                <label for="smsOptIn">OK to text me about my kitchen project</label>
-              </div>
-              <button type="submit" class="lead-submit-btn" id="leadSubmitBtn">
-                Unlock My Design →
-              </button>
-            </form>
-
-            <div class="lead-fine-print">No spam. No pressure. Your info goes directly to Bryon.</div>
-          </div>
-        </div>
-
-        <!-- Unlock badge -->
-        <div class="preview-unlock-badge" id="unlockBadge">✓ Design unlocked</div>
-
         <!-- Regen counter -->
         <div class="regen-counter" id="regenCounter"></div>
 
@@ -1196,15 +1145,57 @@
         </button>
 
         <!-- Download button -->
-        <a class="preview-download-btn" id="downloadBtn" download="my-kitchen-design.jpg">
-          ↓ Save image
-        </a>
+        <button class="preview-download-btn" id="downloadBtn" onclick="handleDownload()">
+          ↓ Download
+        </button>
 
         <!-- Error message -->
         <div class="preview-error" id="previewError">Generation failed — please try again</div>
       </div>
 
     </div>
+  </div>
+</div>
+
+<!-- LEAD CAPTURE MODAL -->
+<div class="lead-modal-backdrop" id="leadModal" onclick="handleLeadModalBackdropClick(event)">
+  <div class="lead-modal-card">
+    <button class="lead-modal-close" onclick="closeLeadModal()" aria-label="Close">×</button>
+    <div class="lead-modal-eyebrow">Your kitchen is ready</div>
+    <div class="lead-modal-title" id="leadModalTitle">Download your design —<br><em style="color:var(--brass-light);">it's free.</em></div>
+    <div class="lead-modal-sub" id="leadModalSub">Drop your info and Bryon will reach out to help price out the real thing.</div>
+
+    <form id="leadForm" onsubmit="submitLead(event)">
+      <div class="lead-form-row">
+        <div class="lead-form-field">
+          <label for="firstName">First name</label>
+          <input type="text" id="firstName" name="firstName" placeholder="Jane" required>
+        </div>
+        <div class="lead-form-field">
+          <label for="lastName">Last name</label>
+          <input type="text" id="lastName" name="lastName" placeholder="Smith">
+        </div>
+      </div>
+      <div class="lead-form-row">
+        <div class="lead-form-field">
+          <label for="phone">Phone <span style="color:rgba(255,255,255,0.25);">*</span></label>
+          <input type="tel" id="phone" name="phone" placeholder="(440) 555-0100" required>
+        </div>
+        <div class="lead-form-field">
+          <label for="email">Email <span style="color:rgba(255,255,255,0.25);">*</span></label>
+          <input type="email" id="email" name="email" placeholder="jane@email.com" required>
+        </div>
+      </div>
+      <div class="lead-sms-row">
+        <input type="checkbox" id="smsOptIn" name="smsOptIn">
+        <label for="smsOptIn">OK to text me about my kitchen project</label>
+      </div>
+      <button type="submit" class="lead-submit-btn" id="leadSubmitBtn">
+        Download My Design →
+      </button>
+    </form>
+
+    <div class="lead-fine-print">No spam. No pressure. Your info goes directly to Bryon.</div>
   </div>
 </div>
 
@@ -1240,13 +1231,14 @@ const state = {
     backsplash:    'keep-backsplash', // optional — defaults to keep existing
     hardware:      'keep-hardware',   // optional — defaults to keep existing
   },
-  extraPrompt:  '',
-  taskId:       null,
-  resultUrl:    null,
-  generated:    false,
-  leadCaptured: false,
-  regenCount:   0,
-  calBooked:    false,
+  extraPrompt:   '',
+  pendingAction: null, // 'download' | 'regen' — set when modal opens
+  taskId:        null,
+  resultUrl:     null,
+  generated:     false,
+  leadCaptured:  false,
+  regenCount:    0,
+  calBooked:     false,
 }
 
 // ── INIT ──────────────────────────────────────────────────────────────────────
@@ -1441,8 +1433,6 @@ function resetUpload() {
   document.getElementById('previewImageWrap').classList.remove('visible')
   document.getElementById('previewPlaceholder').style.display = ''
   document.getElementById('previewLoading').classList.remove('visible')
-  document.getElementById('leadOverlay').classList.remove('visible')
-  document.getElementById('unlockBadge').classList.remove('visible')
   document.getElementById('downloadBtn').classList.remove('visible')
   document.getElementById('baSlider').classList.remove('visible')
   document.getElementById('previewImg').style.display = ''
@@ -1518,6 +1508,55 @@ function updateGenerateButton() {
   } else {
     hint.textContent = 'All set — generate your design'
   }
+}
+
+// ── LEAD MODAL ────────────────────────────────────────────────────────────────
+
+function showLeadModal(trigger) {
+  state.pendingAction = trigger
+  const title = document.getElementById('leadModalTitle')
+  const sub   = document.getElementById('leadModalSub')
+  const btn   = document.getElementById('leadSubmitBtn')
+
+  if (trigger === 'regen') {
+    title.innerHTML = 'Keep refining —<br><em style="color:var(--brass-light);">3 more free.</em>'
+    sub.textContent = 'Enter your info to try 3 more variations. Bryon will also reach out to talk through the real project.'
+    btn.textContent = 'Unlock 3 More Designs →'
+  } else {
+    title.innerHTML = 'Download your design —<br><em style="color:var(--brass-light);">it\'s free.</em>'
+    sub.textContent = 'Drop your info and Bryon will reach out to help price out the real thing.'
+    btn.textContent = 'Download My Design →'
+  }
+
+  document.getElementById('leadForm').reset()
+  document.getElementById('leadSubmitBtn').disabled = false
+  document.getElementById('leadModal').classList.add('visible')
+}
+
+function closeLeadModal() {
+  document.getElementById('leadModal').classList.remove('visible')
+}
+
+function handleLeadModalBackdropClick(e) {
+  if (e.target === document.getElementById('leadModal')) closeLeadModal()
+}
+
+function handleDownload() {
+  if (!state.leadCaptured) {
+    showLeadModal('download')
+    return
+  }
+  triggerDownload()
+}
+
+function triggerDownload() {
+  if (!state.resultUrl) return
+  const a = document.createElement('a')
+  a.href = state.resultUrl
+  a.download = 'my-kitchen-design.jpg'
+  document.body.appendChild(a)
+  a.click()
+  document.body.removeChild(a)
 }
 
 // ── PROGRESS BAR ──────────────────────────────────────────────────────────────
@@ -1666,7 +1705,6 @@ async function startGeneration() {
   document.getElementById('previewImg').style.display = ''
   document.getElementById('previewImg').classList.add('blurred')
   document.getElementById('previewLoading').classList.add('visible')
-  document.getElementById('leadOverlay').classList.remove('visible')
   startProgressBar()
 
   const prompt = buildPrompt()
@@ -1736,20 +1774,13 @@ function showResult(imageUrl) {
   const tempImg = new Image()
   const finish = () => {
     stopProgressBar()
-    // Brief pause so the bar visibly completes before hiding
     setTimeout(() => {
       loading.classList.remove('visible')
       state.generated = true
       document.getElementById('generateBtn').textContent = 'Generate →'
       document.getElementById('generateBtn').disabled = false
-      if (state.leadCaptured) {
-        showSlider(state.uploadedImageDataUrl, imageUrl)
-        updateRegenUI()
-      } else {
-        img.src = imageUrl
-        img.classList.add('blurred')
-        document.getElementById('leadOverlay').classList.add('visible')
-      }
+      showSlider(state.uploadedImageDataUrl, imageUrl)
+      updateRegenUI()
     }, 400)
   }
   tempImg.onload = finish
@@ -1810,58 +1841,74 @@ async function submitLead(e) {
 }
 
 function unlockImage() {
-  const overlay = document.getElementById('leadOverlay')
-  const badge   = document.getElementById('unlockBadge')
-  const dlBtn   = document.getElementById('downloadBtn')
+  closeLeadModal()
+  state.leadCaptured = true
+  const action = state.pendingAction
+  state.pendingAction = null
 
-  overlay.classList.remove('visible')
-  badge.classList.add('visible')
-
-  if (state.resultUrl) {
-    dlBtn.href = state.resultUrl
-    dlBtn.classList.add('visible')
-    showSlider(state.uploadedImageDataUrl, state.resultUrl)
+  if (action === 'download') {
+    triggerDownload()
+  } else if (action === 'regen') {
+    doRegen()
   }
 
-  state.leadCaptured = true
   updateRegenUI()
 }
 
 // ── REGENERATION SYSTEM ───────────────────────────────────────────────────────
 
 function updateRegenUI() {
-  const btn = document.getElementById('regenBtn')
+  const btn     = document.getElementById('regenBtn')
   const counter = document.getElementById('regenCounter')
-  if (!state.leadCaptured) return
+  const dlBtn   = document.getElementById('downloadBtn')
 
-  const FREE_LIMIT = 3
-  const BOOKED_LIMIT = 8
+  if (!state.generated) return
 
-  const maxRegens = state.calBooked ? BOOKED_LIMIT : FREE_LIMIT
-  const remaining = maxRegens - state.regenCount
+  // Download always shows once there's a result
+  dlBtn.classList.add('visible')
 
+  // Regen button always shows once there's a result
   btn.classList.add('visible')
+  btn.disabled = false
+
+  if (!state.leadCaptured) {
+    btn.textContent = 'Try a different design →'
+    counter.classList.remove('visible')
+    return
+  }
+
+  const FREE_LIMIT   = 3
+  const BOOKED_LIMIT = 8
+  const maxRegens    = state.calBooked ? BOOKED_LIMIT : FREE_LIMIT
+  const remaining    = maxRegens - state.regenCount
+
   counter.classList.add('visible')
 
   if (remaining > 0) {
-    btn.textContent = `Try a different design →`
-    btn.disabled = false
+    btn.textContent    = 'Try a different design →'
     counter.textContent = `${remaining} free design${remaining !== 1 ? 's' : ''} remaining`
   } else if (!state.calBooked) {
-    btn.textContent = 'Book a visit to unlock 5 more →'
-    btn.disabled = false
+    btn.textContent    = 'Book a visit to unlock 5 more →'
     counter.textContent = 'Free designs used'
   } else {
-    btn.textContent = 'No more regens available'
-    btn.disabled = true
+    btn.textContent = 'No more designs available'
+    btn.disabled    = true
     counter.textContent = ''
   }
 }
 
 function tryAnotherDesign() {
-  const FREE_LIMIT = 3
+  if (!state.leadCaptured) {
+    showLeadModal('regen')
+    return
+  }
+  doRegen()
+}
+
+function doRegen() {
+  const FREE_LIMIT   = 3
   const BOOKED_LIMIT = 8
-  const maxRegens = state.calBooked ? BOOKED_LIMIT : FREE_LIMIT
+  const maxRegens    = state.calBooked ? BOOKED_LIMIT : FREE_LIMIT
 
   if (state.regenCount >= FREE_LIMIT && !state.calBooked) {
     showCalModal()
