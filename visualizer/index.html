@@ -705,14 +705,10 @@
     }
 
     .preview-download-btn {
-      position: absolute;
-      bottom: 20px;
-      right: 20px;
-      background: rgba(28,24,20,0.85);
-      backdrop-filter: blur(8px);
+      pointer-events: auto;
       border: 1px solid rgba(181,144,74,0.3);
       color: var(--brass-light);
-      padding: 10px 18px;
+      padding: 8px 16px;
       border-radius: 6px;
       font-family: 'DM Sans', sans-serif;
       font-size: 12px;
@@ -798,6 +794,20 @@
       .option-btn.has-image .option-btn-info { padding: 5px 7px 7px; }
       .option-btn.has-image .option-btn-name { font-size: 11px; }
       .option-btn.has-image .option-btn-desc { display: none; }
+      /* Move action buttons below the image instead of overlapping it */
+      .viz-preview { flex-direction: column; justify-content: flex-start; align-items: stretch; }
+      .preview-image-wrap { flex: 1; min-height: 72vw; }
+      .preview-btns {
+        position: static;
+        flex-direction: row;
+        justify-content: flex-end;
+        padding: 10px 14px 12px;
+        background: #1A1714;
+        border-top: 1px solid rgba(255,255,255,0.06);
+        pointer-events: auto;
+        display: none;
+      }
+      .preview-btns:has(.regen-btn.visible, .preview-download-btn.visible) { display: flex; }
     }
 
     /* ── IMAGE OPTION CARDS ── */
@@ -831,10 +841,18 @@
     }
 
     /* ── REGEN SYSTEM ── */
-    .regen-btn {
+    .preview-btns {
       position: absolute;
-      bottom: 56px;
+      bottom: 16px;
       right: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+      pointer-events: none;
+    }
+    .regen-btn {
+      pointer-events: auto;
       background: var(--brass);
       color: #fff;
       border: none;
@@ -1147,15 +1165,15 @@
         <!-- Regen counter -->
         <div class="regen-counter" id="regenCounter"></div>
 
-        <!-- Regen button -->
-        <button class="regen-btn" id="regenBtn" onclick="tryAnotherDesign()">
-          Try a different design →
-        </button>
-
-        <!-- Download button -->
-        <button class="preview-download-btn" id="downloadBtn" onclick="handleDownload()">
-          ↓ Download
-        </button>
+        <!-- Action buttons (absolute on desktop, row below image on mobile) -->
+        <div class="preview-btns">
+          <button class="regen-btn" id="regenBtn" onclick="tryAnotherDesign()">
+            Try a different design →
+          </button>
+          <button class="preview-download-btn" id="downloadBtn" onclick="handleDownload()">
+            ↓ Download
+          </button>
+        </div>
 
         <!-- Error message -->
         <div class="preview-error" id="previewError">Generation failed — please try again</div>
@@ -1687,16 +1705,18 @@ function buildPrompt() {
 
   const parts = [
     `Redesign this kitchen photo with the following specific changes.`,
-    `Replace all cabinet doors and drawer fronts with ${style.prompt}, finished in ${finish.prompt} — this is the most important change.`,
+  ]
+  if (state.extraPrompt) parts.push(`Additional changes (apply these exactly): ${state.extraPrompt}`)
+  parts.push(
+    `Replace all cabinet doors and drawer fronts with ${style.prompt}, finished in ${finish.prompt} — this is the most important finish change.`,
     `Replace the countertops with ${counter.prompt}.`,
     `Replace the flooring with ${floor.prompt}.`,
     `${wall.prompt}.`,
-  ]
+  )
   if (backsplash) parts.push(`Replace the backsplash with ${backsplash.prompt}. The tile size, shape, and layout format must match the description exactly — do not substitute a different tile format or size.`)
   if (hardware) parts.push(`Remove all existing cabinet hardware completely and replace every single knob, pull, and handle with ${hardware.prompt} — do not leave any original hardware visible.`)
-  if (state.extraPrompt) parts.push(state.extraPrompt)
   parts.push(
-    `Keep the exact same room layout, camera angle, perspective, window placement, ceiling, and room proportions unchanged.`,
+    `Keep the same camera angle and perspective. Only change what is explicitly listed above — do not alter anything else.`,
     `Photorealistic, professional interior design photography, natural light, high resolution.`,
   )
   return parts.join(' ')
