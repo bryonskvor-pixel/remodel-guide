@@ -942,6 +942,18 @@
           <div class="option-grid" id="grid-backsplash"></div>
         </div>
 
+        <!-- ANYTHING ELSE (optional free text) -->
+        <div class="step-block" style="border-bottom:none;">
+          <div class="step-label">Anything else?</div>
+          <div class="step-title" style="margin-bottom:10px;">Other changes — optional</div>
+          <textarea
+            id="extraPrompt"
+            placeholder="e.g., add pendant lights above the island, open shelving on the left wall, farmhouse sink..."
+            oninput="state.extraPrompt = this.value.trim()"
+            style="width:100%;box-sizing:border-box;background:rgba(0,0,0,0.04);border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:300;color:var(--text);resize:vertical;min-height:72px;outline:none;line-height:1.5;"
+          ></textarea>
+        </div>
+
       </div>
 
       <!-- DISCLAIMER -->
@@ -1080,6 +1092,7 @@ const state = {
     wallColor:     null,
     backsplash:    'keep-backsplash', // optional — defaults to keep existing
   },
+  extraPrompt:  '',
   taskId:       null,
   resultUrl:    null,
   generated:    false,
@@ -1376,6 +1389,7 @@ function buildPrompt() {
     `${wall.prompt}.`,
   ]
   if (backsplash) parts.push(`Replace the backsplash with ${backsplash.prompt}. The tile size, shape, and layout format must match the description exactly — do not substitute a different tile format or size.`)
+  if (state.extraPrompt) parts.push(state.extraPrompt)
   parts.push(
     `Keep the exact same room layout, camera angle, perspective, window placement, ceiling, and room proportions unchanged.`,
     `Photorealistic, professional interior design photography, natural light, high resolution.`,
