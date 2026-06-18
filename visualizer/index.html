@@ -942,6 +942,16 @@
           <div class="option-grid" id="grid-backsplash"></div>
         </div>
 
+        <!-- STEP 8: Hardware (optional) -->
+        <div class="step-block">
+          <div class="step-label">
+            <span class="step-num" id="num-hardware">8</span>
+            Hardware
+          </div>
+          <div class="step-title">Knobs &amp; pulls — optional</div>
+          <div class="option-grid" id="grid-hardware"></div>
+        </div>
+
         <!-- ANYTHING ELSE (optional free text) -->
         <div class="step-block" style="border-bottom:none;">
           <div class="step-label">Anything else?</div>
@@ -1091,6 +1101,7 @@ const state = {
     flooring:      null,
     wallColor:     null,
     backsplash:    'keep-backsplash', // optional — defaults to keep existing
+    hardware:      'keep-hardware',   // optional — defaults to keep existing
   },
   extraPrompt:  '',
   taskId:       null,
@@ -1111,6 +1122,7 @@ function init() {
   renderGrid('flooring',      'grid-flooring',      false, '1/1')
   renderGrid('wallColor',     'grid-wallColor',     true)
   renderGrid('backsplash',    'grid-backsplash',    false, '4/3')
+  renderGrid('hardware',      'grid-hardware',      false, '1/1')
   setupUpload()
 
   // Wire up Cal.com inline embed and booking success event
@@ -1380,6 +1392,8 @@ function buildPrompt() {
   const wall       = get('wallColor',     s.wallColor)
   const backsplash = s.backsplash && s.backsplash !== 'keep-backsplash'
     ? get('backsplash', s.backsplash) : null
+  const hardware   = s.hardware && s.hardware !== 'keep-hardware'
+    ? get('hardware', s.hardware) : null
 
   const parts = [
     `Redesign this kitchen photo with the following specific changes.`,
@@ -1389,6 +1403,7 @@ function buildPrompt() {
     `${wall.prompt}.`,
   ]
   if (backsplash) parts.push(`Replace the backsplash with ${backsplash.prompt}. The tile size, shape, and layout format must match the description exactly — do not substitute a different tile format or size.`)
+  if (hardware) parts.push(`Replace all cabinet hardware with ${hardware.prompt}.`)
   if (state.extraPrompt) parts.push(state.extraPrompt)
   parts.push(
     `Keep the exact same room layout, camera angle, perspective, window placement, ceiling, and room proportions unchanged.`,

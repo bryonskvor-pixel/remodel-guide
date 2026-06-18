@@ -276,6 +276,23 @@ const PRODUCTS = {
     { id: 'renzo-storm',           label: 'Renzo Storm',           desc: 'MSI · Dark storm penny round mosaic',         imageUrl: `${_MSI}/skus/storm-renzo-5x5.jpg`,                                                 prompt: 'MSI Renzo Storm dark gray glossy penny round ceramic mosaic tile backsplash' },
   ],
 
+  // ── HARDWARE ─────────────────────────────────────────────────────────────────
+  // Franklin Brass Mushroom Knob + Liberty Phoebe Pull. "keep-hardware" = no change.
+
+  hardware: [
+    { id: 'keep-hardware', label: 'Keep Existing', desc: 'Leave current hardware as-is', prompt: '' },
+
+    // KNOBS — Franklin Brass Mushroom Knob
+    { id: 'knob-brass',  label: 'Brass Knob',  desc: 'Franklin Brass · Champagne Bronze mushroom knob', imageUrl: 'https://cdn.shopify.com/s/files/1/0925/5164/3418/files/1280_Iigpk92zVYp39wWw.png?v=1757517086', prompt: 'round mushroom cabinet knobs in champagne bronze warm gold finish on every cabinet door and drawer front' },
+    { id: 'knob-nickel', label: 'Nickel Knob', desc: 'Franklin Brass · Satin Nickel mushroom knob',    imageUrl: 'https://cdn.shopify.com/s/files/1/0925/5164/3418/files/1280_sYfoiaMyxHJ02ADs.png?v=1757517086', prompt: 'round mushroom cabinet knobs in satin nickel finish on every cabinet door and drawer front' },
+    { id: 'knob-black',  label: 'Black Knob',  desc: 'Franklin Brass · Matte Black mushroom knob',     imageUrl: 'https://cdn.shopify.com/s/files/1/0925/5164/3418/files/1280_IwyQIIQEYL551IXh.png?v=1757517086', prompt: 'round mushroom cabinet knobs in matte black finish on every cabinet door and drawer front' },
+
+    // PULLS — Liberty Phoebe Pull (3")
+    { id: 'pull-brass',  label: 'Brass Pull',  desc: 'Liberty Phoebe · Modern Gold 3" bar pull',       imageUrl: 'https://cdn.shopify.com/s/files/1/0925/5164/3418/files/1280_IsNfPAb6eb71ItUv.png?v=1779991059', prompt: 'slim arched bar pull cabinet hardware in modern gold champagne bronze finish on every cabinet door and drawer front' },
+    { id: 'pull-nickel', label: 'Nickel Pull', desc: 'Liberty Phoebe · Satin Nickel 3" bar pull',      imageUrl: 'https://cdn.shopify.com/s/files/1/0925/5164/3418/files/P33746C-SN-C.jpg?v=1780932581',          prompt: 'slim arched bar pull cabinet hardware in satin nickel finish on every cabinet door and drawer front' },
+    { id: 'pull-black',  label: 'Black Pull',  desc: 'Liberty Phoebe · Matte Black 3" bar pull',       imageUrl: 'https://cdn.shopify.com/s/files/1/0925/5164/3418/files/1280_EuvxLzeeL4651YZk.png?v=1779991114', prompt: 'slim arched bar pull cabinet hardware in matte black finish on every cabinet door and drawer front' },
+  ],
+
 }
 
 if (typeof window !== 'undefined') window.PRODUCTS = PRODUCTS
