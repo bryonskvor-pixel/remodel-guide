@@ -796,7 +796,7 @@
       .option-btn.has-image .option-btn-desc { display: none; }
       /* Move action buttons below the image instead of overlapping it */
       .viz-preview { flex-direction: column; justify-content: flex-start; align-items: stretch; }
-      .preview-image-wrap { min-height: 72vw; }
+      .preview-image-wrap { height: auto; min-height: 72vw; }
       .preview-btns {
         position: static;
         flex-direction: row;
@@ -1703,18 +1703,19 @@ function buildPrompt() {
   const hardware   = s.hardware && s.hardware !== 'keep-hardware'
     ? get('hardware', s.hardware) : null
 
+  const hardwareSuffix = hardware
+    ? ` Remove all existing cabinet hardware and install ${hardware.prompt} on every cabinet door and every drawer front — no original hardware should remain.`
+    : ''
+
   const parts = [
     `Redesign this kitchen photo with the following specific changes.`,
-  ]
-  if (state.extraPrompt) parts.push(`Additional changes (apply these exactly): ${state.extraPrompt}`)
-  parts.push(
-    `Replace all cabinet doors and drawer fronts with ${style.prompt}, finished in ${finish.prompt} — this is the most important finish change.`,
+    `Replace all cabinet doors and drawer fronts with ${style.prompt}, finished in ${finish.prompt} — this is the most important finish change.${hardwareSuffix}`,
     `Replace the countertops with ${counter.prompt}.`,
     `Replace the flooring with ${floor.prompt}.`,
     `${wall.prompt}.`,
-  )
+  ]
   if (backsplash) parts.push(`Replace the backsplash with ${backsplash.prompt}. The tile size, shape, and layout format must match the description exactly — do not substitute a different tile format or size.`)
-  if (hardware) parts.push(`Remove all existing cabinet hardware completely and replace every single knob, pull, and handle with ${hardware.prompt} — do not leave any original hardware visible.`)
+  if (state.extraPrompt) parts.push(`${state.extraPrompt}.`)
   parts.push(
     `Keep the same camera angle and perspective. Only change what is explicitly listed above — do not alter anything else.`,
     `Photorealistic, professional interior design photography, natural light, high resolution.`,
