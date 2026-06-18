@@ -796,7 +796,7 @@
       .option-btn.has-image .option-btn-desc { display: none; }
       /* Move action buttons below the image instead of overlapping it */
       .viz-preview { flex-direction: column; justify-content: flex-start; align-items: stretch; }
-      .preview-image-wrap { flex: 1; min-height: 72vw; }
+      .preview-image-wrap { min-height: 72vw; }
       .preview-btns {
         position: static;
         flex-direction: row;
@@ -805,9 +805,8 @@
         background: #1A1714;
         border-top: 1px solid rgba(255,255,255,0.06);
         pointer-events: auto;
-        display: none;
+        gap: 10px;
       }
-      .preview-btns:has(.regen-btn.visible, .preview-download-btn.visible) { display: flex; }
     }
 
     /* ── IMAGE OPTION CARDS ── */
@@ -850,6 +849,7 @@
       align-items: flex-end;
       gap: 8px;
       pointer-events: none;
+      z-index: 10;
     }
     .regen-btn {
       pointer-events: auto;
@@ -1165,18 +1165,18 @@
         <!-- Regen counter -->
         <div class="regen-counter" id="regenCounter"></div>
 
-        <!-- Action buttons (absolute on desktop, row below image on mobile) -->
-        <div class="preview-btns">
-          <button class="regen-btn" id="regenBtn" onclick="tryAnotherDesign()">
-            Try a different design →
-          </button>
-          <button class="preview-download-btn" id="downloadBtn" onclick="handleDownload()">
-            ↓ Download
-          </button>
-        </div>
-
         <!-- Error message -->
         <div class="preview-error" id="previewError">Generation failed — please try again</div>
+      </div>
+
+      <!-- Action buttons — sibling of image wrap so mobile can push them below -->
+      <div class="preview-btns" id="previewBtns">
+        <button class="regen-btn" id="regenBtn" onclick="tryAnotherDesign()">
+          Try a different design →
+        </button>
+        <button class="preview-download-btn" id="downloadBtn" onclick="handleDownload()">
+          ↓ Download
+        </button>
       </div>
 
     </div>
