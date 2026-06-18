@@ -783,9 +783,10 @@
       .viz-banner { padding: 10px 20px; }
       .viz-layout { grid-template-columns: 1fr; overflow: visible; }
       .viz-controls { overflow: visible; border-right: none; border-bottom: 1px solid var(--border); }
-      .viz-controls-inner { padding: 20px 20px 100px; }
-      .viz-preview { min-height: 60vw; }
-      .viz-generate-wrap { width: 100%; }
+      .viz-controls-inner { padding: 20px 20px 16px; }
+      /* Sticky (not fixed) so button scrolls with controls, clears the preview below */
+      .viz-generate-wrap { width: 100%; position: sticky; bottom: 0; left: 0; }
+      .viz-preview { min-height: 80vw; }
       .swatch-grid { grid-template-columns: repeat(4, 1fr); }
       .lead-form-row { grid-template-columns: 1fr; }
       .lead-modal-backdrop { align-items: flex-start; padding: 70px 16px 24px; overflow-y: auto; }
