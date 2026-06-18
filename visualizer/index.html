@@ -1692,7 +1692,7 @@ function buildPrompt() {
     `${wall.prompt}.`,
   ]
   if (backsplash) parts.push(`Replace the backsplash with ${backsplash.prompt}. The tile size, shape, and layout format must match the description exactly — do not substitute a different tile format or size.`)
-  if (hardware) parts.push(`Replace all cabinet hardware with ${hardware.prompt}.`)
+  if (hardware) parts.push(`Remove all existing cabinet hardware completely and replace every single knob, pull, and handle with ${hardware.prompt} — do not leave any original hardware visible.`)
   if (state.extraPrompt) parts.push(state.extraPrompt)
   parts.push(
     `Keep the exact same room layout, camera angle, perspective, window placement, ceiling, and room proportions unchanged.`,
