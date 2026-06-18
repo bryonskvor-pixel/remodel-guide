@@ -668,6 +668,15 @@
       .swatch-grid { grid-template-columns: repeat(4, 1fr); }
       .lead-form-row { grid-template-columns: 1fr; }
       .lead-card { padding: 24px 20px; }
+      /* Lead overlay covers full viewport on mobile so the form isn't clipped by the short preview box */
+      .preview-lead-overlay {
+        position: fixed;
+        z-index: 1000;
+        overflow-y: auto;
+        align-items: flex-start;
+        padding: 80px 16px 24px;
+      }
+      .lead-card { max-width: 100%; }
     }
 
     /* ── IMAGE OPTION CARDS ── */
@@ -1366,7 +1375,7 @@ function buildPrompt() {
     `Replace the flooring with ${floor.prompt}.`,
     `${wall.prompt}.`,
   ]
-  if (backsplash) parts.push(`Replace the backsplash with ${backsplash.prompt}.`)
+  if (backsplash) parts.push(`Replace the backsplash with ${backsplash.prompt}. The tile size, shape, and layout format must match the description exactly — do not substitute a different tile format or size.`)
   parts.push(
     `Keep the exact same room layout, camera angle, perspective, window placement, ceiling, and room proportions unchanged.`,
     `Photorealistic, professional interior design photography, natural light, high resolution.`,
