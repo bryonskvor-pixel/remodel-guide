@@ -277,8 +277,15 @@ export default async function handler(req, res) {
     scope        = '',
     timeline     = '',
     source_city  = '',
-    sms_opt_in   = false
+    sms_opt_in   = false,
+    website      = ''
   } = req.body || {};
+
+  // Honeypot — real users never see or fill this field
+  if (website) {
+    console.log('Honeypot triggered — bot submission dropped');
+    return res.status(200).json({ success: true });
+  }
 
   if (!phone) {
     return res.status(400).json({ error: 'Phone number is required' });

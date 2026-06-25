@@ -1315,6 +1315,9 @@ footer {
 .btn-form-submit:hover { background: var(--brass-light); }
 .btn-form-submit:disabled { opacity: 0.6; cursor: not-allowed; }
 
+/* Honeypot — never visible to humans, bots fill it in */
+.hp { position: absolute; left: -9999px; height: 0; overflow: hidden; opacity: 0; pointer-events: none; }
+
 .form-success {
   display: none;
   text-align: center;
