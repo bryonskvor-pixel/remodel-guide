@@ -72,6 +72,7 @@
     <li><a href="/">All Guides</a></li>
     <li><a href="/concierge/">The Concierge</a></li>
     <li><a href="/remi/">Meet Remi</a></li>
+    <li><a href="tel:+14402521053" class="nav-phone">(440) 252-1053</a></li>
     <li><a href="https://remodelry.guide/remi" target="_blank" class="nav-cta">Talk to Remi — Free</a></li>
   </ul>
   <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -323,22 +324,58 @@
   </div>
 </section>
 
-<section class="section-white" id="remi">
-  <div class="section-inner fade-up">
-    <div class="remi-cta">
-      <h2>Before you call anyone —<br><em>talk to Remi.</em></h2>
-      <p>People need someone to talk to about their project before they need someone to sell them something. That's what Remodelry is. And it starts with Remi.</p>
-      <p style="margin-top:12px;">Millwork projects benefit enormously from a clear scope before the first carpenter walks through the door. Remi captures your specific project — what rooms, what elements, painted or stained, budget range, timeline — in 15 minutes. Then your Remodelry Concierge will be in touch within 24 hours, already knowing your project and already thinking about the right carpenter for what you're trying to do.</p>
-      <a href="https://remodelry.guide/remi" target="_blank" class="btn-primary" style="margin-top:8px;">Talk to Remi — It's Free</a>
-      <p class="remi-cta-note">Free · No obligation · Your Concierge calls within 24 hours, already knowing your project</p>
+<!-- GET ESTIMATE / REMI CTA -->
+<section class="dual-cta-section" id="remi">
+  <div class="dual-cta-inner fade-up">
+    <div class="dual-cta-header">
+      <span class="section-label">Ready to plan your millwork?</span>
+      <h2>Talk to Remi first —<br><em>or fill out the form.</em></h2>
+      <p>Serving Lorain, Cuyahoga &amp; Medina Counties. Free estimates. No obligation, no pressure.</p>
     </div>
-    <div style="margin-top:48px;padding-top:48px;border-top:1px solid var(--border);text-align:center;">
-      <span class="section-label" style="display:block;text-align:center;">Continue Reading</span>
-      <h3 style="margin-bottom:24px;">More guides from remodel.guide</h3>
+    <div class="dual-cta-grid">
+      <div class="cta-path cta-path-primary">
+        <span class="cta-path-label">Recommended</span>
+        <h3>Talk to Remi first</h3>
+        <p>Millwork projects benefit enormously from a clear scope before the first carpenter walks through the door. Remi captures your project in 15 minutes — what rooms, what elements, painted or stained, budget and timeline. Your Remodelry concierge calls within 24 hours, already thinking about the right carpenter for your project.</p>
+        <a href="https://remodelry.guide/remi" target="_blank" class="btn-primary" style="display:block;text-align:center;">Talk to Remi — It's Free →</a>
+        <p style="font-size:12px;color:rgba(255,255,255,0.25);margin-top:12px;margin-bottom:0;text-align:center;line-height:1.5;">Free · No account required · ~15 minutes</p>
+      </div>
+      <div class="cta-or"><div class="cta-or-line"></div><span class="cta-or-text">or</span><div class="cta-or-line"></div></div>
+      <div class="cta-path cta-path-secondary">
+        <span class="cta-path-label">Prefer a form?</span>
+        <h3>Get a free estimate</h3>
+        <p>Fill this out and Bryon will call you within 24 hours to schedule a free in-home consultation.</p>
+        <form class="estimate-form" id="estimateForm">
+          <div class="form-row">
+            <div class="form-field"><label class="form-label" for="ef-name">Your name</label><input type="text" id="ef-name" name="name" placeholder="First Last" autocomplete="name"></div>
+            <div class="form-field"><label class="form-label" for="ef-phone">Phone <span style="color:var(--brass)">*</span></label><input type="tel" id="ef-phone" name="phone" placeholder="(440) 555-0100" autocomplete="tel" required></div>
+          </div>
+          <div class="form-row">
+            <div class="form-field"><label class="form-label" for="ef-email">Email (optional)</label><input type="email" id="ef-email" name="email" placeholder="you@email.com" autocomplete="email"></div>
+            <div class="form-field"><label class="form-label" for="ef-city">Your city</label><input type="text" id="ef-city" name="city" placeholder="Westlake, Medina…"></div>
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="ef-timeline">Timeline</label>
+            <select id="ef-timeline" name="timeline"><option value="">When are you thinking?</option><option value="ASAP">Ready to start ASAP</option><option value="1-3 months">Within 1–3 months</option><option value="3-6 months">3–6 months out</option><option value="Just researching">Just researching for now</option></select>
+          </div>
+          <div class="form-sms"><input type="checkbox" id="ef-sms" name="sms_opt_in"><label for="ef-sms">OK to send a quick follow-up text</label></div>
+          <input type="hidden" name="scope" value="Millwork / built-ins">
+          <input type="hidden" name="source_city" value="guide_millwork">
+          <button type="submit" class="btn-form-submit">Get My Free Estimate</button>
+        </form>
+        <div class="form-success" id="estimateSuccess">
+          <h4>Got it — Bryon will call you soon.</h4>
+          <p>Check your email for a confirmation. Questions in the meantime:<br><a href="tel:+14402521053">(440) 252-1053</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="continue-reading-dark">
+      <span class="section-label">Continue Reading</span>
+      <h3>More guides from remodel.guide</h3>
       <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-        <a href="/kitchen/" class="btn-ghost">Kitchen Remodel →</a>
-        <a href="/painting/" class="btn-ghost">Painting →</a>
-        <a href="/basement/" class="btn-ghost">Basement Finishing →</a>
+        <a href="/kitchen/" class="btn-ghost" style="border-color:rgba(255,255,255,0.18);color:rgba(255,255,255,0.55);">Kitchen Remodel →</a>
+        <a href="/painting/" class="btn-ghost" style="border-color:rgba(255,255,255,0.18);color:rgba(255,255,255,0.55);">Painting →</a>
+        <a href="/basement/" class="btn-ghost" style="border-color:rgba(255,255,255,0.18);color:rgba(255,255,255,0.55);">Basement Finishing →</a>
       </div>
     </div>
   </div>
@@ -395,6 +432,22 @@
   var mobileMenu = document.getElementById('mobileMenu');
   hamburger.addEventListener('click', function() { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
   function closeMobile() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); }
+  (function() {
+    var form = document.getElementById('estimateForm');
+    if (!form) return;
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      var btn = form.querySelector('.btn-form-submit');
+      btn.disabled = true; btn.textContent = 'Sending…';
+      var parts = (form.elements.name.value || '').trim().split(' ');
+      var data = { firstName: parts[0] || '', lastName: parts.slice(1).join(' ') || '', phone: form.elements.phone.value, email: form.elements.email.value, neighborhood: form.elements.city.value, scope: form.elements.scope.value, timeline: form.elements.timeline.value, source_city: form.elements.source_city.value, sms_opt_in: form.elements.sms_opt_in.checked };
+      try {
+        var res = await fetch('/api/lead', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+        if (res.ok) { form.style.display = 'none'; document.getElementById('estimateSuccess').style.display = 'block'; }
+        else { throw new Error(); }
+      } catch { btn.disabled = false; btn.textContent = 'Get My Free Estimate'; alert('Something went wrong. Please call (440) 252-1053 directly.'); }
+    });
+  })();
 </script>
 </body>
 </html>

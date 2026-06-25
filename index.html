@@ -59,6 +59,7 @@
     <li><a href="/remi/">Meet Remi</a></li>
     <li><a href="/blog/">From the Field</a></li>
     <li><a href="/about/">About</a></li>
+    <li><a href="tel:+14402521053" class="nav-phone">(440) 252-1053</a></li>
     <li><a href="https://remodelry.guide/remi" target="_blank" class="nav-cta">Talk to Remi — Free</a></li>
   </ul>
   <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -76,9 +77,13 @@
   </div>
 </nav>
 
-<!-- COMPANION BANNER -->
-<div class="companion-banner">
-  <p>A free resource from <a href="https://remodelry.guide" target="_blank">Remodelry</a> — Northeast Ohio's remodeling concierge service.</p>
+<!-- SERVICE STRIP -->
+<div class="service-strip">
+  <span class="service-strip-item">Lorain County</span>
+  <span class="service-strip-item">Cuyahoga County</span>
+  <span class="service-strip-item">Medina County</span>
+  <span class="service-strip-item">Free estimates · <a href="tel:+14402521053">(440) 252-1053</a></span>
+  <span class="service-strip-item">A resource from <a href="https://remodelry.guide" target="_blank">Remodelry</a></span>
 </div>
 
 <!-- HERO -->
@@ -246,16 +251,95 @@
   </div>
 </section>
 
-<!-- REMI CTA -->
-<section class="section-white">
-  <div class="section-inner fade-up">
-    <div class="remi-cta">
-      <h2>People need someone to talk to<br><em>before they need someone to sell them something.</em></h2>
-      <p>That's what Remodelry is. And it starts with Remi.</p>
-      <p style="margin-top:16px;">Remi is Remodelry's free AI intake companion — a 15-minute conversation that captures your project, your priorities, and what you need to know before anyone shows up. You'll receive a personalized First Look immediately after.</p>
-      <p style="margin-top:12px;">Then your Remodelry Concierge will be in touch within 24 hours. When they call, they'll already know your project. You won't start from scratch. You won't get a sales pitch. You'll get someone who is genuinely on your side — before any contractor shows up with a bid.</p>
-      <a href="https://remodelry.guide/remi" target="_blank" class="btn-primary" style="margin-top:8px;">Talk to Remi — It's Free</a>
-      <p class="remi-cta-note">Free · No obligation · Your Concierge calls within 24 hours, already knowing your project</p>
+<!-- GET ESTIMATE / REMI CTA -->
+<section class="dual-cta-section" id="estimate">
+  <div class="dual-cta-inner fade-up">
+    <div class="dual-cta-header">
+      <span class="section-label">Ready to start your project?</span>
+      <h2>Talk to Remi first —<br><em>or fill out the form.</em></h2>
+      <p>Serving Lorain, Cuyahoga &amp; Medina Counties. Free estimates. No obligation, no showroom pressure.</p>
+    </div>
+    <div class="dual-cta-grid">
+
+      <!-- PRIMARY: REMI -->
+      <div class="cta-path cta-path-primary">
+        <span class="cta-path-label">Recommended</span>
+        <h3>Talk to Remi first</h3>
+        <p>Remi is our free AI intake — about 15 minutes. It captures your full project: scope, priorities, budget range, and timeline. Your Remodelry concierge calls within 24 hours with your complete project brief already in hand. No starting from scratch, no sales pitch.</p>
+        <a href="https://remodelry.guide/remi" target="_blank" class="btn-primary" style="display:block;text-align:center;">Talk to Remi — It's Free →</a>
+        <p style="font-size:12px;color:rgba(255,255,255,0.25);margin-top:12px;margin-bottom:0;text-align:center;line-height:1.5;">Free · No account required · ~15 minutes</p>
+      </div>
+
+      <!-- DIVIDER -->
+      <div class="cta-or">
+        <div class="cta-or-line"></div>
+        <span class="cta-or-text">or</span>
+        <div class="cta-or-line"></div>
+      </div>
+
+      <!-- SECONDARY: FORM -->
+      <div class="cta-path cta-path-secondary">
+        <span class="cta-path-label">Prefer a form?</span>
+        <h3>Get a free estimate</h3>
+        <p>Fill this out and Bryon will call you within 24 hours to schedule a free in-home visit.</p>
+        <form class="estimate-form" id="estimateForm">
+          <div class="form-row">
+            <div class="form-field">
+              <label class="form-label" for="ef-name">Your name</label>
+              <input type="text" id="ef-name" name="name" placeholder="First Last" autocomplete="name">
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="ef-phone">Phone <span style="color:var(--brass)">*</span></label>
+              <input type="tel" id="ef-phone" name="phone" placeholder="(440) 555-0100" autocomplete="tel" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label class="form-label" for="ef-email">Email (optional)</label>
+              <input type="email" id="ef-email" name="email" placeholder="you@email.com" autocomplete="email">
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="ef-city">Your city</label>
+              <input type="text" id="ef-city" name="city" placeholder="Westlake, Parma…">
+            </div>
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="ef-scope">Project type</label>
+            <select id="ef-scope" name="scope">
+              <option value="Kitchen remodel">Kitchen remodel</option>
+              <option value="Flooring installation">Flooring installation</option>
+              <option value="Bathroom renovation">Bathroom renovation</option>
+              <option value="Basement finishing">Basement finishing</option>
+              <option value="Home addition">Home addition</option>
+              <option value="Interior painting">Interior painting</option>
+              <option value="Window replacement">Window replacement</option>
+              <option value="Roofing">Roofing</option>
+              <option value="Other remodel">Other / not sure yet</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="ef-timeline">Timeline</label>
+            <select id="ef-timeline" name="timeline">
+              <option value="">When are you thinking?</option>
+              <option value="ASAP">Ready to start ASAP</option>
+              <option value="1-3 months">Within 1–3 months</option>
+              <option value="3-6 months">3–6 months out</option>
+              <option value="Just researching">Just researching for now</option>
+            </select>
+          </div>
+          <div class="form-sms">
+            <input type="checkbox" id="ef-sms" name="sms_opt_in">
+            <label for="ef-sms">OK to send a quick follow-up text</label>
+          </div>
+          <input type="hidden" name="source_city" value="homepage">
+          <button type="submit" class="btn-form-submit">Get My Free Estimate</button>
+        </form>
+        <div class="form-success" id="estimateSuccess">
+          <h4>Got it — Bryon will call you soon.</h4>
+          <p>Check your email for a confirmation. Questions in the meantime:<br><a href="tel:+14402521053">(440) 252-1053</a></p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -320,6 +404,45 @@
     hamburger.classList.remove('open');
     mobileMenu.classList.remove('open');
   }
+
+  // Estimate form handler
+  (function() {
+    var form = document.getElementById('estimateForm');
+    if (!form) return;
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      var btn = form.querySelector('.btn-form-submit');
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      var parts = (form.elements.name.value || '').trim().split(' ');
+      var data = {
+        firstName: parts[0] || '',
+        lastName: parts.slice(1).join(' ') || '',
+        phone: form.elements.phone.value,
+        email: form.elements.email.value,
+        neighborhood: form.elements.city.value,
+        scope: form.elements.scope.value,
+        timeline: form.elements.timeline.value,
+        source_city: form.elements.source_city.value,
+        sms_opt_in: form.elements.sms_opt_in.checked
+      };
+      try {
+        var res = await fetch('/api/lead', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        if (res.ok) {
+          form.style.display = 'none';
+          document.getElementById('estimateSuccess').style.display = 'block';
+        } else { throw new Error(); }
+      } catch {
+        btn.disabled = false;
+        btn.textContent = 'Get My Free Estimate';
+        alert('Something went wrong. Please call (440) 252-1053 directly.');
+      }
+    });
+  })();
 </script>
 
 </body>

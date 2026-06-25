@@ -74,6 +74,7 @@
     <li><a href="/">All Guides</a></li>
     <li><a href="/concierge/">The Concierge</a></li>
     <li><a href="/remi/">Meet Remi</a></li>
+    <li><a href="tel:+14402521053" class="nav-phone">(440) 252-1053</a></li>
     <li><a href="https://remodelry.guide/remi" target="_blank" class="nav-cta">Talk to Remi — Free</a></li>
   </ul>
   <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -319,22 +320,58 @@
     </div>
   </div>
 </section>
-<section class="section-cream">
-  <div class="section-inner fade-up">
-    <div class="remi-cta">
-      <h2>Before anyone knocks<br><em>on your door — talk to Remi.</em></h2>
-      <p>People need someone to talk to about their project before they need someone to sell them something. That's what Remodelry is. And it starts with Remi.</p>
-      <p style="margin-top:12px;">Remi captures your specific roofing situation in 15 minutes and gives you a personalized First Look. Then your Remodelry Concierge will be in touch within 24 hours — already knowing your situation, already on your side, already prepared to help you evaluate what you hear from roofing contractors against what an honest assessment of your roof actually requires.</p>
-      <a href="https://remodelry.guide/remi" target="_blank" class="btn-primary" style="margin-top:8px;">Talk to Remi — It's Free</a>
-      <p class="remi-cta-note">Free · No obligation · Your Concierge calls within 24 hours, already knowing your project</p>
+<!-- GET ESTIMATE / REMI CTA -->
+<section class="dual-cta-section" id="remi">
+  <div class="dual-cta-inner fade-up">
+    <div class="dual-cta-header">
+      <span class="section-label">Ready to address your roof?</span>
+      <h2>Talk to Remi first —<br><em>before anyone knocks on your door.</em></h2>
+      <p>Serving Lorain, Cuyahoga &amp; Medina Counties. Free estimates. No high-pressure sales tactics.</p>
     </div>
-    <div style="margin-top:48px;padding-top:48px;border-top:1px solid var(--border);text-align:center;">
-      <span class="section-label" style="display:block;text-align:center;">Continue Reading</span>
-      <h3 style="margin-bottom:24px;">More guides from remodel.guide</h3>
+    <div class="dual-cta-grid">
+      <div class="cta-path cta-path-primary">
+        <span class="cta-path-label">Recommended</span>
+        <h3>Talk to Remi first</h3>
+        <p>Remi captures your roofing situation in 15 minutes — age of roof, visible damage, any storm activity, and what you're hearing from contractors. Your Remodelry concierge calls within 24 hours, already on your side before any storm chaser shows up with a clipboard.</p>
+        <a href="https://remodelry.guide/remi" target="_blank" class="btn-primary" style="display:block;text-align:center;">Talk to Remi — It's Free →</a>
+        <p style="font-size:12px;color:rgba(255,255,255,0.25);margin-top:12px;margin-bottom:0;text-align:center;line-height:1.5;">Free · No account required · ~15 minutes</p>
+      </div>
+      <div class="cta-or"><div class="cta-or-line"></div><span class="cta-or-text">or</span><div class="cta-or-line"></div></div>
+      <div class="cta-path cta-path-secondary">
+        <span class="cta-path-label">Prefer a form?</span>
+        <h3>Get a free estimate</h3>
+        <p>Fill this out and Bryon will call you within 24 hours to schedule a free in-home visit.</p>
+        <form class="estimate-form" id="estimateForm">
+          <div class="form-row">
+            <div class="form-field"><label class="form-label" for="ef-name">Your name</label><input type="text" id="ef-name" name="name" placeholder="First Last" autocomplete="name"></div>
+            <div class="form-field"><label class="form-label" for="ef-phone">Phone <span style="color:var(--brass)">*</span></label><input type="tel" id="ef-phone" name="phone" placeholder="(440) 555-0100" autocomplete="tel" required></div>
+          </div>
+          <div class="form-row">
+            <div class="form-field"><label class="form-label" for="ef-email">Email (optional)</label><input type="email" id="ef-email" name="email" placeholder="you@email.com" autocomplete="email"></div>
+            <div class="form-field"><label class="form-label" for="ef-city">Your city</label><input type="text" id="ef-city" name="city" placeholder="Westlake, Parma…"></div>
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="ef-timeline">Timeline</label>
+            <select id="ef-timeline" name="timeline"><option value="">When are you thinking?</option><option value="ASAP">Ready to start ASAP</option><option value="1-3 months">Within 1–3 months</option><option value="3-6 months">3–6 months out</option><option value="Just researching">Just researching for now</option></select>
+          </div>
+          <div class="form-sms"><input type="checkbox" id="ef-sms" name="sms_opt_in"><label for="ef-sms">OK to send a quick follow-up text</label></div>
+          <input type="hidden" name="scope" value="Roofing project">
+          <input type="hidden" name="source_city" value="guide_roofing">
+          <button type="submit" class="btn-form-submit">Get My Free Estimate</button>
+        </form>
+        <div class="form-success" id="estimateSuccess">
+          <h4>Got it — Bryon will call you soon.</h4>
+          <p>Check your email for a confirmation. Questions in the meantime:<br><a href="tel:+14402521053">(440) 252-1053</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="continue-reading-dark">
+      <span class="section-label">Continue Reading</span>
+      <h3>More guides from remodel.guide</h3>
       <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-        <a href="/windows/" class="btn-ghost">Window Replacement →</a>
-        <a href="/painting/" class="btn-ghost">Exterior Painting →</a>
-        <a href="/demo/" class="btn-ghost">Living Through a Renovation →</a>
+        <a href="/windows/" class="btn-ghost" style="border-color:rgba(255,255,255,0.18);color:rgba(255,255,255,0.55);">Window Replacement →</a>
+        <a href="/painting/" class="btn-ghost" style="border-color:rgba(255,255,255,0.18);color:rgba(255,255,255,0.55);">Exterior Painting →</a>
+        <a href="/demo/" class="btn-ghost" style="border-color:rgba(255,255,255,0.18);color:rgba(255,255,255,0.55);">Living Through a Renovation →</a>
       </div>
     </div>
   </div>
@@ -395,6 +432,22 @@
     hamburger.classList.remove('open');
     mobileMenu.classList.remove('open');
   }
+  (function() {
+    var form = document.getElementById('estimateForm');
+    if (!form) return;
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      var btn = form.querySelector('.btn-form-submit');
+      btn.disabled = true; btn.textContent = 'Sending…';
+      var parts = (form.elements.name.value || '').trim().split(' ');
+      var data = { firstName: parts[0] || '', lastName: parts.slice(1).join(' ') || '', phone: form.elements.phone.value, email: form.elements.email.value, neighborhood: form.elements.city.value, scope: form.elements.scope.value, timeline: form.elements.timeline.value, source_city: form.elements.source_city.value, sms_opt_in: form.elements.sms_opt_in.checked };
+      try {
+        var res = await fetch('/api/lead', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+        if (res.ok) { form.style.display = 'none'; document.getElementById('estimateSuccess').style.display = 'block'; }
+        else { throw new Error(); }
+      } catch { btn.disabled = false; btn.textContent = 'Get My Free Estimate'; alert('Something went wrong. Please call (440) 252-1053 directly.'); }
+    });
+  })();
 </script>
 </body>
 </html>
