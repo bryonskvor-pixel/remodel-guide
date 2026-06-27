@@ -428,7 +428,8 @@
         scope: form.elements.scope.value,
         timeline: form.elements.timeline.value,
         source_city: form.elements.source_city.value,
-        sms_opt_in: form.elements.sms_opt_in.checked
+        sms_opt_in: form.elements.sms_opt_in.checked,
+        website:    (form.elements.website || { value: '' }).value
       };
       try {
         var res = await fetch('/api/lead', {

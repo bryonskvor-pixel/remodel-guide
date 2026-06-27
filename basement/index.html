@@ -1022,7 +1022,7 @@
       var btn = form.querySelector('.btn-form-submit');
       btn.disabled = true; btn.textContent = 'Sending…';
       var parts = (form.elements.name.value || '').trim().split(' ');
-      var data = { firstName: parts[0] || '', lastName: parts.slice(1).join(' ') || '', phone: form.elements.phone.value, email: form.elements.email.value, neighborhood: form.elements.city.value, scope: form.elements.scope.value, timeline: form.elements.timeline.value, source_city: form.elements.source_city.value, sms_opt_in: form.elements.sms_opt_in.checked };
+      var data = { firstName: parts[0] || '', lastName: parts.slice(1).join(' ') || '', phone: form.elements.phone.value, email: form.elements.email.value, neighborhood: form.elements.city.value, scope: form.elements.scope.value, timeline: form.elements.timeline.value, source_city: form.elements.source_city.value, sms_opt_in: form.elements.sms_opt_in.checked, website: (form.elements.website||{value:''}).value };
       try {
         var res = await fetch('/api/lead', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
         if (res.ok) { form.style.display = 'none'; document.getElementById('estimateSuccess').style.display = 'block'; }
