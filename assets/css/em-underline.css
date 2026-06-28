@@ -1,0 +1,36 @@
+/* ============================================================
+   remodel.guide — Hero Em Underline Animation
+   Drop this into assets/css/style.css or link as a separate file
+   ============================================================ */
+
+/* The animated underline on italic em elements in headlines */
+.hero h1 em,
+.section-dark h2 em,
+.section-cream h2 em,
+.dual-cta-section h2 em {
+  position: relative;
+  font-style: italic;
+  display: inline;
+}
+
+.hero h1 em::after,
+.section-dark h2 em::after,
+.section-cream h2 em::after,
+.dual-cta-section h2 em::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 1px;
+  height: 2px;
+  width: 0;
+  background-color: #B5904A;
+  transition: width 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Triggered by JS adding .em-revealed to the parent section */
+.hero.em-revealed h1 em::after,
+.section-dark.em-revealed h2 em::after,
+.section-cream.em-revealed h2 em::after,
+.dual-cta-section.em-revealed h2 em::after {
+  width: 100%;
+}

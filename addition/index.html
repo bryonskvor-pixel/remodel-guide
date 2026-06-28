@@ -15,7 +15,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/kitchen-decision-connector.css">
+  <link rel="stylesheet" href="../assets/css/kitchen-progress-bar.css">
 <style>
     /* ── PROOF PLATE ICONS ── */
     .proof-plate {
@@ -471,5 +473,55 @@
     });
   })();
 </script>
+<script>
+  /* Decision Connector + Progress Bar */
+  (function () {
+    var progressBar = document.createElement('div');
+    progressBar.id = 'reading-progress';
+    document.body.insertBefore(progressBar, document.body.firstChild);
+
+    function updateProgress() {
+      var scrollTop = window.scrollY || document.documentElement.scrollTop;
+      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      var pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progressBar.style.width = Math.min(pct, 100).toFixed(2) + '%';
+    }
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+
+    var decisionMap = document.querySelector('.decision-map');
+    if (!decisionMap) return;
+
+    var items = Array.from(decisionMap.querySelectorAll('.decision-item'));
+    if (!items.length) return;
+
+    var fillEl = document.createElement('div');
+    fillEl.className = 'connector-fill';
+    fillEl.style.cssText = 'position:absolute;left:22px;top:24px;width:2px;height:0;background:#B5904A;z-index:1;transition:height 0.08s linear;pointer-events:none';
+    decisionMap.appendChild(fillEl);
+    decisionMap.classList.add('connector-js-active');
+
+    function getConnectorFill() {
+      var mapTop = decisionMap.getBoundingClientRect().top + window.scrollY + 24;
+      var viewMid = window.scrollY + window.innerHeight * 0.65;
+      var activeItems = [];
+      items.forEach(function (item) {
+        var nodeTop = item.getBoundingClientRect().top + window.scrollY;
+        if (nodeTop <= viewMid) {
+          item.classList.add('connector-active');
+          activeItems.push(nodeTop);
+        }
+      });
+      if (!activeItems.length) { fillEl.style.height = '0px'; return; }
+      var lastActive = Math.max.apply(null, activeItems);
+      fillEl.style.height = Math.max(0, lastActive - mapTop + 22) + 'px';
+    }
+
+    window.addEventListener('scroll', getConnectorFill, { passive: true });
+    getConnectorFill();
+  })();
+</script>
+
 </body>
 </html>
+

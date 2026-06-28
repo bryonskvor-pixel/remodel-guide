@@ -1,0 +1,61 @@
+/* ============================================================
+   remodel.guide — Guide Card Hover System
+   Drop this into assets/css/style.css or link as a separate file
+   No existing classes are overridden — only extended
+   ============================================================ */
+
+/* Card base — add transition and position context */
+.guide-card {
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+}
+
+/* The brass underline that draws in under the title */
+.guide-card-title {
+  position: relative;
+  display: inline-block;
+}
+
+.guide-card-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 1.5px;
+  background-color: #B5904A;
+  transition: width 0.22s ease;
+}
+
+/* Card number shifts to full brass on hover */
+.guide-card-num {
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+/* The lift — shadow and slight translate */
+.guide-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Underline draws in */
+.guide-card:hover .guide-card-title::after {
+  width: 100%;
+}
+
+/* Number goes full brass */
+.guide-card:hover .guide-card-num {
+  color: #B5904A;
+  opacity: 1;
+}
+
+/* Arrow nudges right */
+.guide-card-link {
+  display: inline-block;
+  transition: transform 0.18s ease;
+}
+
+.guide-card:hover .guide-card-link {
+  transform: translateX(4px);
+}

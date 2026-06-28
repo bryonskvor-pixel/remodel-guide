@@ -20,6 +20,8 @@
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/em-underline.css">
+  <link rel="stylesheet" href="assets/css/card-hover.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -447,6 +449,38 @@
         alert('Something went wrong. Please call (440) 252-1053 directly.');
       }
     });
+  })();
+
+  /* Em Underline JS Trigger */
+  (function () {
+    var emSections = document.querySelectorAll(
+      '.hero, .section-dark, .section-cream, .dual-cta-section'
+    );
+
+    var emObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            setTimeout(function () {
+              entry.target.classList.add('em-revealed');
+            }, 280);
+            emObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+
+    emSections.forEach(function (el) {
+      emObserver.observe(el);
+    });
+
+    var hero = document.querySelector('.hero');
+    if (hero) {
+      setTimeout(function () {
+        hero.classList.add('em-revealed');
+      }, 400);
+    }
   })();
 </script>
 

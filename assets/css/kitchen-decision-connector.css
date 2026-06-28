@@ -1,0 +1,84 @@
+/* ============================================================
+   remodel.guide/kitchen/ — Decision Map Connector Animation
+   ============================================================ */
+
+.decision-map {
+  position: relative;
+  padding-left: 0;
+}
+
+.decision-map::before {
+  content: '';
+  position: absolute;
+  left: 22px;
+  top: 24px;
+  bottom: 24px;
+  width: 2px;
+  background: var(--border);
+  z-index: 0;
+}
+
+.decision-map::after {
+  content: '';
+  position: absolute;
+  left: 22px;
+  top: 24px;
+  width: 2px;
+  height: 0;
+  background: #B5904A;
+  z-index: 1;
+  transition: height 0.08s linear;
+}
+
+.decision-item {
+  position: relative;
+  padding-left: 56px;
+  margin-bottom: 40px;
+}
+
+.decision-num {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--warm-white, #FAF8F4);
+  border: 2px solid var(--border);
+  border-radius: 50%;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--muted, #8C8278);
+  z-index: 2;
+  transition: border-color 0.3s ease, color 0.3s ease, background 0.3s ease;
+  line-height: 1;
+}
+
+.decision-item.connector-active .decision-num {
+  border-color: #B5904A;
+  color: #B5904A;
+  background: rgba(181, 144, 74, 0.08);
+}
+
+@keyframes node-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(181, 144, 74, 0.35); }
+  60%  { box-shadow: 0 0 0 8px rgba(181, 144, 74, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(181, 144, 74, 0); }
+}
+
+.decision-item.connector-active .decision-num {
+  animation: node-pulse 0.55s ease-out forwards;
+}
+
+@media (max-width: 640px) {
+  .decision-map::before,
+  .decision-map::after {
+    display: none;
+  }
+  .decision-item {
+    padding-left: 52px;
+  }
+}

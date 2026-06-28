@@ -1,0 +1,16 @@
+/* ============================================================
+   remodel.guide — Reading Progress Bar
+   Fixed to the top of the viewport, 2px brass line
+   ============================================================ */
+
+#reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #B5904A;
+  z-index: 9999;
+  transition: width 0.05s linear;
+  pointer-events: none;
+}
