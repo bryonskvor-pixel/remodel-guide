@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found — remodel.guide</title>
+  <meta name="robots" content="noindex" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-668G89NRZE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-668G89NRZE');
+  </script>
+
+  <style>
+    .error-section {
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 24px;
+      background: var(--warm-white);
+    }
+    .error-inner {
+      max-width: 560px;
+      text-align: center;
+    }
+    .error-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(80px, 16vw, 140px);
+      font-weight: 400;
+      color: var(--brass-pale);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .error-inner h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 500;
+      color: var(--deep);
+      margin-bottom: 16px;
+    }
+    .error-inner p {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+    .error-guides {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 40px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+    }
+    .error-guides a {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 6px 12px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .error-guides a:hover {
+      color: var(--brass);
+      border-color: var(--brass);
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">
+    <img src="/assets/images/remodel-guide-logo.png" alt="remodel.guide">
+  </a>
+  <ul class="nav-links">
+    <li><a href="/">All Guides</a></li>
+    <li><a href="/kitchen/">Kitchen</a></li>
+    <li><a href="/visualizer/">Design Visualizer</a></li>
+    <li><a href="/flooring/">Flooring</a></li>
+    <li><a href="/remi/">Meet Remi</a></li>
+    <li><a href="/blog/">From the Field</a></li>
+    <li><a href="/faq/">FAQ</a></li>
+    <li><a href="/about/">About</a></li>
+    <li><a href="tel:+14402521053" class="nav-phone">(440) 252-1053</a></li>
+    <li><a href="https://remodelry.guide/remi" target="_blank" class="nav-cta">Talk to Remi — Free</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/" onclick="closeMobile()">The Guides</a>
+    <a href="/kitchen/" onclick="closeMobile()">Kitchen</a>
+    <a href="/visualizer/" onclick="closeMobile()">Design Visualizer</a>
+    <a href="/flooring/" onclick="closeMobile()">Flooring</a>
+    <a href="/remi/" onclick="closeMobile()">Meet Remi</a>
+    <a href="/blog/" onclick="closeMobile()">From the Field</a>
+    <a href="/faq/" onclick="closeMobile()">FAQ</a>
+    <a href="/about/" onclick="closeMobile()">About</a>
+    <a href="https://remodelry.guide/remi" target="_blank" class="mobile-cta">Talk to Remi — It's Free</a>
+  </div>
+</nav>
+
+<!-- 404 CONTENT -->
+<section class="error-section">
+  <div class="error-inner">
+    <div class="error-num">404</div>
+    <h1>That page doesn't exist.</h1>
+    <p>The URL may have changed or the page was removed. Start from one of the guides below — or talk to Remi if you're ready to plan a project.</p>
+    <a href="https://remodelry.guide/remi" target="_blank" class="btn-primary">Talk to Remi — It's Free →</a>
+
+    <div class="error-guides">
+      <a href="/kitchen/">Kitchen Remodel</a>
+      <a href="/bathroom/">Bathroom Renovation</a>
+      <a href="/basement/">Basement Finishing</a>
+      <a href="/addition/">Home Addition</a>
+      <a href="/flooring/">Flooring</a>
+      <a href="/windows/">Window Replacement</a>
+      <a href="/roofing/">Roofing</a>
+      <a href="/painting/">Interior Painting</a>
+      <a href="/millwork/">Millwork & Built-Ins</a>
+      <a href="/demo/">Living Through a Renovation</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="/assets/images/remodel-guide-logo.png" alt="remodel.guide">
+      <p class="footer-tagline">The Homeowner Protection Guide<br>for Residential Remodeling.<br><br>A free resource from <a href="https://remodelry.guide" target="_blank">Remodelry</a> —<br>Northeast Ohio's remodeling concierge service.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <span class="footer-col-title">The Guides</span>
+        <ul>
+          <li><a href="/kitchen/">Kitchen Remodel</a></li>
+          <li><a href="/bathroom/">Bathroom Renovation</a></li>
+          <li><a href="/basement/">Basement Finishing</a></li>
+          <li><a href="/addition/">Home Addition</a></li>
+          <li><a href="/flooring/">Flooring</a></li>
+          <li><a href="/windows/">Window Replacement</a></li>
+          <li><a href="/roofing/">Roofing</a></li>
+          <li><a href="/painting/">Interior Painting</a></li>
+          <li><a href="/millwork/">Millwork & Built-Ins</a></li>
+          <li><a href="/demo/">Living Through a Renovation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <span class="footer-col-title">Remodelry</span>
+        <ul>
+          <li><a href="https://remodelry.guide" target="_blank">remodelry.guide</a></li>
+          <li><a href="https://remodelry.guide/remi" target="_blank">Talk to Remi — Free</a></li>
+          <li><a href="https://remodelry.guide/concierge" target="_blank">The Concierge</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 remodel.guide · All rights reserved.</span>
+    <span class="footer-remodelry">A <a href="https://remodelry.guide" target="_blank">Remodelry</a> resource · Serving Northeast Ohio</span>
+  </div>
+</footer>
+
+<script>
+  var hamburger = document.getElementById('hamburger');
+  var mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', function() {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  function closeMobile() {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  }
+</script>
+
+</body>
+</html>

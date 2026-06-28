@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="../assets/css/kitchen-decision-connector.css">
   <link rel="stylesheet" href="../assets/css/kitchen-progress-bar.css">
+  <link rel="stylesheet" href="../assets/css/em-underline.css">
+  <link rel="stylesheet" href="../assets/css/guide-enhancements.css">
 <style>
     /* ── PROOF PLATE ICONS ── */
     .proof-plate {
@@ -70,7 +72,7 @@
 <body>
 <nav>
   <a href="/" class="nav-logo">
-    <img src="../assets/images/remodel-guide-logo.png" alt="remodel.guide">
+    <img loading="lazy" src="../assets/images/remodel-guide-logo.png" alt="remodel.guide">
   </a>
   <ul class="nav-links">
     <li><a href="/">All Guides</a></li>
@@ -99,7 +101,7 @@
       <span class="breadcrumb-sep">→</span>
       <span class="breadcrumb-current">Roofing</span>
     </div>
-    <img src="../assets/icons/rem-roof-01-storm-chaser-playbook.png" alt="" class="proof-plate" onerror="this.style.display='none'">
+    <img loading="lazy" src="../assets/icons/rem-roof-01-storm-chaser-playbook.png" alt="" class="proof-plate" onerror="this.style.display='none'">
 <h1>The Roofing<br><em>Guide</em></h1>
     <p class="page-header-body">Roofing has two problems — a pricing problem and a storm chaser problem. The pricing range on comparable roofs from different contractors can be enormous. And after any hail event, trucks appear in neighborhoods with offers that sound like deals and carry risks most homeowners don't see until their insurance renews. This guide names both problems before anyone knocks on the door.</p>
     <div class="page-header-meta">
@@ -111,7 +113,7 @@
   </div>
 </section>
 <div style="background:var(--deep);padding:0 80px 0;line-height:0;">
-  <img src="../assets/images/roofing-hero.jpg" alt="Roof replacement in progress" class="guide-image" style="margin:0;border-radius:0;max-height:480px;object-fit:cover;width:100%;" onerror="this.style.display='none'">
+  <img loading="lazy" src="../assets/images/roofing-hero.jpg" alt="Roof replacement in progress" class="guide-image" style="margin:0;border-radius:0;max-height:480px;object-fit:cover;width:100%;" onerror="this.style.display='none'">
 </div>
 <section class="section-white">
   <div class="section-inner">
@@ -170,7 +172,7 @@
     <span class="section-label">Roofing Materials</span>
     <h2>What the differences<br><em>actually mean.</em></h2>
     <div class="guide-content">
-      <img src="../assets/icons/rem-roof-04-architectural-vs-3tab.png" alt="" class="proof-plate" onerror="this.style.display='none'">
+      <img loading="lazy" src="../assets/icons/rem-roof-04-architectural-vs-3tab.png" alt="" class="proof-plate" onerror="this.style.display='none'">
       <h3>Architectural shingles vs 3-tab shingles</h3>
       <p><strong>3-tab shingles</strong> are flat, uniform, and have been largely replaced by architectural shingles as the residential standard. They are lighter, less expensive, carry shorter warranties, and are more susceptible to wind uplift. If a contractor is bidding 3-tab without explanation, ask why.</p>
       <p><strong>Architectural shingles</strong> have a multi-layer construction that creates a dimensional, textured appearance. They are heavier, more wind-resistant, and carry longer warranties — typically 30-year to lifetime. They are the appropriate specification for most residential roof replacements today. Within architectural shingles there are significant quality tiers — premium lines from Owens Corning, GAF, and CertainTeed offer better impact resistance and longer labor warranty support than entry-level products. In Ohio's hail-prone climate the premium tier is worth the modest cost difference.</p>
@@ -383,7 +385,7 @@
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
-      <img src="../assets/images/remodel-guide-logo.png" alt="remodel.guide">
+      <img loading="lazy" src="../assets/images/remodel-guide-logo.png" alt="remodel.guide">
       <p class="footer-tagline">The Homeowner Protection Guide<br>for Residential Remodeling.<br><br>A free resource from <a href="https://remodelry.guide" target="_blank">Remodelry</a> —<br>Northeast Ohio's remodeling concierge service.</p>
     </div>
     <div class="footer-links">
@@ -502,6 +504,99 @@
   })();
 </script>
 
+
+<script>
+  /* Guide enhancements — em underline, timeline, back-to-top, sticky CTA, TOC active, phone tracking */
+  (function () {
+
+    /* ── EM UNDERLINE ── */
+    var emSections = document.querySelectorAll('.section-dark, .section-cream, .dual-cta-section');
+    var emObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          setTimeout(function () { e.target.classList.add('em-revealed'); }, 280);
+          emObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.25 });
+    emSections.forEach(function (el) { emObs.observe(el); });
+
+    /* ── TIMELINE ACTIVE ── */
+    var timelineItems = document.querySelectorAll('.timeline-item');
+    if (timelineItems.length) {
+      var tlObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('timeline-active');
+            tlObs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.4 });
+      timelineItems.forEach(function (el) { tlObs.observe(el); });
+    }
+
+    /* ── BACK TO TOP ── */
+    var btt = document.createElement('button');
+    btt.id = 'back-to-top';
+    btt.setAttribute('aria-label', 'Back to top');
+    btt.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    document.body.appendChild(btt);
+    window.addEventListener('scroll', function () {
+      btt.classList.toggle('visible', window.scrollY > 500);
+    }, { passive: true });
+    btt.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
+    /* ── STICKY BOTTOM CTA ── */
+    var pageHeader = document.querySelector('.page-header');
+    var estimateSection = document.getElementById('estimate');
+    if (pageHeader && estimateSection) {
+      var cta = document.createElement('div');
+      cta.id = 'sticky-cta';
+      cta.innerHTML = '<span class="sticky-label">Ready to start?</span>' +
+        '<a href="https://remodelry.guide/remi" target="_blank" class="btn-primary">Talk to Remi — Free →</a>' +
+        '<a href="tel:+14402521053" class="sticky-phone">(440) 252-1053</a>';
+      document.body.appendChild(cta);
+      var stickyObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.target === pageHeader) cta.classList.toggle('visible', !e.isIntersecting);
+          if (e.target === estimateSection && e.isIntersecting) cta.classList.remove('visible');
+        });
+      }, { threshold: 0.1 });
+      stickyObs.observe(pageHeader);
+      stickyObs.observe(estimateSection);
+    }
+
+    /* ── TOC ACTIVE SECTION ── */
+    var tocLinks = Array.from(document.querySelectorAll('.toc-list li a'));
+    if (tocLinks.length) {
+      var sections = tocLinks.map(function (a) {
+        return document.querySelector(a.getAttribute('href'));
+      }).filter(Boolean);
+      var tocObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            tocLinks.forEach(function (a) { a.classList.remove('toc-active'); });
+            var id = e.target.id;
+            var active = document.querySelector('.toc-list li a[href="#' + id + '"]');
+            if (active) active.classList.add('toc-active');
+          }
+        });
+      }, { threshold: 0.25, rootMargin: '-15% 0px -55% 0px' });
+      sections.forEach(function (s) { tocObs.observe(s); });
+    }
+
+    /* ── PHONE CLICK TRACKING ── */
+    document.querySelectorAll('a[href^="tel:"]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (typeof gtag === 'function') {
+          gtag('event', 'phone_click', { event_category: 'contact', event_label: window.location.pathname });
+        }
+      });
+    });
+
+  })();
+</script>
 </body>
 </html>
+
 

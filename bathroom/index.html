@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="../assets/css/kitchen-decision-connector.css">
   <link rel="stylesheet" href="../assets/css/kitchen-progress-bar.css">
+  <link rel="stylesheet" href="../assets/css/em-underline.css">
+  <link rel="stylesheet" href="../assets/css/guide-enhancements.css">
 
   <style>
     /* Shower section special treatment */
@@ -169,7 +171,7 @@
 <!-- NAV -->
 <nav>
   <a href="/" class="nav-logo">
-    <img src="../assets/images/remodel-guide-logo.png" alt="remodel.guide">
+    <img loading="lazy" src="../assets/images/remodel-guide-logo.png" alt="remodel.guide">
   </a>
   <ul class="nav-links">
     <li><a href="/">All Guides</a></li>
@@ -202,7 +204,7 @@
       <span class="breadcrumb-sep">→</span>
       <span class="breadcrumb-current">Bathroom Renovation</span>
     </div>
-    <img src="../assets/icons/rem-bath-01-water-damage-reality.png" alt="" class="proof-plate" onerror="this.style.display='none'">
+    <img loading="lazy" src="../assets/icons/rem-bath-01-water-damage-reality.png" alt="" class="proof-plate" onerror="this.style.display='none'">
 <h1>The Bathroom<br><em>Renovation Guide</em></h1>
     <p class="page-header-body">Water is unforgiving. A shower built without the right waterproofing doesn't fail visibly — it fails silently, behind tile, into the subfloor and framing, until the damage forces a complete tear-out. The decisions that determine whether a bathroom renovation lasts 20 years or fails in 5 are made before a single tile is set. This guide covers all of them.</p>
     <div class="page-header-meta">
@@ -216,7 +218,7 @@
 
 <!-- HERO IMAGE -->
 <div style="background:var(--deep);padding:0 80px 0;line-height:0;">
-  <img src="../assets/images/bathroom-hero.jpg"
+  <img loading="lazy" src="../assets/images/bathroom-hero.jpg"
        alt="Bathroom mid-demo — tile removed from shower walls, backer board exposed"
        class="guide-image"
        style="margin:0;border-radius:0;max-height:480px;object-fit:cover;width:100%;"
@@ -253,7 +255,7 @@
 
       <p>The decisions that determine whether a bathroom renovation lasts 20 years or fails in 5 are made before a single tile is set. Most homeowners don't know what those decisions are. This guide covers all of them.</p>
 
-      <img src="../assets/images/bathroom-demo.jpg"
+      <img loading="lazy" src="../assets/images/bathroom-demo.jpg"
            alt="Bathroom after demo — tile removed, existing conditions exposed"
            class="guide-image"
            onerror="this.style.display='none'">
@@ -400,7 +402,7 @@
 
     <p style="margin-top:20px;">This is the section most homeowners need most and find least. A custom tile shower is one of the most complex installations in residential construction — not because the individual components are difficult, but because there are so many interdependent decisions, and because water is unforgiving of mistakes. A shower built correctly lasts 20 years. A shower built with shortcuts fails silently until the damage forces a complete tear-out.</p>
 
-    <img src="../assets/images/shower-waterproofing.jpg"
+    <img loading="lazy" src="../assets/images/shower-waterproofing.jpg"
          alt="Waterproofing membrane installed on shower walls before tile — the layer nobody sees"
          class="guide-image"
          style="margin:32px 0;"
@@ -426,7 +428,7 @@
       </div>
     </div>
 
-    <img src="../assets/images/shower-mosaic-floor.jpg"
+    <img loading="lazy" src="../assets/images/shower-mosaic-floor.jpg"
          alt="Mosaic tile on a shower floor — small format conforming to the slope to drain"
          class="guide-image"
          style="margin:32px 0;"
@@ -465,7 +467,7 @@
       <p>This is a decision made during framing that becomes a much larger problem if missed. If there is any chance a bench will be wanted — now or in the future — install the blocking during framing. It costs almost nothing at that stage.</p>
     </div>
 
-    <img src="../assets/images/shower-niche-framing.jpg"
+    <img loading="lazy" src="../assets/images/shower-niche-framing.jpg"
          alt="Shower niche framed into wall before waterproofing — the stage most homeowners never see"
          class="guide-image"
          style="margin:32px 0;"
@@ -495,7 +497,7 @@
       <p><strong>Glass thickness matters.</strong> 3/8 inch is standard. 1/2 inch is premium and noticeably more substantial. Hardware finish must coordinate with fixture finishes. Door swing direction must be planned — a door that swings into the toilet is a design problem that is obvious in planning and painful in daily use.</p>
     </div>
 
-    <img src="../assets/images/shower-glass-install.jpg"
+    <img loading="lazy" src="../assets/images/shower-glass-install.jpg"
          alt="Frameless glass shower enclosure being installed — the final step of the custom shower"
          class="guide-image"
          style="margin:32px 0;"
@@ -741,7 +743,7 @@
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
-      <img src="../assets/images/remodel-guide-logo.png" alt="remodel.guide">
+      <img loading="lazy" src="../assets/images/remodel-guide-logo.png" alt="remodel.guide">
       <p class="footer-tagline">The Homeowner Protection Guide<br>for Residential Remodeling.<br><br>A free resource from <a href="https://remodelry.guide" target="_blank">Remodelry</a> —<br>Northeast Ohio's remodeling concierge service.</p>
     </div>
     <div class="footer-links">
@@ -864,6 +866,99 @@
   })();
 </script>
 
+
+<script>
+  /* Guide enhancements — em underline, timeline, back-to-top, sticky CTA, TOC active, phone tracking */
+  (function () {
+
+    /* ── EM UNDERLINE ── */
+    var emSections = document.querySelectorAll('.section-dark, .section-cream, .dual-cta-section');
+    var emObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          setTimeout(function () { e.target.classList.add('em-revealed'); }, 280);
+          emObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.25 });
+    emSections.forEach(function (el) { emObs.observe(el); });
+
+    /* ── TIMELINE ACTIVE ── */
+    var timelineItems = document.querySelectorAll('.timeline-item');
+    if (timelineItems.length) {
+      var tlObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('timeline-active');
+            tlObs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.4 });
+      timelineItems.forEach(function (el) { tlObs.observe(el); });
+    }
+
+    /* ── BACK TO TOP ── */
+    var btt = document.createElement('button');
+    btt.id = 'back-to-top';
+    btt.setAttribute('aria-label', 'Back to top');
+    btt.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    document.body.appendChild(btt);
+    window.addEventListener('scroll', function () {
+      btt.classList.toggle('visible', window.scrollY > 500);
+    }, { passive: true });
+    btt.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
+    /* ── STICKY BOTTOM CTA ── */
+    var pageHeader = document.querySelector('.page-header');
+    var estimateSection = document.getElementById('estimate');
+    if (pageHeader && estimateSection) {
+      var cta = document.createElement('div');
+      cta.id = 'sticky-cta';
+      cta.innerHTML = '<span class="sticky-label">Ready to start?</span>' +
+        '<a href="https://remodelry.guide/remi" target="_blank" class="btn-primary">Talk to Remi — Free →</a>' +
+        '<a href="tel:+14402521053" class="sticky-phone">(440) 252-1053</a>';
+      document.body.appendChild(cta);
+      var stickyObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.target === pageHeader) cta.classList.toggle('visible', !e.isIntersecting);
+          if (e.target === estimateSection && e.isIntersecting) cta.classList.remove('visible');
+        });
+      }, { threshold: 0.1 });
+      stickyObs.observe(pageHeader);
+      stickyObs.observe(estimateSection);
+    }
+
+    /* ── TOC ACTIVE SECTION ── */
+    var tocLinks = Array.from(document.querySelectorAll('.toc-list li a'));
+    if (tocLinks.length) {
+      var sections = tocLinks.map(function (a) {
+        return document.querySelector(a.getAttribute('href'));
+      }).filter(Boolean);
+      var tocObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            tocLinks.forEach(function (a) { a.classList.remove('toc-active'); });
+            var id = e.target.id;
+            var active = document.querySelector('.toc-list li a[href="#' + id + '"]');
+            if (active) active.classList.add('toc-active');
+          }
+        });
+      }, { threshold: 0.25, rootMargin: '-15% 0px -55% 0px' });
+      sections.forEach(function (s) { tocObs.observe(s); });
+    }
+
+    /* ── PHONE CLICK TRACKING ── */
+    document.querySelectorAll('a[href^="tel:"]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (typeof gtag === 'function') {
+          gtag('event', 'phone_click', { event_category: 'contact', event_label: window.location.pathname });
+        }
+      });
+    });
+
+  })();
+</script>
 </body>
 </html>
+
 
