@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Finite Reimaging — Hotel Renovation & Property Mitigation | A CAMP Construction Company</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#101B2D;          /* lobby navy */
+  --ink-2:#182741;
+  --paper:#F7F5F0;        /* warm paper */
+  --white:#FFFFFF;
+  --brass:#B8894A;        /* hotel brass */
+  --brass-lt:#D9B98A;
+  --signal:#E8571D;       /* mitigation ONLY */
+  --line:rgba(16,27,45,.12);
+  --line-dk:rgba(247,245,240,.14);
+  --mut:#5A6474;
+  --mut-dk:#9AA6B8;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Public Sans',sans-serif;color:var(--ink);background:var(--paper);line-height:1.6;font-size:16px}
+h1,h2,h3,h4{font-family:'Archivo',sans-serif;line-height:1.08;letter-spacing:-.01em}
+.mono{font-family:'IBM Plex Mono',monospace}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 28px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--brass);font-weight:600}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:'Archivo',sans-serif;font-weight:700;font-size:.92rem;padding:15px 26px;border-radius:4px;transition:transform .18s,box-shadow .18s;cursor:pointer;border:none}
+.btn:hover{transform:translateY(-2px)}
+.btn-brass{background:var(--brass);color:var(--white)}
+.btn-brass:hover{box-shadow:0 8px 24px rgba(184,137,74,.35)}
+.btn-ghost{background:transparent;color:var(--paper);border:1px solid var(--line-dk)}
+.btn-ghost:hover{border-color:var(--brass-lt);color:var(--brass-lt)}
+.btn-signal{background:var(--signal);color:#fff}
+.btn-signal:hover{box-shadow:0 8px 24px rgba(232,87,29,.35)}
+.btn-ink{background:var(--ink);color:var(--paper)}
+
+/* ============ EMERGENCY UTILITY BAR ============ */
+.emg-bar{background:var(--signal);color:#fff;font-size:.82rem;padding:9px 0;position:relative;z-index:60}
+.emg-bar .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.emg-bar .pulse{width:8px;height:8px;border-radius:50%;background:#fff;display:inline-block;margin-right:9px;animation:pulse 1.6s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,255,255,.7)}70%{box-shadow:0 0 0 8px rgba(255,255,255,0)}100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}}
+.emg-bar strong{font-weight:600}
+.emg-bar a{font-family:'IBM Plex Mono',monospace;font-weight:600;border-bottom:1px solid rgba(255,255,255,.5);white-space:nowrap}
+
+/* ============ NAV ============ */
+header{position:sticky;top:0;z-index:50;background:rgba(16,27,45,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line-dk)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+.logo{display:flex;flex-direction:column;line-height:1}
+.logo .name{font-family:'Archivo',sans-serif;font-weight:900;font-size:1.28rem;color:var(--paper);letter-spacing:.01em}
+.logo .name em{font-style:normal;color:var(--brass-lt)}
+.logo .camp{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.14em;color:var(--mut-dk);margin-top:4px;text-transform:uppercase}
+.menu{display:flex;gap:4px;align-items:center;list-style:none}
+.menu>li{position:relative}
+.menu>li>a{display:block;padding:26px 15px;color:var(--paper);font-size:.9rem;font-weight:500;transition:color .15s}
+.menu>li>a:hover{color:var(--brass-lt)}
+.menu>li>a.mit-link{color:var(--signal);font-weight:600}
+.menu>li>a .car{font-size:.6rem;margin-left:5px;opacity:.6}
+.drop{position:absolute;top:100%;left:0;min-width:280px;background:var(--white);border-radius:6px;box-shadow:0 20px 50px rgba(16,27,45,.22);padding:10px;opacity:0;visibility:hidden;transform:translateY(8px);transition:all .2s}
+.menu>li:hover .drop{opacity:1;visibility:visible;transform:translateY(0)}
+.drop a{display:block;padding:11px 14px;border-radius:4px;color:var(--ink);font-size:.9rem}
+.drop a:hover{background:var(--paper)}
+.drop a span{display:block;font-size:.76rem;color:var(--mut);margin-top:2px}
+.drop .drop-hd{font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);padding:10px 14px 4px}
+.nav-cta{display:flex;gap:12px;align-items:center}
+.nav-cta .btn{padding:11px 20px;font-size:.84rem}
+.burger{display:none;background:none;border:none;color:var(--paper);font-size:1.5rem;cursor:pointer}
+
+/* ============ HERO ============ */
+.hero{background:linear-gradient(160deg,var(--ink) 0%,var(--ink-2) 70%,#1E3050 100%);color:var(--paper);padding:88px 0 96px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(217,185,138,.06) 1px,transparent 1px);background-size:26px 26px;pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center;position:relative}
+.hero h1{font-size:clamp(2.4rem,4.6vw,3.9rem);font-weight:800;margin:18px 0 22px;color:var(--white)}
+.hero h1 em{font-style:normal;color:var(--brass-lt)}
+.hero p.lede{font-size:1.13rem;color:var(--mut-dk);max-width:520px;margin-bottom:34px}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:46px}
+.hero-stats{display:flex;gap:40px;flex-wrap:wrap;border-top:1px solid var(--line-dk);padding-top:28px}
+.stat .num{font-family:'IBM Plex Mono',monospace;font-size:1.7rem;font-weight:600;color:var(--brass-lt)}
+.stat .lab{font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mut-dk);margin-top:3px}
+
+/* Before/After signature */
+.ba{position:relative;border-radius:8px;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.45);aspect-ratio:4/3;user-select:none;cursor:ew-resize}
+.ba svg{position:absolute;inset:0;width:100%;height:100%}
+.ba .after-layer{position:absolute;inset:0;clip-path:inset(0 0 0 var(--split,50%))}
+.ba .handle{position:absolute;top:0;bottom:0;left:var(--split,50%);width:3px;background:var(--brass-lt);z-index:5;pointer-events:none}
+.ba .handle::after{content:"◂ ▸";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--brass);color:#fff;font-size:.72rem;padding:9px 11px;border-radius:50px;white-space:nowrap;letter-spacing:2px;box-shadow:0 4px 14px rgba(0,0,0,.4)}
+.ba .tag{position:absolute;top:14px;font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;padding:6px 12px;border-radius:3px;z-index:4}
+.ba .tag.b{left:14px;background:rgba(16,27,45,.85);color:var(--mut-dk)}
+.ba .tag.a{right:14px;background:var(--brass);color:#fff}
+.ba-cap{margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:.74rem;color:var(--mut-dk);text-align:center}
+.ba-cap b{color:var(--brass-lt);font-weight:600}
+
+/* ============ TRUST STRIP ============ */
+.trust{background:var(--white);border-bottom:1px solid var(--line);padding:26px 0}
+.trust .wrap{display:flex;align-items:center;gap:34px;flex-wrap:wrap;justify-content:center}
+.trust .t-lab{font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mut)}
+.chip{font-family:'Archivo',sans-serif;font-weight:700;font-size:.86rem;color:var(--ink);opacity:.55;letter-spacing:.02em}
+
+/* ============ SECTIONS ============ */
+section{padding:92px 0}
+.sec-hd{max-width:640px;margin-bottom:52px}
+.sec-hd h2{font-size:clamp(1.8rem,3.2vw,2.6rem);font-weight:800;margin:14px 0 16px}
+.sec-hd p{color:var(--mut);font-size:1.05rem}
+
+/* Services */
+.svc-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
+.svc{border:1px solid var(--line);border-radius:8px;padding:30px 26px;background:var(--white);transition:transform .2s,box-shadow .2s;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.svc:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(16,27,45,.1)}
+.svc.flag{grid-column:span 4;background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.svc.mit{grid-column:span 2;border:2px solid var(--signal)}
+.svc.maint{grid-column:span 6;border:1px solid var(--brass);background:var(--white);flex-direction:row;gap:40px;align-items:center}
+.svc.maint .maint-l{flex:1.2}
+.svc.maint .maint-r{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.svc.maint h3{font-size:1.5rem}
+.svc.maint .trade{font-family:'IBM Plex Mono',monospace;font-size:.74rem;letter-spacing:.06em;border:1px solid var(--line);border-radius:5px;padding:12px 14px;color:var(--ink);background:var(--paper);text-transform:uppercase}
+.svc.maint .trade b{display:block;font-size:.66rem;color:var(--brass);margin-bottom:3px;font-weight:600;letter-spacing:.12em}
+.svc.sm{grid-column:span 2}
+.svc h3{font-size:1.3rem;font-weight:700;margin:12px 0 10px}
+.svc.flag h3{font-size:1.7rem;color:var(--white)}
+.svc p{font-size:.94rem;color:var(--mut);flex:1}
+.svc.flag p{color:var(--mut-dk);max-width:480px}
+.svc .go{margin-top:22px;font-family:'Archivo',sans-serif;font-weight:700;font-size:.86rem;color:var(--brass)}
+.svc.mit .go{color:var(--signal)}
+.svc .go::after{content:" →";transition:margin .15s}
+.svc:hover .go::after{margin-left:5px}
+.svc .mit-badge{position:absolute;top:0;right:0;background:var(--signal);color:#fff;font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.12em;padding:6px 12px;border-radius:0 6px 0 6px}
+.svc.flag .kit{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.svc.flag .kit span{font-family:'IBM Plex Mono',monospace;font-size:.7rem;border:1px solid var(--line-dk);padding:5px 11px;border-radius:50px;color:var(--brass-lt)}
+
+/* ============ COMMITMENTS / HOW WE WORK ============ */
+.commit{background:var(--paper);border-top:1px solid var(--line)}
+.cmt-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.cmt{background:var(--white);border:1px solid var(--line);border-radius:8px;padding:30px 28px;transition:transform .2s,box-shadow .2s}
+.cmt:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(16,27,45,.09)}
+.cmt h3{font-size:1.16rem;font-weight:800;margin-bottom:12px;color:var(--ink)}
+.cmt h3::before{content:"“";color:var(--brass);margin-right:2px}
+.cmt h3::after{content:"”";color:var(--brass);margin-left:2px}
+.cmt p{font-size:.93rem;color:var(--mut)}
+.slot{font-family:'IBM Plex Mono',monospace;font-size:.82rem;font-weight:600;color:var(--brass);background:rgba(184,137,74,.1);border:1px dashed var(--brass);border-radius:3px;padding:1px 7px;white-space:nowrap}
+.cmt .sop{margin-top:16px;padding-top:14px;border-top:1px dashed var(--line);font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mut)}
+.cmt .sop b{color:var(--brass);font-weight:600}
+.cmt-note{margin-top:26px;text-align:center;font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--mut)}
+
+/* ============ CTA SEQUENCE / HOW IT WORKS ============ */
+.how{background:var(--ink);color:var(--paper)}
+.how .eyebrow{color:var(--brass-lt)}
+.how h2{color:var(--white)}
+.how .sec-hd p{color:var(--mut-dk)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;counter-reset:step}
+.step{border:1px solid var(--line-dk);border-radius:8px;padding:32px 28px;position:relative;background:var(--ink-2);transition:border-color .2s}
+.step:hover{border-color:var(--brass)}
+.step::before{counter-increment:step;content:"0" counter(step);font-family:'IBM Plex Mono',monospace;font-size:.8rem;color:var(--brass-lt);letter-spacing:.14em}
+.step h3{font-size:1.18rem;margin:14px 0 10px;color:var(--white)}
+.step p{font-size:.92rem;color:var(--mut-dk)}
+.step .tt{margin-top:18px;font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--brass-lt)}
+.how-cta{text-align:center;margin-top:46px}
+
+/* ============ PROOF ============ */
+.proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.pcard{background:var(--white);border:1px solid var(--line);border-radius:8px;overflow:hidden;transition:transform .2s,box-shadow .2s}
+.pcard:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(16,27,45,.1)}
+.pcard .ph{height:150px;position:relative}
+.pcard .ph .flag-tag{position:absolute;bottom:12px;left:14px;background:rgba(16,27,45,.85);color:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:.64rem;letter-spacing:.12em;padding:5px 11px;border-radius:3px;text-transform:uppercase}
+.pcard .bd{padding:24px}
+.pcard h3{font-size:1.08rem;margin-bottom:8px}
+.pcard p{font-size:.88rem;color:var(--mut)}
+.pcard .nums{display:flex;gap:22px;margin-top:18px;border-top:1px solid var(--line);padding-top:16px}
+.pcard .nums div b{font-family:'IBM Plex Mono',monospace;font-size:1.05rem;color:var(--brass);display:block;font-weight:600}
+.pcard .nums div span{font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
+.ph1{background:linear-gradient(135deg,#2A3E5F,#4A6491)}
+.ph2{background:linear-gradient(135deg,#5C4326,#8A6A3E)}
+.ph3{background:linear-gradient(135deg,#6E3A20,#A0562E)}
+.ph4{background:linear-gradient(135deg,#1E3A36,#3A6B5F)}
+.ph5{background:linear-gradient(135deg,#3D2E52,#5F4A82)}
+.ph6{background:linear-gradient(135deg,#503A2A,#7D5C42)}
+.fpills{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:30px}
+.fp{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;border:1.5px solid var(--line);background:var(--white);border-radius:50px;padding:9px 18px;cursor:pointer;transition:all .15s;color:var(--mut);font-weight:600}
+.fp:hover{border-color:var(--brass);color:var(--ink)}
+.fp.act{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.pcard.hide{display:none}
+.dropzone{border:2px dashed var(--brass);border-radius:7px;background:rgba(184,137,74,.06);padding:20px;text-align:center;cursor:pointer;margin-bottom:16px;transition:background .15s;display:none}
+.dropzone.show{display:block;animation:fade .3s ease}
+@keyframes fade{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+.dropzone:hover{background:rgba(184,137,74,.12)}
+.dropzone b{font-family:'Archivo',sans-serif;font-size:.9rem;color:var(--ink);display:block}
+.dropzone span{font-size:.78rem;color:var(--mut)}
+.dropzone .dz-ico{font-size:1.4rem;color:var(--brass)}
+
+/* ============ CAMP STRIP ============ */
+.camp{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.camp .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+.camp h2{font-size:clamp(1.6rem,2.8vw,2.2rem);margin:14px 0 16px}
+.camp p{color:var(--mut)}
+.camp-facts{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.cf{border:1px solid var(--line);border-radius:8px;padding:22px;background:var(--paper)}
+.cf b{font-family:'IBM Plex Mono',monospace;font-size:1.35rem;color:var(--ink);font-weight:600;display:block}
+.cf span{font-size:.78rem;color:var(--mut);text-transform:uppercase;letter-spacing:.08em}
+
+/* ============ CONTACT ============ */
+.contact{background:linear-gradient(160deg,var(--ink),#1E3050)}
+.contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.contact h2{color:var(--white);font-size:clamp(1.9rem,3.4vw,2.7rem);margin:14px 0 18px}
+.contact p{color:var(--mut-dk)}
+.c-alt{margin-top:34px;border-top:1px solid var(--line-dk);padding-top:26px}
+.c-alt .row{display:flex;gap:14px;align-items:flex-start;margin-bottom:18px}
+.c-alt .ico{width:38px;height:38px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.c-alt .ico.br{background:rgba(184,137,74,.16);color:var(--brass-lt)}
+.c-alt .ico.sg{background:rgba(232,87,29,.16);color:var(--signal)}
+.c-alt b{color:var(--paper);font-size:.92rem;display:block}
+.c-alt span{color:var(--mut-dk);font-size:.84rem}
+.c-alt a{color:var(--brass-lt);border-bottom:1px solid rgba(217,185,138,.4)}
+.form{background:var(--white);border-radius:10px;padding:38px;box-shadow:0 30px 70px rgba(0,0,0,.35)}
+.form h3{font-size:1.25rem;margin-bottom:6px}
+.form .sub{font-size:.86rem;color:var(--mut);margin-bottom:24px}
+.fld{margin-bottom:16px}
+.fld label{display:block;font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--mut);margin-bottom:7px}
+.fld input,.fld select{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:5px;font-family:'Public Sans',sans-serif;font-size:.95rem;background:var(--paper);transition:border-color .15s}
+.fld input:focus,.fld select:focus{outline:none;border-color:var(--brass)}
+.fld-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form .btn{width:100%;justify-content:center;margin-top:8px}
+.form .fine{font-size:.74rem;color:var(--mut);text-align:center;margin-top:14px}
+
+/* ============ FOOTER ============ */
+footer{background:#0B1422;color:var(--mut-dk);padding:64px 0 34px;font-size:.88rem}
+.f-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1fr;gap:38px;margin-bottom:44px}
+.f-grid h4{font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--brass-lt);margin-bottom:16px;font-weight:600}
+.f-grid ul{list-style:none}
+.f-grid li{margin-bottom:10px}
+.f-grid a:hover{color:var(--paper)}
+.f-bot{border-top:1px solid var(--line-dk);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.78rem}
+
+/* Reveal animation */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.emg-bar .pulse{animation:none}}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:980px){
+  .menu,.nav-cta .btn-ghost{display:none}
+  .burger{display:block}
+  .hero-grid,.camp .wrap,.contact .wrap{grid-template-columns:1fr;gap:44px}
+  .svc-grid{grid-template-columns:1fr 1fr}
+  .svc.flag,.svc.mit,.svc.sm,.svc.maint{grid-column:span 2}
+  .svc.maint{flex-direction:column;align-items:stretch}
+  .steps,.proof-grid,.cmt-grid{grid-template-columns:1fr}
+  .f-grid{grid-template-columns:1fr 1fr}
+  .emg-bar .hide-m{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- EMERGENCY BAR -->
+<div class="emg-bar">
+  <div class="wrap">
+    <div><span class="pulse"></span><strong>24/7 Mitigation Response</strong><span class="hide-m"> — water, fire & storm triage for occupied properties</span></div>
+    <a href="tel:6782187284">CALL (678) 218-7284</a>
+  </div>
+</div>
+
+<!-- NAV -->
+<header>
+  <div class="wrap nav">
+    <a href="#" class="logo">
+      <span class="name">FINITE <em>REIMAGING</em></span>
+      <span class="camp">A CAMP Construction Company</span>
+    </a>
+    <ul class="menu">
+      <li>
+        <a href="#services">Hospitality Reimaging <span class="car">▾</span></a>
+        <div class="drop">
+          <div class="drop-hd">Renovation Programs</div>
+          <a href="#">PIP Execution <span>Brand-mandated property improvement plans, scoped to the letter</span></a>
+          <a href="#">Guest Room Renovation <span>Phased key-block scheduling that protects occupancy</span></a>
+          <a href="#">Public Spaces & Lobby <span>Lobbies, F&B, fitness, meeting space</span></a>
+          <a href="#">Exterior & Envelope <span>Facade, EIFS, coatings, porte cochère</span></a>
+        </div>
+      </li>
+      <li>
+        <a href="#services" class="mit-link">Mitigation 24/7 <span class="car">▾</span></a>
+        <div class="drop">
+          <div class="drop-hd">Emergency Response</div>
+          <a href="#">Water Damage & Extraction <span>Rapid dry-out to keep rooms sellable</span></a>
+          <a href="#">Fire & Smoke Restoration <span>Triage, containment, and rebuild under one roof</span></a>
+          <a href="#">Storm & Wind Response <span>Emergency envelope stabilization</span></a>
+          <a href="#">Triage-to-Rebuild <span>One team from first call through final punch</span></a>
+        </div>
+      </li>
+      <li>
+        <a href="#services">Facility Maintenance <span class="car">▾</span></a>
+        <div class="drop">
+          <div class="drop-hd">Day-to-Day Property Care</div>
+          <a href="#">HVAC & Mechanical <span>PTAC, RTU, and central plant repair & preventive service</span></a>
+          <a href="#">Plumbing & Electrical <span>The fixes that keep rooms sellable and systems safe</span></a>
+          <a href="#">Guest-Facing Repairs <span>Doors, fixtures, finishes, FF&E — fixed before guests notice</span></a>
+          <a href="#">Preventive Maintenance Programs <span>Scheduled care that extends asset life and flattens CapEx spikes</span></a>
+        </div>
+      </li>
+      <li>
+        <a href="#services">Markets <span class="car">▾</span></a>
+        <div class="drop">
+          <a href="#">Multi-Family <span>Unit turns, common areas, capital projects</span></a>
+          <a href="#">Retail <span>Open-store remodels and rollouts</span></a>
+          <a href="#">Commercial & DOT <span>Steel coatings, anti-graffiti, specialty painting</span></a>
+        </div>
+      </li>
+      <li><a href="#proof">Projects</a></li>
+      <li><a href="#camp">About</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-brass">Start a Scope Conversation</a>
+      <button class="burger" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Hotel Renovation · Occupied-Property Specialists</div>
+      <h1>Your property, <em>reimaged</em> — without going dark.</h1>
+      <p class="lede">Finite Reimaging executes brand PIPs and guest room renovations, keeps your systems running with day-to-day facility maintenance, and answers emergencies with 24/7 mitigation. Backed by CAMP Construction, we plan around your occupancy — not the other way around.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn-brass">Plan a Renovation</a>
+        <a href="tel:6782187284" class="btn btn-signal">⚠ Emergency Mitigation</a>
+        <a href="#proof" class="btn btn-ghost">See the Work</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="num" data-count="1000">0</div><div class="lab">Properties Served</div></div>
+        <div class="stat"><div class="num" data-count="40">0</div><div class="lab">Years of Craft Heritage</div></div>
+        <div class="stat"><div class="num">$30M+</div><div class="lab">Annual Project Volume</div></div>
+        <div class="stat"><div class="num">24/7</div><div class="lab">Mitigation Response</div></div>
+      </div>
+    </div>
+    <div>
+      <div class="ba" id="ba">
+        <!-- BEFORE layer -->
+        <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+          <rect width="400" height="300" fill="#3A4252"/>
+          <rect y="210" width="400" height="90" fill="#4A4438"/>
+          <rect x="40" y="50" width="140" height="120" rx="3" fill="#2C3342"/>
+          <rect x="50" y="60" width="120" height="100" fill="#556075" opacity=".5"/>
+          <rect x="220" y="150" width="150" height="70" rx="4" fill="#5C5344"/>
+          <rect x="228" y="142" width="134" height="14" rx="3" fill="#6B6152"/>
+          <rect x="300" y="40" width="8" height="100" fill="#2A303C"/>
+          <circle cx="304" cy="35" r="14" fill="#6E6A55" opacity=".7"/>
+          <path d="M0 0 L400 0 L400 12 L0 22 Z" fill="#2C3342"/>
+          <rect x="60" y="235" width="90" height="8" rx="4" fill="#3D3A30"/>
+        </svg>
+        <!-- AFTER layer -->
+        <div class="after-layer">
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="300" fill="#1E2E4A"/>
+            <rect y="210" width="400" height="90" fill="#8A6A3E"/>
+            <rect y="210" width="400" height="6" fill="#D9B98A"/>
+            <rect x="40" y="50" width="140" height="120" rx="3" fill="#101B2D"/>
+            <rect x="50" y="60" width="120" height="100" fill="#B8894A" opacity=".45"/>
+            <rect x="50" y="60" width="120" height="100" fill="url(#glow)"/>
+            <defs><linearGradient id="glow" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#F0D9AE" stop-opacity=".55"/>
+              <stop offset="1" stop-color="#B8894A" stop-opacity="0"/>
+            </linearGradient></defs>
+            <rect x="220" y="148" width="150" height="72" rx="6" fill="#25406B"/>
+            <rect x="228" y="138" width="134" height="16" rx="6" fill="#D9B98A"/>
+            <rect x="300" y="40" width="6" height="100" fill="#0C1524"/>
+            <circle cx="303" cy="34" r="16" fill="#F0D9AE"/>
+            <circle cx="303" cy="34" r="26" fill="#F0D9AE" opacity=".18"/>
+            <path d="M0 0 L400 0 L400 12 L0 22 Z" fill="#101B2D"/>
+            <rect x="60" y="232" width="90" height="10" rx="5" fill="#D9B98A" opacity=".8"/>
+            <rect x="180" y="250" width="60" height="6" rx="3" fill="#F0D9AE" opacity=".5"/>
+          </svg>
+        </div>
+        <div class="handle"></div>
+        <span class="tag b">Before</span>
+        <span class="tag a">Reimaged</span>
+      </div>
+      <div class="ba-cap">Drag to compare · 126-key select-service renovation · <b>Property stayed open all 14 weeks</b></div>
+    </div>
+  </div>
+</div>
+
+<!-- TRUST STRIP -->
+<div class="trust">
+  <div class="wrap">
+    <span class="t-lab">Renovation experience across major flags & segments</span>
+    <span class="chip">SELECT SERVICE</span>
+    <span class="chip">EXTENDED STAY</span>
+    <span class="chip">FULL SERVICE</span>
+    <span class="chip">BOUTIQUE & INDEPENDENT</span>
+    <span class="chip">MULTI-FAMILY</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="sec-hd rv">
+      <div class="eyebrow">What We Do</div>
+      <h2>Renovate. Maintain. Respond.</h2>
+      <p>The capital project, the daily fixes in between, and the 2 a.m. emergency — the full life of your property runs through the same experienced crews, the same project controls, and the same single point of contact.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc flag rv">
+        <div class="eyebrow">Flagship</div>
+        <h3>Hospitality Reimaging</h3>
+        <p>PIP execution and full-property renovation, phased around your occupancy calendar. We sequence key blocks, run night and swing shifts where the brand allows, and hand back sellable rooms on a published schedule — so your reinvestment never reads as a shutdown.</p>
+        <div class="kit">
+          <span>PIP EXECUTION</span><span>GUEST ROOMS</span><span>PUBLIC SPACES</span><span>FF&E COORDINATION</span><span>EXTERIOR</span>
+        </div>
+        <div class="go" style="color:var(--brass-lt)">Explore renovation programs</div>
+      </div>
+      <div class="svc mit rv">
+        <div class="mit-badge">24/7 RESPONSE</div>
+        <div class="eyebrow" style="color:var(--signal)">Emergency</div>
+        <h3>Mitigation Services</h3>
+        <p>Water, fire, and storm triage with in-house expertise — then a seamless handoff to rebuild. One call, one team, from extraction to final punch.</p>
+        <div class="go">Get emergency help</div>
+      </div>
+      <div class="svc maint rv">
+        <div class="maint-l">
+          <div class="eyebrow">Ongoing</div>
+          <h3>Facility Maintenance</h3>
+          <p>The day-to-day fixes that keep every system — and every room — earning. One work-order channel, skilled trades who know occupied properties, and preventive programs that catch failures before your guests do. It's the difference between a contractor you call and a partner who's already there.</p>
+          <div class="go">Explore maintenance programs</div>
+        </div>
+        <div class="maint-r">
+          <div class="trade"><b>Mechanical</b>HVAC · PTAC · Refrigeration</div>
+          <div class="trade"><b>Core Systems</b>Plumbing · Electrical</div>
+          <div class="trade"><b>Guest-Facing</b>Doors · Fixtures · Finishes · FF&E</div>
+          <div class="trade"><b>Preventive</b>Scheduled PM Programs</div>
+        </div>
+      </div>
+      <div class="svc sm rv">
+        <div class="eyebrow">Markets</div>
+        <h3>Multi-Family</h3>
+        <p>Unit turns, amenity upgrades, and capital renovation programs for occupied communities.</p>
+        <div class="go">View projects</div>
+      </div>
+      <div class="svc sm rv">
+        <div class="eyebrow">Markets</div>
+        <h3>Retail Renovation</h3>
+        <p>Open-store remodels and multi-site rollouts executed on nights and off-hours.</p>
+        <div class="go">View projects</div>
+      </div>
+      <div class="svc sm rv">
+        <div class="eyebrow">Specialty</div>
+        <h3>DOT & Specialty Coatings</h3>
+        <p>Steel painting, anti-graffiti systems, and industrial coatings for public infrastructure.</p>
+        <div class="go">View projects</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE WORK / COMMITMENTS -->
+<section class="commit" id="commitments">
+  <div class="wrap">
+    <div class="sec-hd rv">
+      <div class="eyebrow">How We Work</div>
+      <h2>Everyone promises quality. Here's our how.</h2>
+      <p>Good work is the price of entry. What you're actually buying is the way we operate — so we put it in writing, in terms you can check.</p>
+    </div>
+    <div class="cmt-grid">
+      <div class="cmt rv">
+        <h3>You get one person, not a phone tree.</h3>
+        <p>A dedicated account manager owns your portfolio. Same name on every quote, every update, every invoice. They answer their phone — and when they can't, you already know who their backup is, because we told you on day one.</p>
+        <div class="sop">SOP HOOK · <b>Account coverage & backup protocol</b></div>
+      </div>
+      <div class="cmt rv">
+        <h3>We learn your property before you need us.</h3>
+        <p>In the first 30 days, we walk every property and build its profile: equipment models and ages, panel and shutoff locations, paint codes, flooring specs, warranty dates, repair history. When you call about a PTAC on the third floor, we already know which unit it is. You never re-explain your building to us.</p>
+        <div class="sop">SOP HOOK · <b>30-day property profile walkdown</b></div>
+      </div>
+      <div class="cmt rv">
+        <h3>Crews staged, not scrambled.</h3>
+        <p>Your account has assigned crews who know your properties and your standards. Routine requests are scheduled within <span class="slot">[ X business days ]</span>; emergencies get a tech on site within <span class="slot">[ X hours ]</span>. Those aren't goals — they're the numbers in your agreement.</p>
+        <div class="sop">SOP HOOK · <b>Response-time tiers by request type</b></div>
+      </div>
+      <div class="cmt rv">
+        <h3>You'll never ask "where does this stand?"</h3>
+        <p>Every request is acknowledged the same day, quoted within <span class="slot">[ X days ]</span>, and tracked in a live view you can open anytime. Photos before, photos after, signoff at close. If a job goes quiet for 48 hours, that's our failure and our call to make — not yours.</p>
+        <div class="sop">SOP HOOK · <b>Status update & escalation cadence</b></div>
+      </div>
+      <div class="cmt rv">
+        <h3>Occupied means occupied.</h3>
+        <p>Noise windows planned around your guests and residents. Containment and negative air where the work demands it. Crews badged, briefed on your property's standards, and held to a daily leave-clean protocol. Your front desk should never hear about our work from a guest.</p>
+        <div class="sop">SOP HOOK · <b>Occupied-property jobsite standards</b></div>
+      </div>
+      <div class="cmt rv">
+        <h3>We plan next year's repairs this year.</h3>
+        <p>Every property profile feeds an annual maintenance plan: what's aging, what's under warranty, what to budget, what to replace before it fails at 2 a.m. You stop buying repairs one emergency at a time and start managing an asset.</p>
+        <div class="sop">SOP HOOK · <b>Annual capital & PM planning cycle</b></div>
+      </div>
+    </div>
+    <div class="cmt-note rv">[ BRACKETED VALUES ] = commitments Finite sets internally — each one becomes a written SOP before it goes public.</div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="wrap">
+    <div class="sec-hd rv">
+      <div class="eyebrow">How Engagement Works</div>
+      <h2>From first call to open-for-business.</h2>
+      <p>No mystery, no maze. Here's exactly what happens when you reach out — and how fast.</p>
+    </div>
+    <div class="steps">
+      <div class="step rv">
+        <h3>Scope Conversation</h3>
+        <p>A 20-minute call about your property, your PIP or damage event, and your calendar. We ask about occupancy, brand deadlines, and budget reality — not just square footage.</p>
+        <div class="tt">→ SAME WEEK</div>
+      </div>
+      <div class="step rv">
+        <h3>Site Walk & Proposal</h3>
+        <p>We walk the property, then deliver a phased plan with per-key budgeting, room-block sequencing, and a schedule your revenue team can plan around.</p>
+        <div class="tt">→ WITHIN 10 BUSINESS DAYS</div>
+      </div>
+      <div class="step rv">
+        <h3>Phased Execution</h3>
+        <p>One project lead, weekly owner reporting, and rooms returned to inventory on the dates we published. Close-out documentation your brand rep will actually accept.</p>
+        <div class="tt">→ ON THE PUBLISHED SCHEDULE</div>
+      </div>
+    </div>
+    <div class="how-cta rv">
+      <a href="#contact" class="btn btn-brass">Book Your Scope Conversation</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section id="proof">
+  <div class="wrap">
+    <div class="sec-hd rv">
+      <div class="eyebrow">Recent Work</div>
+      <h2>Proof, in the numbers owners care about.</h2>
+      <p>Browse by flag — because the question isn't "have you done renovations," it's "have you done <em>my brand's</em> renovations." Representative projects; full case studies and references on request.</p>
+    </div>
+    <div class="fpills rv">
+      <button class="fp act" data-f="all">All Flags</button>
+      <button class="fp" data-f="marriott">Marriott</button>
+      <button class="fp" data-f="hilton">Hilton</button>
+      <button class="fp" data-f="ihg">IHG</button>
+      <button class="fp" data-f="wyndham">Wyndham</button>
+      <button class="fp" data-f="boutique">Boutique</button>
+    </div>
+    <div class="proof-grid" id="proofGrid">
+      <div class="pcard rv" data-brand="marriott">
+        <div class="ph ph1"><span class="flag-tag">Marriott · Select Service · Southeast</span></div>
+        <div class="bd">
+          <h3>126-Key Full PIP Execution</h3>
+          <p>Brand-mandated PIP covering guest rooms, corridors, and lobby — property remained open throughout.</p>
+          <div class="nums">
+            <div><b>14 wks</b><span>Schedule</span></div>
+            <div><b>0</b><span>Closed nights</span></div>
+            <div><b>On-budget</b><span>Delivery</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="pcard rv" data-brand="hilton">
+        <div class="ph ph2"><span class="flag-tag">Hilton · Extended Stay · Midwest</span></div>
+        <div class="bd">
+          <h3>Guest Room Renovation, 4 Phases</h3>
+          <p>Key-block sequencing kept 75% of inventory sellable in every phase, protecting peak-season revenue.</p>
+          <div class="nums">
+            <div><b>75%</b><span>Rooms live</span></div>
+            <div><b>4</b><span>Phases</span></div>
+            <div><b>6 days</b><span>Ahead</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="pcard rv" data-brand="ihg">
+        <div class="ph ph3"><span class="flag-tag">IHG · Full Service · Mitigation</span></div>
+        <div class="bd">
+          <h3>Water Event: Triage to Rebuild</h3>
+          <p>Overnight extraction and dry-out after a supply-line failure, rolling directly into rebuild — one team, one contract.</p>
+          <div class="nums">
+            <div><b>&lt;4 hrs</b><span>On site</span></div>
+            <div><b>2 floors</b><span>Restored</span></div>
+            <div><b>1</b><span>Contract</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="pcard rv" data-brand="hilton">
+        <div class="ph ph4"><span class="flag-tag">Hilton · Select Service · Southeast</span></div>
+        <div class="bd">
+          <h3>Exterior Refresh & Porte Cochère</h3>
+          <p>Facade coatings, EIFS repair, and entry rebuild sequenced around the driveway — arrivals never rerouted.</p>
+          <div class="nums">
+            <div><b>9 wks</b><span>Schedule</span></div>
+            <div><b>100%</b><span>Arrival uptime</span></div>
+            <div><b>Brand-passed</b><span>First inspection</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="pcard rv" data-brand="wyndham">
+        <div class="ph ph5"><span class="flag-tag">Wyndham · Brand Conversion · Texas</span></div>
+        <div class="bd">
+          <h3>Flag Conversion, 98 Keys</h3>
+          <p>Full conversion to new franchise standards — signage, FF&E, public spaces — against a hard brand deadline.</p>
+          <div class="nums">
+            <div><b>On-time</b><span>Flag date</span></div>
+            <div><b>98</b><span>Keys converted</span></div>
+            <div><b>1 pass</b><span>Brand review</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="pcard rv" data-brand="boutique">
+        <div class="ph ph6"><span class="flag-tag">Boutique · Independent · Ohio</span></div>
+        <div class="bd">
+          <h3>Lobby & F&B Transformation</h3>
+          <p>Full public-space reimaging for an independent property — night-shift execution, breakfast service never missed.</p>
+          <div class="nums">
+            <div><b>11 wks</b><span>Schedule</span></div>
+            <div><b>0</b><span>Service gaps</span></div>
+            <div><b>Night-shift</b><span>Execution</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAMP STRIP -->
+<section class="camp" id="camp">
+  <div class="wrap">
+    <div class="rv">
+      <div class="eyebrow">The Backing</div>
+      <h2>Specialist agility. CAMP Construction strength.</h2>
+      <p>Finite Reimaging operates as part of the CAMP Construction family — which means the responsiveness of a dedicated hospitality team, with the bonding capacity, in-house mitigation expertise, and financial stability of a major regional builder behind every contract. Owners get both answers to the two questions that matter: <em>can you do the work, and will you be here when it's done?</em></p>
+    </div>
+    <div class="camp-facts rv">
+      <div class="cf"><b>$30M+</b><span>Combined annual volume</span></div>
+      <div class="cf"><b>In-house</b><span>Mitigation expertise</span></div>
+      <div class="cf"><b>40 yrs</b><span>Craft heritage</span></div>
+      <div class="cf"><b>1,000+</b><span>Properties served</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="rv">
+      <div class="eyebrow">Get Started</div>
+      <h2>Tell us about your property. We'll take it from there.</h2>
+      <p>Whether you're holding a fresh PIP, planning next year's capital budget, or standing in two inches of water — this is the fastest way to get a real answer from a real project lead.</p>
+      <div class="c-alt">
+        <div class="row">
+          <div class="ico sg">⚠</div>
+          <div><b>Active emergency?</b><span>Skip the form. Call <a href="tel:6782187284">(678) 218-7284</a> — 24/7 mitigation dispatch.</span></div>
+        </div>
+        <div class="row">
+          <div class="ico br">✉</div>
+          <div><b>Prefer email?</b><span><a href="mailto:info@finiteri.com">info@finiteri.com</a> — we respond within one business day.</span></div>
+        </div>
+        <div class="row">
+          <div class="ico br">◈</div>
+          <div><b>Headquarters</b><span>4338 Abbotts Bridge Rd, Duluth, GA 30097</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="form rv">
+      <h3>Start a Scope Conversation</h3>
+      <div class="sub">Four fields. Under a minute. A project lead follows up — not a call center.</div>
+      <div class="fld">
+        <label>Your Name</label>
+        <input type="text" placeholder="First and last name">
+      </div>
+      <div class="fld-row">
+        <div class="fld">
+          <label>Phone or Email</label>
+          <input type="text" placeholder="Best way to reach you">
+        </div>
+        <div class="fld">
+          <label>Property / Company</label>
+          <input type="text" placeholder="Property name">
+        </div>
+      </div>
+      <div class="fld">
+        <label>What do you need?</label>
+        <select id="needSel" onchange="togglePip()">
+          <option>PIP / brand-mandated renovation</option>
+          <option>Guest room or public space renovation</option>
+          <option>Ongoing facility maintenance</option>
+          <option>Emergency mitigation (water / fire / storm)</option>
+          <option>Multi-family or retail project</option>
+          <option>Not sure yet — let's talk</option>
+        </select>
+      </div>
+      <div class="dropzone show" id="pipDrop">
+        <div class="dz-ico">⬆</div>
+        <b>Holding a PIP? Drop it here.</b>
+        <span>Upload the brand's PIP document and we'll build your proposal directly from it — no re-typing, no translation.</span>
+      </div>
+      <button class="btn btn-ink">Request My Scope Call →</button>
+      <div class="fine">No spam, no drip campaign. One human follow-up.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div>
+        <div class="logo" style="margin-bottom:16px">
+          <span class="name" style="font-size:1.1rem">FINITE <em>REIMAGING</em></span>
+          <span class="camp">A CAMP Construction Company</span>
+        </div>
+        <p style="font-size:.84rem;max-width:280px">Hotel renovation and property mitigation for owners who can't afford to go dark.</p>
+      </div>
+      <div>
+        <h4>Reimaging</h4>
+        <ul>
+          <li><a href="#">PIP Execution</a></li>
+          <li><a href="#">Guest Room Renovation</a></li>
+          <li><a href="#">Public Spaces</a></li>
+          <li><a href="#">Exterior & Envelope</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Maintenance</h4>
+        <ul>
+          <li><a href="#">HVAC & Mechanical</a></li>
+          <li><a href="#">Plumbing & Electrical</a></li>
+          <li><a href="#">Guest-Facing Repairs</a></li>
+          <li><a href="#">Preventive Programs</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Mitigation</h4>
+        <ul>
+          <li><a href="#">Water Damage</a></li>
+          <li><a href="#">Fire & Smoke</a></li>
+          <li><a href="#">Storm Response</a></li>
+          <li><a href="#" style="color:var(--signal)">24/7: (678) 218-7284</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#camp">About & CAMP</a></li>
+          <li><a href="#proof">Projects</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="f-bot">
+      <span>© 2026 Finite Reimaging · A CAMP Construction Company · Duluth, GA</span>
+      <span class="mono">CONCEPT MOCKUP — PREPARED BY BRYON SKVOR</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Before/After slider
+const ba = document.getElementById('ba');
+function setSplit(clientX){
+  const r = ba.getBoundingClientRect();
+  let pct = ((clientX - r.left) / r.width) * 100;
+  pct = Math.max(4, Math.min(96, pct));
+  ba.style.setProperty('--split', pct + '%');
+}
+let dragging = false;
+ba.addEventListener('pointerdown', e => { dragging = true; setSplit(e.clientX); ba.setPointerCapture(e.pointerId); });
+ba.addEventListener('pointermove', e => { if(dragging) setSplit(e.clientX); });
+ba.addEventListener('pointerup', () => dragging = false);
+
+// Brand filter
+document.querySelectorAll('.fp').forEach(p => p.addEventListener('click', () => {
+  document.querySelectorAll('.fp').forEach(x => x.classList.remove('act'));
+  p.classList.add('act');
+  const f = p.dataset.f;
+  document.querySelectorAll('#proofGrid .pcard').forEach(c => {
+    c.classList.toggle('hide', f !== 'all' && c.dataset.brand !== f);
+  });
+}));
+
+// PIP dropzone toggle
+function togglePip(){
+  const sel = document.getElementById('needSel');
+  document.getElementById('pipDrop').classList.toggle('show', sel.selectedIndex === 0);
+}
+
+// Scroll reveal
+const io = new IntersectionObserver(entries => {
+  entries.forEach(en => { if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+},{threshold:.12});
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+// Count-up stats
+const cio = new IntersectionObserver(entries => {
+  entries.forEach(en => {
+    if(!en.isIntersecting) return;
+    const el = en.target, target = +el.dataset.count;
+    const dur = 1400, t0 = performance.now();
+    function tick(t){
+      const p = Math.min((t - t0)/dur, 1);
+      el.textContent = Math.round(target * (1 - Math.pow(1-p, 3))).toLocaleString() + (target >= 1000 ? '+' : '+');
+      if(p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+    cio.unobserve(el);
+  });
+},{threshold:.5});
+document.querySelectorAll('[data-count]').forEach(el => cio.observe(el));
+</script>
+</body>
+</html>
