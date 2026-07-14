@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design Your Property Portal — Finite Reimaging</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#101B2D;--ink-2:#182741;--paper:#F7F5F0;--white:#fff;
+  --brass:#B8894A;--brass-lt:#D9B98A;--signal:#E8571D;
+  --line:rgba(16,27,45,.12);--line-dk:rgba(247,245,240,.14);
+  --mut:#5A6474;--mut-dk:#9AA6B8;--ok:#1D7A4F;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Public Sans',sans-serif;color:var(--ink);background:var(--paper);line-height:1.6}
+h1,h2,h3{font-family:'Archivo',sans-serif;line-height:1.1;letter-spacing:-.01em}
+.mono{font-family:'IBM Plex Mono',monospace}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--brass);font-weight:600}
+
+/* header */
+.top{background:var(--ink);color:var(--paper);padding:44px 0 40px}
+.top .wrap{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap}
+.top h1{font-size:clamp(1.7rem,3.4vw,2.5rem);font-weight:800;color:#fff;margin-top:12px}
+.top h1 em{font-style:normal;color:var(--brass-lt)}
+.top p{color:var(--mut-dk);max-width:560px;margin-top:12px}
+.top .brand{font-family:'Archivo',sans-serif;font-weight:900;font-size:1rem;color:var(--paper)}
+.top .brand em{font-style:normal;color:var(--brass-lt)}
+.top .brand span{display:block;font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.14em;color:var(--mut-dk);font-weight:400;margin-top:3px;text-transform:uppercase}
+
+/* progress */
+.prog{position:sticky;top:0;z-index:40;background:var(--white);border-bottom:1px solid var(--line)}
+.prog .wrap{display:flex;gap:2px;overflow-x:auto}
+.pstep{flex:1;min-width:110px;padding:13px 8px;text-align:center;font-family:'IBM Plex Mono',monospace;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);border-bottom:3px solid transparent;cursor:pointer;white-space:nowrap}
+.pstep.done{color:var(--ok)}
+.pstep.act{color:var(--ink);border-bottom-color:var(--brass);font-weight:600}
+
+/* layout */
+.main{display:grid;grid-template-columns:1fr 320px;gap:36px;padding:44px 0 90px;align-items:start}
+.panel{display:none}
+.panel.act{display:block;animation:fade .35s ease}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.panel h2{font-size:1.55rem;font-weight:800;margin:10px 0 8px}
+.panel .sub{color:var(--mut);margin-bottom:28px;max-width:600px}
+
+/* option cards */
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:26px}
+.opts.three{grid-template-columns:1fr 1fr 1fr}
+.opt{border:1.5px solid var(--line);border-radius:8px;padding:20px;background:var(--white);cursor:pointer;transition:border-color .15s,transform .15s;position:relative}
+.opt:hover{transform:translateY(-2px);border-color:var(--mut)}
+.opt.sel{border-color:var(--brass);box-shadow:0 0 0 1px var(--brass)}
+.opt.sel::after{content:"✓";position:absolute;top:12px;right:14px;width:22px;height:22px;background:var(--brass);color:#fff;border-radius:50%;font-size:.75rem;display:flex;align-items:center;justify-content:center;font-weight:700}
+.opt h3{font-size:1rem;margin-bottom:5px;padding-right:26px}
+.opt p{font-size:.85rem;color:var(--mut)}
+.q-lab{font-family:'Archivo',sans-serif;font-weight:700;font-size:1.02rem;margin:30px 0 12px}
+.q-lab:first-of-type{margin-top:0}
+.q-hint{font-size:.82rem;color:var(--mut);margin:-8px 0 14px}
+
+/* sliders */
+.slide-row{background:var(--white);border:1px solid var(--line);border-radius:8px;padding:22px;margin-bottom:14px}
+.slide-row .sr-hd{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px}
+.slide-row .sr-hd b{font-size:.95rem}
+.slide-row .sr-hd .val{font-family:'IBM Plex Mono',monospace;font-weight:600;color:var(--brass);font-size:1.05rem}
+input[type=range]{width:100%;accent-color:var(--brass);cursor:pointer}
+.slide-row .sr-note{font-size:.78rem;color:var(--mut);margin-top:8px}
+
+/* chips multi-select */
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px}
+.chipo{border:1.5px solid var(--line);background:var(--white);border-radius:50px;padding:10px 20px;font-size:.88rem;cursor:pointer;transition:all .15s;font-weight:500}
+.chipo:hover{border-color:var(--mut)}
+.chipo.sel{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+/* nav buttons */
+.pnav{display:flex;justify-content:space-between;margin-top:38px;gap:12px}
+.btn{font-family:'Archivo',sans-serif;font-weight:700;font-size:.9rem;padding:14px 28px;border-radius:5px;cursor:pointer;border:none;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn-brass{background:var(--brass);color:#fff}
+.btn-brass:hover{box-shadow:0 8px 22px rgba(184,137,74,.35)}
+.btn-back{background:transparent;color:var(--mut);border:1px solid var(--line)}
+
+/* blueprint sidebar */
+.bp{position:sticky;top:66px;background:var(--ink);color:var(--paper);border-radius:10px;padding:26px;font-size:.84rem}
+.bp h3{font-size:.98rem;color:#fff;margin:8px 0 18px}
+.bp .bp-sec{border-top:1px solid var(--line-dk);padding:13px 0}
+.bp .bp-sec:last-of-type{border-bottom:1px solid var(--line-dk)}
+.bp .bp-k{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brass-lt);margin-bottom:5px}
+.bp .bp-v{color:var(--mut-dk);line-height:1.5}
+.bp .bp-v b{color:var(--paper);font-weight:600}
+.bp .empty{color:var(--mut-dk);font-style:italic}
+
+/* summary */
+#summary .card{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:32px;margin-bottom:18px}
+#summary .card h3{font-size:1.05rem;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+#summary .card h3 .n{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--brass);letter-spacing:.12em}
+#summary .kv{display:grid;grid-template-columns:200px 1fr;gap:8px 20px;font-size:.9rem}
+#summary .kv .k{color:var(--mut);font-weight:500}
+#summary .kv .v{font-weight:500}
+#spec{background:var(--ink);color:#C9D4E4;border-radius:10px;padding:26px;font-family:'IBM Plex Mono',monospace;font-size:.76rem;line-height:1.7;white-space:pre-wrap;max-height:400px;overflow:auto;margin-bottom:18px}
+.copy-row{display:flex;gap:12px;flex-wrap:wrap}
+.copied{background:var(--ok)!important}
+.week{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:14px}
+.day{background:var(--paper);border:1px solid var(--line);border-radius:7px;padding:14px}
+.day b{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.12em;color:var(--brass);display:block;margin-bottom:6px;text-transform:uppercase}
+.day span{font-size:.78rem;color:var(--ink);line-height:1.4;display:block}
+
+@media(max-width:900px){
+  .main{grid-template-columns:1fr}
+  .bp{position:static;order:2}
+  .opts,.opts.three{grid-template-columns:1fr}
+  #summary .kv{grid-template-columns:1fr}
+  .week{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Portal Design Session</div>
+      <h1>Design the system that works <em>your</em> way.</h1>
+      <p>Ten minutes of decisions. We build your tailored property portal from these answers — request intake, approvals, communication, and visibility, shaped to how your team already operates. No admin burden, no bloat.</p>
+    </div>
+    <div class="brand">FINITE <em>REIMAGING</em><span>A CAMP Construction Company</span></div>
+  </div>
+</div>
+
+<div class="prog">
+  <div class="wrap" id="progbar"></div>
+</div>
+
+<div class="wrap main">
+  <div id="panels">
+
+    <!-- STEP 1: PORTFOLIO -->
+    <div class="panel act" data-step="0">
+      <div class="eyebrow">Step 1 of 6</div>
+      <h2>Your portfolio</h2>
+      <p class="sub">This shapes the property hierarchy — who sees what, and how requests roll up.</p>
+
+      <div class="q-lab">How is your portfolio organized?</div>
+      <div class="opts" data-q="hierarchy">
+        <div class="opt" data-v="flat"><h3>Flat</h3><p>Every property reports the same way. Ownership sees all.</p></div>
+        <div class="opt" data-v="regional"><h3>Regional groups</h3><p>Properties grouped by region or brand, each with a regional lead.</p></div>
+      </div>
+
+      <div class="slide-row">
+        <div class="sr-hd"><b>Properties today</b><span class="val" id="propNowV">60</span></div>
+        <input type="range" id="propNow" min="5" max="200" value="60" step="5">
+      </div>
+      <div class="slide-row">
+        <div class="sr-hd"><b>Properties within 18 months</b><span class="val" id="propSoonV">460</span></div>
+        <input type="range" id="propSoon" min="5" max="800" value="460" step="10">
+        <div class="sr-note">We size the data model for where you're going, not where you are.</div>
+      </div>
+
+      <div class="pnav"><span></span><button class="btn btn-brass" onclick="go(1)">Next: Requests →</button></div>
+    </div>
+
+    <!-- STEP 2: REQUESTS -->
+    <div class="panel" data-step="1">
+      <div class="eyebrow">Step 2 of 6</div>
+      <h2>Who requests, and how</h2>
+      <p class="sub">The front door. We make it match how your people already reach for help.</p>
+
+      <div class="q-lab">Who can submit a request at each property?</div>
+      <div class="opts three" data-q="requesters">
+        <div class="opt" data-v="gm"><h3>GM only</h3><p>One accountable requester per property.</p></div>
+        <div class="opt" data-v="gm-eng"><h3>GM + Chief Engineer</h3><p>Ops and engineering both submit.</p></div>
+        <div class="opt" data-v="any"><h3>Any staff via QR</h3><p>Posted QR code — anyone reports, GM confirms.</p></div>
+      </div>
+
+      <div class="q-lab">How should people submit?</div>
+      <div class="q-hint">Pick all that apply. Everything lands in one queue regardless.</div>
+      <div class="chips" data-q="channels">
+        <div class="chipo" data-v="mobile">Mobile web form</div>
+        <div class="chipo" data-v="email">Email-to-request</div>
+        <div class="chipo" data-v="phone">Phone (we log it)</div>
+        <div class="chipo" data-v="qr">QR codes on-site</div>
+        <div class="chipo" data-v="sc">ServiceChannel feed</div>
+      </div>
+
+      <div class="q-lab">Photos on submission?</div>
+      <div class="opts" data-q="photosIn">
+        <div class="opt" data-v="required"><h3>Required</h3><p>Every request needs at least one photo. Faster quoting, fewer site visits.</p></div>
+        <div class="opt" data-v="optional"><h3>Encouraged</h3><p>Prompted but not blocking — nothing stops an urgent request.</p></div>
+      </div>
+
+      <div class="pnav"><button class="btn btn-back" onclick="go(0)">← Back</button><button class="btn btn-brass" onclick="go(2)">Next: Approvals →</button></div>
+    </div>
+
+    <!-- STEP 3: APPROVALS -->
+    <div class="panel" data-step="2">
+      <div class="eyebrow">Step 3 of 6</div>
+      <h2>Your approval process</h2>
+      <p class="sub">This is where tailoring matters most. Set the thresholds — the portal enforces them automatically, with a full audit trail.</p>
+
+      <div class="slide-row">
+        <div class="sr-hd"><b>Auto-approve up to</b><span class="val" id="t1V">$500</span></div>
+        <input type="range" id="t1" min="0" max="2500" value="500" step="100">
+        <div class="sr-note">Routine fixes below this go straight to scheduling. No waiting on signatures for a $180 repair.</div>
+      </div>
+      <div class="slide-row">
+        <div class="sr-hd"><b id="t2Label">Property / regional approval up to</b><span class="val" id="t2V">$5,000</span></div>
+        <input type="range" id="t2" min="1000" max="25000" value="5000" step="500">
+      </div>
+      <div class="slide-row">
+        <div class="sr-hd"><b>Above that: ownership approval</b><span class="val mono" style="color:var(--mut)">automatic</span></div>
+        <div class="sr-note">Anything over the second threshold routes to ownership with the full quote, photos, and history attached. One tap to approve or question.</div>
+      </div>
+
+      <div class="q-lab">How do approvers respond?</div>
+      <div class="opts" data-q="approveVia">
+        <div class="opt" data-v="portal"><h3>In the portal</h3><p>Approval queue with everything attached. Cleanest audit trail.</p></div>
+        <div class="opt" data-v="email"><h3>Email one-tap</h3><p>Approve/decline buttons right in the email. Zero login friction.</p></div>
+      </div>
+
+      <div class="pnav"><button class="btn btn-back" onclick="go(1)">← Back</button><button class="btn btn-brass" onclick="go(3)">Next: Communication →</button></div>
+    </div>
+
+    <!-- STEP 4: COMMUNICATION -->
+    <div class="panel" data-step="3">
+      <div class="eyebrow">Step 4 of 6</div>
+      <h2>How we keep you informed</h2>
+      <p class="sub">You should never have to ask "where does this stand?" Choose how updates reach each level.</p>
+
+      <div class="q-lab">Requesters (property level) hear about their request via:</div>
+      <div class="chips" data-q="notifyReq">
+        <div class="chipo" data-v="sms">Text message</div>
+        <div class="chipo" data-v="email">Email</div>
+        <div class="chipo" data-v="portal">Portal only</div>
+      </div>
+
+      <div class="q-lab">Leadership receives:</div>
+      <div class="opts three" data-q="digest">
+        <div class="opt" data-v="realtime"><h3>Real-time</h3><p>Every status change, as it happens.</p></div>
+        <div class="opt" data-v="daily"><h3>Daily digest</h3><p>One email each morning: open, moved, done.</p></div>
+        <div class="opt" data-v="weekly"><h3>Weekly summary</h3><p>Monday portfolio rollup with spend.</p></div>
+      </div>
+
+      <div class="q-lab">When a job is quoted, the quote goes to:</div>
+      <div class="opts" data-q="quoteTo">
+        <div class="opt" data-v="approver"><h3>Approver only</h3><p>Requester sees "quoted, pending approval" without dollar amounts.</p></div>
+        <div class="opt" data-v="both"><h3>Approver + requester</h3><p>Full transparency down to the property level.</p></div>
+      </div>
+
+      <div class="pnav"><button class="btn btn-back" onclick="go(2)">← Back</button><button class="btn btn-brass" onclick="go(4)">Next: Visibility →</button></div>
+    </div>
+
+    <!-- STEP 5: VISIBILITY & EVIDENCE -->
+    <div class="panel" data-step="4">
+      <div class="eyebrow">Step 5 of 6</div>
+      <h2>What you see, and what we prove</h2>
+      <p class="sub">Your dashboard and our evidence standard. This is the trust layer.</p>
+
+      <div class="q-lab">Ownership dashboard shows:</div>
+      <div class="chips" data-q="dash">
+        <div class="chipo" data-v="open">Open requests by property</div>
+        <div class="chipo" data-v="spend">Spend vs. budget</div>
+        <div class="chipo" data-v="sla">Response-time performance</div>
+        <div class="chipo" data-v="reno">Renovation progress</div>
+        <div class="chipo" data-v="history">Full property history</div>
+      </div>
+
+      <div class="q-lab">Completion evidence standard:</div>
+      <div class="opts" data-q="evidence">
+        <div class="opt" data-v="photos"><h3>Before + after photos</h3><p>Every completed job documented visually. Closed with photo proof.</p></div>
+        <div class="opt" data-v="photos-sign"><h3>Photos + digital signoff</h3><p>Photo proof plus a named signoff from your property contact.</p></div>
+      </div>
+
+      <div class="q-lab">Modules to launch with:</div>
+      <div class="opts three" data-q="modules">
+        <div class="opt" data-v="fm"><h3>Maintenance</h3><p>Fast loop: request → fix → proof.</p></div>
+        <div class="opt" data-v="reno"><h3>Renovation</h3><p>Deep loop: phases, milestones, draws.</p></div>
+        <div class="opt" data-v="both"><h3>Both</h3><p>One login, two workspaces.</p></div>
+      </div>
+
+      <div class="pnav"><button class="btn btn-back" onclick="go(3)">← Back</button><button class="btn btn-brass" onclick="buildSummary();go(5)">Generate my blueprint →</button></div>
+    </div>
+
+    <!-- STEP 6: SUMMARY -->
+    <div class="panel" data-step="5">
+      <div class="eyebrow">Step 6 of 6</div>
+      <h2>Your system blueprint</h2>
+      <p class="sub">This is the build spec. Prototype in your hands within one week of kickoff.</p>
+      <div id="summary"></div>
+
+      <div class="card" style="background:var(--white);border:1px solid var(--line);border-radius:10px;padding:32px;margin-bottom:18px">
+        <h3 style="font-size:1.05rem;margin-bottom:6px">The one-week build</h3>
+        <p style="font-size:.88rem;color:var(--mut)">Running on infrastructure we already operate — nothing new for your team to buy, host, or administer.</p>
+        <div class="week">
+          <div class="day"><b>Day 1–2</b><span>Portal configured from this blueprint. Property list loaded, roles assigned.</span></div>
+          <div class="day"><b>Day 3</b><span>Approval routing + notifications wired and tested with your thresholds.</span></div>
+          <div class="day"><b>Day 4</b><span>Walkthrough with your team. We adjust anything that doesn't feel right.</span></div>
+          <div class="day"><b>Day 5</b><span>Pilot live at 3–5 properties. Real requests, real fixes.</span></div>
+          <div class="day"><b>Week 2+</b><span>Roll out across the portfolio at your pace.</span></div>
+        </div>
+      </div>
+
+      <div id="spec"></div>
+      <div class="copy-row">
+        <button class="btn btn-brass" id="copyBtn" onclick="copySpec()">Copy build spec</button>
+        <button class="btn btn-back" onclick="go(0)">Start over</button>
+      </div>
+      <div class="pnav"><button class="btn btn-back" onclick="go(4)">← Back</button><span></span></div>
+    </div>
+
+  </div>
+
+  <!-- BLUEPRINT SIDEBAR -->
+  <aside class="bp" id="bp">
+    <div class="eyebrow" style="color:var(--brass-lt)">Live Blueprint</div>
+    <h3>Building as you decide</h3>
+    <div id="bpBody"><div class="bp-sec"><div class="bp-v empty">Your choices appear here in real time.</div></div></div>
+  </aside>
+</div>
+
+<script>
+const state={hierarchy:null,propNow:60,propSoon:460,requesters:null,channels:new Set(['mobile']),photosIn:null,t1:500,t2:5000,approveVia:null,notifyReq:new Set(),digest:null,quoteTo:null,dash:new Set(['open','spend']),evidence:null,modules:null};
+const stepNames=['Portfolio','Requests','Approvals','Communication','Visibility','Blueprint'];
+const labels={
+  hierarchy:{flat:'Flat portfolio',regional:'Regional groups'},
+  requesters:{gm:'GM only','gm-eng':'GM + Chief Engineer',any:'Any staff via QR'},
+  photosIn:{required:'Photos required',optional:'Photos encouraged'},
+  approveVia:{portal:'Portal approval queue',email:'One-tap email approval'},
+  digest:{realtime:'Real-time updates',daily:'Daily digest',weekly:'Weekly summary'},
+  quoteTo:{approver:'Approver only',both:'Approver + requester'},
+  evidence:{photos:'Before/after photos','photos-sign':'Photos + digital signoff'},
+  modules:{fm:'Maintenance',reno:'Renovation',both:'Maintenance + Renovation'},
+  channels:{mobile:'Mobile form',email:'Email',phone:'Phone',qr:'QR codes',sc:'ServiceChannel'},
+  notifyReq:{sms:'SMS',email:'Email',portal:'Portal'},
+  dash:{open:'Open requests',spend:'Spend vs budget',sla:'Response performance',reno:'Renovation progress',history:'Property history'}
+};
+
+// progress bar
+const pb=document.getElementById('progbar');
+stepNames.forEach((n,i)=>{const d=document.createElement('div');d.className='pstep'+(i===0?' act':'');d.textContent=(i+1)+'. '+n;d.onclick=()=>go(i);pb.appendChild(d)});
+
+function go(n){
+  if(n===5)buildSummary();
+  document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('act',+p.dataset.step===n));
+  document.querySelectorAll('.pstep').forEach((p,i)=>{p.classList.toggle('act',i===n);p.classList.toggle('done',i<n)});
+  window.scrollTo({top:document.querySelector('.prog').offsetTop-10,behavior:'smooth'});
+}
+
+// single-select cards
+document.querySelectorAll('.opts').forEach(grp=>{
+  grp.querySelectorAll('.opt').forEach(o=>o.onclick=()=>{
+    grp.querySelectorAll('.opt').forEach(x=>x.classList.remove('sel'));
+    o.classList.add('sel');
+    state[grp.dataset.q]=o.dataset.v;
+    render();
+  });
+});
+// chips multi-select
+document.querySelectorAll('.chips').forEach(grp=>{
+  grp.querySelectorAll('.chipo').forEach(c=>c.onclick=()=>{
+    c.classList.toggle('sel');
+    const s=state[grp.dataset.q];
+    c.classList.contains('sel')?s.add(c.dataset.v):s.delete(c.dataset.v);
+    render();
+  });
+});
+// preselect defaults visually
+document.querySelector('[data-q="channels"] [data-v="mobile"]').classList.add('sel');
+document.querySelector('[data-q="dash"] [data-v="open"]').classList.add('sel');
+document.querySelector('[data-q="dash"] [data-v="spend"]').classList.add('sel');
+
+// sliders
+const fm=v=>'$'+(+v).toLocaleString();
+[['propNow','propNowV',v=>v],['propSoon','propSoonV',v=>v],['t1','t1V',fm],['t2','t2V',fm]].forEach(([id,vid,f])=>{
+  const el=document.getElementById(id);
+  el.oninput=()=>{state[id]=+el.value;document.getElementById(vid).textContent=f(el.value);render()};
+});
+
+function render(){
+  const b=[];
+  const sec=(k,v)=>b.push(`<div class="bp-sec"><div class="bp-k">${k}</div><div class="bp-v">${v}</div></div>`);
+  sec('Portfolio',`<b>${state.propNow}</b> properties → scaling to <b>${state.propSoon}</b>${state.hierarchy?' · '+labels.hierarchy[state.hierarchy]:''}`);
+  if(state.requesters||state.channels.size)sec('Intake',`${state.requesters?labels.requesters[state.requesters]+' · ':''}${[...state.channels].map(c=>labels.channels[c]).join(', ')||'—'}${state.photosIn?' · '+labels.photosIn[state.photosIn]:''}`);
+  sec('Approvals',`Auto ≤ <b>${fm(state.t1)}</b> · Mid ≤ <b>${fm(state.t2)}</b> · Ownership above${state.approveVia?' · '+labels.approveVia[state.approveVia]:''}`);
+  if(state.notifyReq.size||state.digest||state.quoteTo)sec('Communication',`${[...state.notifyReq].map(c=>labels.notifyReq[c]).join('/')||'—'} to requesters${state.digest?' · '+labels.digest[state.digest]+' to leadership':''}${state.quoteTo?' · quotes to '+labels.quoteTo[state.quoteTo].toLowerCase():''}`);
+  if(state.dash.size||state.evidence||state.modules)sec('Visibility',`${[...state.dash].map(c=>labels.dash[c]).join(', ')||'—'}${state.evidence?' · '+labels.evidence[state.evidence]:''}${state.modules?' · <b>'+labels.modules[state.modules]+'</b>':''}`);
+  document.getElementById('bpBody').innerHTML=b.join('');
+}
+render();
+
+function buildSummary(){
+  const s=document.getElementById('summary');
+  const row=(k,v)=>`<div class="k">${k}</div><div class="v">${v||'<span style="color:var(--signal)">not selected</span>'}</div>`;
+  s.innerHTML=`
+  <div class="card"><h3><span class="n">01</span>Portfolio & hierarchy</h3><div class="kv">
+    ${row('Structure',state.hierarchy&&labels.hierarchy[state.hierarchy])}
+    ${row('Properties (now → 18mo)',state.propNow+' → '+state.propSoon)}
+  </div></div>
+  <div class="card"><h3><span class="n">02</span>Request intake</h3><div class="kv">
+    ${row('Requesters',state.requesters&&labels.requesters[state.requesters])}
+    ${row('Channels',[...state.channels].map(c=>labels.channels[c]).join(', '))}
+    ${row('Photo policy',state.photosIn&&labels.photosIn[state.photosIn])}
+  </div></div>
+  <div class="card"><h3><span class="n">03</span>Approval routing</h3><div class="kv">
+    ${row('Auto-approve',`≤ ${fm(state.t1)} — straight to scheduling`)}
+    ${row('Mid tier',`≤ ${fm(state.t2)} — ${state.hierarchy==='regional'?'regional lead':'property approver'}`)}
+    ${row('Ownership tier',`> ${fm(state.t2)} — full package attached`)}
+    ${row('Approval method',state.approveVia&&labels.approveVia[state.approveVia])}
+  </div></div>
+  <div class="card"><h3><span class="n">04</span>Communication</h3><div class="kv">
+    ${row('Requester updates',[...state.notifyReq].map(c=>labels.notifyReq[c]).join(', '))}
+    ${row('Leadership cadence',state.digest&&labels.digest[state.digest])}
+    ${row('Quote visibility',state.quoteTo&&labels.quoteTo[state.quoteTo])}
+  </div></div>
+  <div class="card"><h3><span class="n">05</span>Visibility & evidence</h3><div class="kv">
+    ${row('Dashboard widgets',[...state.dash].map(c=>labels.dash[c]).join(', '))}
+    ${row('Completion standard',state.evidence&&labels.evidence[state.evidence])}
+    ${row('Modules',state.modules&&labels.modules[state.modules])}
+  </div></div>`;
+
+  const spec={
+    _meta:{client:'[CLIENT NAME]',generated:new Date().toISOString().slice(0,10),prepared_by:'Finite Reimaging portal design session'},
+    portfolio:{hierarchy:state.hierarchy,properties_current:state.propNow,properties_projected:state.propSoon},
+    intake:{requesters:state.requesters,channels:[...state.channels],photos_on_submit:state.photosIn},
+    approvals:{tiers:[{max:state.t1,route:'auto'},{max:state.t2,route:state.hierarchy==='regional'?'regional_lead':'property_approver'},{max:null,route:'ownership'}],method:state.approveVia},
+    communication:{requester_updates:[...state.notifyReq],leadership_cadence:state.digest,quote_visibility:state.quoteTo},
+    visibility:{dashboard:[...state.dash],evidence:state.evidence,modules:state.modules},
+    stack:{frontend:'Cloudflare Pages (client portal)',api:'Cloudflare Workers (normalization + routing)',media:'Cloudflare R2 (photos, signoffs)',system_of_record:'Monday.com boards via API',notifications:'Email + SMS via Worker triggers'}
+  };
+  document.getElementById('spec').textContent=JSON.stringify(spec,null,2);
+}
+
+function copySpec(){
+  navigator.clipboard.writeText(document.getElementById('spec').textContent).then(()=>{
+    const b=document.getElementById('copyBtn');b.textContent='Copied ✓';b.classList.add('copied');
+    setTimeout(()=>{b.textContent='Copy build spec';b.classList.remove('copied')},2000);
+  });
+}
+</script>
+</body>
+</html>
