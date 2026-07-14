@@ -156,6 +156,24 @@ section{padding:92px 0}
 .cmt .sop b{color:var(--brass);font-weight:600}
 .cmt-note{margin-top:26px;text-align:center;font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--mut)}
 
+/* ============ PORTAL / SYSTEMS ============ */
+.portal{background:var(--white);border-top:1px solid var(--line)}
+.portal-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.pcell{border:1px solid var(--line);border-radius:8px;padding:34px 30px;background:var(--paper);display:flex;flex-direction:column}
+.pcell.feat{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.pcell h3{font-size:1.35rem;margin-bottom:10px}
+.pcell.feat h3{color:#fff}
+.pcell>p{color:var(--mut);font-size:.94rem}
+.pcell.feat>p{color:var(--mut-dk)}
+.pcell ul{list-style:none;margin-top:18px;flex:1}
+.pcell li{font-size:.88rem;padding:8px 0;border-top:1px dashed var(--line)}
+.pcell li::before{content:"—  ";color:var(--brass)}
+.pcell.feat li{border-color:var(--line-dk)}
+.pcell.feat li::before{color:var(--brass-lt)}
+.pcell .btn{margin-top:24px;align-self:flex-start}
+.pcell .plats{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+.pcell .plats span{font-family:'IBM Plex Mono',monospace;font-size:.68rem;border:1px solid var(--line);background:var(--white);padding:5px 11px;border-radius:50px;color:var(--mut)}
+
 /* ============ CTA SEQUENCE / HOW IT WORKS ============ */
 .how{background:var(--ink);color:var(--paper)}
 .how .eyebrow{color:var(--brass-lt)}
@@ -326,7 +344,7 @@ header.slim .menu>li>a{padding:19px 15px}
   .svc-grid{grid-template-columns:1fr 1fr}
   .svc.flag,.svc.mit,.svc.sm,.svc.maint{grid-column:span 2}
   .svc.maint{flex-direction:column;align-items:stretch}
-  .steps,.proof-grid,.cmt-grid{grid-template-columns:1fr}
+  .steps,.proof-grid,.cmt-grid,.portal-grid{grid-template-columns:1fr}
   .f-grid{grid-template-columns:1fr 1fr}
   .emg-bar .hide-m,.pip-bar .hide-m{display:none}
 }
@@ -359,6 +377,7 @@ header.slim .menu>li>a{padding:19px 15px}
   <a href="#services">Hospitality Reimaging</a>
   <a href="#services" class="mit">Mitigation 24/7</a>
   <a href="#services">Facility Maintenance</a>
+  <a href="portal.html">Owner Portal</a>
   <a href="#proof">Projects</a>
   <a href="#camp">About</a>
   <a href="#contact">Start a Scope Conversation</a>
@@ -400,6 +419,7 @@ header.slim .menu>li>a{padding:19px 15px}
           <a href="#">Plumbing & Electrical <span>The fixes that keep rooms sellable and systems safe</span></a>
           <a href="#">Guest-Facing Repairs <span>Doors, fixtures, finishes, FF&E — fixed before guests notice</span></a>
           <a href="#">Preventive Maintenance Programs <span>Scheduled care that extends asset life and flattens CapEx spikes</span></a>
+          <a href="portal.html">Owner Portal & Integrations <span>Bring your FM platform or design your own — try the 10-minute session</span></a>
         </div>
       </li>
       <li>
@@ -608,6 +628,41 @@ header.slim .menu>li>a{padding:19px 15px}
       </div>
     </div>
     <div class="cmt-note rv">[ BRACKETED VALUES ] = commitments Finite sets internally — each one becomes a written SOP before it goes public.</div>
+  </div>
+</section>
+
+<!-- PORTAL / SYSTEMS -->
+<section class="portal" id="portal">
+  <div class="wrap">
+    <div class="sec-hd rv">
+      <div class="eyebrow">Your Systems, Your Rules</div>
+      <h2>Keep your platform. Or design your own.</h2>
+      <p>Every portfolio already has a way it wants communication, submittals, approvals, and tracking to run. We don't make your team change — we build to how you already operate.</p>
+    </div>
+    <div class="portal-grid">
+      <div class="pcell rv">
+        <h3>Bring the platform you have.</h3>
+        <p>If your properties live in an FM system today, we plug into it. Your team keeps the workflow they know — nobody gets retrained because of us.</p>
+        <ul>
+          <li>Requests flow from your platform into our dispatch automatically</li>
+          <li>Status updates, photos, and invoices flow back the same way</li>
+          <li>Your data stays yours — full history, exportable anytime</li>
+        </ul>
+        <div class="plats">
+          <span>SERVICECHANNEL</span><span>CORRIGO</span><span>HOTSOS</span><span>QUORE</span><span>UPKEEP</span><span>+ YOURS</span>
+        </div>
+      </div>
+      <div class="pcell feat rv">
+        <h3>Or sit down and design your own.</h3>
+        <p>A ten-minute working session — your thresholds, your channels, your reporting cadence — becomes a build spec. A working portal follows within one week.</p>
+        <ul>
+          <li>You set approval dollar tiers; the system enforces them</li>
+          <li>Updates by text, email, or dashboard — your call, per level</li>
+          <li>Piloted at 3–5 properties before it touches the portfolio</li>
+        </ul>
+        <a href="portal.html" class="btn btn-brass">Try the Design Session →</a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -843,6 +898,7 @@ header.slim .menu>li>a{padding:19px 15px}
           <li><a href="#">Plumbing & Electrical</a></li>
           <li><a href="#">Guest-Facing Repairs</a></li>
           <li><a href="#">Preventive Programs</a></li>
+          <li><a href="portal.html">Owner Portal & Integrations</a></li>
         </ul>
       </div>
       <div>

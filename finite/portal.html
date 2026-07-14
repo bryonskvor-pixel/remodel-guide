@@ -105,6 +105,19 @@ input[type=range]{width:100%;accent-color:var(--brass);cursor:pointer}
 .day b{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.12em;color:var(--brass);display:block;margin-bottom:6px;text-transform:uppercase}
 .day span{font-size:.78rem;color:var(--ink);line-height:1.4;display:block}
 
+a{color:inherit;text-decoration:none}
+
+/* Print: clean blueprint handout for in-person sessions */
+@media print{
+  .prog,.pnav,.copy-row,.bp{display:none!important}
+  .top{background:#fff;color:var(--ink);padding:20px 0}
+  .top h1,.top .brand{color:var(--ink)}
+  .top p{color:var(--mut)}
+  body{background:#fff}
+  #spec{max-height:none;overflow:visible;background:#fff;color:var(--ink);border:1px solid var(--line)}
+  .main{display:block;padding:20px 0}
+}
+
 @media(max-width:900px){
   .main{grid-template-columns:1fr}
   .bp{position:static;order:2}
@@ -123,7 +136,7 @@ input[type=range]{width:100%;accent-color:var(--brass);cursor:pointer}
       <h1>Design the system that works <em>your</em> way.</h1>
       <p>Ten minutes of decisions. We build your tailored property portal from these answers — request intake, approvals, communication, and visibility, shaped to how your team already operates. No admin burden, no bloat.</p>
     </div>
-    <div class="brand">FINITE <em>REIMAGING</em><span>A CAMP Construction Company</span></div>
+    <a class="brand" href="index.html">FINITE <em>REIMAGING</em><span>A CAMP Construction Company</span></a>
   </div>
 </div>
 
@@ -136,7 +149,7 @@ input[type=range]{width:100%;accent-color:var(--brass);cursor:pointer}
 
     <!-- STEP 1: PORTFOLIO -->
     <div class="panel act" data-step="0">
-      <div class="eyebrow">Step 1 of 6</div>
+      <div class="eyebrow">Step 1 of 7</div>
       <h2>Your portfolio</h2>
       <p class="sub">This shapes the property hierarchy — who sees what, and how requests roll up.</p>
 
@@ -156,12 +169,42 @@ input[type=range]{width:100%;accent-color:var(--brass);cursor:pointer}
         <div class="sr-note">We size the data model for where you're going, not where you are.</div>
       </div>
 
-      <div class="pnav"><span></span><button class="btn btn-brass" onclick="go(1)">Next: Requests →</button></div>
+      <div class="pnav"><span></span><button class="btn btn-brass" onclick="go(1)">Next: Your Current System →</button></div>
     </div>
 
-    <!-- STEP 2: REQUESTS -->
+    <!-- STEP 2: CURRENT SYSTEM -->
     <div class="panel" data-step="1">
-      <div class="eyebrow">Step 2 of 6</div>
+      <div class="eyebrow">Step 2 of 7</div>
+      <h2>What you use today</h2>
+      <p class="sub">If your team already lives in a platform, we meet you there — requests, statuses, and invoices flow into it automatically. Nobody gets retrained because of us.</p>
+
+      <div class="q-lab">Do you run an FM platform today?</div>
+      <div class="opts three" data-q="existing">
+        <div class="opt" data-v="keep"><h3>Yes — and we're keeping it</h3><p>We integrate with it. Your team keeps their workflow; we plug into it.</p></div>
+        <div class="opt" data-v="replace"><h3>Yes — but it isn't working</h3><p>We migrate your properties and history, then stand up something better.</p></div>
+        <div class="opt" data-v="none"><h3>No real system</h3><p>Email, calls, and spreadsheets. We'll design your first one — around you.</p></div>
+      </div>
+
+      <div id="platformQ" style="display:none">
+        <div class="q-lab">Which platform?</div>
+        <div class="q-hint">Pick all that apply across the portfolio.</div>
+        <div class="chips" data-q="platforms">
+          <div class="chipo" data-v="servicechannel">ServiceChannel</div>
+          <div class="chipo" data-v="corrigo">Corrigo</div>
+          <div class="chipo" data-v="hotsos">HotSOS / Amadeus</div>
+          <div class="chipo" data-v="quore">Quore</div>
+          <div class="chipo" data-v="upkeep">UpKeep</div>
+          <div class="chipo" data-v="ecotrak">Ecotrak</div>
+          <div class="chipo" data-v="other">Something else</div>
+        </div>
+      </div>
+
+      <div class="pnav"><button class="btn btn-back" onclick="go(0)">← Back</button><button class="btn btn-brass" onclick="go(2)">Next: Requests →</button></div>
+    </div>
+
+    <!-- STEP 3: REQUESTS -->
+    <div class="panel" data-step="2">
+      <div class="eyebrow">Step 3 of 7</div>
       <h2>Who requests, and how</h2>
       <p class="sub">The front door. We make it match how your people already reach for help.</p>
 
@@ -188,12 +231,12 @@ input[type=range]{width:100%;accent-color:var(--brass);cursor:pointer}
         <div class="opt" data-v="optional"><h3>Encouraged</h3><p>Prompted but not blocking — nothing stops an urgent request.</p></div>
       </div>
 
-      <div class="pnav"><button class="btn btn-back" onclick="go(0)">← Back</button><button class="btn btn-brass" onclick="go(2)">Next: Approvals →</button></div>
+      <div class="pnav"><button class="btn btn-back" onclick="go(1)">← Back</button><button class="btn btn-brass" onclick="go(3)">Next: Approvals →</button></div>
     </div>
 
-    <!-- STEP 3: APPROVALS -->
-    <div class="panel" data-step="2">
-      <div class="eyebrow">Step 3 of 6</div>
+    <!-- STEP 4: APPROVALS -->
+    <div class="panel" data-step="3">
+      <div class="eyebrow">Step 4 of 7</div>
       <h2>Your approval process</h2>
       <p class="sub">This is where tailoring matters most. Set the thresholds — the portal enforces them automatically, with a full audit trail.</p>
 
@@ -217,12 +260,19 @@ input[type=range]{width:100%;accent-color:var(--brass);cursor:pointer}
         <div class="opt" data-v="email"><h3>Email one-tap</h3><p>Approve/decline buttons right in the email. Zero login friction.</p></div>
       </div>
 
-      <div class="pnav"><button class="btn btn-back" onclick="go(1)">← Back</button><button class="btn btn-brass" onclick="go(3)">Next: Communication →</button></div>
+      <div class="q-lab">Emergencies (water, fire, storm)?</div>
+      <div class="q-hint">Mitigation runs on a different clock — set the rule now so nobody's deciding it at 2 a.m.</div>
+      <div class="opts" data-q="emergency">
+        <div class="opt" data-v="dispatch"><h3>Dispatch first, paperwork follows</h3><p>Crew rolls immediately. Ownership is notified in parallel and the approval record catches up.</p></div>
+        <div class="opt" data-v="confirm"><h3>One confirmation, then roll</h3><p>We dispatch after a single yes from your designated emergency contact. You name them; we keep the list current.</p></div>
+      </div>
+
+      <div class="pnav"><button class="btn btn-back" onclick="go(2)">← Back</button><button class="btn btn-brass" onclick="go(4)">Next: Communication →</button></div>
     </div>
 
-    <!-- STEP 4: COMMUNICATION -->
-    <div class="panel" data-step="3">
-      <div class="eyebrow">Step 4 of 6</div>
+    <!-- STEP 5: COMMUNICATION -->
+    <div class="panel" data-step="4">
+      <div class="eyebrow">Step 5 of 7</div>
       <h2>How we keep you informed</h2>
       <p class="sub">You should never have to ask "where does this stand?" Choose how updates reach each level.</p>
 
@@ -246,12 +296,12 @@ input[type=range]{width:100%;accent-color:var(--brass);cursor:pointer}
         <div class="opt" data-v="both"><h3>Approver + requester</h3><p>Full transparency down to the property level.</p></div>
       </div>
 
-      <div class="pnav"><button class="btn btn-back" onclick="go(2)">← Back</button><button class="btn btn-brass" onclick="go(4)">Next: Visibility →</button></div>
+      <div class="pnav"><button class="btn btn-back" onclick="go(3)">← Back</button><button class="btn btn-brass" onclick="go(5)">Next: Visibility →</button></div>
     </div>
 
-    <!-- STEP 5: VISIBILITY & EVIDENCE -->
-    <div class="panel" data-step="4">
-      <div class="eyebrow">Step 5 of 6</div>
+    <!-- STEP 6: VISIBILITY & EVIDENCE -->
+    <div class="panel" data-step="5">
+      <div class="eyebrow">Step 6 of 7</div>
       <h2>What you see, and what we prove</h2>
       <p class="sub">Your dashboard and our evidence standard. This is the trust layer.</p>
 
@@ -277,12 +327,12 @@ input[type=range]{width:100%;accent-color:var(--brass);cursor:pointer}
         <div class="opt" data-v="both"><h3>Both</h3><p>One login, two workspaces.</p></div>
       </div>
 
-      <div class="pnav"><button class="btn btn-back" onclick="go(3)">← Back</button><button class="btn btn-brass" onclick="buildSummary();go(5)">Generate my blueprint →</button></div>
+      <div class="pnav"><button class="btn btn-back" onclick="go(4)">← Back</button><button class="btn btn-brass" onclick="go(6)">Generate my blueprint →</button></div>
     </div>
 
-    <!-- STEP 6: SUMMARY -->
-    <div class="panel" data-step="5">
-      <div class="eyebrow">Step 6 of 6</div>
+    <!-- STEP 7: SUMMARY -->
+    <div class="panel" data-step="6">
+      <div class="eyebrow">Step 7 of 7</div>
       <h2>Your system blueprint</h2>
       <p class="sub">This is the build spec. Prototype in your hands within one week of kickoff.</p>
       <div id="summary"></div>
@@ -302,9 +352,10 @@ input[type=range]{width:100%;accent-color:var(--brass);cursor:pointer}
       <div id="spec"></div>
       <div class="copy-row">
         <button class="btn btn-brass" id="copyBtn" onclick="copySpec()">Copy build spec</button>
+        <button class="btn btn-back" onclick="window.print()">Print blueprint</button>
         <button class="btn btn-back" onclick="go(0)">Start over</button>
       </div>
-      <div class="pnav"><button class="btn btn-back" onclick="go(4)">← Back</button><span></span></div>
+      <div class="pnav"><button class="btn btn-back" onclick="go(5)">← Back</button><span></span></div>
     </div>
 
   </div>
@@ -318,10 +369,13 @@ input[type=range]{width:100%;accent-color:var(--brass);cursor:pointer}
 </div>
 
 <script>
-const state={hierarchy:null,propNow:60,propSoon:460,requesters:null,channels:new Set(['mobile']),photosIn:null,t1:500,t2:5000,approveVia:null,notifyReq:new Set(),digest:null,quoteTo:null,dash:new Set(['open','spend']),evidence:null,modules:null};
-const stepNames=['Portfolio','Requests','Approvals','Communication','Visibility','Blueprint'];
+const state={hierarchy:null,propNow:60,propSoon:460,existing:null,platforms:new Set(),requesters:null,channels:new Set(['mobile']),photosIn:null,t1:500,t2:5000,approveVia:null,emergency:null,notifyReq:new Set(),digest:null,quoteTo:null,dash:new Set(['open','spend']),evidence:null,modules:null};
+const stepNames=['Portfolio','Current System','Requests','Approvals','Communication','Visibility','Blueprint'];
 const labels={
   hierarchy:{flat:'Flat portfolio',regional:'Regional groups'},
+  existing:{keep:'Existing platform — we integrate',replace:'Replacing current platform',none:'No system yet — designing fresh'},
+  platforms:{servicechannel:'ServiceChannel',corrigo:'Corrigo',hotsos:'HotSOS / Amadeus',quore:'Quore',upkeep:'UpKeep',ecotrak:'Ecotrak',other:'Other'},
+  emergency:{dispatch:'Dispatch first, paperwork follows',confirm:'One confirmation, then roll'},
   requesters:{gm:'GM only','gm-eng':'GM + Chief Engineer',any:'Any staff via QR'},
   photosIn:{required:'Photos required',optional:'Photos encouraged'},
   approveVia:{portal:'Portal approval queue',email:'One-tap email approval'},
@@ -339,7 +393,7 @@ const pb=document.getElementById('progbar');
 stepNames.forEach((n,i)=>{const d=document.createElement('div');d.className='pstep'+(i===0?' act':'');d.textContent=(i+1)+'. '+n;d.onclick=()=>go(i);pb.appendChild(d)});
 
 function go(n){
-  if(n===5)buildSummary();
+  if(n===6)buildSummary();
   document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('act',+p.dataset.step===n));
   document.querySelectorAll('.pstep').forEach((p,i)=>{p.classList.toggle('act',i===n);p.classList.toggle('done',i<n)});
   window.scrollTo({top:document.querySelector('.prog').offsetTop-10,behavior:'smooth'});
@@ -351,6 +405,13 @@ document.querySelectorAll('.opts').forEach(grp=>{
     grp.querySelectorAll('.opt').forEach(x=>x.classList.remove('sel'));
     o.classList.add('sel');
     state[grp.dataset.q]=o.dataset.v;
+    if(grp.dataset.q==='existing'){
+      document.getElementById('platformQ').style.display=(o.dataset.v==='keep'||o.dataset.v==='replace')?'block':'none';
+      if(o.dataset.v==='none'){state.platforms.clear();document.querySelectorAll('[data-q="platforms"] .chipo').forEach(c=>c.classList.remove('sel'))}
+    }
+    if(grp.dataset.q==='hierarchy'){
+      document.getElementById('t2Label').textContent=(o.dataset.v==='regional'?'Regional lead approval up to':'Property approval up to');
+    }
     render();
   });
 });
@@ -379,8 +440,9 @@ function render(){
   const b=[];
   const sec=(k,v)=>b.push(`<div class="bp-sec"><div class="bp-k">${k}</div><div class="bp-v">${v}</div></div>`);
   sec('Portfolio',`<b>${state.propNow}</b> properties → scaling to <b>${state.propSoon}</b>${state.hierarchy?' · '+labels.hierarchy[state.hierarchy]:''}`);
+  if(state.existing)sec('Systems',`${labels.existing[state.existing]}${state.platforms.size?' · <b>'+[...state.platforms].map(p=>labels.platforms[p]).join(', ')+'</b>':''}`);
   if(state.requesters||state.channels.size)sec('Intake',`${state.requesters?labels.requesters[state.requesters]+' · ':''}${[...state.channels].map(c=>labels.channels[c]).join(', ')||'—'}${state.photosIn?' · '+labels.photosIn[state.photosIn]:''}`);
-  sec('Approvals',`Auto ≤ <b>${fm(state.t1)}</b> · Mid ≤ <b>${fm(state.t2)}</b> · Ownership above${state.approveVia?' · '+labels.approveVia[state.approveVia]:''}`);
+  sec('Approvals',`Auto ≤ <b>${fm(state.t1)}</b> · Mid ≤ <b>${fm(state.t2)}</b> · Ownership above${state.approveVia?' · '+labels.approveVia[state.approveVia]:''}${state.emergency?' · <b>'+labels.emergency[state.emergency]+'</b>':''}`);
   if(state.notifyReq.size||state.digest||state.quoteTo)sec('Communication',`${[...state.notifyReq].map(c=>labels.notifyReq[c]).join('/')||'—'} to requesters${state.digest?' · '+labels.digest[state.digest]+' to leadership':''}${state.quoteTo?' · quotes to '+labels.quoteTo[state.quoteTo].toLowerCase():''}`);
   if(state.dash.size||state.evidence||state.modules)sec('Visibility',`${[...state.dash].map(c=>labels.dash[c]).join(', ')||'—'}${state.evidence?' · '+labels.evidence[state.evidence]:''}${state.modules?' · <b>'+labels.modules[state.modules]+'</b>':''}`);
   document.getElementById('bpBody').innerHTML=b.join('');
@@ -395,23 +457,28 @@ function buildSummary(){
     ${row('Structure',state.hierarchy&&labels.hierarchy[state.hierarchy])}
     ${row('Properties (now → 18mo)',state.propNow+' → '+state.propSoon)}
   </div></div>
-  <div class="card"><h3><span class="n">02</span>Request intake</h3><div class="kv">
+  <div class="card"><h3><span class="n">02</span>Systems & integration</h3><div class="kv">
+    ${row('Current platform',state.existing&&labels.existing[state.existing])}
+    ${row('Integrates with',state.platforms.size?[...state.platforms].map(p=>labels.platforms[p]).join(', '):(state.existing==='none'?'Fresh build — no legacy constraints':''))}
+  </div></div>
+  <div class="card"><h3><span class="n">03</span>Request intake</h3><div class="kv">
     ${row('Requesters',state.requesters&&labels.requesters[state.requesters])}
     ${row('Channels',[...state.channels].map(c=>labels.channels[c]).join(', '))}
     ${row('Photo policy',state.photosIn&&labels.photosIn[state.photosIn])}
   </div></div>
-  <div class="card"><h3><span class="n">03</span>Approval routing</h3><div class="kv">
+  <div class="card"><h3><span class="n">04</span>Approval routing</h3><div class="kv">
     ${row('Auto-approve',`≤ ${fm(state.t1)} — straight to scheduling`)}
     ${row('Mid tier',`≤ ${fm(state.t2)} — ${state.hierarchy==='regional'?'regional lead':'property approver'}`)}
     ${row('Ownership tier',`> ${fm(state.t2)} — full package attached`)}
     ${row('Approval method',state.approveVia&&labels.approveVia[state.approveVia])}
+    ${row('Emergency protocol',state.emergency&&labels.emergency[state.emergency])}
   </div></div>
-  <div class="card"><h3><span class="n">04</span>Communication</h3><div class="kv">
+  <div class="card"><h3><span class="n">05</span>Communication</h3><div class="kv">
     ${row('Requester updates',[...state.notifyReq].map(c=>labels.notifyReq[c]).join(', '))}
     ${row('Leadership cadence',state.digest&&labels.digest[state.digest])}
     ${row('Quote visibility',state.quoteTo&&labels.quoteTo[state.quoteTo])}
   </div></div>
-  <div class="card"><h3><span class="n">05</span>Visibility & evidence</h3><div class="kv">
+  <div class="card"><h3><span class="n">06</span>Visibility & evidence</h3><div class="kv">
     ${row('Dashboard widgets',[...state.dash].map(c=>labels.dash[c]).join(', '))}
     ${row('Completion standard',state.evidence&&labels.evidence[state.evidence])}
     ${row('Modules',state.modules&&labels.modules[state.modules])}
@@ -420,11 +487,12 @@ function buildSummary(){
   const spec={
     _meta:{client:'[CLIENT NAME]',generated:new Date().toISOString().slice(0,10),prepared_by:'Finite Reimaging portal design session'},
     portfolio:{hierarchy:state.hierarchy,properties_current:state.propNow,properties_projected:state.propSoon},
+    systems:{existing_platform:state.existing,integrate_with:[...state.platforms]},
     intake:{requesters:state.requesters,channels:[...state.channels],photos_on_submit:state.photosIn},
-    approvals:{tiers:[{max:state.t1,route:'auto'},{max:state.t2,route:state.hierarchy==='regional'?'regional_lead':'property_approver'},{max:null,route:'ownership'}],method:state.approveVia},
+    approvals:{tiers:[{max:state.t1,route:'auto'},{max:state.t2,route:state.hierarchy==='regional'?'regional_lead':'property_approver'},{max:null,route:'ownership'}],method:state.approveVia,emergency_protocol:state.emergency},
     communication:{requester_updates:[...state.notifyReq],leadership_cadence:state.digest,quote_visibility:state.quoteTo},
     visibility:{dashboard:[...state.dash],evidence:state.evidence,modules:state.modules},
-    stack:{frontend:'Cloudflare Pages (client portal)',api:'Cloudflare Workers (normalization + routing)',media:'Cloudflare R2 (photos, signoffs)',system_of_record:'Monday.com boards via API',notifications:'Email + SMS via Worker triggers'}
+    stack:{frontend:'Cloudflare Pages (client portal)',api:'Cloudflare Workers (normalization + routing)',media:'Cloudflare R2 (photos, signoffs)',system_of_record:state.existing==='keep'?'Client platform (two-way sync) + internal ops board':'Monday.com boards via API',notifications:'Email + SMS via Worker triggers'}
   };
   document.getElementById('spec').textContent=JSON.stringify(spec,null,2);
 }
