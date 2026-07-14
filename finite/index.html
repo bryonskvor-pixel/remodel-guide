@@ -36,6 +36,8 @@ a{color:inherit;text-decoration:none}
 .btn-ghost:hover{border-color:var(--brass-lt);color:var(--brass-lt)}
 .btn-signal{background:var(--signal);color:#fff}
 .btn-signal:hover{box-shadow:0 8px 24px rgba(232,87,29,.35)}
+.btn-signal-o{background:transparent;color:#FF8A5C;border:1px solid rgba(232,87,29,.55)}
+.btn-signal-o:hover{background:var(--signal);color:#fff;box-shadow:0 8px 24px rgba(232,87,29,.35)}
 .btn-ink{background:var(--ink);color:var(--paper)}
 
 /* ============ EMERGENCY UTILITY BAR ============ */
@@ -235,7 +237,76 @@ footer{background:#0B1422;color:var(--mut-dk);padding:64px 0 34px;font-size:.88r
 /* Reveal animation */
 .rv{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
 .rv.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.emg-bar .pulse{animation:none}}
+
+/* ============ INTERACTIVE LAYER ============ */
+/* Scroll progress bar */
+#progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--brass),var(--brass-lt));z-index:100}
+
+/* Shrinking header + active link */
+header .nav{transition:height .25s ease}
+header.slim .nav{height:58px}
+header.slim .menu>li>a{padding:19px 15px}
+.menu>li>a.on{color:var(--brass-lt)}
+
+/* Rotating headline word */
+#rotor{display:inline-block;transition:opacity .32s ease,transform .32s ease}
+#rotor.out{opacity:0;transform:translateY(12px)}
+
+/* Real photos in the before/after slider */
+.ba .ba-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+.ba .after-layer{z-index:2}
+.ba:focus-visible{outline:3px solid var(--brass-lt);outline-offset:3px}
+.ba .handle{transition:none}
+
+/* Animated line-drawn icons */
+.ico-svg{width:36px;height:36px;stroke:var(--brass);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;display:block}
+.svc.flag .ico-svg{stroke:var(--brass-lt)}
+.svc.mit .ico-svg{stroke:var(--signal)}
+.step .ico-svg{stroke:var(--brass-lt);width:32px;height:32px;margin-top:14px}
+.ico-svg path{stroke-dasharray:100;stroke-dashoffset:100}
+.rv.in .ico-svg path{animation:draw 1.2s ease forwards}
+.rv.in .ico-svg path:nth-child(2){animation-delay:.25s}
+.rv.in .ico-svg path:nth-child(3){animation-delay:.5s}
+@keyframes draw{to{stroke-dashoffset:0}}
+.svc:hover .ico-svg{filter:drop-shadow(0 0 6px rgba(184,137,74,.5))}
+
+/* 3D tilt on proof cards */
+.pcard{will-change:transform}
+
+/* Mobile menu */
+.m-menu{display:none;position:fixed;inset:0;background:rgba(16,27,45,.98);z-index:90;padding:92px 34px 40px;flex-direction:column;overflow-y:auto}
+.m-menu.open{display:flex}
+.m-menu a{color:var(--paper);font-family:'Archivo',sans-serif;font-weight:700;font-size:1.25rem;padding:14px 0;border-bottom:1px solid var(--line-dk)}
+.m-menu a.mit{color:var(--signal)}
+.m-menu .close{position:absolute;top:22px;right:26px;background:none;border:none;color:var(--paper);font-size:1.7rem;cursor:pointer}
+
+/* Back to top */
+#toTop{position:fixed;bottom:26px;right:26px;width:46px;height:46px;border-radius:50%;background:var(--ink);color:var(--brass-lt);border:1px solid var(--brass);font-size:1.05rem;cursor:pointer;opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s,transform .2s;z-index:80;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+#toTop.show{opacity:1;visibility:visible}
+#toTop:hover{transform:translateY(-3px)}
+
+/* Dropzone interactivity */
+.dropzone.over{background:rgba(184,137,74,.2);border-style:solid;transform:scale(1.01)}
+.dropzone.done{border-color:var(--brass);border-style:solid;background:rgba(184,137,74,.12)}
+.dropzone.done b{color:var(--brass)}
+.dropzone.done .dz-ico{color:var(--brass)}
+
+/* Form success state */
+.form .btn.sent{background:var(--brass);pointer-events:none}
+
+/* Live clock in emergency bar */
+.emg-bar .clock{font-family:'IBM Plex Mono',monospace;font-size:.74rem;opacity:.9;margin-left:12px}
+
+/* Filter transition */
+.pcard{transition:transform .2s,box-shadow .2s,opacity .3s}
+.pcard.fading{opacity:0;transform:translateY(8px)}
+
+@media(prefers-reduced-motion:reduce){
+  .rv{opacity:1;transform:none;transition:none}
+  .emg-bar .pulse{animation:none}
+  .ico-svg path{stroke-dashoffset:0;animation:none!important}
+  #rotor{transition:none}
+}
 
 /* ============ RESPONSIVE ============ */
 @media(max-width:980px){
@@ -253,13 +324,26 @@ footer{background:#0B1422;color:var(--mut-dk);padding:64px 0 34px;font-size:.88r
 </head>
 <body>
 
+<div id="progress"></div>
+
 <!-- EMERGENCY BAR -->
 <div class="emg-bar">
   <div class="wrap">
-    <div><span class="pulse"></span><strong>24/7 Mitigation Response</strong><span class="hide-m"> — water, fire & storm triage for occupied properties</span></div>
+    <div><span class="pulse"></span><strong>24/7 Mitigation Response</strong><span class="hide-m"> — crews on call now<span class="clock" id="emgClock"></span></span></div>
     <a href="tel:6782187284">CALL (678) 218-7284</a>
   </div>
 </div>
+
+<!-- MOBILE MENU -->
+<nav class="m-menu" id="mMenu">
+  <button class="close" aria-label="Close menu">✕</button>
+  <a href="#services">Hospitality Reimaging</a>
+  <a href="#services" class="mit">Mitigation 24/7</a>
+  <a href="#services">Facility Maintenance</a>
+  <a href="#proof">Projects</a>
+  <a href="#camp">About</a>
+  <a href="#contact">Start a Scope Conversation</a>
+</nav>
 
 <!-- NAV -->
 <header>
@@ -322,12 +406,12 @@ footer{background:#0B1422;color:var(--mut-dk);padding:64px 0 34px;font-size:.88r
   <div class="wrap hero-grid">
     <div>
       <div class="eyebrow">Hotel Renovation · Occupied-Property Specialists</div>
-      <h1>Your property, <em>reimaged</em> — without going dark.</h1>
+      <h1>Your property, <em id="rotor">reimaged</em> — without going dark.</h1>
       <p class="lede">Finite Reimaging executes brand PIPs and guest room renovations, keeps your systems running with day-to-day facility maintenance, and answers emergencies with 24/7 mitigation. Backed by CAMP Construction, we plan around your occupancy — not the other way around.</p>
       <div class="hero-ctas">
         <a href="#contact" class="btn btn-brass">Plan a Renovation</a>
-        <a href="tel:6782187284" class="btn btn-signal">⚠ Emergency Mitigation</a>
         <a href="#proof" class="btn btn-ghost">See the Work</a>
+        <a href="tel:6782187284" class="btn btn-signal-o">⚠ Emergency? Call Now</a>
       </div>
       <div class="hero-stats">
         <div class="stat"><div class="num" data-count="1000">0</div><div class="lab">Properties Served</div></div>
@@ -337,7 +421,7 @@ footer{background:#0B1422;color:var(--mut-dk);padding:64px 0 34px;font-size:.88r
       </div>
     </div>
     <div>
-      <div class="ba" id="ba">
+      <div class="ba" id="ba" tabindex="0" role="slider" aria-label="Before and after comparison — arrow keys to move" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
         <!-- BEFORE layer -->
         <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
           <rect width="400" height="300" fill="#3A4252"/>
@@ -351,6 +435,7 @@ footer{background:#0B1422;color:var(--mut-dk);padding:64px 0 34px;font-size:.88r
           <path d="M0 0 L400 0 L400 12 L0 22 Z" fill="#2C3342"/>
           <rect x="60" y="235" width="90" height="8" rx="4" fill="#3D3A30"/>
         </svg>
+        <img class="ba-img" src="img/before.jpg" alt="Guest room before renovation" onerror="this.remove()">
         <!-- AFTER layer -->
         <div class="after-layer">
           <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
@@ -373,6 +458,7 @@ footer{background:#0B1422;color:var(--mut-dk);padding:64px 0 34px;font-size:.88r
             <rect x="60" y="232" width="90" height="10" rx="5" fill="#D9B98A" opacity=".8"/>
             <rect x="180" y="250" width="60" height="6" rx="3" fill="#F0D9AE" opacity=".5"/>
           </svg>
+          <img class="ba-img" src="img/after.jpg" alt="Guest room after renovation" onerror="this.remove()">
         </div>
         <div class="handle"></div>
         <span class="tag b">Before</span>
@@ -405,6 +491,7 @@ footer{background:#0B1422;color:var(--mut-dk);padding:64px 0 34px;font-size:.88r
     </div>
     <div class="svc-grid">
       <div class="svc flag rv">
+        <svg class="ico-svg" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="100" d="M3 21h18M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"/><path pathLength="100" d="M9 7h2m2 0h2M9 11h2m2 0h2M9 15h2m2 0h2"/><path pathLength="100" d="M10 21v-3h4v3"/></svg>
         <div class="eyebrow">Flagship</div>
         <h3>Hospitality Reimaging</h3>
         <p>PIP execution and full-property renovation, phased around your occupancy calendar. We sequence key blocks, run night and swing shifts where the brand allows, and hand back sellable rooms on a published schedule — so your reinvestment never reads as a shutdown.</p>
@@ -415,6 +502,7 @@ footer{background:#0B1422;color:var(--mut-dk);padding:64px 0 34px;font-size:.88r
       </div>
       <div class="svc mit rv">
         <div class="mit-badge">24/7 RESPONSE</div>
+        <svg class="ico-svg" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="100" d="M12 3c3.4 4.1 6 7.1 6 10a6 6 0 0 1-12 0c0-2.9 2.6-5.9 6-10Z"/><path pathLength="100" d="M13 9.5 10.8 13h2.6L11 16.5"/></svg>
         <div class="eyebrow" style="color:var(--signal)">Emergency</div>
         <h3>Mitigation Services</h3>
         <p>Water, fire, and storm triage with in-house expertise — then a seamless handoff to rebuild. One call, one team, from extraction to final punch.</p>
@@ -422,6 +510,7 @@ footer{background:#0B1422;color:var(--mut-dk);padding:64px 0 34px;font-size:.88r
       </div>
       <div class="svc maint rv">
         <div class="maint-l">
+          <svg class="ico-svg" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="100" d="M14.5 6.5a4 4 0 0 0-5.4 5L3.5 17l3.5 3.5 5.5-5.6a4 4 0 0 0 5-5.4l-2.6 2.6-2.5-.9-.9-2.5 2.5-2.2Z"/></svg>
           <div class="eyebrow">Ongoing</div>
           <h3>Facility Maintenance</h3>
           <p>The day-to-day fixes that keep every system — and every room — earning. One work-order channel, skilled trades who know occupied properties, and preventive programs that catch failures before your guests do. It's the difference between a contractor you call and a partner who's already there.</p>
@@ -435,18 +524,21 @@ footer{background:#0B1422;color:var(--mut-dk);padding:64px 0 34px;font-size:.88r
         </div>
       </div>
       <div class="svc sm rv">
+        <svg class="ico-svg" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="100" d="M2 21h20M4 21V8l5-3v16M9 21V10l6 2v9M15 21V7l5 2v12"/></svg>
         <div class="eyebrow">Markets</div>
         <h3>Multi-Family</h3>
         <p>Unit turns, amenity upgrades, and capital renovation programs for occupied communities.</p>
         <div class="go">View projects</div>
       </div>
       <div class="svc sm rv">
+        <svg class="ico-svg" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="100" d="M4 7 6 3h12l2 4M4 7h16v3a2.5 2.5 0 0 1-5 0 2.5 2.5 0 0 1-5 0 2.5 2.5 0 0 1-5 0V7Z"/><path pathLength="100" d="M5 12v9h14v-9M9 21v-5h6v5"/></svg>
         <div class="eyebrow">Markets</div>
         <h3>Retail Renovation</h3>
         <p>Open-store remodels and multi-site rollouts executed on nights and off-hours.</p>
         <div class="go">View projects</div>
       </div>
       <div class="svc sm rv">
+        <svg class="ico-svg" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="100" d="M4 4h13v5H4zM17 6h3v5h-8v3"/><path pathLength="100" d="M11 14h2v6h-2z"/></svg>
         <div class="eyebrow">Specialty</div>
         <h3>DOT & Specialty Coatings</h3>
         <p>Steel painting, anti-graffiti systems, and industrial coatings for public infrastructure.</p>
@@ -510,16 +602,19 @@ footer{background:#0B1422;color:var(--mut-dk);padding:64px 0 34px;font-size:.88r
     </div>
     <div class="steps">
       <div class="step rv">
+        <svg class="ico-svg" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="100" d="M21 15.5v3a2 2 0 0 1-2.2 2A17.5 17.5 0 0 1 3.5 5.2 2 2 0 0 1 5.5 3h3L10 7.5 8 9.5a14 14 0 0 0 6.5 6.5l2-2 4.5 1.5Z"/></svg>
         <h3>Scope Conversation</h3>
         <p>A 20-minute call about your property, your PIP or damage event, and your calendar. We ask about occupancy, brand deadlines, and budget reality — not just square footage.</p>
         <div class="tt">→ SAME WEEK</div>
       </div>
       <div class="step rv">
+        <svg class="ico-svg" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="100" d="M9 4h6v3H9zM15 5h3a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h3"/><path pathLength="100" d="M8.5 12l2.2 2.2L15.5 9.5"/></svg>
         <h3>Site Walk & Proposal</h3>
         <p>We walk the property, then deliver a phased plan with per-key budgeting, room-block sequencing, and a schedule your revenue team can plan around.</p>
         <div class="tt">→ WITHIN 10 BUSINESS DAYS</div>
       </div>
       <div class="step rv">
+        <svg class="ico-svg" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="100" d="M3 18a9 9 0 0 1 18 0M2 18h20"/><path pathLength="100" d="M10 9.5V6h4v3.5"/></svg>
         <h3>Phased Execution</h3>
         <p>One project lead, weekly owner reporting, and rooms returned to inventory on the dates we published. Close-out documentation your brand rep will actually accept.</p>
         <div class="tt">→ ON THE PUBLISHED SCHEDULE</div>
@@ -696,7 +791,7 @@ footer{background:#0B1422;color:var(--mut-dk);padding:64px 0 34px;font-size:.88r
         <b>Holding a PIP? Drop it here.</b>
         <span>Upload the brand's PIP document and we'll build your proposal directly from it — no re-typing, no translation.</span>
       </div>
-      <button class="btn btn-ink">Request My Scope Call →</button>
+      <button class="btn btn-ink" id="scopeBtn">Request My Scope Call →</button>
       <div class="fine">No spam, no drip campaign. One human follow-up.</div>
     </div>
   </div>
@@ -757,29 +852,139 @@ footer{background:#0B1422;color:var(--mut-dk);padding:64px 0 34px;font-size:.88r
   </div>
 </footer>
 
+<button id="toTop" aria-label="Back to top">↑</button>
+
 <script>
-// Before/After slider
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// ---------- Before/After slider ----------
 const ba = document.getElementById('ba');
+let split = 50, userTouched = false;
+function applySplit(pct){
+  split = Math.max(4, Math.min(96, pct));
+  ba.style.setProperty('--split', split + '%');
+  ba.setAttribute('aria-valuenow', Math.round(split));
+}
 function setSplit(clientX){
   const r = ba.getBoundingClientRect();
-  let pct = ((clientX - r.left) / r.width) * 100;
-  pct = Math.max(4, Math.min(96, pct));
-  ba.style.setProperty('--split', pct + '%');
+  applySplit(((clientX - r.left) / r.width) * 100);
 }
 let dragging = false;
-ba.addEventListener('pointerdown', e => { dragging = true; setSplit(e.clientX); ba.setPointerCapture(e.pointerId); });
+ba.addEventListener('pointerdown', e => { dragging = true; userTouched = true; setSplit(e.clientX); ba.setPointerCapture(e.pointerId); });
 ba.addEventListener('pointermove', e => { if(dragging) setSplit(e.clientX); });
 ba.addEventListener('pointerup', () => dragging = false);
+ba.addEventListener('keydown', e => {
+  if(e.key === 'ArrowLeft'){ userTouched = true; applySplit(split - 4); e.preventDefault(); }
+  if(e.key === 'ArrowRight'){ userTouched = true; applySplit(split + 4); e.preventDefault(); }
+});
 
-// Brand filter
+// Intro demo sweep — shows visitors the slider is interactive, stops the moment they touch it
+if(!reduceMotion){
+  const sweepIO = new IntersectionObserver(entries => {
+    if(!entries[0].isIntersecting) return;
+    sweepIO.disconnect();
+    const t0 = performance.now(), dur = 2600;
+    function sweep(t){
+      if(userTouched) return;
+      const p = Math.min((t - t0) / dur, 1);
+      // ease through 50 → 78 → 26 → 50
+      const wave = Math.sin(p * Math.PI * 2) * 26 * Math.sin(p * Math.PI);
+      applySplit(50 + wave);
+      if(p < 1) requestAnimationFrame(sweep); else applySplit(50);
+    }
+    setTimeout(() => requestAnimationFrame(sweep), 600);
+  }, {threshold:.4});
+  sweepIO.observe(ba);
+}
+
+// ---------- Rotating headline word ----------
+const rotor = document.getElementById('rotor');
+const words = ['reimaged','renovated','restored','maintained','protected'];
+let wi = 0;
+if(!reduceMotion){
+  setInterval(() => {
+    rotor.classList.add('out');
+    setTimeout(() => {
+      wi = (wi + 1) % words.length;
+      rotor.textContent = words[wi];
+      rotor.classList.remove('out');
+    }, 330);
+  }, 2800);
+}
+
+// ---------- Scroll: progress bar, slim header, back-to-top, active nav ----------
+const progress = document.getElementById('progress');
+const header = document.querySelector('header');
+const toTop = document.getElementById('toTop');
+addEventListener('scroll', () => {
+  const max = document.documentElement.scrollHeight - innerHeight;
+  progress.style.width = (max > 0 ? (scrollY / max) * 100 : 0) + '%';
+  header.classList.toggle('slim', scrollY > 90);
+  toTop.classList.toggle('show', scrollY > 700);
+}, {passive:true});
+toTop.addEventListener('click', () => scrollTo({top:0, behavior: reduceMotion ? 'auto' : 'smooth'}));
+
+const navLinks = [...document.querySelectorAll('.menu>li>a')];
+const secIO = new IntersectionObserver(entries => {
+  entries.forEach(en => {
+    if(!en.isIntersecting) return;
+    navLinks.forEach(a => a.classList.remove('on'));
+    const hit = navLinks.find(a => a.getAttribute('href') === '#' + en.target.id);
+    if(hit) hit.classList.add('on');
+  });
+}, {rootMargin:'-40% 0px -55% 0px'});
+['services','proof','camp','contact'].forEach(id => { const s = document.getElementById(id); if(s) secIO.observe(s); });
+
+// ---------- Mobile menu ----------
+const mMenu = document.getElementById('mMenu');
+document.querySelector('.burger').addEventListener('click', () => mMenu.classList.add('open'));
+mMenu.querySelector('.close').addEventListener('click', () => mMenu.classList.remove('open'));
+mMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mMenu.classList.remove('open')));
+
+// ---------- Brand filter (with fade) ----------
 document.querySelectorAll('.fp').forEach(p => p.addEventListener('click', () => {
   document.querySelectorAll('.fp').forEach(x => x.classList.remove('act'));
   p.classList.add('act');
   const f = p.dataset.f;
-  document.querySelectorAll('#proofGrid .pcard').forEach(c => {
-    c.classList.toggle('hide', f !== 'all' && c.dataset.brand !== f);
-  });
+  const cards = document.querySelectorAll('#proofGrid .pcard');
+  cards.forEach(c => c.classList.add('fading'));
+  setTimeout(() => {
+    cards.forEach(c => {
+      c.classList.toggle('hide', f !== 'all' && c.dataset.brand !== f);
+      c.classList.remove('fading');
+    });
+  }, reduceMotion ? 0 : 220);
 }));
+
+// ---------- 3D tilt on proof cards ----------
+if(!reduceMotion && matchMedia('(pointer:fine)').matches){
+  document.querySelectorAll('.pcard').forEach(card => {
+    card.addEventListener('pointermove', e => {
+      const r = card.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - .5;
+      const y = (e.clientY - r.top) / r.height - .5;
+      card.style.transform = `perspective(800px) rotateY(${x * 6}deg) rotateX(${y * -6}deg) translateY(-4px)`;
+    });
+    card.addEventListener('pointerleave', () => { card.style.transform = ''; });
+  });
+}
+
+// ---------- PIP dropzone: click-to-browse + drag & drop ----------
+const dz = document.getElementById('pipDrop');
+const fileInput = document.createElement('input');
+fileInput.type = 'file'; fileInput.accept = '.pdf,.doc,.docx,.xls,.xlsx'; fileInput.style.display = 'none';
+dz.after(fileInput);
+function dzDone(name){
+  dz.classList.add('done');
+  dz.querySelector('.dz-ico').textContent = '✓';
+  dz.querySelector('b').textContent = name;
+  dz.querySelector('span').textContent = 'Attached — we\'ll build your proposal directly from this document.';
+}
+dz.addEventListener('click', () => fileInput.click());
+fileInput.addEventListener('change', () => { if(fileInput.files[0]) dzDone(fileInput.files[0].name); });
+['dragenter','dragover'].forEach(ev => dz.addEventListener(ev, e => { e.preventDefault(); dz.classList.add('over'); }));
+['dragleave','drop'].forEach(ev => dz.addEventListener(ev, e => { e.preventDefault(); dz.classList.remove('over'); }));
+dz.addEventListener('drop', e => { const f = e.dataTransfer.files[0]; if(f) dzDone(f.name); });
 
 // PIP dropzone toggle
 function togglePip(){
@@ -787,13 +992,30 @@ function togglePip(){
   document.getElementById('pipDrop').classList.toggle('show', sel.selectedIndex === 0);
 }
 
-// Scroll reveal
+// ---------- Form: sample success state ----------
+document.getElementById('scopeBtn').addEventListener('click', function(){
+  this.classList.add('sent');
+  this.textContent = '✓ Request Received — We\'ll Call You';
+  document.querySelector('.form .fine').textContent = 'Sample form — no data was sent.';
+});
+
+// ---------- Live clock in emergency bar ----------
+const clockEl = document.getElementById('emgClock');
+function tickClock(){
+  clockEl.textContent = new Date().toLocaleTimeString('en-US', {hour:'numeric', minute:'2-digit', timeZone:'America/New_York'}) + ' ET';
+}
+tickClock(); setInterval(tickClock, 30000);
+
+// ---------- Scroll reveal (staggered) ----------
+document.querySelectorAll('.svc-grid, .cmt-grid, .steps, .proof-grid').forEach(grid => {
+  [...grid.children].forEach((el, i) => { if(el.classList.contains('rv')) el.style.transitionDelay = (i * 70) + 'ms'; });
+});
 const io = new IntersectionObserver(entries => {
   entries.forEach(en => { if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
 },{threshold:.12});
 document.querySelectorAll('.rv').forEach(el => io.observe(el));
 
-// Count-up stats
+// ---------- Count-up stats ----------
 const cio = new IntersectionObserver(entries => {
   entries.forEach(en => {
     if(!en.isIntersecting) return;
